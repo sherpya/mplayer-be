@@ -1,0 +1,24 @@
+diff -ur fribidi-0.19.5.orig/lib/common.h fribidi-0.19.5/lib/common.h
+--- fribidi-0.19.5.orig/lib/common.h	2012-12-02 17:25:39.000000000 +0100
++++ fribidi-0.19.5/lib/common.h	2013-01-22 07:42:31.951585011 +0100
+@@ -46,7 +46,7 @@
+ #endif /* !FRIBIDI_PRIVATESPACE */
+ 
+ #if (defined(WIN32)) || (defined(_WIN32_WCE))
+-# define FRIBIDI_ENTRY __declspec(dllexport)
++# define FRIBIDI_ENTRY //__declspec(dllexport)
+ #endif /* WIN32 */
+ 
+ #if FRIBIDI_USE_GLIB+0
+diff -ur fribidi-0.19.5.orig/lib/fribidi-common.h fribidi-0.19.5/lib/fribidi-common.h
+--- fribidi-0.19.5.orig/lib/fribidi-common.h	2012-12-02 17:25:39.000000000 +0100
++++ fribidi-0.19.5/lib/fribidi-common.h	2013-01-22 07:42:17.815584675 +0100
+@@ -54,7 +54,7 @@
+ /* FRIBIDI_ENTRY is a macro used to declare library entry points. */
+ #ifndef FRIBIDI_ENTRY
+ # if (defined(WIN32)) || (defined(_WIN32_WCE))
+-#  define FRIBIDI_ENTRY __declspec(dllimport)
++#  define FRIBIDI_ENTRY //__declspec(dllimport)
+ # else /* !WIN32 */
+ #  define FRIBIDI_ENTRY		/* empty */
+ # endif	/* !WIN32 */

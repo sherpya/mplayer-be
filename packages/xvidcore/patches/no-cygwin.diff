@@ -1,0 +1,14 @@
+diff -ur xvidcore.orig/build/generic/configure xvidcore/build/generic/configure
+--- xvidcore.orig/build/generic/configure	2011-05-23 12:22:01.000000000 +0200
++++ xvidcore/build/generic/configure	2013-01-21 08:11:36.353182376 +0100
+@@ -4341,8 +4341,8 @@
+ $as_echo "ok" >&6; }
+ 	STATIC_LIB="xvidcore.\$(STATIC_EXTENSION)"
+ 	SHARED_LIB="xvidcore.\$(SHARED_EXTENSION)"
+-	SPECIFIC_LDFLAGS="-mno-cygwin -shared -Wl,--dll,--out-implib,\$@.a libxvidcore.def"
+-	SPECIFIC_CFLAGS="-mno-cygwin"
++	SPECIFIC_LDFLAGS="-shared -Wl,--dll,--out-implib,\$@.a libxvidcore.def"
++	SPECIFIC_CFLAGS=""
+ 	;;
+      darwin*|raphsody*)
+ 	STATIC_LIB="libxvidcore.\$(STATIC_EXTENSION)"

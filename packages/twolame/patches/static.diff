@@ -1,0 +1,12 @@
+diff -ur twolame-0.3.13.orig/libtwolame/twolame.h twolame-0.3.13/libtwolame/twolame.h
+--- twolame-0.3.13.orig/libtwolame/twolame.h	2011-01-01 20:15:01.000000000 +0100
++++ twolame-0.3.13/libtwolame/twolame.h	2013-01-18 06:25:16.625213229 +0100
+@@ -38,7 +38,7 @@
+  * symbols from the "twolame.dll" file. If you use the static version of
+  * the library, define LIBTWOLAME_STATIC prior to including this header.
+  */
+-
++#define LIBTWOLAME_STATIC
+ #ifdef _WIN32
+ #ifdef LIBTWOLAME_STATIC
+ #define DLL_EXPORT

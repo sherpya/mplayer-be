@@ -1,0 +1,14 @@
+diff -ur libmad-0.15.1b.orig/configure libmad-0.15.1b/configure
+--- libmad-0.15.1b.orig/configure	2004-02-05 10:34:07.000000000 +0100
++++ libmad-0.15.1b/configure	2013-02-06 05:33:30.934272401 +0100
+@@ -19099,8 +19099,8 @@
+     case "$optimize" in
+ 	-O|"-O "*)
+ 	    optimize="-O"
+-	    optimize="$optimize -fforce-mem"
+-	    optimize="$optimize -fforce-addr"
++	    : # optimize="$optimize -fforce-mem"
++	    : # optimize="$optimize -fforce-addr"
+ 	    : #x optimize="$optimize -finline-functions"
+ 	    : #- optimize="$optimize -fstrength-reduce"
+ 	    optimize="$optimize -fthread-jumps"

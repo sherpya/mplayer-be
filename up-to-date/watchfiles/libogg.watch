@@ -1,0 +1,2 @@
+version=3
+http://downloads.xiph.org/releases/ogg/libogg-([\d|\.]*)\.tar\.gz

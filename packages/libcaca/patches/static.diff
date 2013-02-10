@@ -1,0 +1,38 @@
+diff -ur libcaca-0.99.beta18.orig/caca/caca0.h libcaca-0.99.beta18/caca/caca0.h
+--- libcaca-0.99.beta18.orig/caca/caca0.h	2010-02-08 02:05:17.000000000 +0100
++++ libcaca-0.99.beta18/caca/caca0.h	2013-01-18 06:05:05.521184445 +0100
+@@ -21,14 +21,7 @@
+ #include <caca.h>
+ 
+ #undef __extern
+-#if defined _DOXYGEN_SKIP_ME
+-#elif defined _WIN32 && defined __LIBCACA__ && defined DLL_EXPORT
+-#   define __extern extern __declspec(dllexport)
+-#elif defined _WIN32 && !defined __LIBCACA__
+-#   define __extern extern __declspec(dllimport)
+-#else
+-#   define __extern extern
+-#endif
++#define __extern extern
+ 
+ #ifdef __cplusplus
+ extern "C"
+diff -ur libcaca-0.99.beta18.orig/caca/caca.h libcaca-0.99.beta18/caca/caca.h
+--- libcaca-0.99.beta18.orig/caca/caca.h	2012-04-06 22:21:48.000000000 +0200
++++ libcaca-0.99.beta18/caca/caca.h	2013-01-18 06:04:54.221184176 +0100
+@@ -28,14 +28,7 @@
+ #endif
+ 
+ #undef __extern
+-#if defined _DOXYGEN_SKIP_ME
+-#elif defined _WIN32 && defined __LIBCACA__ && defined DLL_EXPORT
+-#   define __extern extern __declspec(dllexport)
+-#elif defined _WIN32 && !defined __LIBCACA__
+-#   define __extern extern __declspec(dllimport)
+-#else
+-#   define __extern extern
+-#endif
++#define __extern extern
+ 
+ /** libcaca API version */
+ #define CACA_API_VERSION_1
