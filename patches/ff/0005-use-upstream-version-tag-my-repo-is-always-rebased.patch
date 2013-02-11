@@ -1,0 +1,25 @@
+From b41cba2ca2766c4655a1053b4613f3a666b1e719 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Mon, 4 Feb 2013 04:03:37 +0100
+Subject: [PATCH 5/5] use upstream version tag, my repo is always rebased
+
+---
+ version.sh |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/version.sh b/version.sh
+index 8d084c2..46c2d73 100755
+--- a/version.sh
++++ b/version.sh
+@@ -2,7 +2,7 @@
+ 
+ # check for git short hash
+ if ! test "$revision"; then
+-    revision=$(cd "$1" && git describe --tags --match N 2> /dev/null)
++    revision=$(cd "$1" && git describe --tags --match N upstream/master 2> /dev/null)
+ fi
+ 
+ # Shallow Git clones (--depth) do not have the N tag:
+-- 
+1.7.10.4
+

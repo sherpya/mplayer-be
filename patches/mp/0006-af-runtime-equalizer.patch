@@ -1,0 +1,106 @@
+From 10cf5b1c2f97f2e642d8e4a416da73f62f88f3fb Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:17:48 +0100
+Subject: [PATCH 06/20] af: runtime equalizer
+
+---
+ DOCS/tech/slave.txt  |    5 +++++
+ command.c            |    9 +++++++++
+ input/input.c        |    1 +
+ input/input.h        |    1 +
+ libaf/af_equalizer.c |   12 ++++++++++++
+ 5 files changed, 28 insertions(+)
+
+diff --git a/DOCS/tech/slave.txt b/DOCS/tech/slave.txt
+index 6201e5c..a211969 100644
+--- a/DOCS/tech/slave.txt
++++ b/DOCS/tech/slave.txt
+@@ -521,6 +521,11 @@ run <string>
+     Example:
+     run "echo ${filename} ${stream_pos} >> <path_to_file>"
+ 
++af_eq_set_bands <values>
++    Set bands gain in audio equalizer. Se details in manual (-af equalizer).
++    Example:
++       af_eq_set_bands 11:11:10:5:0:-12:0:5:12:12
++
+ 
+ Available properties:
+ 
+diff --git a/command.c b/command.c
+index 2c02360..5f55586 100644
+--- a/command.c
++++ b/command.c
+@@ -3205,6 +3205,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+             set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
+             break;
+ 
++        case MP_CMD_AF_EQ_SET:{
++            af_instance_t* m1=af_get(sh_audio->afilter, "equalizer");
++            if (m1)
++                m1->control( m1, AF_CONTROL_COMMAND_LINE, cmd->args[0].v.s);
++            else
++                mp_msg(MSGT_CPLAYER, MSGL_INFO, "failed (forgot -af equalizer=0:0 ?)\n");
++            }
++            break;
++
+         case MP_CMD_GET_TIME_LENGTH:{
+                 mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
+                        demuxer_get_time_length(mpctx->demuxer));
+diff --git a/input/input.c b/input/input.c
+index 0e63127..05c226d 100644
+--- a/input/input.c
++++ b/input/input.c
+@@ -202,6 +202,7 @@ static const mp_cmd_t mp_cmds[] = {
+   { MP_CMD_SEEK_CHAPTER, "seek_chapter", 1, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
+   { MP_CMD_SET_MOUSE_POS, "set_mouse_pos", 2, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
+ 
++  { MP_CMD_AF_EQ_SET, "af_eq_set_bands", 1, { {MP_CMD_ARG_STRING, {0}}, {-1,{0}}}}, //turbos
+   { MP_CMD_AF_SWITCH, "af_switch", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
+   { MP_CMD_AF_ADD, "af_add", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
+   { MP_CMD_AF_DEL, "af_del", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
+diff --git a/input/input.h b/input/input.h
+index 18dcdc8..345006c 100644
+--- a/input/input.h
++++ b/input/input.h
+@@ -156,6 +156,7 @@ typedef enum {
+   MP_CMD_CHIDE,
+ 
+   /// Audio Filter commands
++  MP_CMD_AF_EQ_SET,
+   MP_CMD_AF_SWITCH,
+   MP_CMD_AF_ADD,
+   MP_CMD_AF_DEL,
+diff --git a/libaf/af_equalizer.c b/libaf/af_equalizer.c
+index 650fb62..cd5a708 100644
+--- a/libaf/af_equalizer.c
++++ b/libaf/af_equalizer.c
+@@ -141,6 +141,7 @@ static int control(struct af_instance_s* af, int cmd, void* arg)
+   case AF_CONTROL_COMMAND_LINE:{
+     float g[10]={0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+     int i,j;
++    float gain_factor2=0.0;
+     sscanf((char*)arg,"%f:%f:%f:%f:%f:%f:%f:%f:%f:%f", &g[0], &g[1],
+ 	   &g[2], &g[3], &g[4], &g[5], &g[6], &g[7], &g[8] ,&g[9]);
+     for(i=0;i<AF_NCH;i++){
+@@ -149,6 +150,17 @@ static int control(struct af_instance_s* af, int cmd, void* arg)
+ 	  pow(10.0,clamp(g[j],G_MIN,G_MAX)/20.0)-1.0;
+       }
+     }
++
++    //calculate gainfactor for slave command
++    //see: af_eq_set_bands  -> input.c
++    //see code: AF_CONTROL_REINIT  in this file
++    for(j=0;j<KM;j++)
++      if(gain_factor2< s->g[0][j]) gain_factor2=s->g[0][j];
++    gain_factor2=log10(gain_factor2 + 1.0) * 20.0;
++    if(gain_factor2 > 0.0) gain_factor2=0.1+(gain_factor2/12.0);
++    else gain_factor2=1;
++    s->gain_factor=gain_factor2;
++
+     return AF_OK;
+   }
+   case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
+-- 
+1.7.10.4
+

@@ -1,0 +1,80 @@
+From cfa4c3068e38e559c60a1cf0e406a8bbd0d5a3ba Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Fri, 25 Jan 2013 01:30:57 +0100
+Subject: [PATCH 04/20] win32: display played filename in console/video window
+
+---
+ libmpcodecs/vf_vo.c |   16 +++++++++++++++-
+ mencoder.c          |    4 ++++
+ mplayer.c           |   13 +++++++++++++
+ 3 files changed, 32 insertions(+), 1 deletion(-)
+
+diff --git a/libmpcodecs/vf_vo.c b/libmpcodecs/vf_vo.c
+index 6511460..8994cc0 100644
+--- a/libmpcodecs/vf_vo.c
++++ b/libmpcodecs/vf_vo.c
+@@ -70,7 +70,21 @@ static int config(struct vf_instance *vf,
+     // save vo's stride capability for the wanted colorspace:
+     vf->default_caps=query_format(vf,outfmt);
+     vf->draw_slice = (vf->default_caps & VOCAP_NOSLICES) ? NULL : draw_slice;
+-
++#if defined(_WIN32) && !defined(CONFIG_GUI)
++    extern char *filename;
++    if (filename) {
++        char message[PATH_MAX + 1];
++        char *s = strrchr(filename, '\\');
++        if (!s) s = strrchr(filename, '/');
++        if (s) s++; else s = filename;
++        message[0] = 0;
++        snprintf(message, PATH_MAX, "MPlayer: playing %s", filename_recode(s));
++        message[PATH_MAX] = 0;
++        if(config_video_out(video_out,width,height,d_width,d_height,flags,message,outfmt))
++            return 0;
++    }
++    else
++#endif
+     if(config_video_out(video_out,width,height,d_width,d_height,flags,"MPlayer",outfmt))
+ 	return 0;
+ 
+diff --git a/mencoder.c b/mencoder.c
+index 6542be7..be740b3 100644
+--- a/mencoder.c
++++ b/mencoder.c
+@@ -113,6 +113,10 @@ float stream_cache_min_percent=20.0;
+ float stream_cache_seek_min_percent=50.0;
+ #endif
+ 
++#if defined(_WIN32) && !defined(CONFIG_GUI)
++char *filename = NULL; /* dummy for vf_vo */
++#endif
++
+ int audio_id=-1;
+ int video_id=-1;
+ int dvdsub_id=-1;
+diff --git a/mplayer.c b/mplayer.c
+index fdf77d8..ce02c75 100644
+--- a/mplayer.c
++++ b/mplayer.c
+@@ -3679,6 +3679,19 @@ goto_enable_cache:
+         if (mpctx->stream->type == STREAMTYPE_DVDNAV)
+             mp_input_set_section("dvdnav");
+ 
++#if defined(_WIN32) && !defined(CONFIG_GUI)
++    extern HWND vo_w32_window; /* NULL for directx, the title set in config() */
++    if (filename && vo_w32_window) {
++            char message[MAX_PATH + 1];
++            char *s = strrchr(filename, '\\');
++            if (!s) s = strrchr(filename, '/');
++            if (s) s++; else s = filename;
++            message[0] = 0;
++            snprintf(message, MAX_PATH, "MPlayer: playing %s", filename_recode(s));
++            message[MAX_PATH] = 0;
++            SetWindowText(vo_w32_window, message);
++    }
++#endif
+ //==================== START PLAYING =======================
+ 
+         if (mpctx->loop_times > 1)
+-- 
+1.7.10.4
+

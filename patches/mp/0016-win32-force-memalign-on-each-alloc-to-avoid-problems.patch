@@ -1,0 +1,240 @@
+From ca5fa8d99af36a53377b37ae2e3064e6e46966ad Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:48:02 +0100
+Subject: [PATCH 16/20] win32: force memalign on each alloc to avoid problems
+ with sse code
+
+---
+ configure         |   12 ++++
+ osdep/alloc-win.c |  185 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 197 insertions(+)
+ create mode 100644 osdep/alloc-win.c
+
+diff --git a/configure b/configure
+index 1cae473..e5c59ff 100755
+--- a/configure
++++ b/configure
+@@ -3725,10 +3725,17 @@ statement_check malloc.h 'memalign(64, sizeof(char))' && _memalign=yes
+ if test "$_memalign" = yes ; then
+   def_memalign='#define HAVE_MEMALIGN 1'
+ else
++  if mingw32 ; then
++    _memalign=yes
++    def_memalign='#define HAVE_MEMALIGN 1'
++    def_map_memalign='extern void *memalign(unsigned int boundary, unsigned int size);'
++    res_comment="emulated"
++  else
+   def_memalign='#define HAVE_MEMALIGN 0'
+   def_map_memalign='#define memalign(a, b) malloc(b)'
+   darwin || def_memalign_hack='#define CONFIG_MEMALIGN_HACK 1'
+ fi
++fi
+ echores "$_memalign"
+ 
+ 
+@@ -8034,6 +8041,11 @@ for I in $libs_mplayer ; do
+ done
+ libs_mplayer=$ld_tmp
+ 
++if mingw32 ; then
++ libs_mplayer="$libs_mplayer osdep/alloc-win.c"
++ libs_mencoder="$libs_mencoder osdep/alloc-win.c"
++fi
++
+ 
+ #############################################################################
+ 
+diff --git a/osdep/alloc-win.c b/osdep/alloc-win.c
+new file mode 100644
+index 0000000..d990c2d
+--- /dev/null
++++ b/osdep/alloc-win.c
+@@ -0,0 +1,185 @@
++#define DEFAULT_ALIGNMENT   16
++//#define DEBUG_ALLOC
++
++/*
++  __mp_aligned_malloc and friends, implemented using Microsoft's public
++  interfaces and with the help of the algorithm description provided
++  by Wu Yongwei: http://sourceforge.net/mailarchive/message.php?msg_id=3847075
++
++  I hereby place this implementation in the public domain.
++               -- Steven G. Johnson (stevenj@alum.mit.edu)
++*/
++
++#include <stdio.h>
++#include <stdlib.h>
++#include <errno.h>
++#include <stddef.h>             /* ptrdiff_t */
++#include <string.h>             /* memmove */
++
++#include <windows.h>
++
++#ifdef DEBUG_ALLOC
++#undef fprintf
++extern int fprintf (FILE *__stream, const char *__format, ...);
++#define TRACE(...) fprintf(stderr, __VA_ARGS__)
++#else
++#define TRACE(...)
++#endif
++
++#define WILL_WRAP(size, alignment) (size > (0xffffffff - (alignment + sizeof (void *))))
++
++#ifdef HAVE_STDINT_H
++#  include <stdint.h>           /* uintptr_t */
++#else
++#  define uintptr_t size_t
++#endif
++
++#define NOT_POWER_OF_TWO(n) (((n) & ((n) - 1)))
++#define UI(p) ((uintptr_t) (p))
++#define CP(p) ((char *) p)
++
++#define PTR_ALIGN(p0, alignment, offset)                                \
++            ((void *) (((UI(p0) + (alignment + sizeof(void*)) + offset) \
++                        & (~UI(alignment - 1)))                         \
++                       - offset))
++
++/* Pointer must sometimes be aligned; assume sizeof(void*) is a power of two. */
++#define ORIG_PTR(p) (*(((void **) (UI(p) & (~UI(sizeof(void*) - 1)))) - 1))
++
++static void *
++__mp_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
++{
++  void *p0, *p;
++
++  if (NOT_POWER_OF_TWO (alignment))
++    {
++      errno = EINVAL;
++      return ((void *) 0);
++    }
++  if ((size == 0) || WILL_WRAP(size, alignment))
++    return ((void *) 0);
++  if (alignment < sizeof (void *))
++    alignment = sizeof (void *);
++
++  /* Including the extra sizeof(void*) is overkill on a 32-bit
++     machine, since malloc is already 8-byte aligned, as long
++     as we enforce alignment >= 8 ...but oh well.  */
++
++  p0 = HeapAlloc (GetProcessHeap(), 0, size + (alignment + sizeof (void *)));
++  if (!p0)
++    return ((void *) 0);
++  p = PTR_ALIGN (p0, alignment, offset);
++  ORIG_PTR (p) = p0;
++  return p;
++}
++
++static void *
++__mp_aligned_malloc (size_t size, size_t alignment)
++{
++  return __mp_aligned_offset_malloc (size, alignment, 0);
++}
++
++static void
++__mp_aligned_free (void *memblock)
++{
++  if (memblock)
++    HeapFree(GetProcessHeap(), 0, ORIG_PTR (memblock));
++}
++
++static void *
++__mp_aligned_offset_realloc (void *memblock, size_t size,
++                                size_t alignment, size_t offset)
++{
++  void *p0, *p;
++  ptrdiff_t shift;
++
++  if (!memblock)
++    return __mp_aligned_offset_malloc (size, alignment, offset);
++  if (NOT_POWER_OF_TWO (alignment))
++    goto bad;
++  if ((size == 0) || WILL_WRAP(size, alignment))
++    {
++      __mp_aligned_free (memblock);
++      return ((void *) 0);
++    }
++  if (alignment < sizeof (void *))
++    alignment = sizeof (void *);
++
++  p0 = ORIG_PTR (memblock);
++  /* It is an error for the alignment to change. */
++  if (memblock != PTR_ALIGN (p0, alignment, offset))
++    goto bad;
++  shift = CP (memblock) - CP (p0);
++
++  p0 = HeapReAlloc(GetProcessHeap(), 0, p0, size + (alignment + sizeof (void *)));
++  if (!p0)
++    return ((void *) 0);
++  p = PTR_ALIGN (p0, alignment, offset);
++
++  /* Relative shift of actual data may be different from before, ugh.  */
++  if (shift != CP (p) - CP (p0))
++    /* ugh, moves more than necessary if size is increased.  */
++    memmove (CP (p), CP (p0) + shift, size);
++
++  ORIG_PTR (p) = p0;
++  return p;
++
++bad:
++  errno = EINVAL;
++  return ((void *) 0);
++}
++
++static void *
++__mp_aligned_realloc (void *memblock, size_t size, size_t alignment)
++{
++  return __mp_aligned_offset_realloc (memblock, size, alignment, 0);
++}
++
++/* WRAPPERS */
++
++void *malloc(size_t size)
++{
++    void *p = __mp_aligned_malloc(size, DEFAULT_ALIGNMENT);
++    TRACE("MALLOC(%d) = %p\n", size, p);
++    return p;
++}
++
++void *memalign(size_t boundary, size_t size)
++{
++    void *p = __mp_aligned_malloc(size, boundary);
++    TRACE("MEMALIGN(%d, %d) = %p\n", boundary, size, p);
++    return p;
++}
++
++void *calloc(size_t nmemb, size_t size)
++{
++    size_t sz = nmemb * size;
++    char *d = __mp_aligned_malloc(sz, DEFAULT_ALIGNMENT);
++    memset(d, 0, sz);
++    TRACE("CALLOC(%d, %d) = %p\n", nmemb, size, d);
++    return d;
++}
++
++void *realloc(void *ptr, size_t size)
++{
++    void *p = __mp_aligned_realloc(ptr, size, DEFAULT_ALIGNMENT);
++    TRACE("REALLOC(%p, %d) = %p\n", ptr, size, p);
++    return p;
++}
++
++void free(void *ptr)
++{
++    TRACE("FREE(%p)\n", ptr);
++    __mp_aligned_free(ptr);
++}
++
++char *strdup(const char *s)
++{
++    char *d;
++    size_t size = strlen(s) + 1;
++    d = __mp_aligned_malloc(size, DEFAULT_ALIGNMENT);
++    memcpy(d, s, size - 1);
++    d[size - 1] = 0;
++    TRACE("STRDUP(%p) = %p\n", s, d);
++    return d;
++}
+-- 
+1.7.10.4
+

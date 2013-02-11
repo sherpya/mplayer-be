@@ -1,0 +1,57 @@
+From 682bf91df7daec2d3ed2e8ad983efc0a9bf9b503 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sun, 3 Feb 2013 00:56:43 +0100
+Subject: [PATCH 19/20] dvdnav: added dvdnav/dvdread submodules
+
+---
+ .gitignore  |    2 --
+ .gitmodules |    6 ++++++
+ libdvdnav   |    1 +
+ libdvdread4 |    1 +
+ 4 files changed, 8 insertions(+), 2 deletions(-)
+ create mode 100644 .gitmodules
+ create mode 160000 libdvdnav
+ create mode 160000 libdvdread4
+
+diff --git a/.gitignore b/.gitignore
+index fe7b1ea..3cef889 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -34,8 +34,6 @@ DOCS/xml/*/main.xml
+ drivers/mga_vid_test
+ drivers/tdfx_vid_test
+ ffmpeg/
+-libdvdnav/
+-libdvdread4/
+ libvo/aspecttest
+ loader/qtx/list
+ loader/qtx/qtxload
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..a415438
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,6 @@
++[submodule "libdvdnav"]
++	path = libdvdnav
++	url = git@github.com:sherpya/dvdnav_libdvdnav.git
++[submodule "libdvdread4"]
++	path = libdvdread4
++	url = git@github.com:sherpya/dvdnav_libdvdread.git
+diff --git a/libdvdnav b/libdvdnav
+new file mode 160000
+index 0000000..3661f08
+--- /dev/null
++++ b/libdvdnav
+@@ -0,0 +1 @@
++Subproject commit 3661f0824f8c9c397ba30a0833ff7f9c6f542265
+diff --git a/libdvdread4 b/libdvdread4
+new file mode 160000
+index 0000000..eb88d0b
+--- /dev/null
++++ b/libdvdread4
+@@ -0,0 +1 @@
++Subproject commit eb88d0be077ee210c9eee7cedc4f37bbcde7114a
+-- 
+1.7.10.4
+

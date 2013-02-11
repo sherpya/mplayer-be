@@ -1,0 +1,146 @@
+From 92f7457691bf7cdd00c4558394cf80f0221f6c18 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:42:25 +0100
+Subject: [PATCH 09/20] mpcodecs: make faac encoder dynamic load faac library
+ at runtime
+
+---
+ libmpcodecs/ae_faac.c |   71 ++++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 65 insertions(+), 6 deletions(-)
+
+diff --git a/libmpcodecs/ae_faac.c b/libmpcodecs/ae_faac.c
+index 5fb399a..bf6f83f 100644
+--- a/libmpcodecs/ae_faac.c
++++ b/libmpcodecs/ae_faac.c
+@@ -16,6 +16,17 @@
+  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+  */
+ 
++#ifndef _WIN32
++#include <dlfcn.h>
++#define LIBEXT "so"
++#else
++#include <windows.h>
++#define LIBEXT "dll"
++#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
++#define dlclose(handle) FreeLibrary((HMODULE) handle)
++#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
++#endif
++
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <inttypes.h>
+@@ -34,8 +45,41 @@
+ #include "ae.h"
+ #include "ae_faac.h"
+ 
++#ifndef FAACAPI
++#define FAACAPI
++#endif
++
++#define STRINGIFY(string) # string
++#define DLSYM(x) \
++    do \
++    { \
++        faacLib.x = ( imp_##x ) dlsym(faacLib.hLib, STRINGIFY(x)); \
++        if (!faacLib.x ) \
++        { \
++            mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, Unable to find symbol " STRINGIFY(x) "in dynamic libfaac." LIBEXT "\n"); \
++            return 0; \
++        } \
++    } while (0)
++
++typedef faacEncHandle (FAACAPI *imp_faacEncOpen)(unsigned long, unsigned int numChannels, unsigned long *, unsigned long *);
++typedef int (FAACAPI *imp_faacEncClose)(faacEncHandle);
++typedef int (FAACAPI *imp_faacEncEncode)(faacEncHandle , signed int *, unsigned int, unsigned char *, unsigned int);
++typedef int (FAACAPI *imp_faacEncSetConfiguration)(faacEncHandle, faacEncConfigurationPtr);
++typedef faacEncConfigurationPtr (FAACAPI *imp_faacEncGetCurrentConfiguration)(faacEncHandle);
++typedef int (FAACAPI *imp_faacEncGetDecoderSpecificInfo)(faacEncHandle, unsigned char **, unsigned long *);
++
++static struct _faacLib
++{
++    void *hLib;
++    imp_faacEncOpen faacEncOpen;
++    imp_faacEncClose faacEncClose;
++    imp_faacEncEncode faacEncEncode;
++    imp_faacEncSetConfiguration faacEncSetConfiguration;
++    imp_faacEncGetCurrentConfiguration faacEncGetCurrentConfiguration;
++    imp_faacEncGetDecoderSpecificInfo faacEncGetDecoderSpecificInfo;
++} faacLib;
+ 
+-static faacEncHandle faac;
++static faacEncHandle faac = NULL;
+ static faacEncConfigurationPtr config = NULL;
+ static int
+ 	param_bitrate = 128,
+@@ -125,32 +169,47 @@ static int encode_faac(audio_encoder_t *encoder, uint8_t *dest, void *src, int l
+ 		                    len / divisor, divisor);
+ 
+ 	// len is divided by the number of bytes per sample
+-	enc_frame_size = faacEncEncode(faac,  (int32_t*) src,  len / divisor, dest, max_size);
++	enc_frame_size = faacLib.faacEncEncode(faac,  (int32_t*) src,  len / divisor, dest, max_size);
+ 
+ 	return enc_frame_size;
+ }
+ 
+ static int close_faac(audio_encoder_t *encoder)
+ {
++	if (faac) faacLib.faacEncClose(faac);
++	if (faacLib.hLib) dlclose(faacLib.hLib);
+ 	return 1;
+ }
+ 
+ int mpae_init_faac(audio_encoder_t *encoder)
+ {
++	if (!(faacLib.hLib = dlopen("libfaac." LIBEXT, RTLD_NOW)))
++	{
++		mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, Unable to load libfaac." LIBEXT "\n");
++		return 0;
++	}
++
++	DLSYM(faacEncOpen);
++	DLSYM(faacEncClose);
++	DLSYM(faacEncEncode);
++	DLSYM(faacEncSetConfiguration);
++	DLSYM(faacEncGetCurrentConfiguration);
++	DLSYM(faacEncGetDecoderSpecificInfo);
++
+ 	if(encoder->params.channels < 1 || encoder->params.channels > 6 || (param_mpeg != 2 && param_mpeg != 4))
+ 	{
+ 		mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, unsupported number of channels: %d, or mpeg version: %d, exit\n", encoder->params.channels, param_mpeg);
+ 		return 0;
+ 	}
+ 
+-	faac = faacEncOpen(encoder->params.sample_rate, encoder->params.channels, &samples_input, &max_bytes_output);
++	faac = faacLib.faacEncOpen(encoder->params.sample_rate, encoder->params.channels, &samples_input, &max_bytes_output);
+ 	if(!faac)
+ 	{
+ 		mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, couldn't init, exit\n");
+ 		return 0;
+ 	}
+ 	mp_msg(MSGT_MENCODER, MSGL_V, "AE_FAAC, sample_input: %lu, max_bytes_output: %lu\n", samples_input, max_bytes_output);
+-	config = faacEncGetCurrentConfiguration(faac);
++	config = faacLib.faacEncGetCurrentConfiguration(faac);
+ 	if(!config)
+ 	{
+ 		mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, couldn't get init configuration, exit\n");
+@@ -192,14 +251,14 @@ int mpae_init_faac(audio_encoder_t *encoder)
+ 	if(encoder->params.channels == 6)
+ 		config->useLfe = 1;
+ 
+-	if(!faacEncSetConfiguration(faac, config))
++	if(!faacLib.faacEncSetConfiguration(faac, config))
+ 	{
+ 		mp_msg(MSGT_MENCODER, MSGL_FATAL, "AE_FAAC, counldn't set specified parameters, exiting\n");
+ 		return 0;
+ 	}
+ 
+ 	if(param_raw)
+-		faacEncGetDecoderSpecificInfo(faac, &decoder_specific_buffer, &decoder_specific_len);
++		faacLib.faacEncGetDecoderSpecificInfo(faac, &decoder_specific_buffer, &decoder_specific_len);
+ 	else
+ 		decoder_specific_len = 0;
+ 
+-- 
+1.7.10.4
+

@@ -1,0 +1,33 @@
+From ba2e807073da82ae93b7e37d242989252670dcc2 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:46:30 +0100
+Subject: [PATCH 13/20] qtx: qtx decoder spams on stdout and causes problems
+ while piping streams
+
+---
+ loader/qtx/qtxsdk/components.h |    4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/loader/qtx/qtxsdk/components.h b/loader/qtx/qtxsdk/components.h
+index e621a62..4f60dbc 100644
+--- a/loader/qtx/qtxsdk/components.h
++++ b/loader/qtx/qtxsdk/components.h
+@@ -2,6 +2,8 @@
+ #define MPLAYER_COMPONENTS_H
+ 
+ #include <inttypes.h>
++#include "mp_msg.h"
++#define printf(...) mp_msg(MSGT_CPLAYER, MSGL_V, __VA_ARGS__)
+ 
+ // Basic types:
+ 
+@@ -751,5 +753,5 @@ static inline void dump_CodecDecompressParams(void* xxx){
+ 
+ 
+ }
+-
++#undef printf
+ #endif /* MPLAYER_COMPONENTS_H */
+-- 
+1.7.10.4
+

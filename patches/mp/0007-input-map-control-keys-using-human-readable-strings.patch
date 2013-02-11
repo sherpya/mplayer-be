@@ -1,0 +1,90 @@
+From 1e8d445aad2a943616bf5ec728778457e8222ab0 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:18:14 +0100
+Subject: [PATCH 07/20] input: map control keys using human readable strings
+
+---
+ input/input.c    |   27 +++++++++++++++++++++++++++
+ osdep/keycodes.h |   30 ++++++++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
+
+diff --git a/input/input.c b/input/input.c
+index 05c226d..de46c04 100644
+--- a/input/input.c
++++ b/input/input.c
+@@ -218,6 +218,33 @@ static const mp_cmd_t mp_cmds[] = {
+ /// If you add some new keys, you also need to add them here
+ 
+ static const mp_key_name_t key_names[] = {
++
++  { CTRL_A,     "CTRL_A" },
++  { CTRL_B,     "CTRL_B" },
++  { CTRL_C,     "CTRL_C" },
++  { CTRL_D,     "CTRL_D" },
++  { CTRL_E,     "CTRL_E" },
++  { CTRL_F,     "CTRL_F" },
++  { CTRL_G,     "CTRL_G" },
++  { CTRL_J,     "CTRL_J" },
++  { CTRL_K,     "CTRL_K" },
++  { CTRL_N,     "CTRL_N" },
++  { CTRL_O,     "CTRL_O" },
++  { CTRL_P,     "CTRL_P" },
++  { CTRL_Q,     "CTRL_Q" },
++  { CTRL_L,     "CTRL_L" },
++  { CTRL_V,     "CTRL_V" },
++  { CTRL_W,     "CTRL_W" },
++  { CTRL_R,     "CTRL_R" },
++  { CTRL_S,     "CTRL_S" },
++  { CTRL_Z,     "CTRL_Z" },
++  { CTRL_SO,    "CTRL_[" },
++  { CTRL_BSL,   "CTRL_\\"},
++  { CTRL_SC,    "CTRL_]" },
++  { CTRL_T,     "CTRL_T" },
++  { CTRL_U,     "CTRL_U" },
++  { CTRL_Y,     "CTRL_Y" },
++
+   { ' ', "SPACE" },
+   { '#', "SHARP" },
+   { KEY_ENTER, "ENTER" },
+diff --git a/osdep/keycodes.h b/osdep/keycodes.h
+index 2393a06..d29748c 100644
+--- a/osdep/keycodes.h
++++ b/osdep/keycodes.h
+@@ -87,4 +87,34 @@ enum {
+ #define KEY_PGDOWN KEY_PAGE_DOWN
+ #define KEY_PGDWN KEY_PAGE_DOWN
+ 
++/* Ctrl + Key */
++#define CTRL_A      (0x01)
++#define CTRL_B      (0x02)
++#define CTRL_C      (0x03)
++#define CTRL_D      (0x04)
++#define CTRL_E      (0x05)
++#define CTRL_F      (0x06)
++#define CTRL_G      (0x07)
++/* #define CTRL_H      (0x08) */ /* KEY_BACKSPACE */
++/* #define CTRL_I      (0x09) */ /* KEY_TAB */
++#define CTRL_J      (0x0a)
++#define CTRL_K      (0x0b)
++/* #define CTRL_M      (0x0c) */ /* KEY_ENTER */
++#define CTRL_N      (0x0e)
++#define CTRL_O      (0x0f)
++#define CTRL_P      (0x10)
++#define CTRL_Q      (0x11)
++#define CTRL_L      (0x12)
++#define CTRL_V      (0x16)
++#define CTRL_W      (0x17)
++#define CTRL_R      (0x18)
++#define CTRL_S      (0x19)
++#define CTRL_Z      (0x1a)
++#define CTRL_SO     (0x1b)
++#define CTRL_BSL    (0x1c)
++#define CTRL_SC     (0x1d)
++#define CTRL_T      (0x20)
++#define CTRL_U      (0x21)
++#define CTRL_Y      (0x25)
++
+ #endif /* MPLAYER_KEYCODES_H */
+-- 
+1.7.10.4
+
