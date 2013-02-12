@@ -10,4 +10,6 @@ depends lib/libogg.a
 depends lib/libvorbis.a
 depends lib/libpng.a
 
+STATICLIBS="libtheora libtheoraenc libtheoradec"
+
 pkg_build && pkg_clean

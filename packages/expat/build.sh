@@ -6,4 +6,6 @@ BASEURL=http://downloads.sourceforge.net/project/expat/expat/2.1.0
 
 . $(dirname $0)/../functions.sh
 
+STATICLIBS="libexpat"
+
 pkg_build && pkg_clean

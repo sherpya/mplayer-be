@@ -6,4 +6,6 @@ BASEURL=http://ftp.gnu.org/pub/gnu/libiconv
 
 . $(dirname $0)/../functions.sh
 
+STATICLIBS="libiconv libcharset"
+
 pkg_build && pkg_clean

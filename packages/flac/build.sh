@@ -10,6 +10,6 @@ CONFOPTS="--mandir=${PREFIX}/share/man"
 
 depends lib/libogg.a
 
-pkg_build && pkg_clean
+STATICLIBS="libFLAC libFLAC++"
 
-install -m644 files/libFLAC.la ${PREFIX}/lib/libFLAC.la
+pkg_build && pkg_clean

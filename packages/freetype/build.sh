@@ -9,4 +9,6 @@ BASEURL=http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11
 depends lib/libz.a
 depends lib/libbz2.a
 
+STATICLIBS="libfreetype"
+
 pkg_build && pkg_clean

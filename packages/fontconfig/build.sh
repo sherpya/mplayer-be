@@ -11,4 +11,6 @@ CONFOPTS="--with-cache-dir=LOCAL_APPDATA_FONTCONFIG_CACHE --with-configdir=conf.
 depends lib/libfreetype.a
 depends lib/libexpat.a
 
+STATICLIBS="libfontconfig"
+
 pkg_build && pkg_clean

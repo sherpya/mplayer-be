@@ -8,4 +8,6 @@ BASEURL=http://www.libsdl.org/release
 
 depends lib/libiconv.a
 
+STATICLIBS="libSDL libSDLmain"
+
 pkg_build && pkg_clean

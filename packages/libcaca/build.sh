@@ -10,6 +10,6 @@ CONFOPTS="--enable-python=no --enable-ruby=no --enable-java=no"
 
 depends lib/libz.a
 
-pkg_build && pkg_clean
+STATICLIBS="libcaca libcaca++ libcucul libcucul++"
 
-install -m755 files/caca-config ${PREFIX}/bin/caca-config
+pkg_build && pkg_clean

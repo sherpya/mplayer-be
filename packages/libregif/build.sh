@@ -6,4 +6,6 @@ BASEURL=local
 
 . $(dirname $0)/../functions.sh
 
+STATICLIBS="libgif"
+
 pkg_build && pkg_clean

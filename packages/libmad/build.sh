@@ -6,4 +6,6 @@ BASEURL=http://downloads.sourceforge.net/project/mad/libmad/0.15.1b
 
 . $(dirname $0)/../functions.sh
 
+STATICLIBS="libmad"
+
 pkg_build && pkg_clean

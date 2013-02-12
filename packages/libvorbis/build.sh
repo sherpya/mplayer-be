@@ -8,4 +8,6 @@ BASEURL=http://downloads.xiph.org/releases/vorbis
 
 depends lib/libogg.a
 
+STATICLIBS="libvorbis libvorbisenc libvorbisfile"
+
 pkg_build && pkg_clean

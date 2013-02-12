@@ -4,4 +4,7 @@
 
 BUILDDIR=winpthreads
 distclean
+
+STATICLIBS="libwinpthread"
+
 pkg_build

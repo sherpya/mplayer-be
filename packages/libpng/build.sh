@@ -8,4 +8,6 @@ BASEURL=http://downloads.sourceforge.net/project/libpng/libpng15/1.5.14
 
 depends lib/libz.a
 
+STATICLIBS="libpng libpng15"
+
 pkg_build && pkg_clean

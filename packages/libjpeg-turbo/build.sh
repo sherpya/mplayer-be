@@ -8,4 +8,6 @@ BASEURL=http://downloads.sourceforge.net/project/libjpeg-turbo/1.2.1
 
 CONFOPTS="--mandir=${PREFIX}/share/man"
 
+STATICLIBS="libjpeg libturbojpeg"
+
 pkg_build && pkg_clean

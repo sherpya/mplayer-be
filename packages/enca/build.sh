@@ -8,4 +8,6 @@ BASEURL=http://dl.cihar.com/enca
 
 depends lib/libiconv.a
 
+STATICLIBS="libenca"
+
 pkg_build && pkg_clean

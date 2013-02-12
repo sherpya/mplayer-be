@@ -6,4 +6,6 @@ BASEURL=http://fribidi.org/download
 
 . $(dirname $0)/../functions.sh
 
+STATICLIBS="libfribidi"
+
 pkg_build && pkg_clean

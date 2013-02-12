@@ -8,4 +8,6 @@ BASEURL=http://downloads.xiph.org/releases/speex
 
 depends lib/libogg.a
 
+STATICLIBS="libspeex libspeexdsp"
+
 pkg_build && pkg_clean
