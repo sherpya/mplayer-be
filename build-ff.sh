@@ -2,10 +2,27 @@
 
 . ../config.sh
 
+product=$(basename $(pwd))
 version=$(./version.sh)
-packagedir="${PKGDIR}/FFmpeg/git-$version"
-package="${packagedir}/FFmpeg-$version.7z"
-source="${packagedir}/ffmpeg-$version-src.tar.xz"
+
+case "$product" in 
+    ffmpeg)
+        NAME="FFmpeg"
+        PROGRAM="ffmpeg"
+        PROGRAMS="ffprobe"
+        CUSTOMOPTS="--disable-ffplay --disable-ffserver --enable-postproc --enable-libtwolame"
+        ;;
+    libav)
+        NAME="Libav"
+        PROGRAM="avconv"
+        PROGRAMS="avprobe"
+        CUSTOMOPTS="--disable-avplay --disable-avserver"
+        ;;
+esac
+
+packagedir="${PKGDIR}/${NAME}/git-$version"
+package="${packagedir}/${NAME}-$version.7z"
+source="${packagedir}/$product-$version-src.tar.xz"
 
 configure()
 {
@@ -16,9 +33,6 @@ configure()
         --extra-version=Sherpya     \
         --enable-gpl                \
         --enable-version3           \
-        --disable-ffplay            \
-        --disable-ffserver          \
-        --enable-postproc           \
         --enable-avfilter           \
         --enable-pthreads           \
         --enable-runtime-cpudetect  \
@@ -30,43 +44,41 @@ configure()
         --enable-libtheora          \
         --enable-libfreetype        \
         --enable-libmp3lame         \
-        --enable-libtwolame         \
         --enable-libvorbis          \
         --enable-zlib               \
         --enable-bzlib              \
         --enable-libxvid            \
         --enable-libx264            \
         --enable-libspeex           \
-        --enable-libfaac            \
         --enable-libvpx             \
+        --enable-libfaac            \
+        ${CUSTOMOPTS}               \
         $*
 }
 
 make_dist()
 {
     echo "Build dist..."
-    TMPDIR=$(mktemp -d /tmp/ffbuild-XXXX)
-    DISTDIR=${TMPDIR}/FFmpeg-$version
+    TMPDIR=$(mktemp -d /tmp/$product-build-XXXX)
+    DISTDIR=${TMPDIR}/${NAME}-$version
     mkdir ${DISTDIR}
 
+    for program in ${PROGRAM} ${PROGRAMS}; do
+        install -m755 ${program}.exe ${DISTDIR}/${program}.exe
+        ${CROSS_PREFIX}strip ${DISTDIR}/${program}.exe
+    done
+
     while read file; do
-        if [ "${file:(-3)}" = "exe" ]; then
-            mode=0755
-        else
-            mode=0644
-        fi
-        install -m$mode -D $file ${DISTDIR}/$file
+        install -m644 -D $file ${DISTDIR}/$file
     done << EOF
-ffmpeg.exe
-ffprobe.exe
 COPYING.GPLv3
-doc/ffmpeg.html
+doc/${PROGRAM}.html
 doc/faq.html
 doc/general.html
 EOF
 
     unix2dos > ${DISTDIR}/README-win32.txt << EOF
-FFmpeg Win32 binary Builds by Gianluigi Tiesi <sherpya@netfarm.it>
+${NAME} Win32 binary Builds by Gianluigi Tiesi <sherpya@netfarm.it>
 
 This binary build license is GPLv3.
 
@@ -79,7 +91,7 @@ available under the GNU General Public License
 EOF
 
     mkdir -p "${packagedir}"
-    ( cd ${TMPDIR} && 7z a -mx=9 "$package" FFmpeg-$version )
+    ( cd ${TMPDIR} && 7z a -mx=9 "$package" ${NAME}-$version )
     rm -fr ${TMPDIR}
 }
 
@@ -113,8 +125,13 @@ build_source()
     fi
 
     echo "Generating $source"
-    git archive --prefix="ffmpeg-$version-src/" --format=tar HEAD | xz -c > "$source"
+    git archive --prefix="$product-$version-src/" --format=tar HEAD | xz -c > "$source"
 }
+
+if [ ! -z "${C}" ]; then
+    configure $*
+    exit 0
+fi
 
 build_binary
 build_source
