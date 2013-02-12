@@ -1,4 +1,5 @@
 # vim: ft=sh
+shopt -s nullglob
 
 HOST=i686-w64-mingw32
 PREFIX=/usr/${HOST}
