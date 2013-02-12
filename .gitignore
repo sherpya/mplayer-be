@@ -1,7 +1,7 @@
-binaries
-dvdnav
-ffmpeg
-libav
-mplayer
-support
-old
+/binaries
+/dvdnav
+/ffmpeg
+/libav
+/mplayer
+/support
+/old
