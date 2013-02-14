@@ -1,4 +1,4 @@
-From 98bbfc1dfaa96de773c6410ff1d68c1f9d647b93 Mon Sep 17 00:00:00 2001
+From eeab6b2d38170489095445fa5658ca691147cd75 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 19/22] sherpya's customizations
@@ -11,8 +11,8 @@ Subject: [PATCH 19/22] sherpya's customizations
  etc/mplayer.ico  |  Bin 290014 -> 111626 bytes
  etc/video.ico    |  Bin 0 -> 113680 bytes
  osdep/mplayer.rc |   26 ++++++++++++++++++++------
- version.sh       |    4 ++--
- 8 files changed, 30 insertions(+), 11 deletions(-)
+ version.sh       |    6 ++++--
+ 8 files changed, 32 insertions(+), 11 deletions(-)
  create mode 100644 etc/audio.ico
  create mode 100644 etc/mencoder.ico
  create mode 100644 etc/video.ico
@@ -4680,19 +4680,21 @@ index 40220cc..8708d1e 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index ab9b8e8..6595913 100755
+index ab9b8e8..81ae560 100755
 --- a/version.sh
 +++ b/version.sh
-@@ -9,10 +9,10 @@ if test -z $version ; then
+@@ -9,10 +9,12 @@ if test -z $version ; then
  # Extract revision number from file used by daily tarball snapshots
  # or from the places different Subversion versions have it.
  svn_revision=$(cat snapshot_version 2> /dev/null)
 -test $svn_revision || svn_revision=$(LC_ALL=C svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
++git_revision=$(LC_ALL=C git describe --always 2> /dev/null)
 +test $svn_revision || svn_revision=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
  test $svn_revision || svn_revision=$(grep revision .svn/entries 2>/dev/null | cut -d '"' -f2)
  test $svn_revision || svn_revision=$(sed -n -e '/^dir$/{n;p;q;}' .svn/entries 2>/dev/null)
 -test $svn_revision && svn_revision=SVN-r$svn_revision
 +test $svn_revision && svn_revision=sherpya-r$svn_revision
++test $svn_revision && test $git_revision && svn_revision=$svn_revision+g$git_revision
  test $svn_revision || svn_revision=UNKNOWN
  version=$svn_revision
  fi
