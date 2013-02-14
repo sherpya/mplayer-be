@@ -2,9 +2,10 @@
 
 . ../config.sh
 
-revision=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-version=r${revision}
-packagedir="${PKGDIR}/MPlayer and MEncoder/revision $revision"
+version=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
+gitrev=$(LC_ALL=C git describe --always 2>/dev/null)
+version=r${version}+g${gitrev}
+packagedir="${PKGDIR}/MPlayer and MEncoder/${version}"
 source="${packagedir}/mplayer-$version-src.tar.xz"
 
 configure()
