@@ -10,8 +10,9 @@ source="${packagedir}/mplayer-$version-src.tar.xz"
 configure()
 {
     ./configure                             \
-        --prefix=.                          \
+        --prefix=/invalid                   \
         --enable-cross-compile              \
+        --enable-runtime-cpudetection       \
         --host-cc=gcc                       \
         --cc=${CROSS_PREFIX}gcc             \
         --as=${CROSS_PREFIX}as              \
@@ -47,7 +48,7 @@ make_dist()
     echo "Build dist..."
 
     TMPDIR=$(mktemp -d /tmp/mpbuild-XXXX)
-    DISTDIR=${TMPDIR}/MPlayer-$flavor-$version
+    DISTDIR=${TMPDIR}/MPlayer-$cpu-$version
     mkdir ${DISTDIR}
 
     for exe in mplayer.exe mencoder.exe; do
@@ -62,7 +63,7 @@ make_dist()
     ( cd ../dist/MPlayer && ( find | cpio -pdvm ${DISTDIR} ))
 
     mkdir -p "${packagedir}"
-    ( cd ${TMPDIR} && 7z a -mx=9 "$package" MPlayer-$flavor-$version )
+    ( cd ${TMPDIR} && 7z a -mx=9 "$package" MPlayer-$cpu-$version )
     rm -fr ${TMPDIR}
 
     echo "Done with $package"
@@ -77,8 +78,8 @@ distclean()
 
 build_binary()
 {
-    flavor=$1
-    package="${packagedir}/MPlayer-$flavor-$version.7z"
+    cpu=$1
+    package="${packagedir}/MPlayer-$cpu-$version.7z"
 
     if [ -e "$package" ]; then
         echo "$package uptodate"
@@ -87,10 +88,10 @@ build_binary()
 
     echo "Building $package"
 
-    if [ "$flavor" = "rtm" ]; then
-        opts="--enable-runtime-cpudetection"
+    if [ "$cpu" = "generic" ]; then
+        opts="--with-arch=i486 --with-tune=generic"
     else
-        opts="--flavor=$flavor"
+        opts="--with-arch=$cpu --with-tune=$cpu"
     fi
 
     distclean
@@ -128,8 +129,8 @@ if [ ! -z "${C}" ]; then
 fi
 
 build_source
-build_binary i7
-build_binary p4
-build_binary p3
-build_binary athlon
-build_binary rtm
+build_binary generic
+build_binary core2
+build_binary corei7
+#build_binary k8-sse3
+#build_binary bdver1
