@@ -1,7 +1,7 @@
-From dd45837e8d8cd6586333685fe4bcf4d7b4c7eabd Mon Sep 17 00:00:00 2001
+From 4a7ecf422adb2b339ef40b335780f61d5f59de34 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 21/22] conf: honor disable_system_conf (except stream_dvb)
+Subject: [PATCH 19/22] conf: honor disable_system_conf (except stream_dvb)
 
 ---
  input/input.c      |    3 ++-

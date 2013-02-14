@@ -1,17 +1,17 @@
-From 289851100af00cdcb447ec093fae5cd88174567f Mon Sep 17 00:00:00 2001
+From 881ead84de8b7504894f3115582e8589b391db0c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 20/22] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 21/22] configure: added --with-arch and --with-tune overrides
 
 ---
- configure |   17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ configure |   11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index c8240e5..4cded49 100755
+index 9969469..24eb9dc 100755
 --- a/configure
 +++ b/configure
-@@ -564,6 +564,8 @@ Available values are: all $msg_lang_all
+@@ -565,6 +565,8 @@ Available values are: all $msg_lang_all
  Miscellaneous options:
    --enable-runtime-cpudetection    enable runtime CPU detection [disable]
    --enable-cross-compile enable cross-compilation [autodetect]
@@ -20,7 +20,7 @@ index c8240e5..4cded49 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -968,6 +970,12 @@ for ac_option do
+@@ -969,6 +971,12 @@ for ac_option do
    --target=*)
      _target=$(echo $ac_option | cut -d '=' -f 2)
      ;;
@@ -33,25 +33,12 @@ index c8240e5..4cded49 100755
    --cc=*)
      _cc=$(echo $ac_option | cut -d '=' -f 2)
      ;;
-@@ -2156,6 +2164,12 @@ case "$host_arch" in
-       esac
-     fi
- 
-+    # user provided mtune/march
-+    if test "$_cpu" ; then
-+        _march="-march=$_cpu"
-+        _mcpu="$cpuopt=$_cpu"
-+    fi
-+
-     if test $_cmov = "yes" && test $_fast_cmov = "auto" ; then
-         _fast_cmov="yes"
-     else
-@@ -2550,6 +2564,9 @@ EOF
+@@ -2550,6 +2558,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  
-+test -n $_arch && _march="-march=$_arch"
-+test -n $_tune && _mcpu="$cpuopt=$_tune"
++test -z $_arch || _march="-march=$_arch"
++test -z $_tune || _mcpu="$cpuopt=$_tune"
 +
  if test "$_runtime_cpudetection" = yes ; then
    if x86 ; then
