@@ -133,5 +133,5 @@ build_source
 build_binary generic
 build_binary core2
 build_binary corei7
-#build_binary k8-sse3
-#build_binary bdver1
+build_binary k8-sse3
+build_binary bdver1
