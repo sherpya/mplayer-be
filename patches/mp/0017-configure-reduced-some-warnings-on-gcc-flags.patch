@@ -1,17 +1,17 @@
-From 3299c583b97e89ed4a6d364b60fce6d083d502e1 Mon Sep 17 00:00:00 2001
+From d9580ce7e493fd2d916b1ab35ce7339e50777b13 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 18/20] configure: reduced some warnings on gcc flags
+Subject: [PATCH 17/22] configure: reduced some warnings on gcc flags
 
 ---
  configure |    4 ----
  1 file changed, 4 deletions(-)
 
 diff --git a/configure b/configure
-index 61f68b1..132a869 100755
+index ddad4d4..9969469 100755
 --- a/configure
 +++ b/configure
-@@ -2771,7 +2771,6 @@ elif test -z "$CFLAGS" ; then
+@@ -2661,7 +2661,6 @@ elif test -z "$CFLAGS" ; then
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
      WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
@@ -19,7 +19,7 @@ index 61f68b1..132a869 100755
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
  else
-@@ -2780,13 +2779,10 @@ fi
+@@ -2670,13 +2669,10 @@ fi
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"

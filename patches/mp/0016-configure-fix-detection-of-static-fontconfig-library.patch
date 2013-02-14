@@ -1,17 +1,17 @@
-From 36307e781cabb95dda2f6f4ce8ab030246449dce Mon Sep 17 00:00:00 2001
+From b9e1163a5a7981fac5972c305e7d8c1403f73f1a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:49:54 +0100
-Subject: [PATCH 17/20] configure: fix detection of static fontconfig library
+Subject: [PATCH 16/22] configure: fix detection of static fontconfig library
 
 ---
  configure |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index e5c59ff..61f68b1 100755
+index e06adf8..ddad4d4 100755
 --- a/configure
 +++ b/configure
-@@ -6252,7 +6252,7 @@ int main(void) {
+@@ -6142,7 +6142,7 @@ int main(void) {
  }
  EOF
    _fontconfig=no

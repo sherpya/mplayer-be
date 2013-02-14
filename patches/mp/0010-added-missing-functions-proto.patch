@@ -1,7 +1,7 @@
-From 6c80d3c1e9520d917b8b0b09d46d09d4f1e81bf6 Mon Sep 17 00:00:00 2001
+From f5188e5406017641c21a22c9f5c9dd29576589ce Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:44:52 +0100
-Subject: [PATCH 11/20] added missing functions proto
+Subject: [PATCH 10/22] added missing functions proto
 
 ---
  libvo/w32_common.c |    3 +++

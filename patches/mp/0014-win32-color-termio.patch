@@ -1,7 +1,7 @@
-From 570e0c16d0ef0e786f3d9e128fe40beefca4ff15 Mon Sep 17 00:00:00 2001
+From 47db771e1a4c44fb7721f0d61bd974231678faf7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
-Subject: [PATCH 15/20] win32: color termio
+Subject: [PATCH 14/22] win32: color termio
 
 ---
  mplayer.c |   28 +++++++++++++++++++++++++---
