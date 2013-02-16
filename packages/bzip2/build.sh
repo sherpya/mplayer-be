@@ -14,7 +14,7 @@ apply_patches
     RANLIB=${CROSS_PREFIX}ranlib    \
     CC=${CROSS_PREFIX}gcc           \
     CFLAGS=${GLOBAL_CFLAGS}         \
-    make ${MAKEOPTS} )
+    make ${MAKEOPTS} libbz2.a )
 
 install -m644 ${BUILDDIR}/libbz2.a ${PREFIX}/lib/libbz2.a
 install -m644 ${BUILDDIR}/bzlib.h ${PREFIX}/include/bzlib.h
