@@ -3,7 +3,7 @@ PACKAGE=gsm
 VERSION=1.0-pl13
 EXT=tar.xz
 BASEURL=local
-set -x
+
 . $(dirname $0)/../functions.sh
 
 pkg_unpack
