@@ -1,17 +1,17 @@
 # vim: ft=sh
-shopt -s nullglob
 
-HOST=i686-w64-mingw32
-PREFIX=/usr/${HOST}
-CROSS_PREFIX=${HOST}-
-export PKG_CONFIG_LIBDIR=${PREFIX}/lib/pkgconfig
-export PATH=${PREFIX}/bin:$PATH
+. $(dirname $0)/../../config.sh
+
+shopt -s nullglob
 
 MAKEOPTS=-j$(cat /proc/cpuinfo | grep "^processor" | wc -l)
 FILENAME=${PACKAGE}-${VERSION}.${EXT}
 BUILDDIR=${PACKAGE}-${VERSION}
 
-GLOBAL_CFLAGS="-O2 -mtune=generic -march=i486"
+case ${HOST} in
+    i?86-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=i486" ;;
+    x86_64-*-mingw32) GLOBAL_CFLAGS="-O2" ;;
+esac
 
 depends()
 {
@@ -66,7 +66,7 @@ pkg_configure()
         --enable-static     \
         --disable-shared    \
         --disable-nls       \
-        ${CONFOPTS} || exit 1
+        ${CONFOPTS} || return 1
     )
 }
 
@@ -87,10 +87,15 @@ apply_patches()
     done
 }
 
-pre_make_hooks()
+ln_to_cp()
 {
     # ln -s
     find ${BUILDDIR} -type f -name Makefile -exec sed -i -e 's/ln -s/cp -f/g' {} \;
+}
+
+pre_make_hook()
+{
+    : # nothing
 }
 
 make_ld_script()
@@ -145,7 +150,8 @@ pkg_build()
     pkg_unpack
     apply_patches
     test -f ${BUILDDIR}/stamp-h1 || pkg_configure || exit 1
-    pre_make_hooks
+    ln_to_cp
+    pre_make_hook
     pkg_make || exit 1
     pkg_install || exit 1
     fix_la

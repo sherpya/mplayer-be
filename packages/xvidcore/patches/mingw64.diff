@@ -1,0 +1,18 @@
+diff -ur xvidcore.orig/build/generic/configure xvidcore/build/generic/configure
+--- xvidcore.orig/build/generic/configure	2011-05-23 12:22:01.000000000 +0200
++++ xvidcore/build/generic/configure	2013-02-17 01:38:29.265778520 +0100
+@@ -4572,12 +4572,13 @@
+                    { $as_echo "$as_me:${as_lineno-$LINENO}: result: win64" >&5
+ $as_echo "win64" >&6; }
+                    NASM_FORMAT="win64"
++                   PREFIX="-DWINDOWS -DNO_PREFIX"
+                else
+                    { $as_echo "$as_me:${as_lineno-$LINENO}: result: win32" >&5
+ $as_echo "win32" >&6; }
+                    NASM_FORMAT="win32"
++                   PREFIX="-DWINDOWS"
+                fi
+-	       PREFIX="-DWINDOWS"
+ 	       MARK_FUNCS=""
+                ;;
+            *darwin*)
