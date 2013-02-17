@@ -1,7 +1,7 @@
-From 392c55edef455c6953ab06ca683dacf120cfe606 Mon Sep 17 00:00:00 2001
+From 02a45235566662da308f31d38f0453c98a25d4c7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
-Subject: [PATCH 14/22] win32: color termio
+Subject: [PATCH 13/20] win32: color term osd
 
 ---
  mplayer.c |   28 +++++++++++++++++++++++++---

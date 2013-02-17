@@ -1,7 +1,7 @@
-From d5f05563e28d9344560bccd24387c4357cd304f5 Mon Sep 17 00:00:00 2001
+From 0df4de609173225331b050b5e2735ed6cdd42fee Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 22/22] sherpya's customizations
+Subject: [PATCH 20/20] sherpya's customizations
 
 ---
  Makefile         |    5 +++++
@@ -41,7 +41,7 @@ index a806dbd..1f8f969 100644
  config.mak: configure
  	@echo "############################################################"
 diff --git a/configure b/configure
-index c102a0d..bc30c74 100755
+index e0dc901..db7deea 100755
 --- a/configure
 +++ b/configure
 @@ -51,13 +51,13 @@ fi
