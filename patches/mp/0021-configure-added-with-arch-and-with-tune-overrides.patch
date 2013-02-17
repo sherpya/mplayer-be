@@ -1,4 +1,4 @@
-From 881ead84de8b7504894f3115582e8589b391db0c Mon Sep 17 00:00:00 2001
+From d96cc2dc8ddc366cdc4448fae6d2e9a0f32d3725 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
 Subject: [PATCH 21/22] configure: added --with-arch and --with-tune overrides
@@ -8,10 +8,10 @@ Subject: [PATCH 21/22] configure: added --with-arch and --with-tune overrides
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 9969469..24eb9dc 100755
+index e065d50..c102a0d 100755
 --- a/configure
 +++ b/configure
-@@ -565,6 +565,8 @@ Available values are: all $msg_lang_all
+@@ -574,6 +574,8 @@ Available values are: all $msg_lang_all
  Miscellaneous options:
    --enable-runtime-cpudetection    enable runtime CPU detection [disable]
    --enable-cross-compile enable cross-compilation [autodetect]
@@ -20,20 +20,20 @@ index 9969469..24eb9dc 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -969,6 +971,12 @@ for ac_option do
+@@ -987,6 +989,12 @@ for ac_option do
    --target=*)
-     _target=$(echo $ac_option | cut -d '=' -f 2)
+     _target=$(option_value $ac_option)
      ;;
 +  --with-arch=*)
-+    _arch=$(echo $ac_option | cut -d '=' -f 2)
++    _arch=$(option_value $ac_option)
 +    ;;
 +  --with-tune=*)
-+    _tune=$(echo $ac_option | cut -d '=' -f 2)
++    _tune=$(option_value $ac_option)
 +    ;;
    --cc=*)
-     _cc=$(echo $ac_option | cut -d '=' -f 2)
+     _cc=$(option_value $ac_option)
      ;;
-@@ -2550,6 +2558,9 @@ EOF
+@@ -2568,6 +2576,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  

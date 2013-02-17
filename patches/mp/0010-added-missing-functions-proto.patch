@@ -1,4 +1,4 @@
-From f5188e5406017641c21a22c9f5c9dd29576589ce Mon Sep 17 00:00:00 2001
+From bf6cbbfe0274383a468538ec6b6015882c231af9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:44:52 +0100
 Subject: [PATCH 10/22] added missing functions proto

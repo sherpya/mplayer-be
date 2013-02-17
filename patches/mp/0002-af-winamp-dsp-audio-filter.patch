@@ -1,4 +1,4 @@
-From 8b32c3584e6a126a79e41598e2da8518198d83bb Mon Sep 17 00:00:00 2001
+From 52d8f7dc8b7537649be69de420bcf60ec0cb178d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
 Subject: [PATCH 02/22] af: winamp dsp audio filter
@@ -14,7 +14,7 @@ Subject: [PATCH 02/22] af: winamp dsp audio filter
  create mode 100644 libaf/af_wadsp.h
 
 diff --git a/Makefile b/Makefile
-index 00aa95f..f3481bf 100644
+index 54d7418..fe5d952 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -307,6 +307,7 @@ SRCS_COMMON = asxparser.c \
