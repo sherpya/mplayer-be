@@ -1,0 +1,11 @@
+diff -ur SDL-1.2.15.orig/include/begin_code.h SDL-1.2.15/include/begin_code.h
+--- SDL-1.2.15.orig/include/begin_code.h	2012-01-19 07:30:06.000000000 +0100
++++ SDL-1.2.15/include/begin_code.h	2013-02-17 06:19:54.275614646 +0100
+@@ -40,6 +40,7 @@
+  *  @def DECLSPEC
+  *  Some compilers use a special export keyword
+  */
++#define DECLSPEC
+ #ifndef DECLSPEC
+ # if defined(__BEOS__) || defined(__HAIKU__)
+ #  if defined(__GNUC__)
