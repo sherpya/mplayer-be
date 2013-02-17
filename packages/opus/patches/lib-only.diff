@@ -1,0 +1,13 @@
+diff -ur opus-1.0.2.orig/Makefile.in opus-1.0.2/Makefile.in
+--- opus-1.0.2.orig/Makefile.in	2012-12-06 06:37:30.000000000 +0100
++++ opus-1.0.2/Makefile.in	2013-02-17 08:32:02.667803076 +0100
+@@ -2441,8 +2441,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-data-local install-m4dataDATA \
+-	install-pkgconfigDATA install-pkgincludeHEADERS
++install-data-am: install-pkgconfigDATA install-pkgincludeHEADERS
+ 
+ install-dvi: install-dvi-recursive
+ 

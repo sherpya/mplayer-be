@@ -1,0 +1,12 @@
+diff -ur lzo-2.06.orig/Makefile.in lzo-2.06/Makefile.in
+--- lzo-2.06.orig/Makefile.in	2011-08-12 18:02:59.000000000 +0200
++++ lzo-2.06/Makefile.in	2013-02-17 08:28:11.291797577 +0100
+@@ -1419,7 +1419,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-docDATA install-pkgincludeHEADERS
++install-data-am: install-pkgincludeHEADERS
+ 
+ install-dvi: install-dvi-am
+ 

@@ -1,0 +1,12 @@
+diff -ur libdca-0.0.5.orig/Makefile.in libdca-0.0.5/Makefile.in
+--- libdca-0.0.5.orig/Makefile.in	2007-04-10 14:31:22.000000000 +0200
++++ libdca-0.0.5/Makefile.in	2013-02-17 07:55:37.759751148 +0100
+@@ -175,7 +175,7 @@
+ target_alias = @target_alias@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = libdca libao src test include
++SUBDIRS = libdca libao include
+ DIST_SUBDIRS = $(SUBDIRS) autotools vc++
+ EXTRA_DIST = bootstrap doc/libdca.txt
+ all: config.h

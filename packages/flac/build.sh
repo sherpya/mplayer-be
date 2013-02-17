@@ -6,8 +6,6 @@ BASEURL=http://downloads.xiph.org/releases/flac
 
 . $(dirname $0)/../functions.sh
 
-CONFOPTS="--mandir=${PREFIX}/share/man"
-
 depends lib/libogg.a
 
 STATICLIBS="libFLAC libFLAC++"

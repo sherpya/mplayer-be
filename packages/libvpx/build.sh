@@ -9,16 +9,14 @@ esac
 
 BUILDDIR=libvpx
 
-git_clean
-
-( cd ${BUILDDIR} && \
+pkg_configure()
+{
     CROSS=${HOST}- ./configure      \
         --prefix=${PREFIX}          \
         --target=${VPX_TARGET}      \
         --enable-static             \
         --disable-shared            \
         --disable-examples
-)
+}
 
-pkg_make || exit 1
-pkg_install || exit 1
+git_clean && pkg_build

@@ -1,0 +1,12 @@
+diff -u libpng-1.5.14.orig/Makefile.in libpng-1.5.14/Makefile.in
+--- libpng-1.5.14.orig/Makefile.in	2013-01-24 03:59:12.000000000 +0100
++++ libpng-1.5.14/Makefile.in	2013-02-17 09:43:48.595905413 +0100
+@@ -1340,7 +1340,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-man install-nodist_pkgincludeHEADERS \
++install-data-am: install-nodist_pkgincludeHEADERS \
+ 	install-pkgconfigDATA install-pkgincludeHEADERS
+ 	@$(NORMAL_INSTALL)
+ 	$(MAKE) $(AM_MAKEFLAGS) install-data-hook

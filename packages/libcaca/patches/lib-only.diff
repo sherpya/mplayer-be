@@ -1,0 +1,14 @@
+diff -ur libcaca-0.99.beta18.orig/Makefile.in libcaca-0.99.beta18/Makefile.in
+--- libcaca-0.99.beta18.orig/Makefile.in	2012-04-06 22:48:34.000000000 +0200
++++ libcaca-0.99.beta18/Makefile.in	2013-02-17 07:53:17.175747807 +0100
+@@ -319,9 +319,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = kernel caca src examples tools \
+-          cxx caca-sharp python ruby java \
+-          doc test
++SUBDIRS = kernel caca cxx
+ 
+ DIST_SUBDIRS = $(SUBDIRS) win32
+ EXTRA_DIST = NOTES COPYING.GPL COPYING.ISC COPYING.LGPL bootstrap build-dos build-kernel build-win32 caca-config.in libcaca.spec libcaca.sln

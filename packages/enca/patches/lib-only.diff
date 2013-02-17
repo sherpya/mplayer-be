@@ -1,0 +1,23 @@
+diff -ur enca-1.14.orig/Makefile.in enca-1.14/Makefile.in
+--- enca-1.14.orig/Makefile.in	2012-09-11 11:12:22.000000000 +0200
++++ enca-1.14/Makefile.in	2013-02-17 09:16:47.051866874 +0100
+@@ -298,7 +298,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-@MAINTAINER_MODE_FALSE@SUBDIRS = tools script lib src devel-docs test
++@MAINTAINER_MODE_FALSE@SUBDIRS = lib
+ 
+ # @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
+ @MAINTAINER_MODE_TRUE@SUBDIRS = tools data script lib src devel-docs test
+@@ -869,9 +869,8 @@
+ 
+ info-am:
+ 
+-install-data-am: install-man install-pkgconfigDATA
++install-data-am: install-pkgconfigDATA
+ 	@$(NORMAL_INSTALL)
+-	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
+ install-dvi: install-dvi-recursive
+ 
+ install-dvi-am:

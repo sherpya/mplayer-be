@@ -5,5 +5,4 @@
 BUILDDIR=libilbc
 STATICLIBS="libilbc"
 
-distclean
-pkg_build
+distclean && pkg_build && distclean

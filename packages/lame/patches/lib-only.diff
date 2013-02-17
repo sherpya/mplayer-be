@@ -1,0 +1,12 @@
+diff -ur lame-3.99.5.orig/Makefile.in lame-3.99.5/Makefile.in
+--- lame-3.99.5.orig/Makefile.in	2011-04-20 14:53:26.000000000 +0200
++++ lame-3.99.5/Makefile.in	2013-02-17 09:48:27.931912051 +0100
+@@ -249,7 +249,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = 1.11 foreign $(top_srcdir)/ansi2knr
+-SUBDIRS = mpglib libmp3lame frontend Dll debian doc include misc dshow ACM \
++SUBDIRS = mpglib libmp3lame Dll debian include misc dshow ACM \
+ 	mac macosx vc_solution
+ 
+ CLEANFILES = testcase.new.mp3

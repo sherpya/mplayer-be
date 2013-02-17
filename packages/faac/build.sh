@@ -11,7 +11,16 @@ BASEURL=http://downloads.sourceforge.net/project/faac/faac-src/faac-1.28
 # go into libfaac and make
 # then ${HOST}-dllwrap -d libfaac.def --dllname libfaac.dll .libs/libfaac.a
 
-pkg_unpack
-install -m644 ${BUILDDIR}/include/faac.h ${PREFIX}/include/faac.h
-install -m644 ${BUILDDIR}/include/faaccfg.h ${PREFIX}/include/faaccfg.h
-pkg_clean
+pkg_configure()
+{
+    : # disabled
+}
+
+pkg_make_target()
+{
+    echo "Installing headers"
+    install -m644 include/faac.h ${PREFIX}/include/faac.h
+    install -m644 include/faaccfg.h ${PREFIX}/include/faaccfg.h
+}
+
+pkg_build && pkg_clean

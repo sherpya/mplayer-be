@@ -1,0 +1,12 @@
+diff -ur twolame-0.3.13.orig/Makefile.in twolame-0.3.13/Makefile.in
+--- twolame-0.3.13.orig/Makefile.in	2011-01-21 19:16:44.000000000 +0100
++++ twolame-0.3.13/Makefile.in	2013-02-17 08:37:49.171811311 +0100
+@@ -212,7 +212,7 @@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = foreign
+ ACLOCAL_AMFLAGS = -I build-scripts
+-SUBDIRS = libtwolame frontend simplefrontend doc tests
++SUBDIRS = libtwolame
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = twolame.pc
+ INDENT = indent -npro -kr -nsob -fca -blf -ip1 -hnl -l100 -lc100 -nut -ts4 -v

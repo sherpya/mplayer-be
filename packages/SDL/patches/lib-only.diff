@@ -1,0 +1,21 @@
+diff -ur SDL-1.2.15.orig/Makefile.in SDL-1.2.15/Makefile.in
+--- SDL-1.2.15.orig/Makefile.in	2012-01-19 07:30:05.000000000 +0100
++++ SDL-1.2.15/Makefile.in	2013-02-17 08:34:04.683805976 +0100
+@@ -78,7 +78,7 @@
+ 	$(LIBTOOL) --mode=link $(CC) -o $@ $^ $(LDFLAGS) $(EXTRA_LDFLAGS) $(LT_LDFLAGS) $(SDLMAIN_LDFLAGS)
+ 
+ 
+-install: all install-bin install-hdrs install-lib install-data install-man
++install: all install-bin install-hdrs install-lib install-data
+ install-bin:
+ 	$(SHELL) $(auxdir)/mkinstalldirs $(DESTDIR)$(bindir)
+ 	$(INSTALL) -m 755 sdl-config $(DESTDIR)$(bindir)/sdl-config
+@@ -93,8 +93,6 @@
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(objects)/$(TARGET) $(DESTDIR)$(libdir)/$(TARGET)
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(objects)/$(SDLMAIN_TARGET) $(DESTDIR)$(libdir)/$(SDLMAIN_TARGET)
+ install-data:
+-	$(SHELL) $(auxdir)/mkinstalldirs $(DESTDIR)$(datadir)/aclocal
+-	$(INSTALL) -m 644 $(srcdir)/sdl.m4 $(DESTDIR)$(datadir)/aclocal/sdl.m4
+ 	$(SHELL) $(auxdir)/mkinstalldirs $(DESTDIR)$(libdir)/pkgconfig
+ 	$(INSTALL) -m 644 sdl.pc $(DESTDIR)$(libdir)/pkgconfig
+ install-man:

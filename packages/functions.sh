@@ -13,10 +13,25 @@ case ${HOST} in
     x86_64-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=x86-64" ;;
 esac
 
+sanity_check()
+{
+    for dir in bin include lib; do
+        if [ ! -d ${PREFIX}/$dir ]; then
+            echo "${PREFIX}/$dir is not a directory"
+            exit 1
+        fi
+        if [ ! -w ${PREFIX}/$dir ]; then
+            echo "${PREFIX}/$dir is not writable"
+            exit 1
+        fi
+    done
+}
+sanity_check
+
 depends()
 {
     if [ ! -e "${PREFIX}/$1" ]; then
-        echo "missing $1"
+        echo "Missing dependency $1"
         exit 1
     fi
 }
@@ -57,7 +72,8 @@ pkg_unpack()
 
 pkg_configure()
 {
-    ( cd ${BUILDDIR} &&                     \
+    test -x configure || return 0
+
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
     ./configure             \
@@ -67,17 +83,11 @@ pkg_configure()
         --disable-shared    \
         --disable-nls       \
         ${CONFOPTS} || return 1
-    )
 }
 
-pkg_make()
+pkg_make_target()
 {
-    ( cd ${BUILDDIR} && make ${MAKEOPTS} )
-}
-
-pkg_install()
-{
-    ( cd ${BUILDDIR} && make install )
+    make ${MAKEOPTS} install || return 1
 }
 
 apply_patches()
@@ -85,17 +95,6 @@ apply_patches()
     for p in patches/*; do
         patch -p0 -N < $p
     done
-}
-
-ln_to_cp()
-{
-    # ln -s
-    find ${BUILDDIR} -type f -name Makefile -exec sed -i -e 's/ln -s/cp -f/g' {} \;
-}
-
-pre_make_hook()
-{
-    : # nothing
 }
 
 make_ld_script()
@@ -145,15 +144,21 @@ fix_la()
     done
 }
 
+ln_to_cp()
+{
+    # ln -s -> cp -f
+    find . -type f -name Makefile -exec sed -i -e 's/ln -s/cp -f/g' {} \;
+}
+
 pkg_build()
 {
-    pkg_unpack
-    apply_patches
-    test -f ${BUILDDIR}/stamp-h1 || pkg_configure || exit 1
-    ln_to_cp
-    pre_make_hook
-    pkg_make || exit 1
-    pkg_install || exit 1
+    pkg_unpack || return 1
+    apply_patches || return 1
+
+    ( cd ${BUILDDIR} && pkg_configure ) || return 1
+    ( cd ${BUILDDIR} && ln_to_cp )
+    ( cd ${BUILDDIR} && pkg_make_target ) || return 1
+
     fix_la
 }
 
@@ -164,7 +169,7 @@ git_clean()
 
 distclean()
 {
-    ( cd ${BUILDDIR} && make distclean )
+    ( cd ${BUILDDIR} && ( make distclean > /dev/null 2>&1 || true ) )
 }
 
 pkg_clean()

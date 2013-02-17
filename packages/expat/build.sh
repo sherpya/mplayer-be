@@ -8,4 +8,9 @@ BASEURL=http://downloads.sourceforge.net/project/expat/expat/2.1.0
 
 STATICLIBS="libexpat"
 
+pkg_make_target()
+{
+    make ${MAKEOPTS} installlib
+}
+
 pkg_build && pkg_clean

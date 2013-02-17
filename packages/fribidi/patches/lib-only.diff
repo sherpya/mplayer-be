@@ -1,0 +1,12 @@
+diff -ur fribidi-0.19.5.orig/Makefile.in fribidi-0.19.5/Makefile.in
+--- fribidi-0.19.5.orig/Makefile.in	2012-12-02 17:34:54.000000000 +0100
++++ fribidi-0.19.5/Makefile.in	2013-02-17 07:32:58.467718843 +0100
+@@ -280,7 +280,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = gen.tab charset lib bin doc test
++SUBDIRS = gen.tab charset lib
+ EXTRA_DIST = bootstrap ChangeLog.old
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = @PACKAGE@.pc

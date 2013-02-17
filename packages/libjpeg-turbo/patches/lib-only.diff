@@ -1,0 +1,26 @@
+diff -ur libjpeg-turbo-1.2.1.orig/Makefile.in libjpeg-turbo-1.2.1/Makefile.in
+--- libjpeg-turbo-1.2.1.orig/Makefile.in	2012-06-30 01:52:27.000000000 +0200
++++ libjpeg-turbo-1.2.1/Makefile.in	2013-02-17 08:05:26.999765153 +0100
+@@ -49,9 +49,8 @@
+ @VERSION_SCRIPT_TRUE@am__append_6 = $(VERSION_SCRIPT_FLAG)libjpeg.map
+ @WITH_SIMD_TRUE@am__append_7 = simd
+ @WITH_SIMD_FALSE@am__append_8 = jsimd_none.c
+-bin_PROGRAMS = cjpeg$(EXEEXT) djpeg$(EXEEXT) jpegtran$(EXEEXT) \
+-	rdjpgcom$(EXEEXT) wrjpgcom$(EXEEXT) tjbench$(EXEEXT)
+-noinst_PROGRAMS = tjunittest$(EXEEXT) jcstest$(EXEEXT)
++bin_PROGRAMS = 
++noinst_PROGRAMS = 
+ DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
+ 	$(dist_example_DATA) $(dist_man1_MANS) $(include_HEADERS) \
+ 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+@@ -1954,9 +1953,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-dist_docDATA install-dist_exampleDATA \
+-	install-includeHEADERS install-man \
+-	install-nodist_includeHEADERS
++install-data-am: install-includeHEADERS install-nodist_includeHEADERS
+ 
+ install-exec-am: install-binPROGRAMS install-libLTLIBRARIES
+ 	@$(NORMAL_INSTALL)

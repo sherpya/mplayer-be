@@ -6,17 +6,16 @@ BASEURL=http://www.bzip.org/${VERSION}
 
 . $(dirname $0)/../functions.sh
 
-pkg_unpack
-apply_patches
-
-( cd ${BUILDDIR} &&                 \
+pkg_make_target()
+{
     AR=${CROSS_PREFIX}ar            \
     RANLIB=${CROSS_PREFIX}ranlib    \
     CC=${CROSS_PREFIX}gcc           \
     CFLAGS=${GLOBAL_CFLAGS}         \
-    make ${MAKEOPTS} libbz2.a )
+    make ${MAKEOPTS} libbz2.a || return 1
 
-install -m644 ${BUILDDIR}/libbz2.a ${PREFIX}/lib/libbz2.a
-install -m644 ${BUILDDIR}/bzlib.h ${PREFIX}/include/bzlib.h
+    install -m644 libbz2.a ${PREFIX}/lib/libbz2.a
+    install -m644 bzlib.h ${PREFIX}/include/bzlib.h
+}
 
-pkg_clean
+pkg_build && pkg_clean

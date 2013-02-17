@@ -1,0 +1,21 @@
+diff -ur speex-1.2rc1.orig/Makefile.in speex-1.2rc1/Makefile.in
+--- speex-1.2rc1.orig/Makefile.in	2008-07-21 04:17:19.000000000 +0200
++++ speex-1.2rc1/Makefile.in	2013-02-17 08:36:23.579809277 +0100
+@@ -213,7 +213,7 @@
+ EXTRA_DIST = Speex.spec Speex.spec.in Speex.kdevelop speex.m4 speex.pc.in README.blackfin README.symbian README.TI-DSP
+ 
+ #Fools KDevelop into including all files
+-SUBDIRS = libspeex include @src@ doc win32 symbian ti
++SUBDIRS = libspeex include
+ DIST_SUBDIRS = libspeex include src doc win32 symbian ti
+ all: config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+@@ -632,7 +632,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-m4dataDATA install-pkgconfigDATA
++install-data-am: install-pkgconfigDATA
+ 
+ install-exec-am:
+ 

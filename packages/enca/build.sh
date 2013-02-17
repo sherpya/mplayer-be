@@ -10,14 +10,17 @@ depends lib/libiconv.a
 
 STATICLIBS="libenca"
 
+# not cross build friendly
 export ac_cv_file__dev_random=false
 export ac_cv_file__dev_urandom=false
 export ac_cv_file__dev_srandom=false
 export ac_cv_file__dev_arandom=false
 
-pre_make_hook()
+pkg_make_target()
 {
-    ( cd ${BUILDDIR}/tools && gcc -o make_hash make_hash.c )
+    # host compiler
+    ( cd tools && gcc -o make_hash make_hash.c )
+    make ${MAKEOPTS} install
 }
 
 pkg_build && pkg_clean

@@ -6,17 +6,16 @@ BASEURL=local
 
 . $(dirname $0)/../functions.sh
 
-pkg_unpack
-apply_patches
-
-( cd ${BUILDDIR} &&                 \
+pkg_make_target()
+{
     AR=${CROSS_PREFIX}ar            \
     RANLIB=${CROSS_PREFIX}ranlib    \
     CC=${CROSS_PREFIX}gcc           \
     CFLAGS=${GLOBAL_CFLAGS}         \
-    make ${MAKEOPTS} lib/libgsm.a )
+    make ${MAKEOPTS} lib/libgsm.a
 
-install -m644 ${BUILDDIR}/lib/libgsm.a ${PREFIX}/lib/libgsm.a
-install -m644 -D ${BUILDDIR}/inc/gsm.h ${PREFIX}/include/gsm/gsm.h
+    install -m644 lib/libgsm.a ${PREFIX}/lib/libgsm.a
+    install -m644 -D inc/gsm.h ${PREFIX}/include/gsm/gsm.h
+}
 
-pkg_clean
+pkg_build && pkg_clean

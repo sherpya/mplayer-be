@@ -1,0 +1,24 @@
+diff -ur fontconfig-2.10.91.orig/Makefile.in fontconfig-2.10.91/Makefile.in
+--- fontconfig-2.10.91.orig/Makefile.in	2013-01-10 09:59:03.000000000 +0100
++++ fontconfig-2.10.91/Makefile.in	2013-02-17 07:46:49.247738588 +0100
+@@ -357,9 +357,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ xmldir = $(XMLDIR)
+-SUBDIRS = fontconfig fc-case fc-lang fc-glyphname src fc-cache fc-cat \
+-	fc-list fc-match fc-pattern fc-query fc-scan fc-validate \
+-	conf.d test $(am__append_1)
++SUBDIRS = fontconfig src
+ @ENABLE_DOCS_FALSE@DIST_SUBDIRS = $(SUBDIRS) doc
+ @ENABLE_DOCS_TRUE@DIST_SUBDIRS = $(SUBDIRS)
+ AUTOMAKE_OPTIONS = dist-bzip2
+@@ -873,8 +871,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-data-local install-pkgconfigDATA \
+-	install-xmlDATA
++install-data-am: install-pkgconfigDATA
+ 
+ install-dvi: install-dvi-recursive
+ 

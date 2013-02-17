@@ -7,4 +7,4 @@ BUILDDIR=libbluray
 
 STATICLIBS="libbluray"
 
-distclean && pkg_build
+distclean && pkg_build && distclean
