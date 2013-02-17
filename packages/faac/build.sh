@@ -6,9 +6,10 @@ BASEURL=http://downloads.sourceforge.net/project/faac/faac-src/faac-1.28
 
 . $(dirname $0)/../functions.sh
 
-# headers only
-#CONFOPTS="--with-mp4v2=no"
-#pkg_build && pkg_clean
+# for binary dll
+# configure with --with-mp3v2=no
+# go into libfaac and make
+# then ${HOST}-dllwrap -d libfaac.def --dllname libfaac.dll .libs/libfaac.a
 
 pkg_unpack
 install -m644 ${BUILDDIR}/include/faac.h ${PREFIX}/include/faac.h
