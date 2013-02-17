@@ -1,2 +1,2 @@
 version=3
-http://fribidi.org/download/fribidi-(.*)\.tar\.gz
+http://fribidi.org/download/fribidi-([\d|\.]*)\.tar\.[g|b]z2*
