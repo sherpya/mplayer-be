@@ -1,2 +1,3 @@
 version=3
-ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-([\d|\.]*)\.tar\.gz
+#http://sf.net/libpng/libpng-([\d|\.]*)\.tar\.gz
+http://sf.net/libpng/libpng-(1\.5\.[\d|\.]*)\.tar\.gz
