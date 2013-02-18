@@ -48,6 +48,7 @@ configure()
         --enable-libfreetype        \
         --enable-libmp3lame         \
         --enable-libvorbis          \
+        --enable-libxavs            \
         --enable-zlib               \
         --enable-bzlib              \
         --enable-libxvid            \

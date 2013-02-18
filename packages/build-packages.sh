@@ -49,5 +49,6 @@ opencore-amr
 SDL
 twolame
 x264
+xavs
 xvidcore
 EOF
