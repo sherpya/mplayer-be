@@ -1,7 +1,7 @@
-From 1e50bf428ae53fa63417ccffd9d16fa7740bd216 Mon Sep 17 00:00:00 2001
+From 917335496d320fcc1966beab5701140acea910e9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:08:08 +0100
-Subject: [PATCH 2/5] no Werror on implicit-function-declaration and
+Subject: [PATCH 2/6] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---
