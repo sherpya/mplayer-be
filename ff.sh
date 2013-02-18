@@ -37,6 +37,7 @@ configure()
         --enable-gpl                \
         --enable-version3           \
         --enable-avfilter           \
+        --enable-avresample         \
         --enable-pthreads           \
         --enable-runtime-cpudetect  \
         --enable-hardcoded-tables   \
