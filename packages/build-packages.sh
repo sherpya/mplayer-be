@@ -26,6 +26,7 @@ fontconfig
 fribidi
 harfbuzz
 lame
+libmodplug
 libass
 libregif
 libbluray

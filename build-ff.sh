@@ -10,7 +10,7 @@ case "$product" in
         NAME="FFmpeg"
         PROGRAM="ffmpeg"
         PROGRAMS="ffprobe"
-        CUSTOMOPTS="--disable-ffplay --disable-ffserver --enable-postproc --enable-libtwolame"
+        CUSTOMOPTS="--disable-ffplay --disable-ffserver --enable-postproc --enable-libtwolame --enable-libmodplug"
         ;;
     libav)
         NAME="Libav"
@@ -26,10 +26,12 @@ source="${packagedir}/$product-$version-src.tar.xz"
 
 configure()
 {
-    ./configure --cross-prefix=${CROSS_PREFIX} \
+    ./configure --cross-prefix=${CROSS_PREFIX}  \
+        --extra-ldflags="-static"   \
         --arch=x86                  \
         --target-os=mingw32         \
         --enable-cross-compile      \
+        --enable-static             \
         --extra-version=Sherpya     \
         --enable-gpl                \
         --enable-version3           \
