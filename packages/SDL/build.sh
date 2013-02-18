@@ -9,5 +9,6 @@ BASEURL=http://www.libsdl.org/release
 depends lib/libiconv.a
 
 STATICLIBS="libSDL libSDLmain"
+CONFOPTS="--disable-stdio-redirect"
 
 pkg_build && pkg_clean

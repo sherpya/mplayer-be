@@ -1,0 +1,12 @@
+diff -ur SDL-1.2.15.orig/configure SDL-1.2.15/configure
+--- SDL-1.2.15.orig/configure	2012-01-19 07:30:12.000000000 +0100
++++ SDL-1.2.15/configure	2013-02-18 06:39:54.045410891 +0100
+@@ -29824,7 +29824,7 @@
+         SDLMAIN_SOURCES="$srcdir/src/main/win32/*.c"
+         SDLMAIN_LDFLAGS="-static"
+         SDL_CFLAGS="$SDL_CFLAGS -Dmain=SDL_main"
+-        SDL_LIBS="-lmingw32 -lSDLmain $SDL_LIBS -mwindows"
++        SDL_LIBS="-lmingw32 -lSDLmain $SDL_LIBS"
+         ;;
+     *-wince*)
+         ARCH=win32
