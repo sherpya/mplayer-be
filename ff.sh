@@ -5,18 +5,43 @@
 product=$(basename $(pwd))
 version=$(./version.sh)
 
+CONFIGURE_OPTS=""
+
+add_opt()
+{
+    CONFIGURE_OPTS="${CONFIGURE_OPTS} $1"
+}
+
+enable()
+{
+    add_opt --enable-$1
+}
+
+disable()
+{
+    add_opt --disable-$1
+}
+
 case "$product" in 
     ffmpeg)
         NAME="FFmpeg"
         PROGRAM="ffmpeg"
         PROGRAMS="ffprobe"
-        CUSTOMOPTS="--disable-ffplay --disable-ffserver --enable-postproc --enable-libtwolame --enable-libmodplug"
+        disable ffplay
+        disable ffserver
+        enable postproc
+        enable fontconfig
+        enable libass
+        enable libbluray
+        enable libmodplug
+        enable libtwolame
         ;;
     libav)
         NAME="Libav"
         PROGRAM="avconv"
         PROGRAMS="avprobe"
-        CUSTOMOPTS="--disable-avplay --disable-avserver"
+        disable avplay
+        disable avserver
         ;;
 esac
 
@@ -27,38 +52,44 @@ source="${packagedir}/$product-$version-src.tar.xz"
 
 configure()
 {
-    ./configure --cross-prefix=${CROSS_PREFIX}  \
-        --extra-ldflags="-static"   \
-        --arch=x86                  \
-        --target-os=mingw32         \
-        --enable-cross-compile      \
-        --enable-static             \
-        --extra-version=Sherpya     \
-        --enable-gpl                \
-        --enable-version3           \
-        --enable-avfilter           \
-        --enable-avresample         \
-        --enable-pthreads           \
-        --enable-runtime-cpudetect  \
-        --enable-hardcoded-tables   \
-        --enable-memalign-hack      \
-        --enable-avisynth           \
-        --enable-libopencore-amrnb  \
-        --enable-libopencore-amrwb  \
-        --enable-libtheora          \
-        --enable-libfreetype        \
-        --enable-libmp3lame         \
-        --enable-libvorbis          \
-        --enable-libxavs            \
-        --enable-zlib               \
-        --enable-bzlib              \
-        --enable-libxvid            \
-        --enable-libx264            \
-        --enable-libspeex           \
-        --enable-libvpx             \
-        --enable-libfaac            \
-        ${CUSTOMOPTS}               \
-        $*
+    add_opt --cross-prefix=${CROSS_PREFIX}
+    add_opt --extra-ldflags=-static
+    add_opt --arch=x86
+    add_opt --target-os=mingw32
+    add_opt --extra-version=Sherpya
+
+    enable gpl
+    enable version3
+
+    enable cross-compile
+    enable runtime-cpudetect
+    enable hardcoded-tables
+    enable memalign-hack
+
+    enable avfilter
+    enable avresample
+    enable pthreads
+
+    enable avisynth
+    enable bzlib
+    enable libfaac
+    enable libfreetype
+    enable libgsm
+    enable libilbc
+    enable libmp3lame
+    enable libopencore-amrnb
+    enable libopencore-amrwb
+    enable libopus
+    enable libspeex
+    enable libtheora
+    enable libvorbis
+    enable libvpx
+    enable libx264
+    enable libxavs
+    enable libxvid
+    enable zlib
+
+    ./configure ${CONFIGURE_OPTS} $*
 }
 
 make_dist()

@@ -8,40 +8,84 @@ version=r${version}+g${gitrev}
 packagedir="${PKGDIR}/MPlayer and MEncoder/${version}"
 source="${packagedir}/mplayer-$version-src.tar.xz"
 
+CONFIGURE_OPTS=""
+
+add_opt()
+{
+    CONFIGURE_OPTS="${CONFIGURE_OPTS} $1"
+}
+
+enable()
+{
+    add_opt --enable-$1
+}
+
+disable()
+{
+    add_opt --disable-$1
+}
+
 configure()
 {
-    ./configure                             \
-        --prefix=/invalid                   \
-        --enable-cross-compile              \
-        --enable-runtime-cpudetection       \
-        --host-cc=gcc                       \
-        --cc=${CROSS_PREFIX}gcc             \
-        --as=${CROSS_PREFIX}as              \
-        --ar=${CROSS_PREFIX}ar              \
-        --nm=${CROSS_PREFIX}nm              \
-        --ranlib=${CROSS_PREFIX}ranlib      \
-        --windres=${CROSS_PREFIX}windres    \
-        --enable-static                     \
-        --enable-md5sum                     \
-        --enable-menu                       \
-        --enable-enca                       \
-        --enable-sdl                        \
-        --enable-caca                       \
-        --enable-gl                         \
-        --enable-freetype                   \
-        --enable-png                        \
-        --enable-jpeg                       \
-        --enable-gif                        \
-        --enable-tga                        \
-        --enable-mad                        \
-        --enable-tv                         \
-        --enable-theora                     \
-        --enable-faac                       \
-        --disable-vidix                     \
-        --disable-faac-lavc                 \
-        --disable-inet6                     \
-        --extra-cflags="-I${CROSS_ROOT}/live" \
-        $*
+    add_opt --prefix=/invalid
+    add_opt --host-cc=gcc
+    add_opt --cc=${CROSS_PREFIX}gcc
+    add_opt --as=${CROSS_PREFIX}as
+    add_opt --ar=${CROSS_PREFIX}ar
+    add_opt --nm=${CROSS_PREFIX}nm
+    add_opt --ranlib=${CROSS_PREFIX}ranlib
+    add_opt --windres=${CROSS_PREFIX}windres
+
+    enable cross-compile
+    enable runtime-cpudetection
+    enable static
+    enable postproc
+    # pthreads (auto)
+
+    enable sdl
+    enable caca
+    disable vidix
+    disable inet6
+
+    # iconv (auto)
+    enable fribidi
+    enable enca
+
+    enable freetype
+    enable fontconfig
+
+    enable menu
+    enable bluray
+
+    # live (auto)
+    add_opt --extra-cflags="-I${CROSS_ROOT}/live"
+
+    enable gif
+    enable png
+    enable jpeg
+    enable liblzo
+
+    # xvid (auto)
+    # x264 (auto)
+
+    # libvorbis (auto)
+    enable speex
+    enable theora
+    enable faac
+    disable faac-lavc
+
+    enable libgsm
+    enable libilbc
+    enable libopus
+    enable libopencore_amrnb
+    enable libopencore_amrwb
+
+    enable mad
+    enable mp3lame
+    enable twolame
+    # libdca (auto)
+
+    ./configure ${CONFIGURE_OPTS} $*
 }
 
 copy_data()
