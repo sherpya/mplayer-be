@@ -2,9 +2,9 @@
 
 . $(dirname $0)/../functions.sh
 
-case ${HOST} in
-    i?86-*-mingw32) VPX_TARGET=x86-win32-gcc ;;
-    x86_64-*-mingw32) VPX_TARGET=x86_64-win64-gcc ;;
+case ${ARCH} in
+    x86) VPX_TARGET=x86-win32-gcc ;;
+    x86_64) VPX_TARGET=x86_64-win64-gcc ;;
 esac
 
 BUILDDIR=libvpx

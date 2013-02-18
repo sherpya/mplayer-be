@@ -4,14 +4,8 @@
 
 shopt -s nullglob
 
-MAKEOPTS=-j$(cat /proc/cpuinfo | grep "^processor" | wc -l)
 FILENAME=${PACKAGE}-${VERSION}.${EXT}
 BUILDDIR=${PACKAGE}-${VERSION}
-
-case ${HOST} in
-    i?86-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=i486" ;;
-    x86_64-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=x86-64" ;;
-esac
 
 sanity_check()
 {
