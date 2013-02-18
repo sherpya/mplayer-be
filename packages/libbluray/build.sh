@@ -4,6 +4,7 @@
 
 CONFOPTS="--enable-examples=no"
 BUILDDIR=libbluray
+GIT_REPO="git://git.videolan.org/libbluray.git"
 
 STATICLIBS="libbluray"
 

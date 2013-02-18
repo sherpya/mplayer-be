@@ -5,6 +5,7 @@
 CONFOPTS="--cross-prefix=${HOST}-"
 
 BUILDDIR=x264
+GIT_REPO="git://git.videolan.org/x264.git"
 
 pkg_make_target()
 {

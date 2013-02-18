@@ -51,6 +51,16 @@ pkg_download()
 
 pkg_unpack()
 {
+    if [ -n "${GIT_REPO}" ]; then
+        test -d ${BUILDDIR}/.git || ( git clone ${GIT_REPO} ${BUILDDIR} || return 1 )
+        return 0
+    fi
+
+    if [ -n "${SVN_REPO}" ]; then
+        test -d ${BUILDDIR}/.svn || ( svn co ${SVN_REPO} ${BUILDDIR} || return 1 )
+        return 0
+    fi
+
     test -z ${BASEURL} && return
     test -d ${FILENAME} || pkg_download
 
@@ -72,7 +82,14 @@ pkg_unpack()
 
 pkg_configure()
 {
-    test -x configure || return 0
+    if [ ! -x configure ]; then
+        if [ -e configure.ac -o -e configure.in ]; then
+            autoreconf -fi
+            rm -fr autom4te.cache
+        else
+            return 0
+        fi
+    fi
 
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
@@ -92,6 +109,8 @@ pkg_make_target()
 
 apply_patches()
 {
+    test -d ${BUILDDIR} || return 0
+
     for p in patches/*; do
         patch -p0 -N < $p
     done
@@ -164,11 +183,13 @@ pkg_build()
 
 git_clean()
 {
-    ( cd ${BUILDDIR} && git clean -dfx )
+    test -d ${BUILDDIR} || return 0
+    ( cd ${BUILDDIR} && git clean -qdfx )
 }
 
 distclean()
 {
+    test -d ${BUILDDIR} || return 0
     ( cd ${BUILDDIR} && ( make distclean > /dev/null 2>&1 || true ) )
 }
 

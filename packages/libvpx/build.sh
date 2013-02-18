@@ -8,6 +8,7 @@ case ${HOST} in
 esac
 
 BUILDDIR=libvpx
+GIT_REPO="http://git.chromium.org/webm/libvpx.git"
 
 pkg_configure()
 {
@@ -19,4 +20,4 @@ pkg_configure()
         --disable-examples
 }
 
-git_clean && pkg_build
+git_clean && pkg_build && git_clean
