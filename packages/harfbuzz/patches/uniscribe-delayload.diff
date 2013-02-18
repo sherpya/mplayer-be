@@ -1,0 +1,81 @@
+diff --git a/src/hb-uniscribe.cc b/src/hb-uniscribe.cc
+index 2f01c28..93bce52 100644
+--- a/src/hb-uniscribe.cc
++++ b/src/hb-uniscribe.cc
+@@ -240,6 +240,11 @@ _hb_uniscribe_shape (hb_shape_plan_t    *shape_plan,
+   hb_face_t *face = font->face;
+   hb_uniscribe_shaper_face_data_t *face_data = HB_SHAPER_DATA_GET (face);
+   hb_uniscribe_shaper_font_data_t *font_data = HB_SHAPER_DATA_GET (font);
++  SIOT siot;
++  SSOT ssot;
++  SPOT spot;
++  HINSTANCE hinstLib = LoadLibrary("usp10.dll");
++    
+ 
+ #define FAIL(...) \
+   HB_STMT_START { \
+@@ -249,6 +254,21 @@ _hb_uniscribe_shape (hb_shape_plan_t    *shape_plan,
+ 
+   HRESULT hr;
+ 
++  if (hinstLib == NULL)
++    FAIL ("LoadLibrary(\"usp10.dll\") failed:", NULL);
++  
++  siot = (SIOT)GetProcAddress(hinstLib, "ScriptItemizeOpenType");
++  if (siot == NULL)
++    FAIL ("GetProcAddress(\"ScriptItemizeOpenType\") failed:", NULL);
++  
++  ssot = (SSOT)GetProcAddress(hinstLib, "ScriptShapeOpenType");
++  if (ssot == NULL)
++    FAIL ("GetProcAddress(\"ScriptShapeOpenType\") failed:", NULL);
++  
++  spot = (SPOT)GetProcAddress(hinstLib, "ScriptPlaceOpenType");
++  if (ssot == NULL)
++    FAIL ("GetProcAddress(\"ScriptPlaceOpenType\") failed:", NULL);
++  
+ retry:
+ 
+   unsigned int scratch_size;
+@@ -312,7 +332,7 @@ retry:
+   bidi_state.uBidiLevel = HB_DIRECTION_IS_FORWARD (buffer->props.direction) ? 0 : 1;
+   bidi_state.fOverrideDirection = 1;
+ 
+-  hr = ScriptItemizeOpenType (wchars,
++  hr = siot (wchars,
+ 			      chars_len,
+ 			      MAX_ITEMS,
+ 			      &bidi_control,
+@@ -344,7 +364,7 @@ retry:
+     unsigned int item_chars_len = items[i + 1].iCharPos - chars_offset;
+ 
+   retry_shape:
+-    hr = ScriptShapeOpenType (font_data->hdc,
++    hr = ssot (font_data->hdc,
+ 			      &font_data->script_cache,
+ 			      &items[i].a,
+ 			      script_tags[i],
+@@ -386,7 +406,7 @@ retry:
+     for (unsigned int j = chars_offset; j < chars_offset + item_chars_len; j++)
+       log_clusters[j] += glyphs_offset;
+ 
+-    hr = ScriptPlaceOpenType (font_data->hdc,
++    hr = spot (font_data->hdc,
+ 			      &font_data->script_cache,
+ 			      &items[i].a,
+ 			      script_tags[i],
+diff --git a/src/hb-uniscribe.h b/src/hb-uniscribe.h
+index 51887c8..b7e55e2 100644
+--- a/src/hb-uniscribe.h
++++ b/src/hb-uniscribe.h
+@@ -33,6 +33,11 @@
+ #define _WIN32_WINNT 0x0600
+ #endif
+ #include <windows.h>
++#include <usp10.h>
++
++typedef HRESULT WINAPI (*SIOT)(const WCHAR*,int,int,const SCRIPT_CONTROL*,const SCRIPT_STATE*,SCRIPT_ITEM*,OPENTYPE_TAG*,int*);
++typedef HRESULT WINAPI (*SSOT)(HDC,SCRIPT_CACHE*,SCRIPT_ANALYSIS*,OPENTYPE_TAG,OPENTYPE_TAG,int*,TEXTRANGE_PROPERTIES**,int,const WCHAR*,int,int,WORD*,SCRIPT_CHARPROP*,WORD*,SCRIPT_GLYPHPROP*,int*);
++typedef HRESULT WINAPI (*SPOT)(HDC,SCRIPT_CACHE*,SCRIPT_ANALYSIS*,OPENTYPE_TAG,OPENTYPE_TAG,int*,TEXTRANGE_PROPERTIES**,int,const WCHAR*,const WORD*,const SCRIPT_CHARPROP*,int,const WORD*,const SCRIPT_GLYPHPROP*,int,int*,GOFFSET*,ABC*);
+ 
+ HB_BEGIN_DECLS
+ 

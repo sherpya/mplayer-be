@@ -105,8 +105,8 @@ apply_patches()
 {
     test -d ${BUILDDIR} || return 0
 
-    for p in patches/*; do
-        patch -p0 -N < $p
+    for p in $(pwd)/patches/*; do
+        ( cd ${BUILDDIR} && patch -p1 < $p )
     done
 }
 

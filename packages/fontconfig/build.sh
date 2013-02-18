@@ -1,6 +1,6 @@
 #!/bin/sh
 PACKAGE=fontconfig
-VERSION=2.10.91
+VERSION=2.10.2
 EXT=tar.bz2
 BASEURL=http://www.freedesktop.org/software/fontconfig/release
 
@@ -12,5 +12,7 @@ depends lib/libfreetype.a
 depends lib/libexpat.a
 
 STATICLIBS="libfontconfig"
+
+export ac_cv_func__mktemp_s=no
 
 pkg_build && pkg_clean
