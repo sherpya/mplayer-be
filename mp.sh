@@ -55,7 +55,6 @@ configure()
     enable fontconfig
 
     enable menu
-    enable bluray
 
     # live (auto)
     add_opt --extra-cflags="-I${CROSS_ROOT}/live"

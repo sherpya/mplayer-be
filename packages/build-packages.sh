@@ -24,12 +24,10 @@ freetype
 libpng
 fontconfig
 fribidi
-harfbuzz
 lame
 libmodplug
 libass
 libregif
-libbluray
 libcaca
 libdca
 libgsm

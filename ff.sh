@@ -32,7 +32,6 @@ case "$product" in
         enable postproc
         enable fontconfig
         enable libass
-        enable libbluray
         enable libmodplug
         enable libtwolame
         ;;
