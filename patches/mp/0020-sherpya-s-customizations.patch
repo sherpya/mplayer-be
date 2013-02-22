@@ -1,7 +1,7 @@
-From 0df4de609173225331b050b5e2735ed6cdd42fee Mon Sep 17 00:00:00 2001
+From 2d4251a525116e84d8538156cd8d2eeb285ddbb9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 20/20] sherpya's customizations
+Subject: [PATCH 20/21] sherpya's customizations
 
 ---
  Makefile         |    5 +++++
@@ -41,7 +41,7 @@ index a806dbd..1f8f969 100644
  config.mak: configure
  	@echo "############################################################"
 diff --git a/configure b/configure
-index e0dc901..db7deea 100755
+index 5585e1c..049f307 100755
 --- a/configure
 +++ b/configure
 @@ -51,13 +51,13 @@ fi
@@ -60,7 +60,7 @@ index e0dc901..db7deea 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1726,6 +1726,7 @@ fi
+@@ -1750,6 +1750,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes

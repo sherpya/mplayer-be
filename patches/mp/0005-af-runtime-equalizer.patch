@@ -1,7 +1,7 @@
-From 3c4ced58b6a383db3917cf9bcf5475f13f452399 Mon Sep 17 00:00:00 2001
+From 7a99a8f3ee6712a027be917ad680c9e457742aa5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 05/20] af: runtime equalizer
+Subject: [PATCH 05/21] af: runtime equalizer
 
 ---
  DOCS/tech/slave.txt  |    5 +++++
