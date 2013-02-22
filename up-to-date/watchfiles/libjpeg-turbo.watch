@@ -1,0 +1,2 @@
+version=3
+http://sf.net/libjpeg-turbo/libjpeg-turbo-(\d+\.\d+\.[012345678]+)\.tar\.gz
