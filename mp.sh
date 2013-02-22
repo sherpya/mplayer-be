@@ -78,6 +78,7 @@ configure()
     enable libopus
     enable libopencore_amrnb
     enable libopencore_amrwb
+    enable libmodplug
 
     enable mad
     enable mp3lame
