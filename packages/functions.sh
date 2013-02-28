@@ -113,6 +113,7 @@ apply_patches()
     test -d ${BUILDDIR} || return 0
 
     for p in $(pwd)/patches/*; do
+        echo "- Appling $(basename $p)"
         ( cd ${BUILDDIR} && patch -p1 < $p )
     done
 }
