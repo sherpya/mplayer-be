@@ -170,6 +170,8 @@ build_source()
     echo "Generating $source"
     distclean
 
+    ( cd ffmpeg && git pull --rebase --ff-only )
+
     echo -n "Building $source ..."
     echo sherpya-$version > VERSION
     mkdir -p "${packagedir}"
