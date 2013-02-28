@@ -177,6 +177,7 @@ pkg_build()
 
     ( cd ${BUILDDIR} && pkg_configure ) || return 1
     ( cd ${BUILDDIR} && ln_to_cp )
+    test -n "${C}" && exit 0
     ( cd ${BUILDDIR} && pkg_make_target ) || return 1
 
     fix_la
