@@ -44,7 +44,7 @@ libvpx
 live555
 lzo
 opencore-amr
-SDL
+libsdl
 twolame
 x264
 xavs
