@@ -110,6 +110,7 @@ pkg_make_target()
 
 apply_patches()
 {
+    test -z "${NP}" || return 0
     test -d ${BUILDDIR} || return 0
 
     for p in $(pwd)/patches/*; do
