@@ -1,6 +1,6 @@
 diff -ur gsm-1.0-pl13.orig/Makefile gsm-1.0-pl13/Makefile
 --- gsm-1.0-pl13.orig/Makefile	2006-04-26 21:14:26.000000000 +0200
-+++ gsm-1.0-pl13/Makefile	2013-02-06 04:52:02.274323473 +0100
++++ gsm-1.0-pl13/Makefile	2013-02-28 04:47:15.617680664 +0100
 @@ -43,8 +43,8 @@
  # CC		= /usr/lang/acc
  # CCFLAGS 	= -c -O
@@ -19,7 +19,8 @@ diff -ur gsm-1.0-pl13.orig/Makefile gsm-1.0-pl13/Makefile
 -AR		= ar
 +AR		?= ar
  ARFLAGS		= cr
- RMFLAGS		=
+-RMFLAGS		=
++RMFLAGS		= -f
  FIND		= find
  COMPRESS 	= compress
  COMPRESSFLAGS 	= 
