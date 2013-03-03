@@ -44,6 +44,9 @@ case "$product" in
         ;;
 esac
 
+config bzlib
+config zlib
+
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
 package="${packagedir}/${packagename}.7z"
@@ -70,7 +73,6 @@ configure()
     enable pthreads
 
     enable avisynth
-    enable bzlib
     enable libfaac
     enable libfreetype
     enable libgsm
@@ -86,9 +88,9 @@ configure()
     enable libx264
     enable libxavs
     enable libxvid
-    enable zlib
 
-    ./configure ${CONFIGURE_OPTS} $*
+    ./configure ${CONFIGURE_OPTS} $* || return 1
+    check_components || return 1
 }
 
 make_dist()

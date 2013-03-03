@@ -8,6 +8,42 @@ version=r${version}+g${gitrev}
 packagedir="${PKGDIR}/MPlayer and MEncoder/${version}"
 source="${packagedir}/mplayer-$version-src.tar.xz"
 
+have yasm
+have pthreads
+
+config iconv
+config caca
+config png
+config jpeg
+config gif
+config sdl
+config dvdread
+config freetype
+config fontconfig
+config fribidi
+config enca
+config zlib
+config bzlib
+config liblzo
+config libmad
+config twolame
+config oggvorbis
+config speex
+config libgsm
+config oggtheora
+config libdca
+config libilbc
+config libopus
+config libbs2b
+config live555
+config libopencore_amrnb
+config libopencore_amrwb
+config libmodplug
+config libxvid
+config libx264
+config mp3lame
+config dvdnav
+
 CONFIGURE_OPTS=""
 
 add_opt()
@@ -40,52 +76,18 @@ configure()
     enable runtime-cpudetection
     enable static
     enable postproc
-    # pthreads (auto)
 
-    enable sdl
-    enable caca
     disable vidix
     disable inet6
 
-    # iconv (auto)
-    enable fribidi
-    enable enca
-
-    enable freetype
-    enable fontconfig
-
     enable menu
-
-    # live (auto)
-    add_opt --extra-cflags="-I${CROSS_ROOT}/live"
-
-    enable gif
-    enable png
-    enable jpeg
-    enable liblzo
-
-    # xvid (auto)
-    # x264 (auto)
-
-    # libvorbis (auto)
-    enable speex
-    enable theora
     enable faac
     disable faac-lavc
 
-    enable libgsm
-    enable libilbc
-    enable libopus
-    enable libopencore_amrnb
-    enable libopencore_amrwb
-    enable libmodplug
+    add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
-    enable mad
-    enable mp3lame
-    enable twolame
-    # libdca (auto)
-
-    ./configure ${CONFIGURE_OPTS} $*
+    ./configure ${CONFIGURE_OPTS} $* || return 1
+    check_components || return 1
 }
 
 copy_data()
