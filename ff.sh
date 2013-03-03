@@ -74,6 +74,7 @@ configure()
     enable pthreads
 
     enable avisynth
+    enable libcdio
     enable libfaac
     enable libfreetype
     enable libgsm

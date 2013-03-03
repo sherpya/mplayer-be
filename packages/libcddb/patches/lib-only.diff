@@ -1,0 +1,12 @@
+diff -ur libcddb-1.3.2.orig/Makefile.in libcddb-1.3.2/Makefile.in
+--- libcddb-1.3.2.orig/Makefile.in	2009-04-07 00:57:20.000000000 +0200
++++ libcddb-1.3.2/Makefile.in	2013-03-03 08:53:16.956885941 +0100
+@@ -202,7 +202,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ with_iconv = @with_iconv@
+-SUBDIRS = include lib examples tests
++SUBDIRS = include lib
+ EXTRA_DIST = doc/doxygen.conf misc/$(PACKAGE).ebuild
+ 
+ # pkg-config(1) related rules

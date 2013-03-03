@@ -18,6 +18,7 @@ config jpeg
 config gif
 config sdl
 config dvdread
+config libcdio
 config freetype
 config fontconfig
 config fribidi

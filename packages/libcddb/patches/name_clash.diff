@@ -1,0 +1,11 @@
+diff -ur libcddb-1.3.2.orig/include/cddb/cddb_conn.h libcddb-1.3.2/include/cddb/cddb_conn.h
+--- libcddb-1.3.2.orig/include/cddb/cddb_conn.h	2009-03-01 04:28:07.000000000 +0100
++++ libcddb-1.3.2/include/cddb/cddb_conn.h	2013-03-03 08:39:08.948865787 +0100
+@@ -59,6 +59,7 @@
+  * Which fields to use for the full text search is defined by one or
+  * more of the constants below.
+  */
++#undef SEARCH_ALL // name clash in winioctl.h
+ typedef enum {
+     SEARCH_NONE = 0,            /**< no fields */
+     SEARCH_ARTIST = 1,          /**< artist name field */

@@ -1,0 +1,12 @@
+diff -ur libcdio-paranoia-10.2+0.90.orig/Makefile.in libcdio-paranoia-10.2+0.90/Makefile.in
+--- libcdio-paranoia-10.2+0.90.orig/Makefile.in	2012-10-28 00:46:05.000000000 +0200
++++ libcdio-paranoia-10.2+0.90/Makefile.in	2013-03-03 09:24:20.712930236 +0100
+@@ -315,7 +315,7 @@
+ 	make-check-filter.rb \
+ 	example/README
+ 
+-SUBDIRS = doc include lib src test example
++SUBDIRS = include lib
+ paranoiapcs = libcdio_paranoia.pc libcdio_cdda.pc
+ 
+ # pkg-config(1) related rules

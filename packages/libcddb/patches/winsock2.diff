@@ -1,0 +1,25 @@
+diff -ur libcddb-1.3.2.orig/include/cddb/cddb_ni.h libcddb-1.3.2/include/cddb/cddb_ni.h
+--- libcddb-1.3.2.orig/include/cddb/cddb_ni.h	2009-03-01 04:28:07.000000000 +0100
++++ libcddb-1.3.2/include/cddb/cddb_ni.h	2013-03-03 08:33:50.916858228 +0100
+@@ -37,10 +37,6 @@
+    typedef void *iconv_t;       /* for code uniformity */
+ #endif
+ 
+-#ifdef HAVE_WINDOWS_H
+-#include <windows.h>
+-#endif
+-
+ #ifdef HAVE_WINSOCK2_H
+ #include <winsock2.h>
+ #ifndef ETIMEDOUT
+@@ -54,6 +50,10 @@
+ #endif
+ #endif
+ 
++#ifdef HAVE_WINDOWS_H
++#include <windows.h>
++#endif
++
+ #include "cddb/cddb_regex.h"
+ #include "cddb/cddb.h"
+ #include "cddb/cddb_conn_ni.h"
