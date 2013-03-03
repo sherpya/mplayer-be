@@ -1,15 +1,15 @@
-From 6dcedc0a30d646db798b1f32cc5d5b5352a5f022 Mon Sep 17 00:00:00 2001
+From 8184f9a4f94bb3ee35615d13a7fec8e9b84ca4d4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
 Subject: [PATCH 02/21] af: winamp dsp audio filter
 
 ---
  Makefile         |    1 +
- libaf/af.c       |    6 ++
- libaf/af_wadsp.c |  307 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
- libaf/af_wadsp.h |   61 +++++++++++
- libaf/control.h  |    6 ++
- 5 files changed, 381 insertions(+)
+ libaf/af.c       |    6 +
+ libaf/af_wadsp.c |  323 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ libaf/af_wadsp.h |   76 +++++++++++++
+ libaf/control.h  |    6 +
+ 5 files changed, 412 insertions(+)
  create mode 100644 libaf/af_wadsp.c
  create mode 100644 libaf/af_wadsp.h
 
@@ -51,19 +51,35 @@ index fa9e773..9e6a84b 100644
  
 diff --git a/libaf/af_wadsp.c b/libaf/af_wadsp.c
 new file mode 100644
-index 0000000..2cd0dad
+index 0000000..8d00832
 --- /dev/null
 +++ b/libaf/af_wadsp.c
-@@ -0,0 +1,307 @@
+@@ -0,0 +1,323 @@
 +/*
 + * Winamp DSP plugin audio filter - This code only works on Win32
-+ * License: GPL
++ *
 + * Copyright (c) 2005,06 Stanley Huang <stanleyhuangyc@yahoo.com.cn>
 + * Copyright (c) 2005 Erik Augustson <erik_27can@yahoo.com>
 + * Copyright (c) 2005-2009 Gianluigi Tiesi <sherpya@netfarm.it>
 + *
 + * 11/17/2009 - fixed code to work with current svn, cleanups
++ * 03/03/2013 - Stanley Huang acknowledged GPLv2 licensing
 + *
++ * This file is part of MPlayer.
++ *
++ * MPlayer is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * MPlayer is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License along
++ * with MPlayer; if not, write to the Free Software Foundation, Inc.,
++ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 + */
 +
 +#ifdef _WIN32
@@ -364,19 +380,32 @@ index 0000000..2cd0dad
 +#endif /* _WIN32 */
 diff --git a/libaf/af_wadsp.h b/libaf/af_wadsp.h
 new file mode 100644
-index 0000000..909f1e6
+index 0000000..f57abd9
 --- /dev/null
 +++ b/libaf/af_wadsp.h
-@@ -0,0 +1,61 @@
+@@ -0,0 +1,76 @@
 +/*
 + * Winamp DSP plugin audio filter
-+ * License: GPL
++ *
 + * Copyright (c) 2005,06 Stanley Huang <stanleyhuangyc@yahoo.com.cn>
 + * Copyright (c) 2005 Erik Augustson <erik_27can@yahoo.com>
 + * Copyright (c) 2005-2009 Gianluigi Tiesi <sherpya@netfarm.it>
-+ * This code only works on Win32/MinGW
 + *
-+ * Winamp DSP API Copyright (c) NullSoft
++ * This file is part of MPlayer.
++ *
++ * MPlayer is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * MPlayer is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License along
++ * with MPlayer; if not, write to the Free Software Foundation, Inc.,
++ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 + */
 +
 +#ifndef _AF_WADSP_H_
@@ -384,7 +413,9 @@ index 0000000..909f1e6
 +
 +#include <windows.h>
 +
-+/* DSP plugin interface
++/*
++    Winamp DSP API Copyright (c) NullSoft
++    DSP plugin interface
 +
 +    notes:
 +    any window that remains in foreground should optimally pass unused

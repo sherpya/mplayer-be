@@ -1,4 +1,4 @@
-From 4df33cfd88456dfbf88b0b259de9faa0a5805792 Mon Sep 17 00:00:00 2001
+From 64d419241fde60610c1b6cf8e7679b768b2cab07 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:20:15 +0100
 Subject: [PATCH 07/21] replaced some signed char with unsigned char to fix
