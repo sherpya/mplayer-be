@@ -54,6 +54,7 @@ source="${packagedir}/$product-$version-src.tar.xz"
 
 configure()
 {
+    add_opt --prefix=/invalid
     add_opt --cross-prefix=${CROSS_PREFIX}
     add_opt --extra-ldflags=-static
     add_opt --arch=x86
