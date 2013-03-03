@@ -1,0 +1,12 @@
+diff -ur libbs2b-3.1.0.orig/src/Makefile.in libbs2b-3.1.0/src/Makefile.in
+--- libbs2b-3.1.0.orig/src/Makefile.in	2009-06-04 20:17:13.000000000 +0200
++++ libbs2b-3.1.0/src/Makefile.in	2013-03-03 05:13:32.924572603 +0100
+@@ -34,7 +34,7 @@
+ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+-bin_PROGRAMS = bs2bconvert$(EXEEXT) bs2bstream$(EXEEXT)
++bin_PROGRAMS = 
+ subdir = src
+ DIST_COMMON = $(bs2b_HEADERS) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in

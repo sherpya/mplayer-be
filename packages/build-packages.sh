@@ -25,6 +25,7 @@ libpng
 fontconfig
 fribidi
 lame
+libbs2b
 libmodplug
 libass
 libregif
