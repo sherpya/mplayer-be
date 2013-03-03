@@ -1,0 +1,24 @@
+diff -ur flac-1.2.1.orig/src/libFLAC/bitreader.c flac-1.2.1/src/libFLAC/bitreader.c
+--- flac-1.2.1.orig/src/libFLAC/bitreader.c	2007-09-11 06:48:55.000000000 +0200
++++ flac-1.2.1/src/libFLAC/bitreader.c	2013-03-03 04:52:06.632542033 +0100
+@@ -40,7 +40,7 @@
+ #elif defined FLAC__SYS_DARWIN
+ #include <machine/endian.h> /* for ntohl() */
+ #elif defined __MINGW32__
+-#include <winsock.h> /* for ntohl() */
++#define ntohl __builtin_bswap32
+ #else
+ #include <netinet/in.h> /* for ntohl() */
+ #endif
+diff -ur flac-1.2.1.orig/src/libFLAC/bitwriter.c flac-1.2.1/src/libFLAC/bitwriter.c
+--- flac-1.2.1.orig/src/libFLAC/bitwriter.c	2007-09-11 01:08:38.000000000 +0200
++++ flac-1.2.1/src/libFLAC/bitwriter.c	2013-03-03 04:51:56.964541803 +0100
+@@ -40,7 +40,7 @@
+ #elif defined FLAC__SYS_DARWIN
+ #include <machine/endian.h> /* for ntohl() */
+ #elif defined __MINGW32__
+-#include <winsock.h> /* for ntohl() */
++#define ntohl __builtin_bswap32
+ #else
+ #include <netinet/in.h> /* for ntohl() */
+ #endif
