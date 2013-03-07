@@ -1,4 +1,4 @@
-From e76c58cc530a5fb04b79890089e14043d8bd6a68 Mon Sep 17 00:00:00 2001
+From 7e94f0132e575da3f1c63098af485fcd3040c82e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 03:54:17 +0100
 Subject: [PATCH 1/4] dynamic loading of shared faac library
@@ -9,10 +9,10 @@ Subject: [PATCH 1/4] dynamic loading of shared faac library
  2 files changed, 66 insertions(+), 10 deletions(-)
 
 diff --git a/configure b/configure
-index f65c53f..26ecff1 100755
+index d9708e8..c0d83f9 100755
 --- a/configure
 +++ b/configure
-@@ -3115,7 +3115,6 @@ die_license_disabled gpl libxavs
+@@ -3178,7 +3178,6 @@ die_license_disabled gpl libxavs
  die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
@@ -20,7 +20,7 @@ index f65c53f..26ecff1 100755
  die_license_disabled nonfree libfdk_aac
  die_license_disabled nonfree openssl
  
-@@ -3473,7 +3472,7 @@ done
+@@ -3536,7 +3535,7 @@ done
  enabled avisynth   && require2 vfw32 "windows.h vfw.h" AVIFileInit -lavifil32
  enabled frei0r     && { check_header frei0r.h || die "ERROR: frei0r.h header not found"; }
  enabled gnutls     && require_pkg_config gnutls gnutls/gnutls.h gnutls_global_init
