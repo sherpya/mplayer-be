@@ -1,4 +1,4 @@
-From 42e59a41da97a46068c9309a828e3cb2db12ff5c Mon Sep 17 00:00:00 2001
+From f1c33f90bd4e95fd7530819e6b3d0c1875425c4f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 6/6] programs: print version info and configuration only on
@@ -9,10 +9,10 @@ Subject: [PATCH 6/6] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/cmdutils.c b/cmdutils.c
-index 7c21176..69de29c 100644
+index 2668ee1..8d157e5 100644
 --- a/cmdutils.c
 +++ b/cmdutils.c
-@@ -1000,7 +1000,7 @@ static void print_program_info(int flags, int level)
+@@ -1011,7 +1011,7 @@ static void print_program_info(int flags, int level)
      av_log(NULL, level, "%sbuilt on %s %s with %s\n",
             indent, __DATE__, __TIME__, CC_IDENT);
  
@@ -21,7 +21,7 @@ index 7c21176..69de29c 100644
  }
  
  void show_banner(int argc, char **argv, const OptionDef *options)
-@@ -1010,8 +1010,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
+@@ -1021,8 +1021,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
          return;
  
      print_program_info (INDENT|SHOW_COPYRIGHT, AV_LOG_INFO);
