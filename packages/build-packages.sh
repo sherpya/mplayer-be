@@ -14,6 +14,7 @@ while read package; do
     popd >/dev/null
 done << EOF
 winpthreads
+dlfcn-win32
 zlib
 bzip2
 libiconv
@@ -24,6 +25,8 @@ freetype
 libpng
 fontconfig
 fribidi
+gavl
+frei0r
 lame
 libbs2b
 libmodplug
