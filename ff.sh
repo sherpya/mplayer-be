@@ -99,6 +99,7 @@ configure()
 
 make_dist()
 {
+
     echo "Build dist..."
     TMPDIR=$(mktemp -d /tmp/$product-build-XXXX)
     DISTDIR=${TMPDIR}/${packagename}
@@ -130,6 +131,9 @@ available under the GNU General Public License
 
 -- Report bugs to sherpya@netfarm.it
 EOF
+
+#    mkdir ${DISTDIR}/frei0r-1
+#    copy_data ${PREFIX}/lib/frei0r-1 ${DISTDIR}/frei0r-1
 
     mkdir -p "${packagedir}"
     ( cd ${TMPDIR} && 7z a -mx=9 "$package" ${packagename} )

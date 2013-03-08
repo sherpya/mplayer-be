@@ -63,3 +63,9 @@ EOF
     rm -f $tempfile
     return $res
 }
+
+copy_data()
+{
+    test -d "$1" || return
+    ( cd "$1" && ( find | cpio -pdvm "$2" ) )
+}

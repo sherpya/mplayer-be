@@ -91,12 +91,6 @@ configure()
     check_components || return 1
 }
 
-copy_data()
-{
-    test -d "$1" || return
-    ( cd "$1" && ( find | cpio -pdvm "$2" ) )
-}
-
 make_dist()
 {
     echo "Build dist..."
