@@ -1,0 +1,44 @@
+diff -ur regex-0.12.orig/regex.c regex-0.12/regex.c
+--- regex-0.12.orig/regex.c	1993-04-03 01:17:03.000000000 +0200
++++ regex-0.12/regex.c	2013-03-08 15:31:28.292226103 +0100
+@@ -28,6 +28,7 @@
+ 
+ /* We need this for `regex.h', and perhaps for the Emacs include files.  */
+ #include <sys/types.h>
++#include <inttypes.h>
+ 
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
+@@ -2492,10 +2493,10 @@
+   DEBUG_PRINT_COMPILED_PATTERN (bufp, pat, pend);			\
+ 									\
+   /* Restore register info.  */						\
+-  high_reg = (unsigned) POP_FAILURE_ITEM ();				\
++  high_reg = (uintptr_t) POP_FAILURE_ITEM ();				\
+   DEBUG_PRINT2 ("  Popping high active reg: %d\n", high_reg);		\
+ 									\
+-  low_reg = (unsigned) POP_FAILURE_ITEM ();				\
++  low_reg = (uintptr_t) POP_FAILURE_ITEM ();				\
+   DEBUG_PRINT2 ("  Popping  low active reg: %d\n", low_reg);		\
+ 									\
+   for (this_reg = high_reg; this_reg >= low_reg; this_reg--)		\
+@@ -3208,8 +3209,8 @@
+   unsigned num_regs = bufp->re_nsub + 1;
+   
+   /* The currently active registers.  */
+-  unsigned lowest_active_reg = NO_LOWEST_ACTIVE_REG;
+-  unsigned highest_active_reg = NO_HIGHEST_ACTIVE_REG;
++  uintptr_t lowest_active_reg = NO_LOWEST_ACTIVE_REG;
++  uintptr_t highest_active_reg = NO_HIGHEST_ACTIVE_REG;
+ 
+   /* Information on the contents of registers. These are pointers into
+      the input strings; they record just what was matched (on this
+@@ -3762,7 +3763,7 @@
+                           regstart[r] = old_regstart[r];
+ 
+                           /* xx why this test?  */
+-                          if ((int) old_regend[r] >= (int) regstart[r])
++                          if ((intptr_t) old_regend[r] >= (intptr_t) regstart[r])
+                             regend[r] = old_regend[r];
+                         }     
+                     }

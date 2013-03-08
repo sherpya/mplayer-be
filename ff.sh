@@ -46,6 +46,7 @@ esac
 
 config bzlib
 config zlib
+config frei0r_filter
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
@@ -74,6 +75,7 @@ configure()
     enable pthreads
 
     enable avisynth
+    enable frei0r
     enable libcdio
     enable libfaac
     enable libfreetype

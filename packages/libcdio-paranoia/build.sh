@@ -6,6 +6,8 @@ BASEURL=http://ftp.gnu.org/gnu/libcdio
 
 . $(dirname $0)/../functions.sh
 
+depends lib/libcdio.a
+
 STATICLIBS="libcdio_cdda libcdio_paranoia"
 
 pkg_build && pkg_clean

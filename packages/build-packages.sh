@@ -28,6 +28,10 @@ fribidi
 gavl
 frei0r
 lame
+regex
+libcddb
+libcdio
+libcdio-paranoia
 libbs2b
 libmodplug
 libass

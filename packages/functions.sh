@@ -85,7 +85,8 @@ pkg_unpack()
 
 is_cmake()
 {
-    [ -e CMakeLists.txt ]
+    # [ -e CMakeLists.txt ]
+    [ -n "${CMAKE}" ]
 }
 
 pkg_configure_cmake()
@@ -141,6 +142,11 @@ apply_patches()
         echo "- Appling $(basename $p)"
         ( cd ${BUILDDIR} && patch -p1 < $p )
     done
+}
+
+print_file_name()
+{
+    ${CROSS_PREFIX}gcc -print-file-name=$1
 }
 
 make_ld_script()
