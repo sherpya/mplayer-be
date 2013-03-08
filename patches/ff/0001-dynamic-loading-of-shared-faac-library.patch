@@ -1,7 +1,7 @@
 From 84b201580e9f70f6b76f11ec4da4725ca4db70c4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:02:21 +0100
-Subject: [PATCH 1/6] dynamic loading of shared faac library
+Subject: [PATCH 1/7] dynamic loading of shared faac library
 
 ---
  configure            |    3 +--

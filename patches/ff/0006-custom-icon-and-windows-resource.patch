@@ -1,7 +1,7 @@
-From 1171e6cdc9b356492bc28eb5b39bfcd5a28057bf Mon Sep 17 00:00:00 2001
+From 3bc07bb182af359b59ec562f14c6c2e5875d20bd Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 4/6] custom icon and windows resource
+Subject: [PATCH 6/7] custom icon and windows resource
 
 ---
  Makefile    |    6 ++++++

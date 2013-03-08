@@ -1,7 +1,7 @@
-From 9aa68db4254aa56f1ec6cfb42885b712a3a9dde0 Mon Sep 17 00:00:00 2001
+From 8e75c43d132cf0c804e81d5f592e802870373663 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:08:08 +0100
-Subject: [PATCH 2/6] no Werror on implicit-function-declaration and
+Subject: [PATCH 5/7] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 2/6] no Werror on implicit-function-declaration and
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index 32ff494..8844894 100755
+index 12b7e43..af11a88 100755
 --- a/configure
 +++ b/configure
 @@ -4169,8 +4169,6 @@ elif enabled ccc; then

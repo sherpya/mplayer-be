@@ -1,7 +1,7 @@
-From f1c33f90bd4e95fd7530819e6b3d0c1875425c4f Mon Sep 17 00:00:00 2001
+From 5216efa986e0f975b7d1c8a5177c0fdae1fbcf7d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
-Subject: [PATCH 6/6] programs: print version info and configuration only on
+Subject: [PATCH 3/7] programs: print version info and configuration only on
  -version
 
 ---
