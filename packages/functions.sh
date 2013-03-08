@@ -85,11 +85,7 @@ pkg_unpack()
 
 is_cmake()
 {
-    if [ -e CMakeLists.txt ]; then
-        return 0
-    else
-        return 1
-    fi
+    [ -e CMakeLists.txt ]
 }
 
 pkg_configure_cmake()
@@ -105,7 +101,10 @@ pkg_configure_cmake()
 
 pkg_configure()
 {
-    is_cmake && pkg_configure_cmake ; return $?
+    if is_cmake; then
+        pkg_configure_cmake
+        return $?
+    fi
 
     if [ ! -x configure ]; then
         if [ -e configure.ac -o -e configure.in ]; then
