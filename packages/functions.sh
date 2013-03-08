@@ -2,6 +2,8 @@
 
 . $(dirname $0)/../../config.sh
 
+topdir=$(cd .. && pwd)
+
 shopt -s nullglob
 
 FILENAME=${PACKAGE}-${VERSION}.${EXT}
@@ -81,8 +83,30 @@ pkg_unpack()
     tar -$decomp -xf ${FILENAME}
 }
 
+is_cmake()
+{
+    if [ -e CMakeLists.txt ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+pkg_configure_cmake()
+{
+    mkdir cmake_build
+    ( cd cmake_build && cmake               \
+        -DCMAKE_BUILD_TYPE=Release          \
+        -DCMAKE_MODULE_LINKER_FLAGS="-s"    \
+        -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
+        -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake ..
+    ) || return 1
+}
+
 pkg_configure()
 {
+    is_cmake && pkg_configure_cmake ; return $?
+
     if [ ! -x configure ]; then
         if [ -e configure.ac -o -e configure.in ]; then
             autoreconf -fi
@@ -105,6 +129,7 @@ pkg_configure()
 
 pkg_make_target()
 {
+    is_cmake && cd cmake_build
     make ${MAKEOPTS} install || return 1
 }
 
