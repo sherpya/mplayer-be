@@ -1,21 +1,23 @@
-From 1e208e8e2571ea524ea6d7f58d54745b1eae9c06 Mon Sep 17 00:00:00 2001
+From 07b49f5c1b065077b33353f2cd371afcb2e6eb75 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 15/21] configure: reduced some warnings on gcc flags
+Subject: [PATCH 15/23] configure: reduced some warnings on gcc flags
 
 ---
- configure |    4 ----
- 1 file changed, 4 deletions(-)
+ configure |    6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/configure b/configure
-index 7f86584..4690121 100755
+index 0c97977..7f35651 100755
 --- a/configure
 +++ b/configure
-@@ -2703,7 +2703,6 @@ elif test -z "$CFLAGS" ; then
+@@ -2702,8 +2702,7 @@ elif test -z "$CFLAGS" ; then
+     CFLAGS="-O2 $_march $_mcpu $_pipe"
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
-     WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
+-    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
 -    WARN_CFLAGS="-Werror-implicit-function-declaration"
++    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Wno-format"
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
  else

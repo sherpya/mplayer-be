@@ -1,7 +1,7 @@
-From 63267af2df54782c10df51c463d2a74aad8aaebc Mon Sep 17 00:00:00 2001
+From cd4f79edd39fc5fa40a71e1bf8d0ee88d4bbc84f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
-Subject: [PATCH 13/21] win32: color term osd
+Subject: [PATCH 13/23] win32: color term osd
 
 ---
  mplayer.c |   28 +++++++++++++++++++++++++---

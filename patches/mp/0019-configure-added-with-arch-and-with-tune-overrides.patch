@@ -1,14 +1,14 @@
-From 1909fd1353ad936d25eaf87e72cf8483d00b5c1c Mon Sep 17 00:00:00 2001
+From 95252a766ecf3292b13905e5e50473c15e3060c8 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 19/21] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 19/23] configure: added --with-arch and --with-tune overrides
 
 ---
  configure |   11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 4690121..dff98a2 100755
+index 7f35651..0bb7ab2 100755
 --- a/configure
 +++ b/configure
 @@ -574,6 +574,8 @@ Available values are: all $msg_lang_all
