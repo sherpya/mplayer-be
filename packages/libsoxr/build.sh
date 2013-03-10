@@ -6,7 +6,6 @@ BASEURL=http://downloads.sourceforge.net/project/soxr
 
 CMAKE=1
 CMAKEOPTS=" \
-    -DBUILD_SHARED_LIBS=0               \
     -DHAVE_WORDS_BIGENDIAN_EXITCODE=1   \
     -DBUILD_TESTS=0                     \
     -DBUILD_EXAMPLES=0"

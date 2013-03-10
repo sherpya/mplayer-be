@@ -94,7 +94,7 @@ pkg_configure_cmake()
     mkdir build_cross
     ( cd build_cross && cmake               \
         -DCMAKE_BUILD_TYPE=Release          \
-        -DCMAKE_MODULE_LINKER_FLAGS="-s"    \
+        -DBUILD_SHARED_LIBS=0               \
         -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
         -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake \
         ${CMAKEOPTS} ..
