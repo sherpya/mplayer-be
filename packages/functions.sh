@@ -223,6 +223,12 @@ git_clean()
     ( cd ${BUILDDIR} && git clean -qdfx )
 }
 
+cmake_clean()
+{
+    test -d ${BUILDDIR} || return 0
+    ( cd ${BUILDDIR} && rm -fr build_cross )
+}
+
 distclean()
 {
     test -d ${BUILDDIR} || return 0
