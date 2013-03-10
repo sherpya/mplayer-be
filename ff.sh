@@ -34,6 +34,7 @@ case "$product" in
         enable libass
         enable libmodplug
         enable libtwolame
+        enable libsoxr
         ;;
     libav)
         NAME="Libav"

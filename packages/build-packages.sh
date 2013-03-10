@@ -45,6 +45,7 @@ libmad
 libogg
 libvorbis
 libtheora
+libsoxr
 speex
 opus
 flac
