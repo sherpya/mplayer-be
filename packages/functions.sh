@@ -91,12 +91,13 @@ is_cmake()
 
 pkg_configure_cmake()
 {
-    mkdir cmake_build
-    ( cd cmake_build && cmake               \
+    mkdir build_cross
+    ( cd build_cross && cmake               \
         -DCMAKE_BUILD_TYPE=Release          \
         -DCMAKE_MODULE_LINKER_FLAGS="-s"    \
         -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
-        -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake ..
+        -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake \
+        ${CMAKEOPTS} ..
     ) || return 1
 }
 
@@ -129,7 +130,7 @@ pkg_configure()
 
 pkg_make_target()
 {
-    is_cmake && cd cmake_build
+    is_cmake && cd build_cross
     make ${MAKEOPTS} install || return 1
 }
 
