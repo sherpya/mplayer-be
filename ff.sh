@@ -94,6 +94,8 @@ configure()
     enable libopenjpeg
     enable libspeex
     enable libtheora
+    enable libvo-aacenc
+    enable libvo-amrwbenc
     enable libvorbis
     enable libvpx
     enable libx264

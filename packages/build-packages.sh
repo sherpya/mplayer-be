@@ -57,6 +57,8 @@ lzo
 opencore-amr
 libsdl
 twolame
+vo-aacenc
+vo-amrwbenc
 x264
 xavs
 xvidcore
