@@ -1,4 +1,4 @@
-From 30d4782a76230a007a3ad1de40be69fa206df695 Mon Sep 17 00:00:00 2001
+From 77529cfe5992c6ef64c9bb645714e2f2f6b92454 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:48:02 +0100
 Subject: [PATCH 14/23] win32: force memalign on each alloc to avoid problems
@@ -11,10 +11,10 @@ Subject: [PATCH 14/23] win32: force memalign on each alloc to avoid problems
  create mode 100644 osdep/alloc-win.c
 
 diff --git a/configure b/configure
-index 9d49c5c..0c97977 100755
+index 805f14f..d796b5b 100755
 --- a/configure
 +++ b/configure
-@@ -3657,10 +3657,17 @@ statement_check malloc.h 'memalign(64, sizeof(char))' && _memalign=yes
+@@ -3668,10 +3668,17 @@ statement_check malloc.h 'memalign(64, sizeof(char))' && _memalign=yes
  if test "$_memalign" = yes ; then
    def_memalign='#define HAVE_MEMALIGN 1'
  else
@@ -32,7 +32,7 @@ index 9d49c5c..0c97977 100755
  echores "$_memalign"
  
  
-@@ -7966,6 +7973,11 @@ for I in $libs_mplayer ; do
+@@ -7978,6 +7985,11 @@ for I in $libs_mplayer ; do
  done
  libs_mplayer=$ld_tmp
  

@@ -1,4 +1,4 @@
-From 95252a766ecf3292b13905e5e50473c15e3060c8 Mon Sep 17 00:00:00 2001
+From 734196a81e45ea9535acd69fc9241e7ae6f7ec39 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
 Subject: [PATCH 19/23] configure: added --with-arch and --with-tune overrides
@@ -8,10 +8,10 @@ Subject: [PATCH 19/23] configure: added --with-arch and --with-tune overrides
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 7f35651..0bb7ab2 100755
+index 2b53fdc..86884b0 100755
 --- a/configure
 +++ b/configure
-@@ -574,6 +574,8 @@ Available values are: all $msg_lang_all
+@@ -546,6 +546,8 @@ Available values are: all $msg_lang_all
  Miscellaneous options:
    --enable-runtime-cpudetection    enable runtime CPU detection [disable]
    --enable-cross-compile enable cross-compilation [autodetect]
@@ -20,7 +20,7 @@ index 7f35651..0bb7ab2 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -1011,6 +1013,12 @@ for ac_option do
+@@ -939,6 +941,12 @@ for ac_option do
    --target=*)
      _target=$(option_value $ac_option)
      ;;
@@ -33,7 +33,7 @@ index 7f35651..0bb7ab2 100755
    --cc=*)
      _cc=$(option_value $ac_option)
      ;;
-@@ -2592,6 +2600,9 @@ EOF
+@@ -2603,6 +2611,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  

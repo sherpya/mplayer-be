@@ -1,4 +1,4 @@
-From c4bd2e761b1a24e8c1f0d814caeaaf7ed9582123 Mon Sep 17 00:00:00 2001
+From fe5f9d093a35313f284cda780935a29f97d16e07 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 20/23] sherpya's customizations
@@ -41,10 +41,10 @@ index a806dbd..1f8f969 100644
  config.mak: configure
  	@echo "############################################################"
 diff --git a/configure b/configure
-index 0bb7ab2..8a1fb7d 100755
+index 86884b0..109d0da 100755
 --- a/configure
 +++ b/configure
-@@ -51,13 +51,13 @@ fi
+@@ -1509,13 +1509,13 @@ fi
  if ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 0bb7ab2..8a1fb7d 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1750,6 +1750,7 @@ fi
+@@ -1761,6 +1761,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes

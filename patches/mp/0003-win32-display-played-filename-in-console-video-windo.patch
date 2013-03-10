@@ -1,4 +1,4 @@
-From 7e503345ef5a275dc421404be7f64809a1d78706 Mon Sep 17 00:00:00 2001
+From 482915c828c6f014a9788551951efce09216d516 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:30:57 +0100
 Subject: [PATCH 03/23] win32: display played filename in console/video window
