@@ -47,6 +47,8 @@ esac
 config bzlib
 config zlib
 config frei0r_filter
+config libcdio
+have cdio_paranoia_h
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
