@@ -131,7 +131,8 @@ pkg_configure()
 pkg_make_target()
 {
     is_cmake && cd build_cross
-    make ${MAKEOPTS} install || return 1
+    make ${MAKEOPTS} || return 1
+    make install || return 1
 }
 
 apply_patches()
