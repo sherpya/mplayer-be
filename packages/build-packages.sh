@@ -46,6 +46,7 @@ libogg
 libvorbis
 libtheora
 libsoxr
+openjpeg
 speex
 opus
 flac

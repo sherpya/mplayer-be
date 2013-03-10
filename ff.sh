@@ -91,6 +91,7 @@ configure()
     enable libopencore-amrnb
     enable libopencore-amrwb
     enable libopus
+    enable libopenjpeg
     enable libspeex
     enable libtheora
     enable libvorbis

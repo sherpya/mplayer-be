@@ -40,6 +40,7 @@ config live555
 config libopencore_amrnb
 config libopencore_amrwb
 config libmodplug
+config libopenjpeg
 config libxvid
 config libx264
 config mp3lame
