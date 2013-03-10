@@ -36,6 +36,8 @@ case "$product" in
         enable libtwolame
         enable libsoxr
         enable libutvideo
+        enable frei0r
+        config frei0r_filter
         ;;
     libav)
         NAME="Libav"
@@ -48,7 +50,6 @@ esac
 
 config bzlib
 config zlib
-config frei0r_filter
 config libcdio
 have cdio_paranoia_h
 
@@ -79,7 +80,6 @@ configure()
     enable pthreads
 
     enable avisynth
-    enable frei0r
     enable libcdio
     enable libfaac
     enable libfreetype
