@@ -67,6 +67,8 @@ configure()
     add_opt --target-os=mingw32
     add_opt --extra-version=Sherpya
 
+    disable outdevs
+
     enable gpl
     enable version3
 
