@@ -35,6 +35,7 @@ case "$product" in
         enable libmodplug
         enable libtwolame
         enable libsoxr
+        enable libutvideo
         ;;
     libav)
         NAME="Libav"

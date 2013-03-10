@@ -51,6 +51,7 @@ opus
 flac
 libvpx
 live555
+libutvideo
 lzo
 opencore-amr
 libsdl
