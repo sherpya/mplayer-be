@@ -45,6 +45,7 @@ config libxvid
 config libx264
 config mp3lame
 config dvdnav
+config vcd
 
 CONFIGURE_OPTS=""
 
