@@ -1,4 +1,4 @@
-From 699c505b5620cc19b93903f1da2b5b5df65edb01 Mon Sep 17 00:00:00 2001
+From ee9affacb8564f773495dd1d3d4ee0df9e97f3ac Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 21/23] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 21/23] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 109d0da..8e98d51 100755
+index a3b4198..f42d1ff 100755
 --- a/configure
 +++ b/configure
 @@ -441,6 +441,7 @@ Codecs:
@@ -36,7 +36,7 @@ index 109d0da..8e98d51 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7101,6 +7105,23 @@ else
+@@ -7102,6 +7106,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  

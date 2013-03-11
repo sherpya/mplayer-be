@@ -1,25 +1,43 @@
-From 77529cfe5992c6ef64c9bb645714e2f2f6b92454 Mon Sep 17 00:00:00 2001
+From 7d16fa449cdef1931f51f84e0917c8689496679c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:48:02 +0100
-Subject: [PATCH 14/23] win32: force memalign on each alloc to avoid problems
- with sse code
+Subject: [PATCH 14/23] win32: 16 bytes aligned allocation wrapper to avoid
+ problems with sse code
 
 ---
+ Makefile          |    4 +-
  configure         |   12 ++++
- osdep/alloc-win.c |  185 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 197 insertions(+)
+ osdep/alloc-win.c |  182 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 196 insertions(+), 2 deletions(-)
  create mode 100644 osdep/alloc-win.c
 
+diff --git a/Makefile b/Makefile
+index a806dbd..c36c2aa 100644
+--- a/Makefile
++++ b/Makefile
+@@ -761,9 +761,9 @@ all: $(ALL_PRG-yes)
+ $(FFMPEGLIBS): $(FFMPEGFILES) config.h
+ 	$(MAKE) -C ffmpeg $(@:ffmpeg/%=%)
+ 
+-mencoder$(EXESUF): $(MENCODER_DEPS)
++mencoder$(EXESUF): $(MENCODER_DEPS) | $(ALLOC_WRAPPER)
+ mencoder$(EXESUF): EXTRALIBS += $(EXTRALIBS_MENCODER)
+-mplayer$(EXESUF): $(MPLAYER_DEPS)
++mplayer$(EXESUF): $(MPLAYER_DEPS) | $(ALLOC_WRAPPER)
+ mplayer$(EXESUF): EXTRALIBS += $(EXTRALIBS_MPLAYER)
+ mencoder$(EXESUF) mplayer$(EXESUF):
+ 	$(CC) -o $@ $^ $(EXTRALIBS)
 diff --git a/configure b/configure
-index 805f14f..d796b5b 100755
+index 805f14f..ac5c17b 100755
 --- a/configure
 +++ b/configure
-@@ -3668,10 +3668,17 @@ statement_check malloc.h 'memalign(64, sizeof(char))' && _memalign=yes
+@@ -3668,10 +3668,18 @@ statement_check malloc.h 'memalign(64, sizeof(char))' && _memalign=yes
  if test "$_memalign" = yes ; then
    def_memalign='#define HAVE_MEMALIGN 1'
  else
 +  if mingw32 ; then
 +    _memalign=yes
++    _alloc_wrapper="osdep/alloc-win.o"
 +    def_memalign='#define HAVE_MEMALIGN 1'
 +    def_map_memalign='extern void *memalign(unsigned int boundary, unsigned int size);'
 +    res_comment="emulated"
@@ -32,24 +50,30 @@ index 805f14f..d796b5b 100755
  echores "$_memalign"
  
  
-@@ -7978,6 +7985,11 @@ for I in $libs_mplayer ; do
+@@ -7978,6 +7986,8 @@ for I in $libs_mplayer ; do
  done
  libs_mplayer=$ld_tmp
  
-+if mingw32 ; then
-+ libs_mplayer="$libs_mplayer osdep/alloc-win.c"
-+ libs_mencoder="$libs_mencoder osdep/alloc-win.c"
-+fi
-+
++libs_mplayer="$libs_mplayer $_alloc_wrapper"
++libs_mencoder="$libs_mencoder $_alloc_wrapper"
  
  #############################################################################
  
+@@ -8291,6 +8301,8 @@ $(mak_enable "$cpuexts_all" "$cpuexts" HAVE)
+ MENCODER = $_mencoder
+ MPLAYER  = $_mplayer
+ 
++ALLOC_WRAPPER = $_alloc_wrapper
++
+ # operating system features which have local fallbacks
+ GETTIMEOFDAY = $gettimeofday
+ GLOB         = $glob
 diff --git a/osdep/alloc-win.c b/osdep/alloc-win.c
 new file mode 100644
-index 0000000..d990c2d
+index 0000000..0a5c0f3
 --- /dev/null
 +++ b/osdep/alloc-win.c
-@@ -0,0 +1,185 @@
+@@ -0,0 +1,182 @@
 +#define DEFAULT_ALIGNMENT   16
 +//#define DEBUG_ALLOC
 +
@@ -67,24 +91,19 @@ index 0000000..d990c2d
 +#include <errno.h>
 +#include <stddef.h>             /* ptrdiff_t */
 +#include <string.h>             /* memmove */
++#include <inttypes.h>
 +
 +#include <windows.h>
 +
 +#ifdef DEBUG_ALLOC
-+#undef fprintf
-+extern int fprintf (FILE *__stream, const char *__format, ...);
 +#define TRACE(...) fprintf(stderr, __VA_ARGS__)
 +#else
 +#define TRACE(...)
 +#endif
 +
-+#define WILL_WRAP(size, alignment) (size > (0xffffffff - (alignment + sizeof (void *))))
++static const size_t MAX_ALLOC = -1;
 +
-+#ifdef HAVE_STDINT_H
-+#  include <stdint.h>           /* uintptr_t */
-+#else
-+#  define uintptr_t size_t
-+#endif
++#define WILL_WRAP(size, alignment) (size > (MAX_ALLOC - (alignment + sizeof (void *))))
 +
 +#define NOT_POWER_OF_TWO(n) (((n) & ((n) - 1)))
 +#define UI(p) ((uintptr_t) (p))
@@ -207,8 +226,8 @@ index 0000000..d990c2d
 +{
 +    size_t sz = nmemb * size;
 +    char *d = __mp_aligned_malloc(sz, DEFAULT_ALIGNMENT);
-+    memset(d, 0, sz);
 +    TRACE("CALLOC(%d, %d) = %p\n", nmemb, size, d);
++    if (d) memset(d, 0, sz);
 +    return d;
 +}
 +
@@ -229,9 +248,11 @@ index 0000000..d990c2d
 +{
 +    char *d;
 +    size_t size = strlen(s) + 1;
-+    d = __mp_aligned_malloc(size, DEFAULT_ALIGNMENT);
-+    memcpy(d, s, size - 1);
-+    d[size - 1] = 0;
++    if ((d = __mp_aligned_malloc(size, DEFAULT_ALIGNMENT)))
++    {
++        memcpy(d, s, size - 1);
++        d[size - 1] = 0;
++    }
 +    TRACE("STRDUP(%p) = %p\n", s, d);
 +    return d;
 +}
