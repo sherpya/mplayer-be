@@ -1,16 +1,16 @@
-From 4043b437eeb5839ede8d3006a2d262f1d156b969 Mon Sep 17 00:00:00 2001
+From 26fd14bb513dceb9cd08c15be5d6a9884b7af785 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
 
 ---
- Makefile    |    6 ++++++
+ Makefile    |    5 +++++
  avconv.ico  |  Bin 0 -> 111290 bytes
  avconv.rc   |    4 ++++
  avprobe.ico |  Bin 0 -> 104396 bytes
  avprobe.rc  |    4 ++++
  common.rc   |   36 ++++++++++++++++++++++++++++++++++++
- 6 files changed, 50 insertions(+)
+ 6 files changed, 49 insertions(+)
  create mode 100644 avconv.ico
  create mode 100644 avconv.rc
  create mode 100644 avprobe.ico
@@ -18,20 +18,19 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index 290cf64..2874636 100644
+index 290cf64..6c13e69 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -128,6 +128,9 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
+@@ -128,6 +128,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
  
  define DOPROG
  OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS)
-+ifneq ($(wildcard $(1).rc),)
-+OBJS-$(1) += $(1)$(PROGSSUF)_rc.o
-+endif
++# if EXESUF is exe (win32) and the corresponding .rc file does exist
++$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
  $(1)$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -137,6 +140,9 @@ endef
+@@ -137,6 +139,9 @@ endef
  
  $(foreach P,$(PROGS-yes),$(eval $(call DOPROG,$(P))))
  
