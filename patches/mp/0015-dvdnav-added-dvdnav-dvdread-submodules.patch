@@ -1,7 +1,7 @@
-From d17ac193124c23edc3916d6734bc4b8b4b37a3d2 Mon Sep 17 00:00:00 2001
+From ca2e1ab3c0ac8d30ceaf0da19d015427bad27198 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Feb 2013 00:56:43 +0100
-Subject: [PATCH 16/23] dvdnav: added dvdnav/dvdread submodules
+Subject: [PATCH 15/22] dvdnav: added dvdnav/dvdread submodules
 
 ---
  .gitignore  |    2 --

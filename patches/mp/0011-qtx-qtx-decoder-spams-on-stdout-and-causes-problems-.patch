@@ -1,7 +1,7 @@
-From f662cd2d12ea2c93e0a5cd81b5e662648a296fe6 Mon Sep 17 00:00:00 2001
+From 6861a609ce3aa56a0291d699e368edc0c4d6fb8c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:46:30 +0100
-Subject: [PATCH 11/23] qtx: qtx decoder spams on stdout and causes problems
+Subject: [PATCH 11/22] qtx: qtx decoder spams on stdout and causes problems
  while piping streams
 
 ---

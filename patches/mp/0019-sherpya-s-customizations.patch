@@ -1,7 +1,7 @@
-From c8fcaf6300f2b7cd6f75ef78f8402ceb44ff4aff Mon Sep 17 00:00:00 2001
+From 95b4ce70bae4cdb7c00e35cbc826339b403ce0a0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 20/23] sherpya's customizations
+Subject: [PATCH 19/22] sherpya's customizations
 
 ---
  Makefile         |    5 +++++
@@ -18,7 +18,7 @@ Subject: [PATCH 20/23] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index c36c2aa..6b349cf 100644
+index a806dbd..1f8f969 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -676,6 +676,8 @@ OBJS_MENCODER  += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
@@ -41,7 +41,7 @@ index c36c2aa..6b349cf 100644
  config.mak: configure
  	@echo "############################################################"
 diff --git a/configure b/configure
-index 410760e..a3b4198 100755
+index 846bee1..4c4e7f1 100755
 --- a/configure
 +++ b/configure
 @@ -1509,13 +1509,13 @@ fi

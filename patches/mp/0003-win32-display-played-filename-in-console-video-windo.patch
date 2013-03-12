@@ -1,7 +1,7 @@
-From 482915c828c6f014a9788551951efce09216d516 Mon Sep 17 00:00:00 2001
+From 89671907c6e83ab0ce550887b0faf8da5c1ecc96 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:30:57 +0100
-Subject: [PATCH 03/23] win32: display played filename in console/video window
+Subject: [PATCH 03/22] win32: display played filename in console/video window
 
 ---
  libmpcodecs/vf_vo.c |   16 +++++++++++++++-
