@@ -1,7 +1,7 @@
-From a3ebfec8a2ff859c10b779619271d8e319d4acf3 Mon Sep 17 00:00:00 2001
+From 54696feaa6e33940405eac899342a6fc4a230101 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:43:34 +0100
-Subject: [PATCH 09/22] make fontconfig spam while creating font cache
+Subject: [PATCH 09/23] make fontconfig spam while creating font cache
 
 ---
  mplayer.c |   13 +++++++++++++

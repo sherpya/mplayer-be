@@ -1,7 +1,7 @@
-From 58fe2a8e6d20bbfd8aaf32a59e03806824797897 Mon Sep 17 00:00:00 2001
+From b9487be3853f00db1e0be022f036c4b528fa40c7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:45:25 +0100
-Subject: [PATCH 10/22] audio: disable muting audio at exit on win32, mplayer
+Subject: [PATCH 10/23] audio: disable muting audio at exit on win32, mplayer
  somehow crashes
 
 ---

@@ -1,7 +1,7 @@
-From c3af41b482ee54b9f7aee6d5cafdcafe70c26be2 Mon Sep 17 00:00:00 2001
+From 11fd246ee20ebfe5ac42b82df4bf5724449610e3 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:00 +0100
-Subject: [PATCH 12/22] input: avoid spam when pressing an unknown key
+Subject: [PATCH 12/23] input: avoid spam when pressing an unknown key
 
 ---
  input/input.c |    1 +
