@@ -1,14 +1,14 @@
-From 05b51e8ae88e68b15a8864b11a77639eb64500cb Mon Sep 17 00:00:00 2001
+From 5ecb5829d7e083047f1f5995f207dae46218918c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 14/23] configure: reduced some warnings on gcc flags
+Subject: [PATCH 13/22] configure: reduced some warnings on gcc flags
 
 ---
  configure |    6 +-----
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/configure b/configure
-index 87d4411..4031a14 100755
+index daec9b7..d8b50f9 100755
 --- a/configure
 +++ b/configure
 @@ -2713,8 +2713,7 @@ elif test -z "$CFLAGS" ; then

@@ -1,21 +1,21 @@
-From 54696feaa6e33940405eac899342a6fc4a230101 Mon Sep 17 00:00:00 2001
+From 5e79038e5eda383753cfc8e4beeebf3720781893 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:43:34 +0100
-Subject: [PATCH 09/23] make fontconfig spam while creating font cache
+Subject: [PATCH 08/22] make fontconfig spam while creating font cache
 
 ---
- mplayer.c |   13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ mplayer.c |   11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/mplayer.c b/mplayer.c
-index ce02c75..a11cfe7 100644
+index 64bec9b..94e5a50 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -138,6 +138,11 @@
  #include "stream/stream_dvd.h"
  #endif
  
-+#ifdef CONFIG_FONTCONFIG
++#if defined(CONFIG_FONTCONFIG) && defined(_WIN32)
 +#include <fontconfig/fontconfig.h>
 +extern int FcDebugVal;
 +#endif
@@ -23,16 +23,14 @@ index ce02c75..a11cfe7 100644
  int slave_mode;
  int player_idle_mode;
  int quiet;
-@@ -3056,6 +3061,14 @@ int main(int argc, char *argv[])
+@@ -3056,6 +3061,12 @@ int main(int argc, char *argv[])
          gui(GUI_SET_CONTEXT, mpctx);
          gui(GUI_SET_STATE, (void *)(filename ? GUI_PLAY : GUI_STOP));
      }
-+#elif defined(CONFIG_FONTCONFIG)
++#elif defined(CONFIG_FONTCONFIG) && defined(_WIN32)
 +    /* force cache creation here and display fontconfig scan activity */
 +    FcDebugVal = 128;
-+#ifdef _WIN32
 +    FcConfigEnableHome(FcFalse);
-+#endif
 +    FcInit();
 +    FcDebugVal = 0;
  #endif

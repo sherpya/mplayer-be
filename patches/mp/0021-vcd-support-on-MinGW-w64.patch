@@ -1,7 +1,7 @@
-From 1ef6b9e2263b5c916b3e8283c85fc40ada067c71 Mon Sep 17 00:00:00 2001
+From c1f7efc913b30344ca5a2ac456326fd07990189c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 05:05:55 +0100
-Subject: [PATCH 22/23] vcd support on MinGW-w64
+Subject: [PATCH 21/22] vcd support on MinGW-w64
 
 ---
  configure               |    2 +-
@@ -9,7 +9,7 @@ Subject: [PATCH 22/23] vcd support on MinGW-w64
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index 044a0d8..58212ab 100755
+index 461d3f9..5c2f1fa 100755
 --- a/configure
 +++ b/configure
 @@ -5956,7 +5956,7 @@ if test "$_vcd" = auto; then

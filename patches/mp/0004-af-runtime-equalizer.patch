@@ -1,7 +1,7 @@
-From 14e59ac2295894e3bc4632a83afd0b4a27088a30 Mon Sep 17 00:00:00 2001
+From 36428ff0540d38ac86e9566656cd4ca04f0287ff Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 05/23] af: runtime equalizer
+Subject: [PATCH 04/22] af: runtime equalizer
 
 ---
  DOCS/tech/slave.txt  |    5 +++++
@@ -48,10 +48,10 @@ index 2c02360..5f55586 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 0e63127..05c226d 100644
+index 4cd6924..4bcfad0 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -202,6 +202,7 @@ static const mp_cmd_t mp_cmds[] = {
+@@ -203,6 +203,7 @@ static const mp_cmd_t mp_cmds[] = {
    { MP_CMD_SEEK_CHAPTER, "seek_chapter", 1, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
    { MP_CMD_SET_MOUSE_POS, "set_mouse_pos", 2, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
  

@@ -1,7 +1,7 @@
-From 0e81e1b6013586584c7789fa1b3c5f2631c24eff Mon Sep 17 00:00:00 2001
+From ebe577b9da68f7e1f372e0dacc94ea2c858a29ea Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 19/23] sherpya's customizations
+Subject: [PATCH 18/22] sherpya's customizations
 
 ---
  Makefile         |    5 +++++
@@ -18,10 +18,10 @@ Subject: [PATCH 19/23] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index 2216763..059443f 100644
+index a806dbd..1f8f969 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -675,6 +675,8 @@ OBJS_MENCODER  += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -676,6 +676,8 @@ OBJS_MENCODER  += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER   += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER   += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index 2216763..059443f 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -779,6 +781,9 @@ checksums: $(MPLAYER_DEPS) $(MENCODER_DEPS) mplayer$(EXESUF) mencoder$(EXESUF)
+@@ -780,6 +782,9 @@ checksums: $(MPLAYER_DEPS) $(MENCODER_DEPS) mplayer$(EXESUF) mencoder$(EXESUF)
  check_checksums: $(MPLAYER_DEPS) $(MENCODER_DEPS) mplayer$(EXESUF) mencoder$(EXESUF)
  	md5sum -c checksums
  
@@ -41,7 +41,7 @@ index 2216763..059443f 100644
  config.mak: configure
  	@echo "############################################################"
 diff --git a/configure b/configure
-index d4da571..1ec12b0 100755
+index 50993f9..5071a1d 100755
 --- a/configure
 +++ b/configure
 @@ -1509,13 +1509,13 @@ fi

@@ -1,7 +1,7 @@
-From 1f8c5a7eade4a53bba4425e95fc0dff3da80c324 Mon Sep 17 00:00:00 2001
+From abb111542b93e1c20291a17487653a4dd25c8a44 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:20:15 +0100
-Subject: [PATCH 07/23] replaced some signed char with unsigned char to fix
+Subject: [PATCH 06/22] replaced some signed char with unsigned char to fix
  some subtitle related problems
 
 ---

@@ -1,14 +1,14 @@
-From 3c1013cc6195c2c5348f7e858ec90e73123338bd Mon Sep 17 00:00:00 2001
+From ce2ff65e7f2fc72bfaebd7a6f2cd0bc550066c6d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 20/23] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 19/22] configure: enabled support for libmodplug in lavf
 
 ---
  configure |   23 ++++++++++++++++++++++-
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 1ec12b0..044a0d8 100755
+index 5071a1d..461d3f9 100755
 --- a/configure
 +++ b/configure
 @@ -441,6 +441,7 @@ Codecs:
@@ -60,7 +60,7 @@ index 1ec12b0..044a0d8 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9011,6 +9032,7 @@ $def_libdirac_lavc
+@@ -9013,6 +9034,7 @@ $def_libdirac_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index 1ec12b0..044a0d8 100755
  $def_libopenjpeg
  $def_librtmp
  $def_libschroedinger_lavc
-@@ -9078,7 +9100,6 @@ $def_truncf
+@@ -9080,7 +9102,6 @@ $def_truncf
  #define CONFIG_GNUTLS 0
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
