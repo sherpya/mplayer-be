@@ -1,27 +1,26 @@
-From 5ecb5829d7e083047f1f5995f207dae46218918c Mon Sep 17 00:00:00 2001
+From 05b92e32e40d81500ce957e8afe68160ae6758d2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 13/22] configure: reduced some warnings on gcc flags
+Subject: [PATCH 17/23] configure: reduced some warnings on gcc flags
 
 ---
- configure |    6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ configure |    5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index daec9b7..d8b50f9 100755
+index 47abecf..5fb2afc 100755
 --- a/configure
 +++ b/configure
-@@ -2713,8 +2713,7 @@ elif test -z "$CFLAGS" ; then
+@@ -2718,7 +2718,7 @@ elif test -z "$CFLAGS" ; then
      CFLAGS="-O2 $_march $_mcpu $_pipe"
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
 -    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
--    WARN_CFLAGS="-Werror-implicit-function-declaration"
-+    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Wno-format"
++    WARNFLAGS="-Wall -Wno-format -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
+     WARN_CFLAGS="-Werror-implicit-function-declaration"
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
- else
-@@ -2723,13 +2722,10 @@ fi
+@@ -2736,13 +2736,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
@@ -32,9 +31,9 @@ index daec9b7..d8b50f9 100755
    cflag_check -Wdisabled-optimization && WARN_CFLAGS="-Wdisabled-optimization $WARN_CFLAGS"
 -  cflag_check -Wmissing-prototypes && WARN_CFLAGS="-Wmissing-prototypes $WARN_CFLAGS"
 -  cflag_check -Wstrict-prototypes && WARN_CFLAGS="-Wstrict-prototypes $WARN_CFLAGS"
- else
-   CFLAGS="-D_ISOC99_SOURCE -D_BSD_SOURCE $CFLAGS"
  fi
+ 
+ cflag_check -mno-omit-leaf-frame-pointer && cflags_no_omit_leaf_frame_pointer="-mno-omit-leaf-frame-pointer"
 -- 
 1.7.10.4
 

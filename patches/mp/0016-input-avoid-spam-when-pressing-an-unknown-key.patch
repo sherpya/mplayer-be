@@ -1,17 +1,17 @@
-From eddcff588a0f1d2621e057fd74eaa1c29b573290 Mon Sep 17 00:00:00 2001
+From 90a8b634931058061e2ac217a58b4a0225eedfea Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:00 +0100
-Subject: [PATCH 11/22] input: avoid spam when pressing an unknown key
+Subject: [PATCH 16/23] input: avoid spam when pressing an unknown key
 
 ---
  input/input.c |    1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/input/input.c b/input/input.c
-index 2ba63b7..9a752c6 100644
+index e6c6e15..d3ea1dd 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -1126,6 +1126,7 @@ mp_input_get_cmd_from_keys(int n,int* keys, int paused) {
+@@ -1127,6 +1127,7 @@ mp_input_get_cmd_from_keys(int n,int* keys, int paused) {
    if(cmd == NULL) {
      char key_name[100];
      int i;

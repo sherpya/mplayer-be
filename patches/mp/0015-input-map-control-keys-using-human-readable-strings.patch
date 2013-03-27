@@ -1,7 +1,7 @@
-From afded794b6d578f38ede60ad259c54afe0ca655d Mon Sep 17 00:00:00 2001
+From 57ce59d094a807ca287c13ec6e573a5f518fecd4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
-Subject: [PATCH 05/22] input: map control keys using human readable strings
+Subject: [PATCH 15/23] input: map control keys using human readable strings
 
 ---
  input/input.c    |   27 +++++++++++++++++++++++++++
@@ -9,10 +9,10 @@ Subject: [PATCH 05/22] input: map control keys using human readable strings
  2 files changed, 57 insertions(+)
 
 diff --git a/input/input.c b/input/input.c
-index 4bcfad0..2ba63b7 100644
+index ef2a389..e6c6e15 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -219,6 +219,33 @@ static const mp_cmd_t mp_cmds[] = {
+@@ -220,6 +220,33 @@ static const mp_cmd_t mp_cmds[] = {
  /// If you add some new keys, you also need to add them here
  
  static const mp_key_name_t key_names[] = {
@@ -47,7 +47,7 @@ index 4bcfad0..2ba63b7 100644
    { '#', "SHARP" },
    { KEY_ENTER, "ENTER" },
 diff --git a/osdep/keycodes.h b/osdep/keycodes.h
-index 78e509e..d4bd18b 100644
+index 219e39a..bf2dca9 100644
 --- a/osdep/keycodes.h
 +++ b/osdep/keycodes.h
 @@ -87,4 +87,34 @@ enum {

@@ -1,7 +1,7 @@
-From abb111542b93e1c20291a17487653a4dd25c8a44 Mon Sep 17 00:00:00 2001
+From b1af51a30d1275410a436f32325bc318a0f854e0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:20:15 +0100
-Subject: [PATCH 06/22] replaced some signed char with unsigned char to fix
+Subject: [PATCH 21/23] replaced some signed char with unsigned char to fix
  some subtitle related problems
 
 ---
@@ -16,10 +16,10 @@ Subject: [PATCH 06/22] replaced some signed char with unsigned char to fix
  8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
-index 5a4be25..8773578 100644
+index ecf43b8..34e40d4 100644
 --- a/libmpdemux/mf.c
 +++ b/libmpdemux/mf.c
-@@ -68,7 +68,7 @@ mf_t* open_mf(char * filename){
+@@ -70,7 +70,7 @@ mf_t* open_mf(char * filename){
       while ( fgets( fname,PATH_MAX,lst_f ) )
        {
         /* remove spaces from end of fname */
@@ -29,10 +29,10 @@ index 5a4be25..8773578 100644
         if ( stat( fname,&fs ) )
          {
 diff --git a/libvo/vo_fbdev.c b/libvo/vo_fbdev.c
-index 6157e3f..995e75a 100644
+index 7b1b1a7..17e487a 100644
 --- a/libvo/vo_fbdev.c
 +++ b/libvo/vo_fbdev.c
-@@ -100,8 +100,8 @@ static int validate_mode(fb_mode_t *m)
+@@ -104,8 +104,8 @@ static int validate_mode(fb_mode_t *m)
  
  static FILE *fp;
  static int line_num = 0;
@@ -63,7 +63,7 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream_dvd.c b/stream/stream_dvd.c
-index 031a779..9744663 100644
+index 3b46fd9..0a650fd 100644
 --- a/stream/stream_dvd.c
 +++ b/stream/stream_dvd.c
 @@ -85,8 +85,8 @@ static const struct m_struct_st stream_opts = {
@@ -90,10 +90,10 @@ index 0cbd6c5..ac173cc 100644
  
  #endif /* MPLAYER_STREAM_DVD_H */
 diff --git a/stream/tv.c b/stream/tv.c
-index c0b269e..27b63e7 100644
+index 0f65358..8ee6bec 100644
 --- a/stream/tv.c
 +++ b/stream/tv.c
-@@ -576,7 +576,7 @@ static int open_tv(tvi_handle_t *tvh)
+@@ -577,7 +577,7 @@ static int open_tv(tvi_handle_t *tvh)
  	int channel = 0;
  	if (tvh->tv_param->channel)
  	 {
@@ -103,10 +103,10 @@ index c0b269e..27b63e7 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index 73e9b80..ecf2016 100644
+index b6834d6..ae9ae2d 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
-@@ -87,12 +87,12 @@ int sub_format=SUB_INVALID;
+@@ -88,12 +88,12 @@ int sub_format=SUB_INVALID;
  unsigned long previous_sub_end;
  #endif
  
@@ -121,7 +121,7 @@ index 73e9b80..ecf2016 100644
  	int i = 0;
  	while (isspace(s[i])) ++i;
  	if (i) strcpy(s, s + i);
-@@ -736,8 +736,8 @@ static void sub_pp_ssa(subtitle *sub) {
+@@ -737,8 +737,8 @@ static void sub_pp_ssa(subtitle *sub) {
   * by set, based on code by szabi (dunnowhat sub format ;-)
   */
  static subtitle *sub_read_line_pjs(stream_t *st,subtitle *current, int utf16) {
@@ -132,7 +132,7 @@ index 73e9b80..ecf2016 100644
  
      if (!stream_read_line (st, line, LINE_LEN, utf16))
  	return NULL;
-@@ -777,7 +777,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
+@@ -778,7 +778,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
  	char line[LINE_LEN+1];
  	float a,b;
  	int num=0;
@@ -141,7 +141,7 @@ index 73e9b80..ecf2016 100644
  
  	do
  	{
-@@ -915,7 +915,7 @@ retry:
+@@ -916,7 +916,7 @@ retry:
  
  static subtitle *sub_read_line_jacosub(stream_t* st, subtitle * current, int utf16)
  {
@@ -150,7 +150,7 @@ index 73e9b80..ecf2016 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1829,7 +1829,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1830,7 +1830,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -159,7 +159,7 @@ index 73e9b80..ecf2016 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1884,7 +1884,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1885,7 +1885,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -169,10 +169,10 @@ index 73e9b80..ecf2016 100644
      while (*s) {
  	if (!isspace(*s)) return 0;
 diff --git a/sub/vobsub.c b/sub/vobsub.c
-index ef70ee0..7d779e4 100644
+index 0bde089..c7ae835 100644
 --- a/sub/vobsub.c
 +++ b/sub/vobsub.c
-@@ -233,7 +233,7 @@ typedef FILE rar_stream_t;
+@@ -234,7 +234,7 @@ typedef FILE rar_stream_t;
  
  /**********************************************************************/
  
@@ -181,7 +181,7 @@ index ef70ee0..7d779e4 100644
  {
      size_t res = 0;
      int c;
-@@ -242,7 +242,7 @@ static ssize_t vobsub_getline(char **lineptr, size_t *n, rar_stream_t *stream)
+@@ -243,7 +243,7 @@ static ssize_t vobsub_getline(char **lineptr, size_t *n, rar_stream_t *stream)
          if (*lineptr)
              *n = 4096;
      } else if (*n == 0) {
@@ -190,7 +190,7 @@ index ef70ee0..7d779e4 100644
          if (tmp) {
              *lineptr = tmp;
              *n = 4096;
-@@ -666,11 +666,11 @@ static int vobsub_add_timestamp(vobsub_t *vob, off_t filepos, int ms)
+@@ -667,11 +667,11 @@ static int vobsub_add_timestamp(vobsub_t *vob, uint64_t filepos, int ms)
      return -1;
  }
  
@@ -204,7 +204,7 @@ index ef70ee0..7d779e4 100644
      p  = line;
      while (isspace(*p))
          ++p;
-@@ -693,7 +693,7 @@ static int vobsub_parse_id(vobsub_t *vob, const char *line)
+@@ -694,7 +694,7 @@ static int vobsub_parse_id(vobsub_t *vob, const char *line)
      return vobsub_add_id(vob, p, idlen, atoi(q));
  }
  
@@ -212,8 +212,8 @@ index ef70ee0..7d779e4 100644
 +static int vobsub_parse_timestamp(vobsub_t *vob, const unsigned char *line)
  {
      int h, m, s, ms;
-     off_t filepos;
-@@ -703,7 +703,7 @@ static int vobsub_parse_timestamp(vobsub_t *vob, const char *line)
+     uint64_t filepos;
+@@ -704,7 +704,7 @@ static int vobsub_parse_timestamp(vobsub_t *vob, const char *line)
      return vobsub_add_timestamp(vob, filepos, vob->delay + ms + 1000 * (s + 60 * (m + 60 * h)));
  }
  
@@ -222,7 +222,7 @@ index ef70ee0..7d779e4 100644
  {
      // org: X,Y
      unsigned x, y;
-@@ -743,7 +743,7 @@ unsigned int vobsub_rgb_to_yuv(unsigned int rgb)
+@@ -744,7 +744,7 @@ unsigned int vobsub_rgb_to_yuv(unsigned int rgb)
      return y << 16 | u << 8 | v;
  }
  
@@ -231,7 +231,7 @@ index ef70ee0..7d779e4 100644
  {
      int h, m, s, ms;
      int forward = 1;
-@@ -767,7 +767,7 @@ static int vobsub_parse_delay(vobsub_t *vob, const char *line)
+@@ -768,7 +768,7 @@ static int vobsub_parse_delay(vobsub_t *vob, const char *line)
      return 0;
  }
  
@@ -240,7 +240,7 @@ index ef70ee0..7d779e4 100644
  {
      if (vobsub_id == -1)
          vobsub_id = atoi(line + 8);
-@@ -781,7 +781,7 @@ static int vobsub_parse_one_line(vobsub_t *vob, rar_stream_t *fd,
+@@ -782,7 +782,7 @@ static int vobsub_parse_one_line(vobsub_t *vob, rar_stream_t *fd,
      ssize_t line_size;
      int res = -1;
          size_t line_reserve = 0;

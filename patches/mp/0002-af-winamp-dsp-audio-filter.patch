@@ -1,7 +1,7 @@
-From 643ff0c721032cc85a0957cc441af9266f79bc58 Mon Sep 17 00:00:00 2001
+From 9233ad26b5c375f5e71193d8ac3d50a982fffb1b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
-Subject: [PATCH 02/22] af: winamp dsp audio filter
+Subject: [PATCH 02/23] af: winamp dsp audio filter
 
 ---
  Makefile         |    1 +
@@ -14,22 +14,22 @@ Subject: [PATCH 02/22] af: winamp dsp audio filter
  create mode 100644 libaf/af_wadsp.h
 
 diff --git a/Makefile b/Makefile
-index 54d7418..fe5d952 100644
+index 7ef7df9..e55ac81 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -307,6 +307,7 @@ SRCS_COMMON = asxparser.c \
-               libaf/af_tools.c \
-               libaf/af_volnorm.c \
-               libaf/af_volume.c \
-+              libaf/af_wadsp.c \
-               libaf/filter.c \
-               libaf/format.c \
-               libaf/reorder_ch.c \
+@@ -311,6 +311,7 @@ SRCS_COMMON = asxparser.c                       \
+               libaf/af_tools.c                  \
+               libaf/af_volnorm.c                \
+               libaf/af_volume.c                 \
++              libaf/af_wadsp.c                  \
+               libaf/filter.c                    \
+               libaf/format.c                    \
+               libaf/reorder_ch.c                \
 diff --git a/libaf/af.c b/libaf/af.c
-index fa9e773..9e6a84b 100644
+index 2c9b2ac..6c0154e 100644
 --- a/libaf/af.c
 +++ b/libaf/af.c
-@@ -53,6 +53,9 @@ extern const af_info_t af_info_karaoke;
+@@ -55,6 +55,9 @@ extern const af_info_t af_info_karaoke;
  extern const af_info_t af_info_scaletempo;
  extern const af_info_t af_info_stats;
  extern const af_info_t af_info_bs2b;
@@ -39,7 +39,7 @@ index fa9e773..9e6a84b 100644
  
  static const af_info_t * const filter_list[] = {
     &af_info_dummy,
-@@ -89,6 +92,9 @@ static const af_info_t * const filter_list[] = {
+@@ -91,6 +94,9 @@ static const af_info_t * const filter_list[] = {
  #ifdef CONFIG_LIBBS2B
     &af_info_bs2b,
  #endif

@@ -1,14 +1,14 @@
-From ebfe8ffcb4dd790fe5190dabfdefa583f6772f3b Mon Sep 17 00:00:00 2001
+From df09172f07424d468f98c149ba2786df281b49c7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 05:14:05 +0100
-Subject: [PATCH 16/22] win32: disable_system_conf defaults to 1 on win32
+Subject: [PATCH 09/23] win32: disable_system_conf defaults to 1 on win32
 
 ---
  mpcommon.c |    4 ++++
  1 file changed, 4 insertions(+)
 
 diff --git a/mpcommon.c b/mpcommon.c
-index d0810ea..5fa3c27 100644
+index 5b58440..d70ce8d 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
 @@ -417,7 +417,11 @@ int select_audio(demuxer_t* demuxer, int audio_id, char* audio_lang)

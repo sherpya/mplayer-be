@@ -1,7 +1,7 @@
-From eb4fff1439630def62e4c60c8e25ae4e7cbd2c00 Mon Sep 17 00:00:00 2001
+From cd5bfcf09c0de2d22815b800460c7a767ec05c72 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
-Subject: [PATCH 03/22] win32: added vo native directshow decoder
+Subject: [PATCH 04/23] win32: added vo native directshow decoder
 
 ---
  Makefile                  |    1 +
@@ -12,17 +12,17 @@ Subject: [PATCH 03/22] win32: added vo native directshow decoder
  create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
-index fe5d952..a806dbd 100644
+index e55ac81..a006af1 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -240,6 +240,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c \
-                                         libmpcodecs/ad_twin.c \
-                                         libmpcodecs/vd_dmo.c \
-                                         libmpcodecs/vd_dshow.c \
-+                                        libmpcodecs/vd_dsnative.c \
-                                         libmpcodecs/vd_vfw.c \
-                                         libmpcodecs/vd_vfwex.c \
-                                         libmpdemux/demux_avs.c \
+@@ -243,6 +243,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
+                                         libmpcodecs/ad_twin.c           \
+                                         libmpcodecs/vd_dmo.c            \
+                                         libmpcodecs/vd_dshow.c          \
++                                        libmpcodecs/vd_dsnative.c       \
+                                         libmpcodecs/vd_vfw.c            \
+                                         libmpcodecs/vd_vfwex.c          \
+                                         libmpdemux/demux_avs.c          \
 diff --git a/etc/codecs.conf b/etc/codecs.conf
 index cf0f7ef..87b9e3d 100644
 --- a/etc/codecs.conf

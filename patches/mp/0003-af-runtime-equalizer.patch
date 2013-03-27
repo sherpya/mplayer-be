@@ -1,7 +1,7 @@
-From 36428ff0540d38ac86e9566656cd4ca04f0287ff Mon Sep 17 00:00:00 2001
+From e83c1591c25b7f6fd52755952a3956aeca2317ae Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 04/22] af: runtime equalizer
+Subject: [PATCH 03/23] af: runtime equalizer
 
 ---
  DOCS/tech/slave.txt  |    5 +++++
@@ -28,10 +28,10 @@ index 6201e5c..a211969 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index 2c02360..5f55586 100644
+index c30a138..e7ebc3e 100644
 --- a/command.c
 +++ b/command.c
-@@ -3205,6 +3205,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+@@ -3208,6 +3208,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
              set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
              break;
  
@@ -48,10 +48,10 @@ index 2c02360..5f55586 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 4cd6924..4bcfad0 100644
+index 6ec8307..ef2a389 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -203,6 +203,7 @@ static const mp_cmd_t mp_cmds[] = {
+@@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
    { MP_CMD_SEEK_CHAPTER, "seek_chapter", 1, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
    { MP_CMD_SET_MOUSE_POS, "set_mouse_pos", 2, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
  

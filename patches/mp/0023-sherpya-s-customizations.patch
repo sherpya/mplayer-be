@@ -1,7 +1,7 @@
-From ebe577b9da68f7e1f372e0dacc94ea2c858a29ea Mon Sep 17 00:00:00 2001
+From cc93b7cf719c39fb5ce2c8e987dfc61957db8b0c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 18/22] sherpya's customizations
+Subject: [PATCH 23/23] sherpya's customizations
 
 ---
  Makefile         |    5 +++++
@@ -18,33 +18,33 @@ Subject: [PATCH 18/22] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index a806dbd..1f8f969 100644
+index a006af1..cbe4fad 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -676,6 +676,8 @@ OBJS_MENCODER  += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
- OBJS_MPLAYER   += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
+@@ -686,6 +686,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+ OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
- OBJS_MPLAYER   += $(OBJS_MPLAYER-yes)
-+OBJS_MENCODER-$(PE_EXECUTABLE) += osdep/mencoder-rc.o
-+OBJS_MENCODER  += $(OBJS_MENCODER-yes)
+ OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
++OBJS_MENCODER-$(PE_EXECUTABLE)+= osdep/mencoder-rc.o
++OBJS_MENCODER                 += $(OBJS_MENCODER-yes)
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -780,6 +782,9 @@ checksums: $(MPLAYER_DEPS) $(MENCODER_DEPS) mplayer$(EXESUF) mencoder$(EXESUF)
- check_checksums: $(MPLAYER_DEPS) $(MENCODER_DEPS) mplayer$(EXESUF) mencoder$(EXESUF)
- 	md5sum -c checksums
+@@ -859,6 +861,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+ 
+ osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
 +osdep/mencoder-rc.o: osdep/mplayer.rc version.h
 +	$(WINDRES) -D IN_MENCODER -o $@ $<
 +
- # ./configure must be rerun if it changed
- config.mak: configure
- 	@echo "############################################################"
+ gui/%: CFLAGS += -Wno-strict-prototypes
+ 
+ libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 50993f9..5071a1d 100755
+index 15e1737..ef954a1 100755
 --- a/configure
 +++ b/configure
-@@ -1509,13 +1509,13 @@ fi
+@@ -1519,13 +1519,13 @@ fi
  if ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 50993f9..5071a1d 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1761,6 +1761,7 @@ fi
+@@ -1770,6 +1770,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
