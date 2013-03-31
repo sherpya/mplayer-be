@@ -1,2 +1,2 @@
 version=3
-http://fontconfig.org/release/fontconfig-([\d|\.]*)\.tar\.gz
+http://fontconfig.org/release/fontconfig-(\d+\.\d+\.[012345678]+)\.tar\.gz
