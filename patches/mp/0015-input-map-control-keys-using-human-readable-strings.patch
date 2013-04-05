@@ -1,7 +1,7 @@
-From 57ce59d094a807ca287c13ec6e573a5f518fecd4 Mon Sep 17 00:00:00 2001
+From e50c39f20dbcecf6a9c293121af9f4463f4f422a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
-Subject: [PATCH 15/23] input: map control keys using human readable strings
+Subject: [PATCH 15/24] input: map control keys using human readable strings
 
 ---
  input/input.c    |   27 +++++++++++++++++++++++++++

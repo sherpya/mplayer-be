@@ -1,7 +1,7 @@
-From b1af51a30d1275410a436f32325bc318a0f854e0 Mon Sep 17 00:00:00 2001
+From 7f2b1a80d2fd986e6a999a8394e86cdbb7479511 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:20:15 +0100
-Subject: [PATCH 21/23] replaced some signed char with unsigned char to fix
+Subject: [PATCH 21/24] replaced some signed char with unsigned char to fix
  some subtitle related problems
 
 ---

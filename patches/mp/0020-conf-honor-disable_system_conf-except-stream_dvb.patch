@@ -1,7 +1,7 @@
-From 7efb203fbc95548cc9ca0e3c37c54fd53dabce5d Mon Sep 17 00:00:00 2001
+From 14fc33d3508d421dc85dec8c062e97082cd50c8a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 20/23] conf: honor disable_system_conf (except stream_dvb)
+Subject: [PATCH 20/24] conf: honor disable_system_conf (except stream_dvb)
 
 ---
  input/input.c      |    3 ++-
@@ -54,10 +54,10 @@ index d70ce8d..5fa3c27 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index 063b34b..5af2815 100644
+index 4eb670c..d3aead2 100644
 --- a/mplayer.c
 +++ b/mplayer.c
-@@ -3034,7 +3034,7 @@ int main(int argc, char *argv[])
+@@ -3035,7 +3035,7 @@ int main(int argc, char *argv[])
              if (menu_init(mpctx, menu_cfg))
                  mp_msg(MSGT_CPLAYER, MSGL_V, "Menu initialized: %s\n", menu_cfg);
              else {

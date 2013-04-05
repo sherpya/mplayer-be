@@ -1,7 +1,7 @@
-From df09172f07424d468f98c149ba2786df281b49c7 Mon Sep 17 00:00:00 2001
+From 1ee55c5751903b9a8a7a20b98264a3b6fefde82f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 05:14:05 +0100
-Subject: [PATCH 09/23] win32: disable_system_conf defaults to 1 on win32
+Subject: [PATCH 09/24] win32: disable_system_conf defaults to 1 on win32
 
 ---
  mpcommon.c |    4 ++++

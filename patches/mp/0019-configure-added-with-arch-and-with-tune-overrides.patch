@@ -1,14 +1,14 @@
-From 9e1c73bb8164b27e8b12f09839465d31f6537123 Mon Sep 17 00:00:00 2001
+From 9c0b773337201abc8ef77b7b43f62556bd211a22 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 19/23] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 19/24] configure: added --with-arch and --with-tune overrides
 
 ---
  configure |   11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 74caa89..15e1737 100755
+index cd3341d..9910771 100755
 --- a/configure
 +++ b/configure
 @@ -547,6 +547,8 @@ Available values are: all $msg_lang_all
@@ -33,7 +33,7 @@ index 74caa89..15e1737 100755
    --cc=*)
      _cc=$(option_value $ac_option)
      ;;
-@@ -2612,6 +2620,9 @@ EOF
+@@ -2613,6 +2621,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  

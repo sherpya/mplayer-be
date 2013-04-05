@@ -1,7 +1,7 @@
-From fb46902b1d04ee771fdf89ab104e075c7c3ffda6 Mon Sep 17 00:00:00 2001
+From 5d99aadb99c2d7aa99ec6ed12afb9caf6713ad9d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 21 Mar 2013 10:29:04 +0100
-Subject: [PATCH 10/23] win32: filename glob() + unicode
+Subject: [PATCH 10/24] win32: filename glob() + unicode
 
 ---
  osdep/glob-win.c |   69 ++++++++++++++++++++++++++++++++++++++++++++++++++----
