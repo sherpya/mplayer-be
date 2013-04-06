@@ -1,4 +1,4 @@
-From a34bebc72ee7c88f4a64a64692fe4fa96ee71fc8 Mon Sep 17 00:00:00 2001
+From 8a7dec6e92d9073b8f06bcc665812a3103c7fa6c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 24/24] sherpya's customizations
@@ -4680,7 +4680,7 @@ index 40220cc..8708d1e 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index ab9b8e8..81ae560 100755
+index ab9b8e8..17e4d2f 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4688,13 +4688,13 @@ index ab9b8e8..81ae560 100755
  # or from the places different Subversion versions have it.
  svn_revision=$(cat snapshot_version 2> /dev/null)
 -test $svn_revision || svn_revision=$(LC_ALL=C svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-+git_revision=$(LC_ALL=C git describe --always 2> /dev/null)
++ff_revision=$(( cd ../ffmpeg && LC_ALL=C git rev-parse --short upstream/master )2> /dev/null)
 +test $svn_revision || svn_revision=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
  test $svn_revision || svn_revision=$(grep revision .svn/entries 2>/dev/null | cut -d '"' -f2)
  test $svn_revision || svn_revision=$(sed -n -e '/^dir$/{n;p;q;}' .svn/entries 2>/dev/null)
 -test $svn_revision && svn_revision=SVN-r$svn_revision
 +test $svn_revision && svn_revision=sherpya-r$svn_revision
-+test $svn_revision && test $git_revision && svn_revision=$svn_revision+g$git_revision
++test $svn_revision && test $ff_revision && svn_revision=$svn_revision+g$ff_revision
  test $svn_revision || svn_revision=UNKNOWN
  version=$svn_revision
  fi

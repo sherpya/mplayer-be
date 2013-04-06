@@ -1,4 +1,4 @@
-From c7563702218c27d3feb36625176da889d8ac2adb Mon Sep 17 00:00:00 2001
+From b81e0a0bbb12a636acdea4bafa25d0c7dc201d47 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 13 Mar 2013 04:42:49 +0100
 Subject: [PATCH 01/24] linux: controlled CreateFile() in win32 loader

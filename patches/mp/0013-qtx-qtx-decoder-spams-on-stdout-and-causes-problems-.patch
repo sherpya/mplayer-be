@@ -1,4 +1,4 @@
-From c9a37e653a293f60e99a814c1871d79d5d35010b Mon Sep 17 00:00:00 2001
+From d3bd4562df5edad21be97bf461ff85adeac2eeec Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:46:30 +0100
 Subject: [PATCH 13/24] qtx: qtx decoder spams on stdout and causes problems
