@@ -1,0 +1,13 @@
+--- debian/rules.orig	2012-09-21 07:25:36.000000000 +0200
++++ debian/rules	2013-03-28 00:26:30.136155565 +0100
+@@ -73,8 +73,8 @@
+ build-indep-stamp: headers-stamp
+ 	# When bootstrapping, the extra libraries can't be built, so try
+ 	# configuring with libraries and if that fails without
+-	CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target32)/include" dh_auto_configure -B$(build_dir)/$(target32)/all -- --prefix=/usr/$(target32) --host=$(target32) --with-libraries=all --enable-lib32 --disable-lib64 --enable-sdk=all --enable-secure-api || \
+-	CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target32)/include" dh_auto_configure -B$(build_dir)/$(target32)/all -- --prefix=/usr/$(target32) --host=$(target32) --enable-lib32 --disable-lib64 --enable-sdk=all --enable-secure-api
++	CFLAGS="$(CFLAGS) -mtune=generic -march=i486" CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target32)/include" dh_auto_configure -B$(build_dir)/$(target32)/all -- --prefix=/usr/$(target32) --host=$(target32) --with-libraries=all --enable-lib32 --disable-lib64 --enable-sdk=all --enable-secure-api || \
++	CFLAGS="$(CFLAGS) -mtune=generic -march=i486" CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target32)/include" dh_auto_configure -B$(build_dir)/$(target32)/all -- --prefix=/usr/$(target32) --host=$(target32) --enable-lib32 --disable-lib64 --enable-sdk=all --enable-secure-api
+ 	CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target64)/include" dh_auto_configure -B$(build_dir)/$(target64)/all -- --prefix=/usr/$(target64) --host=$(target64) --with-libraries=libmangle --disable-lib32 --enable-lib64 --enable-sdk=all --enable-secure-api || \
+ 	CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(target64)/include" dh_auto_configure -B$(build_dir)/$(target64)/all -- --prefix=/usr/$(target64) --host=$(target64) --disable-lib32 --enable-lib64 --enable-sdk=all --enable-secure-api
+ # Move headers and libraries to target-specific folders

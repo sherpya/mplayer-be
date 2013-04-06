@@ -1,7 +1,7 @@
-From de8a8d0eca2f676dfd36dbdd120c6dc404cae666 Mon Sep 17 00:00:00 2001
+From ef31ce91bec99e8708dc9cdc56bd4a96814b69ec Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:08:08 +0100
-Subject: [PATCH 5/7] no Werror on implicit-function-declaration and
+Subject: [PATCH 5/8] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 5/7] no Werror on implicit-function-declaration and
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index a3fdaf5..9a297f6 100755
+index 53ad269..f8e1813 100755
 --- a/configure
 +++ b/configure
-@@ -4175,8 +4175,6 @@ elif enabled ccc; then
+@@ -4230,8 +4230,6 @@ elif enabled ccc; then
      add_cflags -msg_disable unsupieee
  elif enabled gcc; then
      check_optflags -fno-tree-vectorize
