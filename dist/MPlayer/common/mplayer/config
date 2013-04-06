@@ -23,7 +23,6 @@ msgcolor=yes
 ## disable Aero
 #vo=directx
 #vo=direct3d
-#vo=gl2
 
 ## video filtering and postprocessing
 ## eq is useful if your video card does not support video overlay.
