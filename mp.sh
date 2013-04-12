@@ -3,8 +3,8 @@
 . ../config.sh
 
 version=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-gitrev=$(LC_ALL=C git describe --always 2>/dev/null)
-version=r${version}+g${gitrev}
+ff_revision=$(( cd ../ffmpeg && LC_ALL=C git rev-parse --short upstream/master )2> /dev/null)
+version=r${version}+g${ff_revision}
 packagedir="${PKGDIR}/MPlayer and MEncoder/${version}"
 source="${packagedir}/mplayer-$version-src.tar.xz"
 
