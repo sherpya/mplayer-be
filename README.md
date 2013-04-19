@@ -52,8 +52,8 @@ and causing misleading detections.
 ### MPlayer/FFmpeg checkouts
 In the toplevel directory:
 
-    git clone git://github.com/sherpya/FFmpeg.git
-    git clone --recursive git://github.com/sherpya/MPlayer.git
+    git clone git://github.com/sherpya/FFmpeg.git ffmpeg
+    git clone --recursive git://github.com/sherpya/MPlayer.git mplayer
 
 ### Building
 `./build-packages.sh` will build all packages in a consistent order.
@@ -62,10 +62,10 @@ You can manually build a single package by calling `./build.sh` within the packa
 >Please note that build shell scripts are supposed to be launched within the same directory they reside so I added **./** before the command.
 
     MPlayer: the first time will checkout also FFmpeg so it will take a while (yes also the second time)
-from MPlayer directory call `../mp.sh configure && make` (you may add -jX)
+from the mplayer directory call `../mp.sh configure && make` (you may add -jX)
 
     FFmpeg:
-from the FFmpeg directory call `../ff.sh configure && make` (you may add -jX)
+from the ffmpeg directory call `../ff.sh configure && make` (you may add -jX)
 
 >Build scripts instead need to be launched from the parent directory
 
@@ -80,8 +80,8 @@ To build x86\_64 packages prepend HOST=x86\_64-w64-mingw32 to each build script,
 
 ## Updating
 * Build Environment: `git pull` on the toplevel directory, I don't force push this repo
-* MPlayer: in the MPlayer directory `git pull --rebase`, I have no idea about libdvdnav/libdvdread4 submodules updating :(
-* FFmpeg: in the FFmpeg directory `git pull --rebase`
+* MPlayer: in the mplayer directory `git pull --rebase`, I have no idea about libdvdnav/libdvdread4 submodules updating :(
+* FFmpeg: in the ffmpeg directory `git pull --rebase`
 * packages using git: `git pull` in the package subdirectory (e.g. packages/libvpx/libvpx)
 * packages using subversion: `svn up` in the package subdirectory (e.g. packages/winpthread/winpthread)
 * packages that are downloaded have versioned url in the `build.sh` script, you can edit and change version but you must make sure that patches still apply
