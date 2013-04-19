@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Ogg Vorbis Audio Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libvorbis
 VERSION=1.3.3
 EXT=tar.xz

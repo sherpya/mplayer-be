@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for OpenJPEG - JPEG 2000 codec library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=openjpeg
 VERSION=1.5.1
 EXT=tar.gz

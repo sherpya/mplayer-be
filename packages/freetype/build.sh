@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for FreeType library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=freetype
 VERSION=2.4.11
 EXT=tar.bz2

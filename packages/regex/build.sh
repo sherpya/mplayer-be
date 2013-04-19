@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for GNU regex
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=regex
 VERSION=0.12
 EXT=tar.gz

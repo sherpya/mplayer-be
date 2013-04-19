@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Fontconfig
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=fontconfig
 VERSION=2.10.2
 EXT=tar.bz2

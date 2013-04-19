@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for ModPlug library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libmodplug
 VERSION=0.8.8.4
 EXT=tar.gz

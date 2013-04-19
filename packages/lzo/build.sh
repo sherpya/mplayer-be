@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for LZO real-time data compression library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=lzo
 VERSION=2.06
 EXT=tar.gz

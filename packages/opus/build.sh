@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Opus Audio Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=opus
 VERSION=1.0.2
 EXT=tar.gz

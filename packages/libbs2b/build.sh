@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Bauer stereophonic-to-binaural DSP
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libbs2b
 VERSION=3.1.0
 EXT=tar.bz2

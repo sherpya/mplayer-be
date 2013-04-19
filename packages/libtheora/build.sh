@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Theora Video Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libtheora
 VERSION=1.2.0alpha1
 EXT=tar.xz

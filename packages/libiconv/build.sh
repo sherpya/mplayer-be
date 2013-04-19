@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for GNU libiconv
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libiconv
 VERSION=1.14
 EXT=tar.gz

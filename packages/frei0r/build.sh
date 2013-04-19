@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for frei0r plugins
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 GIT_REPO="git://code.dyne.org/frei0r.git"
 
 CMAKE=1

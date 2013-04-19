@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for x264 H.264/MPEG-4 AVC Encoder
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 GIT_REPO="git://git.videolan.org/x264.git"
 
 . $(dirname $0)/../functions.sh

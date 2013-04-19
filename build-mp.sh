@@ -1,4 +1,8 @@
 #!/bin/bash
+# MPlayer/FFmpeg MinGW-w64 Cross Build Environment
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 tool=$(dirname $0)/mp.sh
 
 $tool build_source

@@ -1,4 +1,8 @@
 #!/bin/bash
+# MPlayer/FFmpeg MinGW-w64 Cross Build Environment
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 while read package; do
     pushd $package > /dev/null
 

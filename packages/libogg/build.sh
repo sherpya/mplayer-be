@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for OGG Open Container Format
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libogg
 VERSION=1.3.0
 EXT=tar.xz

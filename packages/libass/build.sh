@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for libass subtitle renderer
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libass
 VERSION=0.10.1
 EXT=tar.xz

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for SoX Resampler
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=soxr
 VERSION=0.1.1-Source
 EXT=tar.xz

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Speex Audio Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=speex
 VERSION=1.2rc1
 EXT=tar.gz

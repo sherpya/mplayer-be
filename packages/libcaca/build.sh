@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Libcaca graphics library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libcaca
 VERSION=0.99.beta18
 EXT=tar.gz

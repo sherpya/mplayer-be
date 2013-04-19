@@ -1,3 +1,7 @@
+# MPlayer/FFmpeg MinGW-w64 Cross Build Environment
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 : ${HOST:="i686-w64-mingw32"}
 export HOST
 

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for GNU Compact Disc Input and Control Library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libcdio
 VERSION=0.90
 EXT=tar.gz

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for live555.com streaming media library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=live555
 VERSION=latest
 EXT=tar.gz

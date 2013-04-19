@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for XVID Video Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=xvidcore
 VERSION=1.3.2
 EXT=tar.bz2

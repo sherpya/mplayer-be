@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for Google VP8/9 Video Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 GIT_REPO="http://git.chromium.org/webm/libvpx.git"
 
 . $(dirname $0)/../functions.sh

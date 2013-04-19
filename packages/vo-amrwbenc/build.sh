@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for VisualOn AMR-WB Encoder
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=vo-amrwbenc
 VERSION=0.1.2
 EXT=tar.gz

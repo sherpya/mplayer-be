@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for bzip2 data compressor
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=bzip2
 VERSION=1.0.6
 EXT=tar.gz

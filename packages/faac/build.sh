@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for FAAC MPEG-4 AAC Encoder
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=faac
 VERSION=1.28
 EXT=tar.bz2

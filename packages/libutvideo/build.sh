@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for UT LossLess Video Codec
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 GIT_REPO="git://github.com/qyot27/libutvideo.git"
 
 . $(dirname $0)/../functions.sh

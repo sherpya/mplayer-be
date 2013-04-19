@@ -1,4 +1,8 @@
 #!/bin/bash
+# Build script for libpng library
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
+
 PACKAGE=libpng
 VERSION=1.5.15
 EXT=tar.xz

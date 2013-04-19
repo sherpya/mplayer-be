@@ -1,4 +1,7 @@
 # vim: ft=sh
+# MPlayer/FFmpeg MinGW-w64 Cross Build Environment
+# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# See LICENSE for licensing informations
 
 . $(dirname $0)/../../config.sh
 
