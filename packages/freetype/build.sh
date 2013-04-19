@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=freetype
 VERSION=2.4.11
 EXT=tar.bz2

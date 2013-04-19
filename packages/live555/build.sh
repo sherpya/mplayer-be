@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=live555
 VERSION=latest
 EXT=tar.gz

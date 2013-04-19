@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=fribidi
 VERSION=0.19.5
 EXT=tar.bz2

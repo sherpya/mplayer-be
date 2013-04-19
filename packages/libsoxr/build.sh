@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=soxr
 VERSION=0.1.1-Source
 EXT=tar.xz

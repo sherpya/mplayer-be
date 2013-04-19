@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=opencore-amr
 VERSION=0.1.3
 EXT=tar.gz

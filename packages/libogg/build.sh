@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libogg
 VERSION=1.3.0
 EXT=tar.xz

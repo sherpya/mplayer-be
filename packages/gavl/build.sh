@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=gavl
 VERSION=1.4.0
 EXT=tar.gz

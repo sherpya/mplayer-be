@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libregif
 VERSION=4.1.7
 EXT=tar.bz2

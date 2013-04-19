@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -fr dist
 mkdir -p dist

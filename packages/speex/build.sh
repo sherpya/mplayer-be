@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=speex
 VERSION=1.2rc1
 EXT=tar.gz

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=bzip2
 VERSION=1.0.6
 EXT=tar.gz

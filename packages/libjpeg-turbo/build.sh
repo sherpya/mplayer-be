@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libjpeg-turbo
 VERSION=1.2.1
 EXT=tar.gz

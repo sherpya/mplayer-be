@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 while read package; do
     pushd $package > /dev/null
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libass
 VERSION=0.10.1
 EXT=tar.xz

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=xvidcore
 VERSION=1.3.2
 EXT=tar.bz2

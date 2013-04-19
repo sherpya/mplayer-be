@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=enca
 VERSION=1.14
 EXT=tar.bz2

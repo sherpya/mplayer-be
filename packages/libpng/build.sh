@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libpng
 VERSION=1.5.15
 EXT=tar.xz

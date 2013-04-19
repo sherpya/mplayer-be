@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libbs2b
 VERSION=3.1.0
 EXT=tar.bz2

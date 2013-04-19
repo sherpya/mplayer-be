@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=fontconfig
 VERSION=2.10.2
 EXT=tar.bz2

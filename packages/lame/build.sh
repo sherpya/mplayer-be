@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=lame
 VERSION=3.99.5
 EXT=tar.gz

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libmodplug
 VERSION=0.8.8.4
 EXT=tar.gz

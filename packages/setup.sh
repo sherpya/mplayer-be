@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . $(dirname $0)/../config.sh
 
@@ -13,7 +13,7 @@ done
 PKGCONFIG="${PREFIX}/bin/${HOST}-pkg-config"
 
 cat > ${PKGCONFIG} << EOF
-#!/bin/sh
+#!/bin/bash
 export PKG_CONFIG_LIBDIR=/usr/${HOST}/lib/pkgconfig
 exec pkg-config \$*
 EOF

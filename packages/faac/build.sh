@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=faac
 VERSION=1.28
 EXT=tar.bz2

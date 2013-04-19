@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 tool=$(dirname $0)/mp.sh
 
 $tool build_source

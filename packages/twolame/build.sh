@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=twolame
 VERSION=0.3.13
 EXT=tar.gz

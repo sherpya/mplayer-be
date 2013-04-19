@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=lzo
 VERSION=2.06
 EXT=tar.gz

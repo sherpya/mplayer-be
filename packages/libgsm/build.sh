@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=gsm
 VERSION=1.0-pl13
 EXT=tar.xz

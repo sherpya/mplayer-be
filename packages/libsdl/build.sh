@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=SDL
 VERSION=1.2.15
 EXT=tar.gz

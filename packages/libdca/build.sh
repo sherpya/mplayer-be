@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libdca
 VERSION=0.0.5
 EXT=tar.bz2

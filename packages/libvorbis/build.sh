@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libvorbis
 VERSION=1.3.3
 EXT=tar.xz

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=zlib
 VERSION=1.2.7
 EXT=tar.bz2

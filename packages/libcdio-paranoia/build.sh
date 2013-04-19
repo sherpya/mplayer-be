@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libcdio-paranoia
 VERSION=10.2+0.90
 EXT=tar.bz2

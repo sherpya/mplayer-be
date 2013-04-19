@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libcaca
 VERSION=0.99.beta18
 EXT=tar.gz

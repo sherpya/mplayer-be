@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=vo-amrwbenc
 VERSION=0.1.2
 EXT=tar.gz

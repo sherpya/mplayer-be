@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=expat
 VERSION=2.1.0
 EXT=tar.gz

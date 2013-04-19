@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libcdio
 VERSION=0.90
 EXT=tar.gz

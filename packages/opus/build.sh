@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=opus
 VERSION=1.0.2
 EXT=tar.gz

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=openjpeg
 VERSION=1.5.1
 EXT=tar.gz

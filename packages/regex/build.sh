@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=regex
 VERSION=0.12
 EXT=tar.gz

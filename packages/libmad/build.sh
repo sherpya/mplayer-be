@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libmad
 VERSION=0.15.1b
 EXT=tar.gz

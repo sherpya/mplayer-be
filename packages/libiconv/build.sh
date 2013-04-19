@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACKAGE=libiconv
 VERSION=1.14
 EXT=tar.gz
