@@ -1,4 +1,4 @@
-From 41a79945c8c574a5c9f5f789629ecbe478427b86 Mon Sep 17 00:00:00 2001
+From 1a8c065a5a8f0b80399cfa5a3c7ce860b628d5a6 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
 Subject: [PATCH 19/24] configure: added --with-arch and --with-tune overrides
