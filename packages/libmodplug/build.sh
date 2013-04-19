@@ -2,7 +2,7 @@
 PACKAGE=libmodplug
 VERSION=0.8.8.4
 EXT=tar.gz
-BASEURL=http://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.8.4
+BASEURL=http://downloads.sourceforge.net/project/modplug-xmms/${PACKAGE}/${VERSION}
 
 . $(dirname $0)/../functions.sh
 

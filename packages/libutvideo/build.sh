@@ -1,4 +1,5 @@
 #!/bin/bash
+GIT_REPO="git://github.com/qyot27/libutvideo.git"
 
 . $(dirname $0)/../functions.sh
 
@@ -9,7 +10,6 @@ esac
 
 BUILDDIR=libutvideo
 STATICLIBS="libutvideo"
-GIT_REPO="git://github.com/qyot27/libutvideo.git"
 
 pkg_configure()
 {

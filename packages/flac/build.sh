@@ -2,7 +2,7 @@
 PACKAGE=flac
 VERSION=1.2.1
 EXT=tar.gz
-BASEURL=http://downloads.xiph.org/releases/flac
+BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 

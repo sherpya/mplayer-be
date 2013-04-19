@@ -2,7 +2,7 @@
 PACKAGE=libcdio
 VERSION=0.90
 EXT=tar.gz
-BASEURL=http://ftp.gnu.org/gnu/libcdio
+BASEURL=http://ftp.gnu.org/gnu/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 

@@ -1,9 +1,9 @@
 #!/bin/bash
+SVN_REPO="https://xavs.svn.sourceforge.net/svnroot/xavs/trunk"
 
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=xavs
-SVN_REPO="https://xavs.svn.sourceforge.net/svnroot/xavs/trunk"
 
 pkg_configure()
 {

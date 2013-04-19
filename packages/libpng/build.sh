@@ -2,7 +2,7 @@
 PACKAGE=libpng
 VERSION=1.5.15
 EXT=tar.xz
-BASEURL=http://downloads.sourceforge.net/project/libpng/libpng15/${VERSION}
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng15/${VERSION}
 
 . $(dirname $0)/../functions.sh
 

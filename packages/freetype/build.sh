@@ -2,7 +2,7 @@
 PACKAGE=freetype
 VERSION=2.4.11
 EXT=tar.bz2
-BASEURL=http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 
 . $(dirname $0)/../functions.sh
 

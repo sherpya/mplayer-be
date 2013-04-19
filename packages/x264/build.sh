@@ -1,11 +1,10 @@
 #!/bin/bash
+GIT_REPO="git://git.videolan.org/x264.git"
 
 . $(dirname $0)/../functions.sh
 
-CONFOPTS="--cross-prefix=${HOST}-"
-
 BUILDDIR=x264
-GIT_REPO="git://git.videolan.org/x264.git"
+CONFOPTS="--cross-prefix=${HOST}-"
 
 pkg_make_target()
 {

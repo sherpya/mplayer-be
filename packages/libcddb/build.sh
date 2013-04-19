@@ -9,4 +9,5 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION
 STATICLIBS="libcddb"
 
 export ac_cv_func_alarm=false
+
 pkg_build && pkg_clean

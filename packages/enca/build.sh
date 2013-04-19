@@ -2,7 +2,7 @@
 PACKAGE=enca
 VERSION=1.14
 EXT=tar.bz2
-BASEURL=http://dl.cihar.com/enca
+BASEURL=http://dl.cihar.com/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 

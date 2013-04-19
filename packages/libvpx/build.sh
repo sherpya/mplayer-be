@@ -1,4 +1,5 @@
 #!/bin/bash
+GIT_REPO="http://git.chromium.org/webm/libvpx.git"
 
 . $(dirname $0)/../functions.sh
 
@@ -8,7 +9,6 @@ case ${ARCH} in
 esac
 
 BUILDDIR=libvpx
-GIT_REPO="http://git.chromium.org/webm/libvpx.git"
 
 pkg_configure()
 {

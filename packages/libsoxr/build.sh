@@ -2,7 +2,7 @@
 PACKAGE=soxr
 VERSION=0.1.1-Source
 EXT=tar.xz
-BASEURL=http://downloads.sourceforge.net/project/soxr
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
 CMAKE=1
 CMAKEOPTS=" \

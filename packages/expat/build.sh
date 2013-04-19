@@ -2,7 +2,7 @@
 PACKAGE=expat
 VERSION=2.1.0
 EXT=tar.gz
-BASEURL=http://downloads.sourceforge.net/project/expat/expat/2.1.0
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION}
 
 . $(dirname $0)/../functions.sh
 

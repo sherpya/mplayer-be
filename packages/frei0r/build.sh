@@ -1,13 +1,14 @@
 #!/bin/bash
+GIT_REPO="git://code.dyne.org/frei0r.git"
+
+CMAKE=1
+CMAKEOPTS="-DCMAKE_MODULE_LINKER_FLAGS=-s"
 
 . $(dirname $0)/../functions.sh
 
 depends lib/libgavl.a
 
 BUILDDIR=frei0r
-GIT_REPO="git://code.dyne.org/frei0r.git"
-CMAKE=1
-CMAKEOPTS="-DCMAKE_MODULE_LINKER_FLAGS=-s"
 
 git_clean && pkg_build && git_clean
 

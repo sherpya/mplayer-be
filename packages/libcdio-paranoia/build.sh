@@ -13,7 +13,7 @@ STATICLIBS="libcdio_cdda libcdio_paranoia"
 pkg_make_target()
 {
     make ${MAKEOPTS} install
-    # fix path
+    # fix broken include path
     sed -i -e 's,cdio/paranoia/cdda\.h,cdio/cdda\.h,g' ${PREFIX}/include/cdio/paranoia.h
 }
 

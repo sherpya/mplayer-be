@@ -1,11 +1,11 @@
 #!/bin/bash
+SVN_REPO="http://dlfcn-win32.googlecode.com/svn/trunk"
 
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=dlfcn-win32
-SVN_REPO="http://dlfcn-win32.googlecode.com/svn/trunk"
 
-# why configure returns false?
+# why configure does return false?
 pkg_configure()
 {
     ./configure             \

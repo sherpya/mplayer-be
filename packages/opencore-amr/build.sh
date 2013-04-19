@@ -2,7 +2,7 @@
 PACKAGE=opencore-amr
 VERSION=0.1.3
 EXT=tar.gz
-BASEURL=http://downloads.sourceforge.net/project/opencore-amr/opencore-amr
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 

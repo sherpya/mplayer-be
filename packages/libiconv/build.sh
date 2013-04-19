@@ -2,7 +2,7 @@
 PACKAGE=libiconv
 VERSION=1.14
 EXT=tar.gz
-BASEURL=http://ftp.gnu.org/pub/gnu/libiconv
+BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 

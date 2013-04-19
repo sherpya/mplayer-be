@@ -2,7 +2,7 @@
 PACKAGE=lzo
 VERSION=2.06
 EXT=tar.gz
-BASEURL=http://www.oberhumer.com/opensource/lzo/download
+BASEURL=http://www.oberhumer.com/opensource/${PACKAGE}/download
 
 . $(dirname $0)/../functions.sh
 

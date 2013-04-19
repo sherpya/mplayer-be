@@ -2,7 +2,7 @@
 PACKAGE=lame
 VERSION=3.99.5
 EXT=tar.gz
-BASEURL=http://downloads.sourceforge.net/project/lame/lame/3.99
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION%.*}
 
 . $(dirname $0)/../functions.sh
 
