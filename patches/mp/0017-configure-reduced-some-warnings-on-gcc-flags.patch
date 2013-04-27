@@ -1,4 +1,4 @@
-From 551bc958fd78b11aed6ce4b072063cba9fefedb4 Mon Sep 17 00:00:00 2001
+From 7b3b9a628b56568c315111ca3662ceba51246dfa Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
 Subject: [PATCH 17/24] configure: reduced some warnings on gcc flags

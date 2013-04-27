@@ -1,4 +1,4 @@
-From 3fa7bbeae2348da1e7da4e923520f5baa0c0f00f Mon Sep 17 00:00:00 2001
+From 1fe96d5e188f8110bad84776a3dd93fe1a0186f4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:02 +0100
 Subject: [PATCH 06/24] win32: color console

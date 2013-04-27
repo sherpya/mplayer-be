@@ -1,4 +1,4 @@
-From a6f9d78f55dcc64ec8eee45ee45e7a69c9db578a Mon Sep 17 00:00:00 2001
+From 41faf7db2b1c59a706d77284682a1c0933113736 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
 Subject: [PATCH 15/24] input: map control keys using human readable strings
