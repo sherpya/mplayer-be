@@ -1,4 +1,4 @@
-From 78604bd983738a1e4b7901d409752581d038ac00 Mon Sep 17 00:00:00 2001
+From 95e3cf2f52ef23af1dad871c76f3a67a5bfeaa57 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/24] af: runtime equalizer
@@ -48,7 +48,7 @@ index c30a138..e7ebc3e 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 6ec8307..ef2a389 100644
+index 3a9a14e..edfa047 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
@@ -60,7 +60,7 @@ index 6ec8307..ef2a389 100644
    { MP_CMD_AF_ADD, "af_add", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
    { MP_CMD_AF_DEL, "af_del", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
 diff --git a/input/input.h b/input/input.h
-index 18dcdc8..345006c 100644
+index e723618..ed5d180 100644
 --- a/input/input.h
 +++ b/input/input.h
 @@ -156,6 +156,7 @@ typedef enum {

@@ -1,4 +1,4 @@
-From 41faf7db2b1c59a706d77284682a1c0933113736 Mon Sep 17 00:00:00 2001
+From fd78cb383d914b838a7ff74c5d727853b087a71d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
 Subject: [PATCH 15/24] input: map control keys using human readable strings
@@ -9,7 +9,7 @@ Subject: [PATCH 15/24] input: map control keys using human readable strings
  2 files changed, 57 insertions(+)
 
 diff --git a/input/input.c b/input/input.c
-index ef2a389..e6c6e15 100644
+index edfa047..11956b0 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -220,6 +220,33 @@ static const mp_cmd_t mp_cmds[] = {
