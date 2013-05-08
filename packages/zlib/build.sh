@@ -4,8 +4,8 @@
 # See LICENSE for licensing informations
 
 PACKAGE=zlib
-VERSION=1.2.7
-EXT=tar.bz2
+VERSION=1.2.8
+EXT=tar.xz
 BASEURL=http://zlib.net
 
 . $(dirname $0)/../functions.sh
