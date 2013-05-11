@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=freetype
-VERSION=2.4.11
+VERSION=2.4.12
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 

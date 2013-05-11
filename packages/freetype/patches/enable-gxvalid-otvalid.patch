@@ -1,16 +1,6 @@
-Description: enable the otvalid and gxvalid table validation modules
- The 'ftvalid' demo in the freetype2-demos package is only useful if certain
- extra extensions are enabled in freetype.  These extensions are not enabled
- upstream by default, but there's no reason for us not to enable them.
-Author: Paul Wise <pabs@debian.org>
-Bug-Debian: http://bugs.debian.org/520879
-Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/239626
-Forwarded: not-needed
-
-Index: freetype-2.4.4/modules.cfg
-===================================================================
---- freetype-2.4.4.orig/modules.cfg
-+++ freetype-2.4.4/modules.cfg
+diff -ur freetype-2.4.12.orig/modules.cfg freetype-2.4.12/modules.cfg
+--- freetype-2.4.12.orig/modules.cfg	2011-11-26 13:19:10.000000000 +0100
++++ freetype-2.4.12/modules.cfg	2013-05-12 00:53:54.930815901 +0200
 @@ -110,7 +110,7 @@
  AUX_MODULES += cache
  
@@ -20,7 +10,7 @@ Index: freetype-2.4.4/modules.cfg
  
  # Support for streams compressed with gzip (files with suffix .gz).
  #
-@@ -124,7 +124,7 @@
+@@ -129,7 +129,7 @@
  
  # OpenType table validation.  Needs ftotval.c below.
  #
