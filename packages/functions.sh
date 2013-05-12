@@ -52,7 +52,7 @@ do_single_target()
 
 pkg_download()
 {
-    test -f ${FILENAME} || wget -c -O ${FILENAME} ${BASEURL}/${FILENAME}
+    test -f ${FILENAME} || wget -c -O ${FILENAME} ${BASEURL}/${FILENAME} || ( rm -f ${FILENAME} ; return 1 )
 }
 
 pkg_unpack()
@@ -68,7 +68,7 @@ pkg_unpack()
     fi
 
     test -z ${BASEURL} && return
-    test -d ${FILENAME} || pkg_download
+    test -d ${FILENAME} || pkg_download || return 1
 
     case ${FILENAME} in
         *.tar.xz)
