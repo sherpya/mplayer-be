@@ -1,7 +1,7 @@
-From a2b44a83081a249fe6e61eebe6c29382843c420b Mon Sep 17 00:00:00 2001
+From 532ab266cbd3a9aaac6fdeee18da06d2290f897f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 7/8] custom icon and windows resource
+Subject: [PATCH 6/7] custom icon and windows resource
 
 ---
  Makefile    |    5 +++++
@@ -18,7 +18,7 @@ Subject: [PATCH 7/8] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 2cafd40..e569df3 100644
+index 7addffb..22c522b 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -93,6 +93,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))

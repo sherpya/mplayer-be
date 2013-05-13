@@ -1,17 +1,17 @@
-From fe4a544bd7f243f2e9ee5d70e4ed3fc5aae12aca Mon Sep 17 00:00:00 2001
+From d5ab58b0e2f1f6b21ed3321b63053050d390effb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 8 Mar 2013 17:07:30 +0100
-Subject: [PATCH 2/8] avfilters: better behavior of frei0r on win32
+Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32
 
 ---
  libavfilter/vf_frei0r.c |   24 ++++++++++++++++++++++++
  1 file changed, 24 insertions(+)
 
 diff --git a/libavfilter/vf_frei0r.c b/libavfilter/vf_frei0r.c
-index d79dac1..4be08cf 100644
+index 345509b..1a50e1c 100644
 --- a/libavfilter/vf_frei0r.c
 +++ b/libavfilter/vf_frei0r.c
-@@ -41,6 +41,10 @@
+@@ -42,6 +42,10 @@
  #include "internal.h"
  #include "video.h"
  
@@ -22,7 +22,7 @@ index d79dac1..4be08cf 100644
  typedef f0r_instance_t (*f0r_construct_f)(unsigned int width, unsigned int height);
  typedef void (*f0r_destruct_f)(f0r_instance_t instance);
  typedef void (*f0r_deinit_f)(void);
-@@ -262,6 +266,25 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -276,6 +280,25 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
@@ -48,7 +48,7 @@ index d79dac1..4be08cf 100644
      if (!frei0r->dl_handle) {
          ret = load_path(ctx, &frei0r->dl_handle, "/usr/local/lib/frei0r-1/", dl_name);
          if (ret < 0)
-@@ -272,6 +295,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -286,6 +309,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
