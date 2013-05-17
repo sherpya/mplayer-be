@@ -1,6 +1,6 @@
-From d5ab58b0e2f1f6b21ed3321b63053050d390effb Mon Sep 17 00:00:00 2001
+From 20de82fb7c84aef170b1a480a88a0676ff399789 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Fri, 8 Mar 2013 17:07:30 +0100
+Date: Sat, 18 May 2013 01:27:58 +0200
 Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32
  1 file changed, 24 insertions(+)
 
 diff --git a/libavfilter/vf_frei0r.c b/libavfilter/vf_frei0r.c
-index 345509b..1a50e1c 100644
+index 5ace481..91b1a8e 100644
 --- a/libavfilter/vf_frei0r.c
 +++ b/libavfilter/vf_frei0r.c
-@@ -42,6 +42,10 @@
+@@ -40,6 +40,10 @@
  #include "internal.h"
  #include "video.h"
  
@@ -22,12 +22,12 @@ index 345509b..1a50e1c 100644
  typedef f0r_instance_t (*f0r_construct_f)(unsigned int width, unsigned int height);
  typedef void (*f0r_destruct_f)(f0r_instance_t instance);
  typedef void (*f0r_deinit_f)(void);
-@@ -276,6 +280,25 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -274,6 +278,25 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
 +#ifdef _WIN32
-+    if (!frei0r->dl_handle) {
++    if (!s->dl_handle) {
 +        char *ls, prefix[MAX_PATH + 1];
 +
 +        if (!GetModuleFileNameA(NULL, prefix, MAX_PATH))
@@ -40,20 +40,20 @@ index 345509b..1a50e1c 100644
 +        *ls = 0;
 +        strncat(prefix, "\\frei0r-1\\", sizeof(prefix) - 1 - strlen(prefix));
 +
-+        ret = load_path(ctx, &frei0r->dl_handle, prefix, dl_name);
++        ret = load_path(ctx, &s->dl_handle, prefix, dl_name);
 +        if (ret < 0)
 +            return ret;
 +    }
 +#else
-     if (!frei0r->dl_handle) {
-         ret = load_path(ctx, &frei0r->dl_handle, "/usr/local/lib/frei0r-1/", dl_name);
+     if (!s->dl_handle) {
+         ret = load_path(ctx, &s->dl_handle, "/usr/local/lib/frei0r-1/", dl_name);
          if (ret < 0)
-@@ -286,6 +309,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -284,6 +307,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
 +#endif
-     if (!frei0r->dl_handle) {
+     if (!s->dl_handle) {
          av_log(ctx, AV_LOG_ERROR, "Could not find module '%s'\n", dl_name);
          return AVERROR(EINVAL);
 -- 
