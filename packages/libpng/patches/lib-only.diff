@@ -1,7 +1,7 @@
-diff -u libpng-1.5.14.orig/Makefile.in libpng-1.5.14/Makefile.in
---- libpng-1.5.14.orig/Makefile.in	2013-01-24 03:59:12.000000000 +0100
-+++ libpng-1.5.14/Makefile.in	2013-02-17 09:43:48.595905413 +0100
-@@ -1340,7 +1340,7 @@
+diff -ur libpng-1.5.16.orig/Makefile.in libpng-1.5.16/Makefile.in
+--- libpng-1.5.16.orig/Makefile.in	2013-05-23 13:45:30.000000000 +0200
++++ libpng-1.5.16/Makefile.in	2013-05-25 01:18:29.181248850 +0200
+@@ -1378,7 +1378,7 @@
  
  info-am:
  
