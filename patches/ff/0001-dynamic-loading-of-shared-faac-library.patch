@@ -1,18 +1,18 @@
-From 6ad6f9ce5f98e5c44b408ee67d5bf59f1b6abb2f Mon Sep 17 00:00:00 2001
+From 99f1c0b68ffed77ff229c7e652e192f1637293f9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:02:21 +0100
 Subject: [PATCH 1/7] dynamic loading of shared faac library
 
 ---
- configure            |    3 +--
- libavcodec/libfaac.c |   73 ++++++++++++++++++++++++++++++++++++++++++++------
- 2 files changed, 66 insertions(+), 10 deletions(-)
+ configure            |    3 +-
+ libavcodec/libfaac.c |   75 ++++++++++++++++++++++++++++++++++++++++++++------
+ 2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index 1e44408..e4e6d7b 100755
+index faf3186..019ee73 100755
 --- a/configure
 +++ b/configure
-@@ -3609,7 +3609,6 @@ die_license_disabled gpl libxvid
+@@ -3625,7 +3625,6 @@ die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -20,7 +20,7 @@ index 1e44408..e4e6d7b 100755
  enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
-@@ -4012,7 +4011,7 @@ enabled libcelt    && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4028,7 +4027,7 @@ enabled libcelt    && require libcelt celt/celt.h celt_decode -lcelt0 &&
                        { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
                          die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca    && require_pkg_config caca caca.h caca_create_canvas
@@ -30,7 +30,7 @@ index 1e44408..e4e6d7b 100755
  flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
  enabled libflite   && require2 libflite "flite/flite.h" flite_init $flite_libs
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
-index ac18fe2..5bc1a28 100644
+index f37e03a..0a086d4 100644
 --- a/libavcodec/libfaac.c
 +++ b/libavcodec/libfaac.c
 @@ -32,6 +32,48 @@
@@ -151,16 +151,21 @@ index ac18fe2..5bc1a28 100644
                                             &decoder_specific_info_size)) {
              avctx->extradata = av_malloc(decoder_specific_info_size + FF_INPUT_BUFFER_PADDING_SIZE);
              if (!avctx->extradata) {
-@@ -150,7 +207,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -150,11 +207,11 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
          free(buffer);
      }
  
 -    if (!faacEncSetConfiguration(s->faac_handle, faac_cfg)) {
 +    if (!s->pfn.faacEncSetConfiguration(s->faac_handle, faac_cfg)) {
-         av_log(avctx, AV_LOG_ERROR, "libfaac doesn't support this output format!\n");
-         ret = AVERROR(EINVAL);
-         goto error;
-@@ -176,7 +233,7 @@ static int Faac_encode_frame(AVCodecContext *avctx, AVPacket *avpkt,
+         int i;
+         for (i = avctx->bit_rate/1000; i ; i--) {
+             faac_cfg->bitRate = 1000*i / avctx->channels;
+-            if (faacEncSetConfiguration(s->faac_handle, faac_cfg))
++            if (s->pfn.faacEncSetConfiguration(s->faac_handle, faac_cfg))
+                 break;
+         }
+         if (!i) {
+@@ -187,7 +244,7 @@ static int Faac_encode_frame(AVCodecContext *avctx, AVPacket *avpkt,
      if ((ret = ff_alloc_packet2(avctx, avpkt, (7 + 768) * avctx->channels)) < 0)
          return ret;
  

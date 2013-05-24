@@ -1,4 +1,4 @@
-From 20de82fb7c84aef170b1a480a88a0676ff399789 Mon Sep 17 00:00:00 2001
+From 8309e1b64feb591ff63cf88ba530e30e16456b7e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
 Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32

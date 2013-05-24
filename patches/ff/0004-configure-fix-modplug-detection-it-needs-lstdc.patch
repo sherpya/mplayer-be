@@ -1,4 +1,4 @@
-From cb8eb34c2a3ba54883806a640f71c3d825bf2f73 Mon Sep 17 00:00:00 2001
+From 96963e61d7cfa46fd6f1c5598a0f9d26d5b55432 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 01:20:54 +0100
 Subject: [PATCH 4/7] configure: fix modplug detection (it needs +lstdc++)
@@ -8,10 +8,10 @@ Subject: [PATCH 4/7] configure: fix modplug detection (it needs +lstdc++)
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index e4e6d7b..afb6bc8 100755
+index 019ee73..c283402 100755
 --- a/configure
 +++ b/configure
-@@ -4020,7 +4020,7 @@ enabled libgsm     && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
+@@ -4036,7 +4036,7 @@ enabled libgsm     && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
                              check_lib "${gsm_hdr}" gsm_create -lgsm && break;
                          done || die "ERROR: libgsm not found"; }
  enabled libilbc    && require  libilbc ilbc.h WebRtcIlbcfix_InitDecode -lilbc

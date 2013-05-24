@@ -1,4 +1,4 @@
-From b2924b7f877e2ce170ce315e7eaa2bc7555e31af Mon Sep 17 00:00:00 2001
+From 8b4ab1838973ce9ca8044e68a4afde02c1d1f27d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 6/7] custom icon and windows resource
@@ -18,10 +18,10 @@ Subject: [PATCH 6/7] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 7addffb..22c522b 100644
+index 46d4d52..2a5101e 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -93,6 +93,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
+@@ -92,6 +92,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
  
  define DOPROG
  OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS)
@@ -30,7 +30,7 @@ index 7addffb..22c522b 100644
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -102,6 +104,9 @@ endef
+@@ -101,6 +103,9 @@ endef
  
  $(foreach P,$(PROGS-yes),$(eval $(call DOPROG,$(P))))
  
