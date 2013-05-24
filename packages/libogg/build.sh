@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libogg
-VERSION=1.3.0
+VERSION=1.3.1
 EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/ogg
 
