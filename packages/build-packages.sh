@@ -67,3 +67,4 @@ x264
 xavs
 xvidcore
 EOF
+echo "All done"
