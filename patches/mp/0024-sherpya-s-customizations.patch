@@ -1,4 +1,4 @@
-From 29d7b2d03a11ccb69f3f593daea299f35755b231 Mon Sep 17 00:00:00 2001
+From f47a01c4e247e700b690e334cb7515058231f898 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 24/24] sherpya's customizations
@@ -18,7 +18,7 @@ Subject: [PATCH 24/24] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index a006af1..cbe4fad 100644
+index 2880795..1762226 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -686,6 +686,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
@@ -30,7 +30,7 @@ index a006af1..cbe4fad 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -859,6 +861,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -861,6 +863,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,7 +41,7 @@ index a006af1..cbe4fad 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 9910771..65fbac7 100755
+index cc2b428..0632282 100755
 --- a/configure
 +++ b/configure
 @@ -1520,13 +1520,13 @@ fi

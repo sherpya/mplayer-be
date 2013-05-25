@@ -1,4 +1,4 @@
-From 62f47acef4d0dd62fcb9cdebffc85f9cdf435ae9 Mon Sep 17 00:00:00 2001
+From af7c0c1c83928d7245d68981a0ba6223534adf33 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 20/24] conf: honor disable_system_conf (except stream_dvb)
@@ -32,7 +32,7 @@ index d89ced3..e6b6bc4 100644
    }
    else
 diff --git a/mpcommon.c b/mpcommon.c
-index d70ce8d..5fa3c27 100644
+index 8aa7ecf..56e3a79 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
 @@ -589,7 +589,7 @@ int common_init(void)
