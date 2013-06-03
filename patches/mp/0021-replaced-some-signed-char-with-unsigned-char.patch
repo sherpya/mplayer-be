@@ -1,4 +1,4 @@
-From a72fdf6600e91a84b9c12a5ebffe5b2aa24a09f7 Mon Sep 17 00:00:00 2001
+From 3b3f4b3efc679f3c87bd94a978f8b693e49cd83a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/24] replaced some signed char with unsigned char
@@ -103,7 +103,7 @@ index 0f65358..8ee6bec 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index b6834d6..ae9ae2d 100644
+index 5c3b27e..a20b593 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -88,12 +88,12 @@ int sub_format=SUB_INVALID;

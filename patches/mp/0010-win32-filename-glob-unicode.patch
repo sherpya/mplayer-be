@@ -1,12 +1,12 @@
-From cb7b4cee02c6b97cb69f14344826a0c2aa090878 Mon Sep 17 00:00:00 2001
+From 3f4e3afb51a93750f17034267908cfd97bd08504 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 21 Mar 2013 10:29:04 +0100
 Subject: [PATCH 10/24] win32: filename glob() + unicode
 
 ---
  osdep/glob-win.c |   69 ++++++++++++++++++++++++++++++++++++++++++++++++++----
- parser-mpcmd.c   |   31 ++++++++++++++++++++++++
- 2 files changed, 95 insertions(+), 5 deletions(-)
+ parser-mpcmd.c   |   30 ++++++++++++++++++++++++
+ 2 files changed, 94 insertions(+), 5 deletions(-)
 
 diff --git a/osdep/glob-win.c b/osdep/glob-win.c
 index d67d6dd..966edf2 100644
@@ -115,7 +115,7 @@ index d67d6dd..966edf2 100644
      }
      FindClose(searchhndl);
 diff --git a/parser-mpcmd.c b/parser-mpcmd.c
-index 4d29885..1aa5253 100644
+index 4d29885..0573184 100644
 --- a/parser-mpcmd.c
 +++ b/parser-mpcmd.c
 @@ -31,6 +31,10 @@
@@ -129,7 +129,7 @@ index 4d29885..1aa5253 100644
  #include "mp_msg.h"
  #include "help_mp.h"
  #include "m_option.h"
-@@ -265,6 +269,33 @@ m_config_parse_mp_command_line(m_config_t *config, int argc, char **argv)
+@@ -265,6 +269,32 @@ m_config_parse_mp_command_line(m_config_t *config, int argc, char **argv)
                  play_tree_add_file(entry,argv[i]);
               }
          } else {
@@ -148,12 +148,11 @@ index 4d29885..1aa5253 100644
 +        if (doglob) {
 +            glob_t gg;
 +            if (!glob(argv[i], 0, NULL, &gg)) {
-+	            play_tree_t *e, *last = entry;
 +                for (j = 0; j < gg.gl_pathc; j++) {
-+                    e = play_tree_new();
-+                    play_tree_add_file(e, gg.gl_pathv[j]);
-+                    play_tree_append_entry(e, last);
-+                    last = e;
++                    if (j) entry = play_tree_new();
++                    play_tree_add_file(entry, gg.gl_pathv[j]);
++                    add_entry(&last_parent, &last_entry, entry);
++                    last_entry = entry;
 +                }
 +                globfree(&gg);
 +            }
