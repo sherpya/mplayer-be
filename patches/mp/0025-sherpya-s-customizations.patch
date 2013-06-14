@@ -1,24 +1,24 @@
-From 017575fb5c4b2864fb3d25ce555658b7b098867a Mon Sep 17 00:00:00 2001
+From 670e73fe9370a0632615ba7ea5d718ed0452efa1 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 24/24] sherpya's customizations
+Subject: [PATCH 25/25] sherpya's customizations
 
 ---
- Makefile         |    5 +++++
- configure        |    5 +++--
- etc/audio.ico    |  Bin 0 -> 112906 bytes
- etc/mencoder.ico |  Bin 0 -> 109548 bytes
- etc/mplayer.ico  |  Bin 290014 -> 111626 bytes
- etc/video.ico    |  Bin 0 -> 113680 bytes
- osdep/mplayer.rc |   26 ++++++++++++++++++++------
- version.sh       |    6 ++++--
+ Makefile         |   5 +++++
+ configure        |   5 +++--
+ etc/audio.ico    | Bin 0 -> 112906 bytes
+ etc/mencoder.ico | Bin 0 -> 109548 bytes
+ etc/mplayer.ico  | Bin 290014 -> 111626 bytes
+ etc/video.ico    | Bin 0 -> 113680 bytes
+ osdep/mplayer.rc |  26 ++++++++++++++++++++------
+ version.sh       |   6 ++++--
  8 files changed, 32 insertions(+), 10 deletions(-)
  create mode 100644 etc/audio.ico
  create mode 100644 etc/mencoder.ico
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index 2880795..1762226 100644
+index 0de8c27..2119cda 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -686,6 +686,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
@@ -41,7 +41,7 @@ index 2880795..1762226 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index cc2b428..0632282 100755
+index a9c64a0..b761f95 100755
 --- a/configure
 +++ b/configure
 @@ -1520,13 +1520,13 @@ fi
@@ -4699,5 +4699,5 @@ index ab9b8e8..19e8425 100755
  version=$svn_revision
  fi
 -- 
-1.7.10.4
+1.8.3.1
 

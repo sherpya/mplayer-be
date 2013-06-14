@@ -1,13 +1,13 @@
-From e8c4a549af2536d3bda351fb2f26f2780d76883c Mon Sep 17 00:00:00 2001
+From 43014014a9656d87ef6168aff9e26f2df33fbb01 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Feb 2013 00:56:43 +0100
-Subject: [PATCH 22/24] dvdnav: added dvdnav/dvdread submodules
+Subject: [PATCH 22/25] dvdnav: added dvdnav/dvdread submodules
 
 ---
- .gitignore  |    2 --
- .gitmodules |    6 ++++++
- libdvdnav   |    1 +
- libdvdread4 |    1 +
+ .gitignore  | 2 --
+ .gitmodules | 6 ++++++
+ libdvdnav   | 1 +
+ libdvdread4 | 1 +
  4 files changed, 8 insertions(+), 2 deletions(-)
  create mode 100644 .gitmodules
  create mode 160000 libdvdnav
@@ -53,5 +53,5 @@ index 0000000..0ecce67
 @@ -0,0 +1 @@
 +Subproject commit 0ecce678c49d8101619fec4f201208116a5fcee1
 -- 
-1.7.10.4
+1.8.3.1
 

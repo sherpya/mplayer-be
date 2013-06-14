@@ -1,11 +1,11 @@
-From 96ab9fe0701a3328669666515e8aeb33a5b7fc32 Mon Sep 17 00:00:00 2001
+From 29e457badaaffb4529873568774e5f42266e3b48 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:46:30 +0100
-Subject: [PATCH 13/24] qtx: qtx decoder spams on stdout and causes problems
+Subject: [PATCH 13/25] qtx: qtx decoder spams on stdout and causes problems
  while piping streams
 
 ---
- loader/qtx/qtxsdk/components.h |    4 +++-
+ loader/qtx/qtxsdk/components.h | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/loader/qtx/qtxsdk/components.h b/loader/qtx/qtxsdk/components.h
@@ -29,5 +29,5 @@ index e621a62..4f60dbc 100644
 +#undef printf
  #endif /* MPLAYER_COMPONENTS_H */
 -- 
-1.7.10.4
+1.8.3.1
 

@@ -1,10 +1,10 @@
-From 705eb0508f61971505436986c2dec24d6eb955a3 Mon Sep 17 00:00:00 2001
+From ce27d0daf16a39eadcc1b3f6536700116beda738 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:43:34 +0100
-Subject: [PATCH 05/24] make fontconfig spam while creating font cache
+Subject: [PATCH 05/25] make fontconfig spam while creating font cache
 
 ---
- mplayer.c |   11 +++++++++++
+ mplayer.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/mplayer.c b/mplayer.c
@@ -37,5 +37,5 @@ index ee9a5f0..d5e9f25 100644
  
  // ******************* Now, let's see the per-file stuff ********************
 -- 
-1.7.10.4
+1.8.3.1
 

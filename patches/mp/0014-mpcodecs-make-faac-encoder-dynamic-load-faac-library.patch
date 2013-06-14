@@ -1,11 +1,11 @@
-From 9e38f49e47d55fc11b3a5033f083be462c55bb3e Mon Sep 17 00:00:00 2001
+From 1bd22df0e1ef4d0707f2666bdeb5389eb132ec93 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:42:25 +0100
-Subject: [PATCH 14/24] mpcodecs: make faac encoder dynamic load faac library
+Subject: [PATCH 14/25] mpcodecs: make faac encoder dynamic load faac library
  at runtime
 
 ---
- libmpcodecs/ae_faac.c |   71 ++++++++++++++++++++++++++++++++++++++++++++-----
+ libmpcodecs/ae_faac.c | 71 ++++++++++++++++++++++++++++++++++++++++++++++-----
  1 file changed, 65 insertions(+), 6 deletions(-)
 
 diff --git a/libmpcodecs/ae_faac.c b/libmpcodecs/ae_faac.c
@@ -142,5 +142,5 @@ index 5fb399a..bf6f83f 100644
  		decoder_specific_len = 0;
  
 -- 
-1.7.10.4
+1.8.3.1
 

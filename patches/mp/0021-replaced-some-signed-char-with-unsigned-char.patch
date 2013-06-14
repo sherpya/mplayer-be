@@ -1,18 +1,18 @@
-From 3b3f4b3efc679f3c87bd94a978f8b693e49cd83a Mon Sep 17 00:00:00 2001
+From 4d71f0bf2c21b9c26eedff39bf1f803389ae3f1f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 21/24] replaced some signed char with unsigned char
+Subject: [PATCH 21/25] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
- libmpdemux/mf.c  |    2 +-
- libvo/vo_fbdev.c |    4 ++--
- parser-cfg.c     |    8 ++++----
- stream/stream.c  |    4 ++--
- stream/stream.h  |    2 +-
- stream/tv.c      |    2 +-
- sub/subreader.c  |   16 ++++++++--------
- sub/vobsub.c     |   18 +++++++++---------
+ libmpdemux/mf.c  |  2 +-
+ libvo/vo_fbdev.c |  4 ++--
+ parser-cfg.c     |  8 ++++----
+ stream/stream.c  |  4 ++--
+ stream/stream.h  |  2 +-
+ stream/tv.c      |  2 +-
+ sub/subreader.c  | 16 ++++++++--------
+ sub/vobsub.c     | 18 +++++++++---------
  8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
@@ -250,5 +250,5 @@ index 0bde089..c7ae835 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.7.10.4
+1.8.3.1
 

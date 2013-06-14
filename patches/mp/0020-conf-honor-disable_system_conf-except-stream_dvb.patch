@@ -1,13 +1,13 @@
-From 966c0c2033e7a868a762aedac656d17de429602d Mon Sep 17 00:00:00 2001
+From decccc424a7dc0cd4b4027d88d41f58117bc9fa7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 20/24] conf: honor disable_system_conf (except stream_dvb)
+Subject: [PATCH 20/25] conf: honor disable_system_conf (except stream_dvb)
 
 ---
- input/input.c      |    3 ++-
- mpcommon.c         |    4 ++--
- mplayer.c          |    2 +-
- sub/font_load_ft.c |    3 ++-
+ input/input.c      | 3 ++-
+ mpcommon.c         | 4 ++--
+ mplayer.c          | 2 +-
+ sub/font_load_ft.c | 3 ++-
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
@@ -81,5 +81,5 @@ index d30de06..e22187e 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-1.7.10.4
+1.8.3.1
 

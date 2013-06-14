@@ -1,14 +1,14 @@
-From 97dea33afb8590346f7827898dccc788bf2d8fdc Mon Sep 17 00:00:00 2001
+From 2adc5aea896473023222f48c1c4de08fe8748bfb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 17/24] configure: reduced some warnings on gcc flags
+Subject: [PATCH 17/25] configure: reduced some warnings on gcc flags
 
 ---
- configure |    5 +----
+ configure | 5 +----
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index 635264b..16b127e 100755
+index efb382b..c0939c4 100755
 --- a/configure
 +++ b/configure
 @@ -2719,7 +2719,7 @@ elif test -z "$CFLAGS" ; then
@@ -35,5 +35,5 @@ index 635264b..16b127e 100755
  
  cflag_check -mno-omit-leaf-frame-pointer && cflags_no_omit_leaf_frame_pointer="-mno-omit-leaf-frame-pointer"
 -- 
-1.7.10.4
+1.8.3.1
 
