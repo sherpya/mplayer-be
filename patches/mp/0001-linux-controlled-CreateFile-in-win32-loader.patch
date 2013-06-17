@@ -1,7 +1,7 @@
-From ea97142b57b754cc10f03f3c113f0fa3b5a093ed Mon Sep 17 00:00:00 2001
+From b9e69578a36f494c60144eafb7e9d6f16247aed2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 13 Mar 2013 04:42:49 +0100
-Subject: [PATCH 01/25] linux: controlled CreateFile() in win32 loader
+Subject: [PATCH 01/27] linux: controlled CreateFile() in win32 loader
 
 it allows e.g. two pass encoding using vp6vfw.dll
 ---

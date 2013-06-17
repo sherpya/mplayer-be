@@ -1,7 +1,7 @@
-From 670e73fe9370a0632615ba7ea5d718ed0452efa1 Mon Sep 17 00:00:00 2001
+From 1e9ea936a18124381341a33c715a23c4380bbfdb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 25/25] sherpya's customizations
+Subject: [PATCH 27/27] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -41,10 +41,10 @@ index 0de8c27..2119cda 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index a9c64a0..b761f95 100755
+index 46b8e53..50dca1a 100755
 --- a/configure
 +++ b/configure
-@@ -1520,13 +1520,13 @@ fi
+@@ -1521,13 +1521,13 @@ fi
  if ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index a9c64a0..b761f95 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1771,6 +1771,7 @@ fi
+@@ -1772,6 +1772,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes

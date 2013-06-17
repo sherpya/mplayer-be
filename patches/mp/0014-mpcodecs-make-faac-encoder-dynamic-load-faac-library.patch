@@ -1,7 +1,7 @@
-From 1bd22df0e1ef4d0707f2666bdeb5389eb132ec93 Mon Sep 17 00:00:00 2001
+From 62a9b4e557f2e189fc361b0696a3192cb9ba3ffe Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:42:25 +0100
-Subject: [PATCH 14/25] mpcodecs: make faac encoder dynamic load faac library
+Subject: [PATCH 14/27] mpcodecs: make faac encoder dynamic load faac library
  at runtime
 
 ---

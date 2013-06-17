@@ -1,7 +1,7 @@
-From df38b63c9ddddd2b791ab2a002dd507550e63971 Mon Sep 17 00:00:00 2001
+From 17dd22e7f9a09f6db5c05313504c30fb18da5285 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 5 Apr 2013 03:44:48 +0200
-Subject: [PATCH 24/25] mpcodecs: theora decoder offset fix
+Subject: [PATCH 26/27] mpcodecs: theora decoder offset fix
 
 it adds a crop filter when needed, mplayer defaults to fftheora
 so -vc theora must be specified on command line

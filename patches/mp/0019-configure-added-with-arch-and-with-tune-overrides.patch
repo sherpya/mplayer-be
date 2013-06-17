@@ -1,14 +1,14 @@
-From 43d4601f0845d13f0f717f9e780d1db7d0d7fc74 Mon Sep 17 00:00:00 2001
+From 0b41e78e161d41f0346b442f1bfb2232eeb570dc Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 19/25] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 19/27] configure: added --with-arch and --with-tune overrides
 
 ---
  configure | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index de7c0da..8fe4ebd 100755
+index 56e59c1..719d0bc 100755
 --- a/configure
 +++ b/configure
 @@ -547,6 +547,8 @@ Available values are: all $msg_lang_all
@@ -20,7 +20,7 @@ index de7c0da..8fe4ebd 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -941,6 +943,12 @@ for ac_option do
+@@ -942,6 +944,12 @@ for ac_option do
    --target=*)
      _target=$(option_value $ac_option)
      ;;
@@ -33,7 +33,7 @@ index de7c0da..8fe4ebd 100755
    --cc=*)
      _cc=$(option_value $ac_option)
      ;;
-@@ -2613,6 +2621,9 @@ EOF
+@@ -2615,6 +2623,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  

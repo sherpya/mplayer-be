@@ -1,17 +1,17 @@
-From 2adc5aea896473023222f48c1c4de08fe8748bfb Mon Sep 17 00:00:00 2001
+From adce44add0d1abd57fb78d48fb47b01973bcdeaf Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 17/25] configure: reduced some warnings on gcc flags
+Subject: [PATCH 17/27] configure: reduced some warnings on gcc flags
 
 ---
  configure | 5 +----
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index efb382b..c0939c4 100755
+index cb4eed2..68ddcd7 100755
 --- a/configure
 +++ b/configure
-@@ -2719,7 +2719,7 @@ elif test -z "$CFLAGS" ; then
+@@ -2721,7 +2721,7 @@ elif test -z "$CFLAGS" ; then
      CFLAGS="-O2 $_march $_mcpu $_pipe"
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
@@ -20,7 +20,7 @@ index efb382b..c0939c4 100755
      WARN_CFLAGS="-Werror-implicit-function-declaration"
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
-@@ -2737,13 +2737,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
+@@ -2739,13 +2739,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
