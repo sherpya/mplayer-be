@@ -145,7 +145,7 @@ apply_patches()
 
     for p in $(pwd)/patches/*; do
         echo "- Appling $(basename $p)"
-        ( cd ${BUILDDIR} && patch -p1 < $p )
+         patch -d ${BUILDDIR} -p1 < $p || return 1
     done
 }
 
