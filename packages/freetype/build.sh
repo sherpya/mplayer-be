@@ -4,9 +4,9 @@
 # See LICENSE for licensing informations
 
 PACKAGE=freetype
-VERSION=2.4.12
+VERSION=2.5.0.1
 EXT=tar.bz2
-BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION%.*}
 
 . $(dirname $0)/../functions.sh
 
