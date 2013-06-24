@@ -1,18 +1,18 @@
-From 479f9c6518ad7aba4b80bc010a91effb05e30eff Mon Sep 17 00:00:00 2001
+From 7cf1c54336e292a1c6ab310419ace7e9c579f493 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 03:55:52 +0100
 Subject: [PATCH 2/4] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---
- configure |    2 --
+ configure | 2 --
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index b4bf47c..5c934b9 100755
+index b5889ce..6bbce81 100755
 --- a/configure
 +++ b/configure
-@@ -3749,8 +3749,6 @@ elif enabled ccc; then
+@@ -3928,8 +3928,6 @@ elif enabled ccc; then
      add_cflags -msg_disable unsupieee
  elif enabled gcc; then
      check_optflags -fno-tree-vectorize
@@ -22,5 +22,5 @@ index b4bf47c..5c934b9 100755
      check_cflags -Werror=declaration-after-statement
      check_cflags -Werror=vla
 -- 
-1.7.10.4
+1.8.3.1
 

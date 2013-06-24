@@ -1,15 +1,15 @@
-From 26fd14bb513dceb9cd08c15be5d6a9884b7af785 Mon Sep 17 00:00:00 2001
+From ddbe38c81baea55f2cd9f8e6abe93c3992742aaf Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
 
 ---
- Makefile    |    5 +++++
- avconv.ico  |  Bin 0 -> 111290 bytes
- avconv.rc   |    4 ++++
- avprobe.ico |  Bin 0 -> 104396 bytes
- avprobe.rc  |    4 ++++
- common.rc   |   36 ++++++++++++++++++++++++++++++++++++
+ Makefile    |   5 +++++
+ avconv.ico  | Bin 0 -> 111290 bytes
+ avconv.rc   |   4 ++++
+ avprobe.ico | Bin 0 -> 104396 bytes
+ avprobe.rc  |   4 ++++
+ common.rc   |  36 ++++++++++++++++++++++++++++++++++++
  6 files changed, 49 insertions(+)
  create mode 100644 avconv.ico
  create mode 100644 avconv.rc
@@ -18,7 +18,7 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index 290cf64..6c13e69 100644
+index 783971f..8c0b082 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -128,6 +128,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
@@ -1747,5 +1747,5 @@ index 0000000..e65e018
 +
 +MAIN    ICON DISCARDABLE    __ICON__
 -- 
-1.7.10.4
+1.8.3.1
 
