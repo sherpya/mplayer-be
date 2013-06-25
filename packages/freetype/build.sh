@@ -12,6 +12,7 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION%
 
 depends lib/libz.a
 depends lib/libbz2.a
+depends lib/libpng.a
 
 STATICLIBS="libfreetype"
 

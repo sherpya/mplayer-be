@@ -25,8 +25,8 @@ libiconv
 enca
 expat
 faac
-freetype
 libpng
+freetype
 fontconfig
 fribidi
 gavl
