@@ -1,9 +1,0 @@
-diff -ur live.orig/config.mingw live/config.mingw
---- live.orig/config.mingw	2013-02-05 01:51:40.000000000 +0100
-+++ live/config.mingw	2013-02-06 06:17:58.462217659 +0100
-@@ -1,4 +1,4 @@
--COMPILE_OPTS =         $(INCLUDES) -I. -O -DSOCKLEN_T=int -DLOCALE_NOT_USED
-+COMPILE_OPTS:=         $(INCLUDES) -I. -O -DSOCKLEN_T=int -DLOCALE_NOT_USED $(COMPILE_OPTS) -DRTSPCLIENT_SYNCHRONOUS_INTERFACE
- C =                    c
- C_COMPILER =           $(CC)
- C_FLAGS =              $(COMPILE_OPTS) -DUSE_OUR_BZERO=1 -D__MINGW32__

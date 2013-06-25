@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=live555
-VERSION=latest
+VERSION=latest-working
 EXT=tar.gz
 BASEURL=http://www.live555.com/liveMedia/public/
 
