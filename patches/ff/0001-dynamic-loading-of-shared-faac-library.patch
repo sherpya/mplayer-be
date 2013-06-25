@@ -1,18 +1,18 @@
-From 99f1c0b68ffed77ff229c7e652e192f1637293f9 Mon Sep 17 00:00:00 2001
+From 38e875021afbcca02ae259222416a39919c356fe Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Fri, 24 Feb 2012 03:02:21 +0100
+Date: Wed, 26 Jun 2013 00:29:17 +0200
 Subject: [PATCH 1/7] dynamic loading of shared faac library
 
 ---
- configure            |    3 +-
- libavcodec/libfaac.c |   75 ++++++++++++++++++++++++++++++++++++++++++++------
+ configure            |  3 +--
+ libavcodec/libfaac.c | 75 +++++++++++++++++++++++++++++++++++++++++++++-------
  2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index faf3186..019ee73 100755
+index d3d5580..cd8695c 100755
 --- a/configure
 +++ b/configure
-@@ -3625,7 +3625,6 @@ die_license_disabled gpl libxvid
+@@ -3713,7 +3713,6 @@ die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -20,15 +20,15 @@ index faf3186..019ee73 100755
  enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
-@@ -4028,7 +4027,7 @@ enabled libcelt    && require libcelt celt/celt.h celt_decode -lcelt0 &&
-                       { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
-                         die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
- enabled libcaca    && require_pkg_config caca caca.h caca_create_canvas
--enabled libfaac    && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
-+enabled libfaac    && check_header faac.h
- enabled libfdk_aac && require  libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
+@@ -4124,7 +4123,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+                              { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
+                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
+ enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+-enabled libfaac           && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
++enabled libfaac           && check_header "stdint.h faac.h"
+ enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
  flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
- enabled libflite   && require2 libflite "flite/flite.h" flite_init $flite_libs
+ enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
 index f37e03a..0a086d4 100644
 --- a/libavcodec/libfaac.c
@@ -175,5 +175,5 @@ index f37e03a..0a086d4 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-1.7.10.4
+1.8.3.1
 

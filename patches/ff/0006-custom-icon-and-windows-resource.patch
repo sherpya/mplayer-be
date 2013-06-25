@@ -1,15 +1,15 @@
-From 8b4ab1838973ce9ca8044e68a4afde02c1d1f27d Mon Sep 17 00:00:00 2001
+From 3fc8d3a41912f631c97e7343fb3ede4c64d79d5c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 6/7] custom icon and windows resource
 
 ---
- Makefile    |    5 +++++
- common.rc   |   36 ++++++++++++++++++++++++++++++++++++
- ffmpeg.ico  |  Bin 0 -> 111290 bytes
- ffmpeg.rc   |    4 ++++
- ffprobe.ico |  Bin 0 -> 104396 bytes
- ffprobe.rc  |    4 ++++
+ Makefile    |   5 +++++
+ common.rc   |  36 ++++++++++++++++++++++++++++++++++++
+ ffmpeg.ico  | Bin 0 -> 111290 bytes
+ ffmpeg.rc   |   4 ++++
+ ffprobe.ico | Bin 0 -> 104396 bytes
+ ffprobe.rc  |   4 ++++
  6 files changed, 49 insertions(+)
  create mode 100644 common.rc
  create mode 100644 ffmpeg.ico
@@ -1747,5 +1747,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-1.7.10.4
+1.8.3.1
 

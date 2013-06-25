@@ -1,25 +1,25 @@
-From 96963e61d7cfa46fd6f1c5598a0f9d26d5b55432 Mon Sep 17 00:00:00 2001
+From 8532ce495ce37c34bee33182b463e8a7564366fb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Mon, 18 Feb 2013 01:20:54 +0100
+Date: Wed, 26 Jun 2013 00:28:03 +0200
 Subject: [PATCH 4/7] configure: fix modplug detection (it needs +lstdc++)
 
 ---
- configure |    2 +-
+ configure | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 019ee73..c283402 100755
+index cd8695c..fa5cf53 100755
 --- a/configure
 +++ b/configure
-@@ -4036,7 +4036,7 @@ enabled libgsm     && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
-                             check_lib "${gsm_hdr}" gsm_create -lgsm && break;
-                         done || die "ERROR: libgsm not found"; }
- enabled libilbc    && require  libilbc ilbc.h WebRtcIlbcfix_InitDecode -lilbc
--enabled libmodplug && require  libmodplug libmodplug/modplug.h ModPlug_Load -lmodplug
-+enabled libmodplug && require  libmodplug libmodplug/modplug.h ModPlug_Load -lmodplug -lstdc++
- enabled libmp3lame && require  "libmp3lame >= 3.98.3" lame/lame.h lame_set_VBR_quality -lmp3lame
- enabled libnut     && require  libnut libnut.h nut_demuxer_init -lnut
- enabled libopencore_amrnb  && require libopencore_amrnb opencore-amrnb/interf_dec.h Decoder_Interface_init -lopencore-amrnb
+@@ -4132,7 +4132,7 @@ enabled libgsm            && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
+                                    check_lib "${gsm_hdr}" gsm_create -lgsm && break;
+                                done || die "ERROR: libgsm not found"; }
+ enabled libilbc           && require libilbc ilbc.h WebRtcIlbcfix_InitDecode -lilbc
+-enabled libmodplug        && require libmodplug libmodplug/modplug.h ModPlug_Load -lmodplug
++enabled libmodplug        && require libmodplug libmodplug/modplug.h ModPlug_Load -lmodplug -lstdc++
+ enabled libmp3lame        && require "libmp3lame >= 3.98.3" lame/lame.h lame_set_VBR_quality -lmp3lame
+ enabled libnut            && require libnut libnut.h nut_demuxer_init -lnut
+ enabled libopencore_amrnb && require libopencore_amrnb opencore-amrnb/interf_dec.h Decoder_Interface_init -lopencore-amrnb
 -- 
-1.7.10.4
+1.8.3.1
 
