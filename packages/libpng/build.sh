@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libpng
-VERSION=1.5.16
+VERSION=1.5.17
 EXT=tar.xz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng15/${VERSION}
 
