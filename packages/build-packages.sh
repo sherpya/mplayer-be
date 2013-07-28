@@ -30,6 +30,7 @@ freetype
 fontconfig
 fribidi
 gavl
+giflib
 frei0r
 lame
 regex
@@ -39,7 +40,6 @@ libcdio-paranoia
 libbs2b
 libmodplug
 libass
-libregif
 libcaca
 libdca
 libgsm

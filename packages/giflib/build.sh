@@ -1,12 +1,12 @@
 #!/bin/bash
-# Build script for libregif
+# Build script for giflib
 # Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-PACKAGE=libregif
-VERSION=4.1.7
+PACKAGE=giflib
+VERSION=5.0.4
 EXT=tar.bz2
-BASEURL=http://oss.netfarm.it/mplayer/misc
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}-5.x
 
 . $(dirname $0)/../functions.sh
 
