@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=vo-aacenc
-VERSION=0.1.2
+VERSION=0.1.3
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/opencore-amr/${PACKAGE}
 
