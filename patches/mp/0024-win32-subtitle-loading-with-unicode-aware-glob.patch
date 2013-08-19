@@ -1,4 +1,4 @@
-From 66cfcc803cc1ebbed936cfb667830094eed0f97d Mon Sep 17 00:00:00 2001
+From e49978bba7350240f1bed090d6302fe238144f11 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 22:52:25 +0200
 Subject: [PATCH 24/27] win32: subtitle loading with unicode aware glob
@@ -117,5 +117,5 @@ index 4ead7ff..7d25cbc 100644
  
      free(tmp_sub_id);
 -- 
-1.8.3.1
+1.8.4.rc3
 

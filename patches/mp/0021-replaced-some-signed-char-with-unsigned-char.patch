@@ -1,4 +1,4 @@
-From 308d514254469fd8fc0c18483a17906a6eec7b79 Mon Sep 17 00:00:00 2001
+From 174e7e544407a6978926f7d110610c275da1b050 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/27] replaced some signed char with unsigned char
@@ -63,7 +63,7 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index cb99708..574c6b3 100644
+index 79e684c..a431d5a 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
 @@ -706,8 +706,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
@@ -250,5 +250,5 @@ index fdb3e69..9683b57 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.8.3.1
+1.8.4.rc3
 

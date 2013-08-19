@@ -1,4 +1,4 @@
-From 0b41e78e161d41f0346b442f1bfb2232eeb570dc Mon Sep 17 00:00:00 2001
+From 48845ded5a22f67f0649f5b3f0538424cb80791b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
 Subject: [PATCH 19/27] configure: added --with-arch and --with-tune overrides
@@ -8,7 +8,7 @@ Subject: [PATCH 19/27] configure: added --with-arch and --with-tune overrides
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 56e59c1..719d0bc 100755
+index 8938993..39f10f3 100755
 --- a/configure
 +++ b/configure
 @@ -547,6 +547,8 @@ Available values are: all $msg_lang_all
@@ -44,5 +44,5 @@ index 56e59c1..719d0bc 100755
    if x86 ; then
      test "$_cmov"     != no && _cmov=yes
 -- 
-1.8.3.1
+1.8.4.rc3
 

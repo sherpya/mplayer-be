@@ -1,17 +1,17 @@
-From 17dd22e7f9a09f6db5c05313504c30fb18da5285 Mon Sep 17 00:00:00 2001
+From 6256a5e52116e20b93c6e993fd628608029d26f3 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Fri, 5 Apr 2013 03:44:48 +0200
+Date: Mon, 19 Aug 2013 10:27:53 +0200
 Subject: [PATCH 26/27] mpcodecs: theora decoder offset fix
 
-it adds a crop filter when needed, mplayer defaults to fftheora
+adds a crop filter when needed, mplayer defaults to fftheora
 so -vc theora must be specified on command line
 The patch comes mplayer-dev ml and was made by Giorgio Vazzana
 ---
- libmpcodecs/vd_theora.c | 27 +++++++++++++++++++++++++--
- 1 file changed, 25 insertions(+), 2 deletions(-)
+ libmpcodecs/vd_theora.c | 26 ++++++++++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
 diff --git a/libmpcodecs/vd_theora.c b/libmpcodecs/vd_theora.c
-index 83272ac..4b44e46 100644
+index 51b1f80..f0d3a40 100644
 --- a/libmpcodecs/vd_theora.c
 +++ b/libmpcodecs/vd_theora.c
 @@ -27,6 +27,7 @@
@@ -33,14 +33,14 @@ index 83272ac..4b44e46 100644
      context     = calloc(sizeof(theora_struct_t), 1);
      sh->context = context;
      if (!context)
-@@ -130,13 +135,31 @@ static int init(sh_video_t *sh)
+@@ -130,13 +135,30 @@ static int init(sh_video_t *sh)
      th_setup_free(context->tsi);
  
      if (sh->aspect == 0.0 && context->ti.aspect_denominator != 0) {
--        sh->aspect = ((double)context->ti.aspect_numerator * context->ti.frame_width) /
--                     ((double)context->ti.aspect_denominator * context->ti.frame_height);
-+        sh->aspect = ((double)context->ti.aspect_numerator * context->ti.pic_width) /
-+                     ((double)context->ti.aspect_denominator * context->ti.pic_height);
+-        sh->original_aspect = ((double)context->ti.aspect_numerator * context->ti.frame_width) /
+-                              ((double)context->ti.aspect_denominator * context->ti.frame_height);
++        sh->original_aspect = ((double)context->ti.aspect_numerator * context->ti.pic_width) /
++                              ((double)context->ti.aspect_denominator * context->ti.pic_height);
      }
  
      mp_msg(MSGT_DECVIDEO, MSGL_V, "INFO: Theora video init ok!\n");
@@ -63,10 +63,9 @@ index 83272ac..4b44e46 100644
 +        sh->vfilter = vf;
 +    }
 +
-+
      return mpcodecs_config_vo(sh, context->ti.frame_width, context->ti.frame_height, theora_pixelformat2imgfmt(context->ti.pixel_fmt));
  
  err_out:
 -- 
-1.8.3.1
+1.8.4.rc3
 

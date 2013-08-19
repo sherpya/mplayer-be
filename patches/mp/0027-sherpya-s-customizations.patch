@@ -1,4 +1,4 @@
-From 1e9ea936a18124381341a33c715a23c4380bbfdb Mon Sep 17 00:00:00 2001
+From 7a5a1aa2547ff6d9a82677b1f1311982e6c8a014 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -41,7 +41,7 @@ index 0de8c27..2119cda 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 46b8e53..50dca1a 100755
+index dbf79ae..e60f95b 100755
 --- a/configure
 +++ b/configure
 @@ -1521,13 +1521,13 @@ fi
@@ -4699,5 +4699,5 @@ index ab9b8e8..19e8425 100755
  version=$svn_revision
  fi
 -- 
-1.8.3.1
+1.8.4.rc3
 

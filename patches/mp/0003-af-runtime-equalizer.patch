@@ -1,4 +1,4 @@
-From 863c2ca80887d7ad6317d947180975c7f39f65dc Mon Sep 17 00:00:00 2001
+From c9e4ba35aa87182df43974c38ac7d525a8382cb3 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/27] af: runtime equalizer
@@ -12,10 +12,10 @@ Subject: [PATCH 03/27] af: runtime equalizer
  5 files changed, 28 insertions(+)
 
 diff --git a/DOCS/tech/slave.txt b/DOCS/tech/slave.txt
-index 6201e5c..a211969 100644
+index 6413adc..028f7b6 100644
 --- a/DOCS/tech/slave.txt
 +++ b/DOCS/tech/slave.txt
-@@ -521,6 +521,11 @@ run <string>
+@@ -523,6 +523,11 @@ run <string>
      Example:
      run "echo ${filename} ${stream_pos} >> <path_to_file>"
  
@@ -28,10 +28,10 @@ index 6201e5c..a211969 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index c30a138..e7ebc3e 100644
+index aa51607..307eea3 100644
 --- a/command.c
 +++ b/command.c
-@@ -3208,6 +3208,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+@@ -3211,6 +3211,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
              set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
              break;
  
@@ -102,5 +102,5 @@ index 650fb62..cd5a708 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-1.8.3.1
+1.8.4.rc3
 

@@ -1,4 +1,4 @@
-From 08413be56f48c6fedb4453347d3a87f308354998 Mon Sep 17 00:00:00 2001
+From 6de4151c085171bcb77946f432cd1e4c30b34e4e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Feb 2013 00:56:43 +0100
 Subject: [PATCH 22/27] dvdnav: added dvdnav/dvdread submodules
@@ -53,5 +53,5 @@ index 0000000..0ecce67
 @@ -0,0 +1 @@
 +Subproject commit 0ecce678c49d8101619fec4f201208116a5fcee1
 -- 
-1.8.3.1
+1.8.4.rc3
 
