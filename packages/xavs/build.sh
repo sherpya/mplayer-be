@@ -3,7 +3,7 @@
 # Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-SVN_REPO="https://xavs.svn.sourceforge.net/svnroot/xavs/trunk"
+SVN_REPO="https://svn.code.sf.net/p/xavs/code/trunk"
 
 . $(dirname $0)/../functions.sh
 
