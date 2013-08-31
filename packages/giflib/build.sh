@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=giflib
-VERSION=5.0.4
+VERSION=5.0.5
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}-5.x
 
