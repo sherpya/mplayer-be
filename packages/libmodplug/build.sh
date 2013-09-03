@@ -3,13 +3,11 @@
 # Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-PACKAGE=libmodplug
-VERSION=0.8.8.4
-EXT=tar.gz
-BASEURL=http://downloads.sourceforge.net/project/modplug-xmms/${PACKAGE}/${VERSION}
+GIT_REPO="git://github.com/Konstanty/libmodplug.git"
 
 . $(dirname $0)/../functions.sh
 
+BUILDDIR=libmodplug
 STATICLIBS="libmodplug"
 
-pkg_build && pkg_clean
+git_clean && pkg_build && git_clean
