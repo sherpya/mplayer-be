@@ -21,6 +21,7 @@ pkg_configure()
         --target=${VPX_TARGET}      \
         --enable-static             \
         --disable-shared            \
+        --disable-unit-tests        \
         --disable-examples
 }
 
