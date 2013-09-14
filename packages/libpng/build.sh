@@ -4,14 +4,14 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libpng
-VERSION=1.5.17
+VERSION=1.6.4
 EXT=tar.xz
-BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng15/${VERSION}
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng16/${VERSION}
 
 . $(dirname $0)/../functions.sh
 
 depends lib/libz.a
 
-STATICLIBS="libpng libpng15"
+STATICLIBS="libpng libpng16"
 
 pkg_build && pkg_clean
