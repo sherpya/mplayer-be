@@ -148,8 +148,12 @@ EOF
 #    copy_data ${PREFIX}/lib/frei0r-1 ${DISTDIR}/frei0r-1
 
     mkdir -p "${packagedir}"
-    ( cd ${TMPDIR} && 7z a -mx=9 "$package" ${packagename} )
+    pkgtemp=$(mktemp -u /tmp/$product-dist-XXXX.7z)
+    ( cd ${TMPDIR} && 7z a -mx=9 ${pkgtemp} ${packagename} )
+    mv -f ${pkgtemp} "${package}"
     rm -fr ${TMPDIR}
+
+    echo "Done with $package"
 }
 
 build_binary()
@@ -182,7 +186,10 @@ build_source()
     fi
 
     echo "Generating $source"
-    git archive --prefix="$product-$version-src/" --format=tar HEAD | xz -c > "$source"
+    srctemp=$(mktemp -u /tmp/$product-src-XXXX.tar.xz)
+    git archive --prefix="$product-$version-src/" --format=tar HEAD | xz -c > ${srctemp}
+    mv -f ${srctemp} "${source}"
+    echo "Done with $source"
 }
 
 eval $*

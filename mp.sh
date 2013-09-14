@@ -118,7 +118,9 @@ make_dist()
     copy_data ${DATADIR}/${ARCH} ${DISTDIR}
     
     mkdir -p "${packagedir}"
-    ( cd ${TMPDIR} && 7z a -mx=9 "$package" MPlayer-$cpu-$version )
+    pkgtemp=$(mktemp -u /tmp/mp-dist-XXXX.7z)
+    ( cd ${TMPDIR} && 7z a -mx=9 ${pkgtemp} MPlayer-$cpu-$version )
+    mv -f ${pkgtemp} "${package}"
     rm -fr ${TMPDIR}
 
     echo "Done with $package"
@@ -177,9 +179,12 @@ build_source()
     echo -n "Building $source ..."
     echo sherpya-$version > VERSION
     mkdir -p "${packagedir}"
-    ( cd .. && tar --exclude-vcs -cJf "$source" mplayer )
+    srctemp=$(mktemp -u /tmp/mp-src-XXXX.tar.xz)
+    ( cd .. && tar --exclude-vcs -cJf ${srctemp} mplayer )
+    mv -f ${srctemp} "${source}"
     rm -f VERSION
-    echo "done"
+
+    echo "Done with $source"
 }
 
 eval $*
