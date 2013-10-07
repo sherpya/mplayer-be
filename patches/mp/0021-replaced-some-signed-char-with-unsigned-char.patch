@@ -1,4 +1,4 @@
-From 174e7e544407a6978926f7d110610c275da1b050 Mon Sep 17 00:00:00 2001
+From 8a9311ae6fe4e1efd7444e6270382b3a70ccc248 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/27] replaced some signed char with unsigned char
@@ -78,12 +78,12 @@ index 79e684c..a431d5a 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index c8e8523..d21d6bf 100644
+index 2b4c4bf..240b729 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
-@@ -396,6 +396,6 @@ typedef struct {
-  int channels;
- } stream_language_t;
+@@ -398,6 +398,6 @@ typedef struct {
+ 
+ int bluray_id_from_lang(stream_t *s, enum stream_ctrl_type type, const char *lang);
  
 -int parse_chapter_range(const m_option_t *conf, const char *range);
 +int parse_chapter_range(const m_option_t *conf, const unsigned char *range);

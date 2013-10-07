@@ -1,4 +1,4 @@
-From c9e4ba35aa87182df43974c38ac7d525a8382cb3 Mon Sep 17 00:00:00 2001
+From 664c2bd08cb79353477e4ec342d7e1c454a04fba Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/27] af: runtime equalizer
@@ -28,10 +28,10 @@ index 6413adc..028f7b6 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index aa51607..307eea3 100644
+index c4d5785..2aa61a5 100644
 --- a/command.c
 +++ b/command.c
-@@ -3211,6 +3211,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+@@ -3213,6 +3213,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
              set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
              break;
  
@@ -48,7 +48,7 @@ index aa51607..307eea3 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 3a9a14e..edfa047 100644
+index 5250a3f..0f31668 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {

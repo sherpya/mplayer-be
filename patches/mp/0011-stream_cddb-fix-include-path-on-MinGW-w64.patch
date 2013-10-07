@@ -1,4 +1,4 @@
-From 7516d514009c43f0edab5bc31a6e58bfdf3c4bd2 Mon Sep 17 00:00:00 2001
+From 3e7833cf013d438212b55b36a1a1bdecdf6fffc2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Mar 2013 09:34:08 +0100
 Subject: [PATCH 11/27] stream_cddb: fix include path on MinGW-w64

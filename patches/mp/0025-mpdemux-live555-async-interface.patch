@@ -1,4 +1,4 @@
-From 52d1df91c587cdd721c70aeb56a437b1170080dc Mon Sep 17 00:00:00 2001
+From 1214e6f9bc7fcf00352a8ee97b9dfeb5ea6e6d74 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 14 Jun 2013 05:25:38 +0200
 Subject: [PATCH 25/27] mpdemux: live555 async interface
@@ -9,10 +9,10 @@ Subject: [PATCH 25/27] mpdemux: live555 async interface
  2 files changed, 35 insertions(+), 22 deletions(-)
 
 diff --git a/configure b/configure
-index 39f10f3..dbf79ae 100755
+index 9cfa241..f37d71b 100755
 --- a/configure
 +++ b/configure
-@@ -6911,13 +6911,9 @@ echores "$_nemesi"
+@@ -6935,13 +6935,9 @@ echores "$_nemesi"
  echocheck "LIVE555 Streaming Media libraries"
  if test "$_live" = auto  && test "$networking" = yes ; then
    cat > $TMPCPP << EOF
@@ -28,7 +28,7 @@ index 39f10f3..dbf79ae 100755
  
    _live=no
 diff --git a/libmpdemux/demux_rtp.cpp b/libmpdemux/demux_rtp.cpp
-index 018327c..4fa7efe 100644
+index ad7a7f1..05d06e0 100644
 --- a/libmpdemux/demux_rtp.cpp
 +++ b/libmpdemux/demux_rtp.cpp
 @@ -19,8 +19,6 @@
@@ -56,7 +56,7 @@ index 018327c..4fa7efe 100644
  
  static char* openURL_sip(SIPClient* client, char const* url) {
    // If we were given a user name (and optional password), then use them:
-@@ -126,6 +115,19 @@ int rtsp_transport_http = 0;
+@@ -118,6 +107,19 @@ static char* openURL_sip(SIPClient* client, char const* url) {
  extern AVCodecContext *avcctx;
  #endif
  
@@ -76,7 +76,7 @@ index 018327c..4fa7efe 100644
  extern "C" int audio_id, video_id, dvdsub_id;
  extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
    Boolean success = False;
-@@ -154,13 +156,19 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
+@@ -146,13 +148,19 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
  	  rtsp_transport_http = demuxer->stream->streaming_ctrl->url->port;
  	  rtsp_transport_tcp = 1;
  	}
@@ -98,7 +98,7 @@ index 018327c..4fa7efe 100644
        } else { // SIP
  	unsigned char desiredAudioType = 0; // PCMU (use 3 for GSM)
  	sipClient = SIPClient::createNew(*env, desiredAudioType, NULL,
-@@ -244,8 +252,12 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
+@@ -236,8 +244,12 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
  
  	if (rtspClient != NULL) {
  	  // Issue a RTSP "SETUP" command on the chosen subsession:
@@ -113,7 +113,7 @@ index 018327c..4fa7efe 100644
  	  if (!strcmp(subsession->mediumName(), "audio"))
  	    audiofound = 1;
  	  if (!strcmp(subsession->mediumName(), "video"))
-@@ -256,7 +268,11 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
+@@ -248,7 +260,11 @@ extern "C" demuxer_t* demux_open_rtp(demuxer_t* demuxer) {
  
      if (rtspClient != NULL) {
        // Issue a RTSP aggregate "PLAY" command on the whole session:
@@ -126,7 +126,7 @@ index 018327c..4fa7efe 100644
      } else if (sipClient != NULL) {
        sipClient->sendACK(); // to start the stream flowing
      }
-@@ -645,7 +661,8 @@ static void teardownRTSPorSIPSession(RTPState* rtpState) {
+@@ -637,7 +653,8 @@ static void teardownRTSPorSIPSession(RTPState* rtpState) {
    MediaSession* mediaSession = rtpState->mediaSession;
    if (mediaSession == NULL) return;
    if (rtpState->rtspClient != NULL) {

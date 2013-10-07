@@ -1,4 +1,4 @@
-From 75da0732c642f8b7cfa164c17b60b5c0b8bfb0c1 Mon Sep 17 00:00:00 2001
+From b6947043cdafd7fa90b1acbe83c4ff912fc26b7d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 20/27] conf: honor disable_system_conf (except stream_dvb)
@@ -11,7 +11,7 @@ Subject: [PATCH 20/27] conf: honor disable_system_conf (except stream_dvb)
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index d89ced3..e6b6bc4 100644
+index d2e3a9d..26d8b64 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -35,6 +35,7 @@
@@ -22,7 +22,7 @@ index d89ced3..e6b6bc4 100644
  #include "mp_fifo.h"
  #include "osdep/getch2.h"
  #include "osdep/keycodes.h"
-@@ -1773,7 +1774,7 @@ mp_input_init(void) {
+@@ -1780,7 +1781,7 @@ mp_input_init(void) {
      }
      // Try global conf dir
      file = MPLAYER_CONFDIR "/input.conf";
@@ -54,7 +54,7 @@ index 8aa7ecf..56e3a79 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index af501d3..18c123e 100644
+index eaa0b04..98148c0 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -3039,7 +3039,7 @@ int main(int argc, char *argv[])
