@@ -1,4 +1,4 @@
-enca	1.14  
+enca	1.15
 expat	2.1.0
 flac	1.2.1
 fontconfig	2.10.2

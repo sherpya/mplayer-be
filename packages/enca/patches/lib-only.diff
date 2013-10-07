@@ -1,16 +1,16 @@
-diff -ur enca-1.14.orig/Makefile.in enca-1.14/Makefile.in
---- enca-1.14.orig/Makefile.in	2012-09-11 11:12:22.000000000 +0200
-+++ enca-1.14/Makefile.in	2013-02-17 09:16:47.051866874 +0100
-@@ -298,7 +298,7 @@
+diff -ur enca-1.15.orig/Makefile.in enca-1.15/Makefile.in
+--- enca-1.15.orig/Makefile.in	2013-09-30 09:48:22.000000000 +0200
++++ enca-1.15/Makefile.in	2013-10-07 02:21:36.564508559 +0200
+@@ -368,7 +368,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
 -@MAINTAINER_MODE_FALSE@SUBDIRS = tools script lib src devel-docs test
-+@MAINTAINER_MODE_FALSE@SUBDIRS = lib
++@MAINTAINER_MODE_FALSE@SUBDIRS = tools lib
  
  # @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
  @MAINTAINER_MODE_TRUE@SUBDIRS = tools data script lib src devel-docs test
-@@ -869,9 +869,8 @@
+@@ -896,9 +896,8 @@
  
  info-am:
  

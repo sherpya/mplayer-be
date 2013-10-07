@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=enca
-VERSION=1.14
+VERSION=1.15
 EXT=tar.bz2
 BASEURL=http://dl.cihar.com/${PACKAGE}
 
