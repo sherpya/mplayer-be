@@ -1,18 +1,18 @@
-diff -ur fontconfig-2.10.2.orig/Makefile.in fontconfig-2.10.2/Makefile.in
---- fontconfig-2.10.2.orig/Makefile.in	2012-11-26 09:22:02.000000000 +0100
-+++ fontconfig-2.10.2/Makefile.in	2013-02-18 06:17:31.929378994 +0100
-@@ -342,9 +342,7 @@
+diff -ur fontconfig-2.11.0.orig/Makefile.in fontconfig-2.11.0/Makefile.in
+--- fontconfig-2.11.0.orig/Makefile.in	2013-10-11 06:28:46.000000000 +0200
++++ fontconfig-2.11.0/Makefile.in	2013-10-13 17:34:44.904156379 +0200
+@@ -412,9 +412,7 @@
+ top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
- xmldir = $(XMLDIR)
--SUBDIRS = fontconfig fc-case fc-lang fc-glyphname src \
--	fc-cache fc-cat fc-list fc-match fc-pattern fc-query fc-scan \
--	conf.d $(DOCSRC) test
+-SUBDIRS = fontconfig fc-case fc-lang fc-glyphname src fc-cache fc-cat \
+-	fc-list fc-match fc-pattern fc-query fc-scan fc-validate \
+-	conf.d test $(am__append_1)
 +SUBDIRS = fontconfig src
- 
- AUTOMAKE_OPTIONS = dist-bzip2
  ACLOCAL_AMFLAGS = -I m4
-@@ -862,8 +860,7 @@
+ EXTRA_DIST = fontconfig.pc.in fonts.conf.in fonts.dtd \
+ 	fontconfig.spec.in fontconfig.spec fontconfig-zip.in \
+@@ -899,8 +897,7 @@
  
  info-am:
  
