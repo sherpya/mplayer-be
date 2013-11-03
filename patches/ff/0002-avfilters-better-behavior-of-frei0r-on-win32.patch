@@ -1,4 +1,4 @@
-From 33da572bedbc8d40a6acc455d8a08b3078c2afe7 Mon Sep 17 00:00:00 2001
+From f3cc785e71c6f2edaf157eb06c22f9ff685d217d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
 Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32
@@ -57,5 +57,5 @@ index a070eb4..a8b3591 100644
          av_log(ctx, AV_LOG_ERROR, "Could not find module '%s'\n", dl_name);
          return AVERROR(EINVAL);
 -- 
-1.8.4.rc3
+1.8.4.2
 
