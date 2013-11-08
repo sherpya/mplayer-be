@@ -8,7 +8,7 @@ GIT_REPO="git://git.videolan.org/x264.git"
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=x264
-CONFOPTS="--cross-prefix=${HOST}-"
+CONFOPTS="--enable-win32thread --cross-prefix=${HOST}-"
 
 pkg_make_target()
 {
