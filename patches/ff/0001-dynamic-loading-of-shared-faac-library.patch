@@ -1,36 +1,36 @@
-From b4cfb6e979dab230f9111300ec16727aebb13f97 Mon Sep 17 00:00:00 2001
+From a26361cb7535b353e02116cf313ad568dc55ef10 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Wed, 26 Jun 2013 00:29:17 +0200
-Subject: [PATCH 1/7] dynamic loading of shared faac library
+Date: Mon, 24 Jun 2013 05:47:22 +0200
+Subject: [PATCH 1/4] dynamic loading of shared faac library
 
 ---
  configure            |  3 +--
- libavcodec/libfaac.c | 75 +++++++++++++++++++++++++++++++++++++++++++++-------
- 2 files changed, 67 insertions(+), 11 deletions(-)
+ libavcodec/libfaac.c | 73 ++++++++++++++++++++++++++++++++++++++++++++++------
+ 2 files changed, 66 insertions(+), 10 deletions(-)
 
 diff --git a/configure b/configure
-index b9e90e2..4a3ff54 100755
+index 664fe94..9888192 100755
 --- a/configure
 +++ b/configure
-@@ -3824,7 +3824,6 @@ die_license_disabled gpl libzvbi
+@@ -3412,7 +3412,6 @@ die_license_disabled gpl libxavs
+ die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
- die_license_disabled nonfree libaacplus
 -die_license_disabled nonfree libfaac
- enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
- enabled gpl && die_license_disabled_gpl nonfree openssl
+ die_license_disabled nonfree libfdk_aac
+ die_license_disabled nonfree openssl
  
-@@ -4246,7 +4245,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
-                              { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
-                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
- enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+@@ -3793,7 +3792,7 @@ done
+ enabled avisynth          && require2 vfw32 "windows.h vfw.h" AVIFileInit -lavifil32
+ enabled frei0r            && { check_header frei0r.h || die "ERROR: frei0r.h header not found"; }
+ enabled gnutls            && require_pkg_config gnutls gnutls/gnutls.h gnutls_global_init
 -enabled libfaac           && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
-+enabled libfaac           && check_header "stdint.h faac.h"
++enabled libfaac           && check_header libfaac "stdint.h faac.h"
  enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
- flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
- enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
+ enabled libfreetype       && require_pkg_config freetype2 "ft2build.h freetype/freetype.h" FT_Init_FreeType
+ enabled libgsm            && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
-index 477669a..682907d 100644
+index 9b5b11a..5f75455 100644
 --- a/libavcodec/libfaac.c
 +++ b/libavcodec/libfaac.c
 @@ -32,6 +32,48 @@
@@ -90,8 +90,8 @@ index 477669a..682907d 100644
 +    faacLib pfn;
  } FaacAudioContext;
  
- static av_cold int Faac_encode_close(AVCodecContext *avctx)
-@@ -48,9 +92,10 @@ static av_cold int Faac_encode_close(AVCodecContext *avctx)
+ 
+@@ -49,9 +93,10 @@ static av_cold int Faac_encode_close(AVCodecContext *avctx)
      av_freep(&avctx->extradata);
      ff_af_queue_close(&s->afq);
  
@@ -105,7 +105,7 @@ index 477669a..682907d 100644
      return 0;
  }
  
-@@ -68,6 +113,18 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -69,6 +114,18 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
      unsigned long samples_input, max_bytes_output;
      int ret;
  
@@ -124,7 +124,7 @@ index 477669a..682907d 100644
      /* number of channels */
      if (avctx->channels < 1 || avctx->channels > 6) {
          av_log(avctx, AV_LOG_ERROR, "encoding %d channel(s) is not allowed\n", avctx->channels);
-@@ -75,7 +132,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -76,7 +133,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
          goto error;
      }
  
@@ -133,7 +133,7 @@ index 477669a..682907d 100644
                                   avctx->channels,
                                   &samples_input, &max_bytes_output);
      if (!s->faac_handle) {
-@@ -85,7 +142,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -86,7 +143,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
      }
  
      /* check faac version */
@@ -142,7 +142,7 @@ index 477669a..682907d 100644
      if (faac_cfg->version != FAAC_CFG_VERSION) {
          av_log(avctx, AV_LOG_ERROR, "wrong libfaac version (compiled for: %d, using %d)\n", FAAC_CFG_VERSION, faac_cfg->version);
          ret = AVERROR(EINVAL);
-@@ -136,7 +193,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -137,7 +194,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
          unsigned char *buffer = NULL;
          unsigned long decoder_specific_info_size;
  
@@ -151,23 +151,18 @@ index 477669a..682907d 100644
                                             &decoder_specific_info_size)) {
              avctx->extradata = av_malloc(decoder_specific_info_size + FF_INPUT_BUFFER_PADDING_SIZE);
              if (!avctx->extradata) {
-@@ -150,11 +207,11 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
+@@ -151,7 +208,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
          free(buffer);
      }
  
 -    if (!faacEncSetConfiguration(s->faac_handle, faac_cfg)) {
 +    if (!s->pfn.faacEncSetConfiguration(s->faac_handle, faac_cfg)) {
-         int i;
-         for (i = avctx->bit_rate/1000; i ; i--) {
-             faac_cfg->bitRate = 1000*i / avctx->channels;
--            if (faacEncSetConfiguration(s->faac_handle, faac_cfg))
-+            if (s->pfn.faacEncSetConfiguration(s->faac_handle, faac_cfg))
-                 break;
-         }
-         if (!i) {
-@@ -187,7 +244,7 @@ static int Faac_encode_frame(AVCodecContext *avctx, AVPacket *avpkt,
-     if ((ret = ff_alloc_packet2(avctx, avpkt, (7 + 768) * avctx->channels)) < 0)
+         av_log(avctx, AV_LOG_ERROR, "libfaac doesn't support this output format!\n");
+         ret = AVERROR(EINVAL);
+         goto error;
+@@ -179,7 +236,7 @@ static int Faac_encode_frame(AVCodecContext *avctx, AVPacket *avpkt,
          return ret;
+     }
  
 -    bytes_written = faacEncEncode(s->faac_handle, samples,
 +    bytes_written = s->pfn.faacEncEncode(s->faac_handle, samples,
