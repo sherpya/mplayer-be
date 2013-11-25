@@ -1,4 +1,4 @@
-From 5a6e617608c909f2e41e9bcdd9976351c61ef955 Mon Sep 17 00:00:00 2001
+From a0beeb38f1953d02ba7faeb71531c671ec135b6b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 6/7] custom icon and windows resource
@@ -18,19 +18,19 @@ Subject: [PATCH 6/7] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index a44a29a..ac89d30 100644
+index 10202d0..3b928b1 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -91,6 +91,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
+@@ -93,6 +93,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
  
  define DOPROG
- OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS)
+ OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS) $(OBJS-$(1)-yes)
 +# if EXESUF is exe (win32) and the corresponding .rc file does exist
 +$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -100,6 +102,9 @@ endef
+@@ -102,6 +104,9 @@ endef
  
  $(foreach P,$(PROGS-yes),$(eval $(call DOPROG,$(P))))
  
@@ -1747,5 +1747,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-1.8.4.3
+1.8.4.4
 
