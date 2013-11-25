@@ -1,4 +1,4 @@
-From ddbe38c81baea55f2cd9f8e6abe93c3992742aaf Mon Sep 17 00:00:00 2001
+From a8e1bd542d4b7e29f11b026076f25d23f036676e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
@@ -18,21 +18,21 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index 783971f..8c0b082 100644
+index 5b8532a..efe8301 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -128,6 +128,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
+@@ -134,6 +134,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
- OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS)
+ OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
 +# if EXESUF is exe (win32) and the corresponding .rc file does exist
 +$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
  $(1)$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -137,6 +139,9 @@ endef
+@@ -143,6 +145,9 @@ endef
  
- $(foreach P,$(PROGS-yes),$(eval $(call DOPROG,$(P))))
+ $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P))))
  
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
@@ -1747,5 +1747,5 @@ index 0000000..e65e018
 +
 +MAIN    ICON DISCARDABLE    __ICON__
 -- 
-1.8.3.1
+1.8.4.4
 
