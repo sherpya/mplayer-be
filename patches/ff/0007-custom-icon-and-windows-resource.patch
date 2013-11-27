@@ -1,16 +1,16 @@
-From a0beeb38f1953d02ba7faeb71531c671ec135b6b Mon Sep 17 00:00:00 2001
+From 472cdb121525769095da673dcae41d7b683cb6cb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 6/7] custom icon and windows resource
+Subject: [PATCH 7/8] custom icon and windows resource
 
 ---
- Makefile    |   5 +++++
+ Makefile    |   4 ++++
  common.rc   |  36 ++++++++++++++++++++++++++++++++++++
  ffmpeg.ico  | Bin 0 -> 111290 bytes
  ffmpeg.rc   |   4 ++++
  ffprobe.ico | Bin 0 -> 104396 bytes
  ffprobe.rc  |   4 ++++
- 6 files changed, 49 insertions(+)
+ 6 files changed, 48 insertions(+)
  create mode 100644 common.rc
  create mode 100644 ffmpeg.ico
  create mode 100644 ffmpeg.rc
@@ -18,28 +18,27 @@ Subject: [PATCH 6/7] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 10202d0..3b928b1 100644
+index 06fc47d..86f0672 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -93,6 +93,8 @@ $(foreach D,$(FFLIBS),$(eval $(call DOSUBDIR,lib$(D))))
+@@ -93,6 +93,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
- OBJS-$(1) += $(1).o cmdutils.o $(EXEOBJS) $(OBJS-$(1)-yes)
+ OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
 +# if EXESUF is exe (win32) and the corresponding .rc file does exist
 +$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -102,6 +104,9 @@ endef
- 
- $(foreach P,$(PROGS-yes),$(eval $(call DOPROG,$(P))))
- 
+@@ -105,6 +107,8 @@ $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P))))
+ $(PROGS:%=%$(PROGSSUF)$(EXESUF)): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
+ 	$(CP) $< $@
+ 	$(STRIP) $@
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
-+
+ 
  %$(PROGSSUF)_g$(EXESUF): %.o $(FF_DEP_LIBS)
  	$(LD) $(LDFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
- 
 diff --git a/common.rc b/common.rc
 new file mode 100644
 index 0000000..15a2973

@@ -1,7 +1,7 @@
-From 2ebd10e73d13cbfca5bfe6cbbe1f53ada33d6716 Mon Sep 17 00:00:00 2001
+From bfc911052d9fa2b28e6826e4b2af8b4a2b7e72ec Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
-Subject: [PATCH 2/7] avfilters: better behavior of frei0r on win32
+Subject: [PATCH 2/8] avfilters: better behavior of frei0r on win32
 
 ---
  libavfilter/vf_frei0r.c | 24 ++++++++++++++++++++++++
