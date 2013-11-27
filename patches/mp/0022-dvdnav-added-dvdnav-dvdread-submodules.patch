@@ -1,4 +1,4 @@
-From 54dd8eb3ef7f63073cedc57c7fd67761d627ab34 Mon Sep 17 00:00:00 2001
+From b0bf1e2fdd35b0d95769bb29f3aa1d8881b3ba14 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Feb 2013 00:56:43 +0100
 Subject: [PATCH 22/27] dvdnav: added dvdnav/dvdread submodules
@@ -40,18 +40,18 @@ index 0000000..245283d
 +	url = git://github.com/sherpya/dvdnav_libdvdread.git
 diff --git a/libdvdnav b/libdvdnav
 new file mode 160000
-index 0000000..4e28360
+index 0000000..4bde2d1
 --- /dev/null
 +++ b/libdvdnav
 @@ -0,0 +1 @@
-+Subproject commit 4e2836036e1fbc26726be841c994079b1cc0edd9
++Subproject commit 4bde2d10f4bdfc64b351536a32fc9b48b33ef2b9
 diff --git a/libdvdread4 b/libdvdread4
 new file mode 160000
-index 0000000..4185daa
+index 0000000..778ac48
 --- /dev/null
 +++ b/libdvdread4
 @@ -0,0 +1 @@
-+Subproject commit 4185daad7a7e84297958f3c743f0067e5923ff8e
++Subproject commit 778ac487a6c38e68c35bf10813774bb4f8e9ee0f
 -- 
-1.8.4.rc3
+1.8.4.4
 

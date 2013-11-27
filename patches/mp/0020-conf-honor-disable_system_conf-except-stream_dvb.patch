@@ -1,4 +1,4 @@
-From b6947043cdafd7fa90b1acbe83c4ff912fc26b7d Mon Sep 17 00:00:00 2001
+From 33c110ff5f0409b9079c3eda95a63a1bbb4ae597 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 20/27] conf: honor disable_system_conf (except stream_dvb)
@@ -54,7 +54,7 @@ index 8aa7ecf..56e3a79 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index eaa0b04..98148c0 100644
+index fd3d8e6..6f37e24 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -3039,7 +3039,7 @@ int main(int argc, char *argv[])
@@ -67,10 +67,10 @@ index eaa0b04..98148c0 100644
                  else {
                      mp_msg(MSGT_CPLAYER, MSGL_ERR, MSGTR_MenuInitFailed);
 diff --git a/sub/font_load_ft.c b/sub/font_load_ft.c
-index d30de06..e22187e 100644
+index a86aa36..288869e 100644
 --- a/sub/font_load_ft.c
 +++ b/sub/font_load_ft.c
-@@ -905,7 +905,8 @@ static int load_sub_face(const char *name, int face_index, FT_Face *face)
+@@ -903,7 +903,8 @@ static int load_sub_face(const char *name, int face_index, FT_Face *face)
  	err = FT_New_Face(library, font_file, 0, face);
  	free(font_file);
  	if (err) {
@@ -81,5 +81,5 @@ index d30de06..e22187e 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-1.8.4.rc3
+1.8.4.4
 

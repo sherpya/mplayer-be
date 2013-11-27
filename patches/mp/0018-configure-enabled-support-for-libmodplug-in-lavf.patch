@@ -1,4 +1,4 @@
-From b9e7445b4e03bf98b30d262711c2aecec2dcafcf Mon Sep 17 00:00:00 2001
+From 1f5c37054836b9803df9c62d5195fdca26a42e1b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 18/27] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 18/27] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index d36a549..337b2ec 100755
+index 67c671d..611ca07 100755
 --- a/configure
 +++ b/configure
 @@ -441,6 +441,7 @@ Codecs:
@@ -27,7 +27,7 @@ index d36a549..337b2ec 100755
  libopenjpeg=auto
  _mencoder=yes
  _mplayer=yes
-@@ -1263,6 +1265,8 @@ for ac_option do
+@@ -1265,6 +1267,8 @@ for ac_option do
    --disable-libopencore_amrnb)  _libopencore_amrnb=no   ;;
    --enable-libopencore_amrwb)   _libopencore_amrwb=yes  ;;
    --disable-libopencore_amrwb)  _libopencore_amrwb=no   ;;
@@ -36,7 +36,7 @@ index d36a549..337b2ec 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7108,6 +7112,23 @@ else
+@@ -7118,6 +7122,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +60,7 @@ index d36a549..337b2ec 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9034,6 +9055,7 @@ $def_libdirac_lavc
+@@ -9046,6 +9067,7 @@ $def_libdirac_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index d36a549..337b2ec 100755
  $def_libopenjpeg
  $def_librtmp
  $def_libschroedinger_lavc
-@@ -9112,7 +9134,6 @@ $def_truncf
+@@ -9124,7 +9146,6 @@ $def_truncf
  #define CONFIG_GNUTLS 0
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +77,5 @@ index d36a549..337b2ec 100755
  #define CONFIG_MEMORY_POISONING 0
  #define CONFIG_OPENSSL 0
 -- 
-1.8.4.rc3
+1.8.4.4
 
