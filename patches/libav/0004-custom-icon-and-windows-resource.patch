@@ -1,7 +1,7 @@
-From a8e1bd542d4b7e29f11b026076f25d23f036676e Mon Sep 17 00:00:00 2001
+From 83689d15d43a371fc6993852ec0f78952f30b419 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
-Subject: [PATCH 3/4] custom icon and windows resource
+Subject: [PATCH 4/5] custom icon and windows resource
 
 ---
  Makefile    |   5 +++++
@@ -18,7 +18,7 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index 5b8532a..efe8301 100644
+index 89f04a0..3df2542 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -134,6 +134,8 @@ include $(SRC_PATH)/doc/Makefile
@@ -32,7 +32,7 @@ index 5b8532a..efe8301 100644
  $(1)$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
 @@ -143,6 +145,9 @@ endef
  
- $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P))))
+ $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P:$(EXESUF)=))))
  
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
