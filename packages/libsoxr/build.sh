@@ -11,6 +11,7 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 CMAKE=1
 CMAKEOPTS=" \
     -DHAVE_WORDS_BIGENDIAN_EXITCODE=1   \
+    -DWITH_OPENMP=0                     \
     -DBUILD_TESTS=0                     \
     -DBUILD_EXAMPLES=0"
 
