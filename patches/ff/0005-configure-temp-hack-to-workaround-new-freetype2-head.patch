@@ -1,4 +1,4 @@
-From 0cd29f33070fe6281bc19ae8df509d58308507f2 Mon Sep 17 00:00:00 2001
+From 672273bad73e254d09c9b8cc077b57d8e37c1882 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 27 Nov 2013 01:44:56 +0100
 Subject: [PATCH 5/8] configure: temp hack to workaround new freetype2 headers
@@ -9,10 +9,10 @@ Subject: [PATCH 5/8] configure: temp hack to workaround new freetype2 headers
  2 files changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index 6750ed9..2932694 100755
+index 6e63f48..4b5b3c1 100755
 --- a/configure
 +++ b/configure
-@@ -4281,7 +4281,7 @@ enabled libfaac           && check_header "stdint.h faac.h"
+@@ -4315,7 +4315,7 @@ enabled libfaac           && check_header "stdint.h faac.h"
  enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
  flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs

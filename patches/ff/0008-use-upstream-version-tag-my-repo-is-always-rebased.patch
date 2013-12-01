@@ -1,4 +1,4 @@
-From 9a5e10630a677c880dc1b2194bfad4aca0537529 Mon Sep 17 00:00:00 2001
+From 82aa62028eb738cb00d17502e3a9a581205a8186 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 4 Feb 2013 04:03:37 +0100
 Subject: [PATCH 8/8] use upstream version tag, my repo is always rebased
@@ -8,10 +8,10 @@ Subject: [PATCH 8/8] use upstream version tag, my repo is always rebased
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/version.sh b/version.sh
-index 8d084c2..46c2d73 100755
+index 92edcb9..15729fd 100755
 --- a/version.sh
 +++ b/version.sh
-@@ -2,7 +2,7 @@
+@@ -4,7 +4,7 @@
  
  # check for git short hash
  if ! test "$revision"; then

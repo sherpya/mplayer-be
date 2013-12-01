@@ -1,4 +1,4 @@
-From 472cdb121525769095da673dcae41d7b683cb6cb Mon Sep 17 00:00:00 2001
+From 6159d76021398c83c33220cfd8a8e42dce357aa9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 7/8] custom icon and windows resource
@@ -18,7 +18,7 @@ Subject: [PATCH 7/8] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 06fc47d..86f0672 100644
+index bfda2f4..88049c1 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -93,6 +93,8 @@ include $(SRC_PATH)/doc/Makefile
@@ -30,8 +30,8 @@ index 06fc47d..86f0672 100644
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -105,6 +107,8 @@ $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P))))
- $(PROGS:%=%$(PROGSSUF)$(EXESUF)): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
+@@ -105,6 +107,8 @@ $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P:$(PROGSSUF)$(EXESUF)=))))
+ $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
  	$(CP) $< $@
  	$(STRIP) $@
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
