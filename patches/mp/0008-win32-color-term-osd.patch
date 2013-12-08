@@ -1,4 +1,4 @@
-From 7454027b48edcbc1debc84d2a4d0c6a82b815bbb Mon Sep 17 00:00:00 2001
+From 7af048e7186f9d89ef4f4602b2ba05f7f47447a9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
 Subject: [PATCH 08/27] win32: color term osd
@@ -61,5 +61,5 @@ index 1c2f403..fd3d8e6 100644
  }
  
 -- 
-1.8.4.4
+1.8.5.1
 

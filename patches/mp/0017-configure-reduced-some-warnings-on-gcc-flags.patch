@@ -1,4 +1,4 @@
-From 2aab9512c124918682e93a0e0e8e7b9cde979624 Mon Sep 17 00:00:00 2001
+From 3af0268b0c4a512922ff9075d6b0f1f1c28a3e82 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
 Subject: [PATCH 17/27] configure: reduced some warnings on gcc flags
@@ -8,10 +8,10 @@ Subject: [PATCH 17/27] configure: reduced some warnings on gcc flags
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index e8494d5..67c671d 100755
+index 48f574c..be00ec0 100755
 --- a/configure
 +++ b/configure
-@@ -2727,7 +2727,7 @@ if test -z "$CFLAGS" || test "$_profile" != "" || test "$_debug" != ""; then
+@@ -2733,7 +2733,7 @@ if test -z "$CFLAGS" || test "$_profile" != "" || test "$_debug" != ""; then
      CFLAGS="-O2 $_march $_mcpu $_pipe"
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
@@ -20,7 +20,7 @@ index e8494d5..67c671d 100755
      WARN_CFLAGS="-Werror-implicit-function-declaration"
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
-@@ -2751,13 +2751,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
+@@ -2757,13 +2757,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
@@ -35,5 +35,5 @@ index e8494d5..67c671d 100755
  
  cflag_check -mno-omit-leaf-frame-pointer && cflags_no_omit_leaf_frame_pointer="-mno-omit-leaf-frame-pointer"
 -- 
-1.8.4.4
+1.8.5.1
 

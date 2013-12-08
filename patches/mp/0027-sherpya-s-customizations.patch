@@ -1,4 +1,4 @@
-From 9a9e8b10caccbaca063f36b61b1a6c1a35d2e634 Mon Sep 17 00:00:00 2001
+From 4db679019c1a065c63774c6129ff33f9e77bd2c0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -41,7 +41,7 @@ index 0de8c27..2119cda 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 7be8663..d1eefe9 100755
+index cb3567c..852063c 100755
 --- a/configure
 +++ b/configure
 @@ -1523,13 +1523,13 @@ fi
@@ -60,7 +60,7 @@ index 7be8663..d1eefe9 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1780,6 +1780,7 @@ fi
+@@ -1781,6 +1781,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index ab9b8e8..19e8425 100755
  version=$svn_revision
  fi
 -- 
-1.8.4.4
+1.8.5.1
 

@@ -1,4 +1,4 @@
-From 97a970115d4a0ad6d34cbb3dd84c7e12a603fd95 Mon Sep 17 00:00:00 2001
+From 5c8bb9680625d45bcddbb5cc668fbc75822edc8e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/27] replaced some signed char with unsigned char
@@ -78,10 +78,10 @@ index 79e684c..a431d5a 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index 2b4c4bf..240b729 100644
+index ce641e0..feec05c 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
-@@ -398,6 +398,6 @@ typedef struct {
+@@ -399,6 +399,6 @@ typedef struct {
  
  int bluray_id_from_lang(stream_t *s, enum stream_ctrl_type type, const char *lang);
  
@@ -250,5 +250,5 @@ index fdb3e69..9683b57 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.8.4.4
+1.8.5.1
 
