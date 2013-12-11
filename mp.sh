@@ -98,7 +98,7 @@ configure()
 
 make_dist()
 {
-    echo "Build dist..."
+    echo "Building dist..."
 
     TMPDIR=$(mktemp -d /tmp/mpbuild-XXXX)
     DISTDIR=${TMPDIR}/MPlayer-$cpu-$version
@@ -128,7 +128,7 @@ make_dist()
 
 distclean()
 {
-    echo -n "Clean..."
+    echo -n "Cleaning..."
     make distclean >/dev/null 2>&1
     echo "done"
 }
@@ -155,7 +155,7 @@ build_binary()
 
     distclean
 
-    echo "Configure..."
+    echo "Configuring..."
     configure $opts || return 1
 
     echo "Make..."

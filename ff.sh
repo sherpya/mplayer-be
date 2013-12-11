@@ -112,7 +112,7 @@ configure()
 make_dist()
 {
 
-    echo "Build dist..."
+    echo "Building dist..."
     TMPDIR=$(mktemp -d /tmp/$product-build-XXXX)
     DISTDIR=${TMPDIR}/${packagename}
     mkdir ${DISTDIR}
@@ -165,11 +165,11 @@ build_binary()
 
     echo "Building $package"
 
-    echo -n "Clean..."
+    echo -n "Cleaning..."
     make distclean >/dev/null 2>&1
     echo "done"
 
-    echo "Configure..."
+    echo "Configuring..."
     configure || return 1
 
     echo "Make..."
