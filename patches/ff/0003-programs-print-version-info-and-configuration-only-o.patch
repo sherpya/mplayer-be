@@ -1,7 +1,7 @@
-From 202d82cca10d2536bbd00107e82a5726606fde8e Mon Sep 17 00:00:00 2001
+From ec6ef6cf27b84a4c24a09a8ded51bba9a23dffb8 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
-Subject: [PATCH 3/8] programs: print version info and configuration only on
+Subject: [PATCH 3/7] programs: print version info and configuration only on
  -version
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 3/8] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/cmdutils.c b/cmdutils.c
-index 46ade3f..c82d371 100644
+index fc4b424..0e3f77e 100644
 --- a/cmdutils.c
 +++ b/cmdutils.c
-@@ -1075,7 +1075,7 @@ static void print_program_info(int flags, int level)
+@@ -1051,7 +1051,7 @@ static void print_program_info(int flags, int level)
      av_log(NULL, level, "%sbuilt on %s %s with %s\n",
             indent, __DATE__, __TIME__, CC_IDENT);
  
@@ -21,7 +21,7 @@ index 46ade3f..c82d371 100644
  }
  
  static void print_buildconf(int flags, int level)
-@@ -1111,8 +1111,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
+@@ -1087,8 +1087,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
          return;
  
      print_program_info (INDENT|SHOW_COPYRIGHT, AV_LOG_INFO);
@@ -33,5 +33,5 @@ index 46ade3f..c82d371 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-1.8.4.4
+1.8.5.1
 
