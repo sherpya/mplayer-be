@@ -32,6 +32,7 @@ case "$product" in
         PROGRAMS="ffprobe"
         disable ffplay
         disable ffserver
+        enable avisynth
         enable postproc
         enable fontconfig
         enable libass
@@ -84,7 +85,6 @@ configure()
     enable avresample
     enable pthreads
 
-    enable avisynth
     enable libcdio
     enable libfaac
     enable libfreetype
