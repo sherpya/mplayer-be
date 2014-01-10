@@ -1,4 +1,4 @@
-From 393cc46063c76da29bfb06d1c5332a5468e23e0e Mon Sep 17 00:00:00 2001
+From df644169f41037b804817e6d468521c469363374 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -41,7 +41,7 @@ index 0dcefa2..fd75c27 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 7489e1b..155919b 100755
+index 7489e1b..2e65d92 100755
 --- a/configure
 +++ b/configure
 @@ -1527,13 +1527,13 @@ fi
@@ -64,7 +64,7 @@ index 7489e1b..155919b 100755
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
-+  extra_cflags="-D__USE_MINGW_ANSI_STDIO=1 $extra_cflags"
++  extra_cflags="-mno-ms-bitfields -D__USE_MINGW_ANSI_STDIO=1 $extra_cflags"
  fi
  
  if amigaos ; then

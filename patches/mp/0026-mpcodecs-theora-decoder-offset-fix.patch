@@ -1,4 +1,4 @@
-From 2803e15975de29ecb38d1de44bddf852d02d0f67 Mon Sep 17 00:00:00 2001
+From 5915088fc9256f4b0e3d585ac5f2296163cabbb9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 Aug 2013 10:27:53 +0200
 Subject: [PATCH 26/27] mpcodecs: theora decoder offset fix
