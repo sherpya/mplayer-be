@@ -223,7 +223,7 @@ pkg_build()
 git_clean()
 {
     test -d ${BUILDDIR} || return 0
-    ( cd ${BUILDDIR} && git clean -qdfx )
+    ( cd ${BUILDDIR} && git reset --hard && git clean -qdfx )
 }
 
 cmake_clean()
