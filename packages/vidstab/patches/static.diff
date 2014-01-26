@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f4c001f..2b64c4f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -43,8 +43,8 @@ set(HEADERS src/frameinfo.h src/transformtype.h src/libvidstab.h
+ 
+ 
+ # Create the vidstab library
+-# add_library (vidstab STATIC ${SOURCES})
+-add_library (vidstab SHARED ${SOURCES})
++add_library (vidstab STATIC ${SOURCES})
++#add_library (vidstab SHARED ${SOURCES})
+ 
+ #set version of lib
+ set_target_properties(vidstab PROPERTIES SOVERSION ${MAJOR_VERSION}.${MINOR_VERSION})

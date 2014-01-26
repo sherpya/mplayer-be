@@ -57,6 +57,7 @@ flac
 libvpx
 live555
 libutvideo
+vidstab
 lzo
 opencore-amr
 libsdl
