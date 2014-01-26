@@ -1,0 +1,12 @@
+diff -ur wavpack-4.70.0.orig/Makefile.in wavpack-4.70.0/Makefile.in
+--- wavpack-4.70.0.orig/Makefile.in	2013-10-19 07:17:30.000000000 +0200
++++ wavpack-4.70.0/Makefile.in	2014-01-26 04:42:34.807463436 +0100
+@@ -282,7 +282,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = foreign
+-SUBDIRS = src include cli man
++SUBDIRS = src include
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = wavpack.pc
+ MAINTAINERCLEANFILES = \

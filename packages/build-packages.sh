@@ -64,6 +64,7 @@ libsdl
 twolame
 vo-aacenc
 vo-amrwbenc
+wavpack
 x264
 xavs
 xvidcore

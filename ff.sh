@@ -102,6 +102,7 @@ configure()
     enable libvo-amrwbenc
     enable libvorbis
     enable libvpx
+    enable libwavpack
     enable libx264
     enable libxavs
     enable libxvid
