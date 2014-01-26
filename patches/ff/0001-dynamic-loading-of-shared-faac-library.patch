@@ -1,4 +1,4 @@
-From a707d78bc676d1198ee2788ce0b219bbd6277735 Mon Sep 17 00:00:00 2001
+From 07f0d0c70dd80a49d86a659f1f8ccc8cae196e13 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 26 Jun 2013 00:29:17 +0200
 Subject: [PATCH 1/7] dynamic loading of shared faac library
@@ -9,10 +9,10 @@ Subject: [PATCH 1/7] dynamic loading of shared faac library
  2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index 04120f0..2dccbdd 100755
+index 1a91e02..455210a 100755
 --- a/configure
 +++ b/configure
-@@ -3959,7 +3959,6 @@ die_license_disabled gpl libzvbi
+@@ -3998,7 +3998,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -20,15 +20,15 @@ index 04120f0..2dccbdd 100755
  enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
-@@ -4381,7 +4380,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4425,7 +4424,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                               { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
 -enabled libfaac           && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
 +enabled libfaac           && check_header "stdint.h faac.h"
- enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
- flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
- enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
+ enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac &&
+                              { check_cpp_condition fdk-aac/aacenc_lib.h "AACENCODER_LIB_VL0 >= 3 && AACENCODER_LIB_VL1 >= 4 && AACENCODER_LIB_VL2 >= 12" ||
+                                die "ERROR: libfdk_aac must be installed and version must be >= 3.4.12."; }
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
 index 477669a..682907d 100644
 --- a/libavcodec/libfaac.c
@@ -175,5 +175,5 @@ index 477669a..682907d 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-1.8.5.1
+1.8.5.3
 

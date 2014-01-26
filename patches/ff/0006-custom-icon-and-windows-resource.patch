@@ -1,4 +1,4 @@
-From fccb412b271a79d9f3964ff45416abcdfcb30d4f Mon Sep 17 00:00:00 2001
+From fab2d3fd159665dabbc82e1b528b6d5f9e0f44f4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 6/7] custom icon and windows resource
@@ -41,12 +41,12 @@ index 7317f25..dfb5556 100644
  	$(LD) $(LDFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
 diff --git a/common.rc b/common.rc
 new file mode 100644
-index 0000000..15a2973
+index 0000000..6dcbe77
 --- /dev/null
 +++ b/common.rc
 @@ -0,0 +1,36 @@
 +#include <winver.h>
-+#include <version.h>
++#include <libavutil/ffversion.h>
 +#include <libavutil/avutil.h>
 +#include <libavcodec/avcodec.h>
 +#include <libavformat/avformat.h>
@@ -1746,5 +1746,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-1.8.5.1
+1.8.5.3
 
