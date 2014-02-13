@@ -1,4 +1,4 @@
-From a70a5a898e58f36b53a8ce3f4a0f52f0cfb95fe8 Mon Sep 17 00:00:00 2001
+From dfd2780cb88b2073612f6125d82cdb49f3b218ff Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 26 Jun 2013 00:29:17 +0200
 Subject: [PATCH 1/8] dynamic loading of shared faac library
@@ -9,10 +9,10 @@ Subject: [PATCH 1/8] dynamic loading of shared faac library
  2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index a211975..6aeb107 100755
+index 6d53530..29a80a1 100755
 --- a/configure
 +++ b/configure
-@@ -4010,7 +4010,6 @@ die_license_disabled gpl libzvbi
+@@ -4021,7 +4021,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -20,7 +20,7 @@ index a211975..6aeb107 100755
  enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
-@@ -4438,7 +4437,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4451,7 +4450,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                               { check_lib celt/celt.h celt_decoder_create_custom -lcelt0 ||
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
