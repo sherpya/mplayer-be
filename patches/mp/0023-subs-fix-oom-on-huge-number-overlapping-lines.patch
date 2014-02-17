@@ -1,4 +1,4 @@
-From eb2e353ac24c9643dee7590ab61e5343c912237d Mon Sep 17 00:00:00 2001
+From fe60c8606286d156ce3359da9ba9ef5e9648c72d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 19:06:27 +0200
 Subject: [PATCH 23/27] subs: fix oom on huge number overlapping lines
@@ -8,10 +8,10 @@ Subject: [PATCH 23/27] subs: fix oom on huge number overlapping lines
  1 file changed, 5 insertions(+)
 
 diff --git a/sub/subreader.c b/sub/subreader.c
-index cc7143c..4ead7ff 100644
+index 6986648..5e9fbb8 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
-@@ -1631,6 +1631,11 @@ if ((suboverlap_enabled == 2) ||
+@@ -1633,6 +1633,11 @@ if ((suboverlap_enabled == 2) ||
  	    }
  	}
  
@@ -24,5 +24,5 @@ index cc7143c..4ead7ff 100644
  	// used by the subs, a 'placeholder'
  	counter = 2 * sub_to_add + 1;  // the maximum number of subs derived
 -- 
-1.8.5.2
+1.9.0.rc3
 

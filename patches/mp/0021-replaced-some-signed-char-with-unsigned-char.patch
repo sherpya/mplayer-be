@@ -1,4 +1,4 @@
-From 8063a278aefafc1ce804ed5df62ce4cef05a1b1e Mon Sep 17 00:00:00 2001
+From 90573f2a0d0496a700dff87bb68aae556a97c10d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/27] replaced some signed char with unsigned char
@@ -29,10 +29,10 @@ index ecf43b8..34e40d4 100644
         if ( stat( fname,&fs ) )
          {
 diff --git a/libvo/vo_fbdev.c b/libvo/vo_fbdev.c
-index 7b1b1a7..17e487a 100644
+index 9c2fbb4..228fae4 100644
 --- a/libvo/vo_fbdev.c
 +++ b/libvo/vo_fbdev.c
-@@ -104,8 +104,8 @@ static int validate_mode(fb_mode_t *m)
+@@ -105,8 +105,8 @@ static int validate_mode(fb_mode_t *m)
  
  static FILE *fp;
  static int line_num = 0;
@@ -63,10 +63,10 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index 79e684c..a431d5a 100644
+index edfa49e..5810701 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
-@@ -706,8 +706,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
+@@ -702,8 +702,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
    return mem;
  }
  
@@ -103,7 +103,7 @@ index 0f65358..8ee6bec 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index db85349..cc7143c 100644
+index 1d61b30..6986648 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -89,12 +89,12 @@ int sub_format=SUB_INVALID;
@@ -150,7 +150,7 @@ index db85349..cc7143c 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1831,7 +1831,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1833,7 +1833,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -159,7 +159,7 @@ index db85349..cc7143c 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1886,7 +1886,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1888,7 +1888,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -169,7 +169,7 @@ index db85349..cc7143c 100644
      while (*s) {
  	if (!isspace(*s)) return 0;
 diff --git a/sub/vobsub.c b/sub/vobsub.c
-index fdb3e69..9683b57 100644
+index f03dfc0..e13a6be 100644
 --- a/sub/vobsub.c
 +++ b/sub/vobsub.c
 @@ -235,7 +235,7 @@ typedef FILE rar_stream_t;
@@ -250,5 +250,5 @@ index fdb3e69..9683b57 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.8.5.2
+1.9.0.rc3
 

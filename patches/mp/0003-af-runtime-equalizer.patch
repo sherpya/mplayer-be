@@ -1,4 +1,4 @@
-From da4b8fcc5906336e06341a8aac6a3ca98f50fce3 Mon Sep 17 00:00:00 2001
+From 31dadf85841c52ab3eba246af2f6456372330fa1 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/27] af: runtime equalizer
@@ -28,10 +28,10 @@ index 6413adc..028f7b6 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index c4d5785..2aa61a5 100644
+index 7b0c972..9f971cd 100644
 --- a/command.c
 +++ b/command.c
-@@ -3213,6 +3213,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+@@ -3215,6 +3215,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
              set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
              break;
  
@@ -102,5 +102,5 @@ index 78e12e7..0b7c614 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-1.8.5.2
+1.9.0.rc3
 
