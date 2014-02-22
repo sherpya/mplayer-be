@@ -1,4 +1,4 @@
-From 7744f18c6da8b31abf5d3485601a7a4ab0542bea Mon Sep 17 00:00:00 2001
+From a1b076a440eec89a512d1108df524b441af21e5a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Mar 2013 09:34:08 +0100
 Subject: [PATCH 11/27] stream_cddb: fix include path on MinGW-w64
@@ -21,5 +21,5 @@ index d23b173..79422db 100644
  #include <dvd.h>
  #elif defined(__APPLE__) || defined(__DARWIN__)
 -- 
-1.9.0.rc3
+1.9.0
 
