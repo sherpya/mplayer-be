@@ -1,4 +1,4 @@
-From d3f6bfccc7a904701400a9d61e8c0ab6f6a21ad6 Mon Sep 17 00:00:00 2001
+From 2f3ae53e176932775e4b3e20f01658955ac00954 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 26 Jun 2013 00:28:03 +0200
 Subject: [PATCH 4/8] configure: fix modplug detection (it needs +lstdc++)
@@ -8,10 +8,10 @@ Subject: [PATCH 4/8] configure: fix modplug detection (it needs +lstdc++)
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 29a80a1..b2b07c1 100755
+index 4c57509..9ac7551 100755
 --- a/configure
 +++ b/configure
-@@ -4460,7 +4460,7 @@ enabled libgsm            && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
+@@ -4468,7 +4468,7 @@ enabled libgsm            && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
                                     check_lib "${gsm_hdr}" gsm_create -lgsm && break;
                                 done || die "ERROR: libgsm not found"; }
  enabled libilbc           && require libilbc ilbc.h WebRtcIlbcfix_InitDecode -lilbc
@@ -21,5 +21,5 @@ index 29a80a1..b2b07c1 100755
  enabled libnut            && require libnut libnut.h nut_demuxer_init -lnut
  enabled libopencore_amrnb && require libopencore_amrnb opencore-amrnb/interf_dec.h Decoder_Interface_init -lopencore-amrnb
 -- 
-1.9.0.rc3
+1.9.0
 

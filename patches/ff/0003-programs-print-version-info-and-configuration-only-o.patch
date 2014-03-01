@@ -1,4 +1,4 @@
-From d89e12422c47566e8c53af6863efbfe8268f4267 Mon Sep 17 00:00:00 2001
+From dcf58b65dcbf2545d9ebe23fb7fef312f64acdf2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 3/8] programs: print version info and configuration only on
@@ -33,5 +33,5 @@ index dc9bd2c..aa8dba7 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-1.9.0.rc3
+1.9.0
 

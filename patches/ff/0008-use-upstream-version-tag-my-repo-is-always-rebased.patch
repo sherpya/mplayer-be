@@ -1,4 +1,4 @@
-From 817fd5b09c34f1ba9d53a10249c61594ece6bf86 Mon Sep 17 00:00:00 2001
+From ee06c6ae923f043ab8621e2e87d149c0da0c416f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 4 Feb 2013 04:03:37 +0100
 Subject: [PATCH 8/8] use upstream version tag, my repo is always rebased
@@ -21,5 +21,5 @@ index 92edcb9..15729fd 100755
  
  # Shallow Git clones (--depth) do not have the N tag:
 -- 
-1.9.0.rc3
+1.9.0
 
