@@ -1,4 +1,4 @@
-From bffae7fecca907cf4b9335aca137c59110baa241 Mon Sep 17 00:00:00 2001
+From 3158243c88c88aa595eb3a8ed9f3cdb6be73c4ab Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 05:14:05 +0100
 Subject: [PATCH 09/27] win32: disable_system_conf defaults to 1 on win32

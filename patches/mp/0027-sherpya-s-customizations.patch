@@ -1,4 +1,4 @@
-From 069195c01807685da02e7354028ea2931d1a5c4a Mon Sep 17 00:00:00 2001
+From 6227de251255c86319d82d61d8fefcb8c50faba5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -41,15 +41,15 @@ index 0dcefa2..fd75c27 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 9bbc504..38770e9 100755
+index c43d343..64d5d97 100755
 --- a/configure
 +++ b/configure
-@@ -1531,13 +1531,13 @@ fi
+@@ -1534,13 +1534,13 @@ fi
  if ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
--    if ! git clone --depth 1 git://source.ffmpeg.org/ffmpeg.git ffmpeg ; then
-+    if ! git clone --depth 1 git://github.com/sherpya/FFmpeg.git ffmpeg ; then
+-    if ! git clone -b $FFBRANCH --depth 1 git://source.ffmpeg.org/ffmpeg.git ffmpeg ; then
++    if ! git clone -b $FFBRANCH --depth 1 git://github.com/sherpya/FFmpeg.git ffmpeg ; then
          rm -rf ffmpeg
          echo "Failed to get a FFmpeg checkout"
          echo "Please try again or put FFmpeg source code copy into ffmpeg/ manually."
@@ -60,7 +60,7 @@ index 9bbc504..38770e9 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1802,6 +1802,7 @@ fi
+@@ -1805,6 +1805,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
