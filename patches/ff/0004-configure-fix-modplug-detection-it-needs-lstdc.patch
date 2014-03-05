@@ -1,4 +1,4 @@
-From 2f3ae53e176932775e4b3e20f01658955ac00954 Mon Sep 17 00:00:00 2001
+From 4a5c1e29a905689b8d78da673f4cb9ec4d426d0f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 26 Jun 2013 00:28:03 +0200
 Subject: [PATCH 4/8] configure: fix modplug detection (it needs +lstdc++)

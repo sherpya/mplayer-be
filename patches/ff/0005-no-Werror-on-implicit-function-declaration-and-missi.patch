@@ -1,4 +1,4 @@
-From faf6275faa5e6eb9f692a02dad710449874ead7b Mon Sep 17 00:00:00 2001
+From 7d311097bf03187838de96d04eb1291b07c720ef Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:08:08 +0100
 Subject: [PATCH 5/8] no Werror on implicit-function-declaration and
