@@ -1,17 +1,18 @@
-diff -ur freetype-2.5.1.orig/builds/unix/install.mk freetype-2.5.1/builds/unix/install.mk
---- freetype-2.5.1.orig/builds/unix/install.mk	2013-11-13 09:38:30.170894662 +0100
-+++ freetype-2.5.1/builds/unix/install.mk	2013-11-26 00:32:15.848945260 +0100
-@@ -32,8 +32,7 @@
+diff -ur freetype-2.5.3.orig/builds/unix/install.mk freetype-2.5.3/builds/unix/install.mk
+--- freetype-2.5.3.orig/builds/unix/install.mk	2014-01-09 07:24:44.860174845 +0100
++++ freetype-2.5.3/builds/unix/install.mk	2014-03-09 03:41:21.183051762 +0100
+@@ -32,9 +32,7 @@
  	$(MKINSTALLDIRS) $(DESTDIR)$(libdir)                      \
                           $(DESTDIR)$(libdir)/pkgconfig            \
                           $(DESTDIR)$(includedir)/freetype2/config \
 -                         $(DESTDIR)$(bindir)                      \
--                         $(DESTDIR)$(datadir)/aclocal
+-                         $(DESTDIR)$(datadir)/aclocal             \
+-                         $(DESTDIR)$(mandir)/man1
 +                         $(DESTDIR)$(bindir)
  	$(LIBTOOL) --mode=install $(INSTALL)                             \
                                    $(PROJECT_LIBRARY) $(DESTDIR)$(libdir)
  	-for P in $(PUBLIC_H) ; do                  \
-@@ -54,8 +53,6 @@
+@@ -55,12 +53,8 @@
            $(DESTDIR)$(includedir)/freetype2/config/ftmodule.h
  	$(INSTALL_SCRIPT) -m 755 $(OBJ_BUILD)/freetype-config \
            $(DESTDIR)$(bindir)/freetype-config
@@ -19,4 +20,8 @@ diff -ur freetype-2.5.1.orig/builds/unix/install.mk freetype-2.5.1/builds/unix/i
 -          $(DESTDIR)$(datadir)/aclocal/freetype2.m4
  	$(INSTALL_SCRIPT) -m 644 $(OBJ_BUILD)/freetype2.pc \
            $(DESTDIR)$(libdir)/pkgconfig/freetype2.pc
+-	$(INSTALL_DATA) $(TOP_DIR)/docs/freetype-config.1 \
+-          $(DESTDIR)$(mandir)/man1/freetype-config.1
  
+ 
+ uninstall:
