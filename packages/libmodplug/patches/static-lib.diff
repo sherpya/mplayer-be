@@ -1,0 +1,12 @@
+diff -ur libmodplug.orig/src/modplug.h libmodplug/src/modplug.h
+--- libmodplug.orig/src/modplug.h	2014-03-12 03:16:43.727021005 +0100
++++ libmodplug/src/modplug.h	2014-03-12 03:16:55.799021292 +0100
+@@ -10,7 +10,7 @@
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+-
++#define MODPLUG_STATIC
+ #if defined(_WIN32) || defined(__CYGWIN__)
+ # if defined(MODPLUG_BUILD) && defined(DLL_EXPORT)	/* building libmodplug as a dll for windows */
+ #   define MODPLUG_EXPORT __declspec(dllexport)
