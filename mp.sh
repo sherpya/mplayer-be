@@ -86,12 +86,17 @@ configure()
     disable vidix
     disable inet6
 
+	enable dvdnav
+	enable dvdread
+	disable dvdread-internal
+
     enable menu
     enable faac
     disable faac-lavc
 
     add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
+	echo configure ${CONFIGURE_OPTS} $*
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
 }

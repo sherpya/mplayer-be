@@ -50,6 +50,9 @@ libogg
 libvorbis
 libtheora
 libsoxr
+libdvdcss
+libdvdread
+libdvdnav
 openjpeg
 speex
 opus

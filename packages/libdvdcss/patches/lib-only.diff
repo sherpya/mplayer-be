@@ -1,0 +1,12 @@
+diff -ur libdvdcss.orig/Makefile.am libdvdcss/Makefile.am
+--- libdvdcss.orig/Makefile.am	2014-03-09 04:58:02.271029406 +0100
++++ libdvdcss/Makefile.am	2014-03-09 05:02:59.695027961 +0100
+@@ -2,8 +2,6 @@
+ 
+ EXTRA_DIST = msvc libdvdcss.spec doc/header.html doc/footer.html INSTALL
+ 
+-dist_doc_DATA = AUTHORS COPYING NEWS README ChangeLog
+-
+ DISTCLEANFILES = ChangeLog
+ 
+ ChangeLog: $(wildcard $(srcdir)/.git/logs/HEAD)
