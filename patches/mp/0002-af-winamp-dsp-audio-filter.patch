@@ -1,4 +1,4 @@
-From d25c71405a3817f0cc412e25a191b74f4e097c87 Mon Sep 17 00:00:00 2001
+From 9ad0727f0b4443e5b6fd3c3795384af4c6d29610 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
 Subject: [PATCH 02/27] af: winamp dsp audio filter
@@ -14,7 +14,7 @@ Subject: [PATCH 02/27] af: winamp dsp audio filter
  create mode 100644 libaf/af_wadsp.h
 
 diff --git a/Makefile b/Makefile
-index b719779..8f1266e 100644
+index 5589544..9e376b3 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -311,6 +311,7 @@ SRCS_COMMON = asxparser.c                       \
@@ -26,7 +26,7 @@ index b719779..8f1266e 100644
                libaf/format.c                    \
                libaf/reorder_ch.c                \
 diff --git a/libaf/af.c b/libaf/af.c
-index 2c9b2ac..6c0154e 100644
+index 3a4d9e2..281c8bf 100644
 --- a/libaf/af.c
 +++ b/libaf/af.c
 @@ -55,6 +55,9 @@ extern const af_info_t af_info_karaoke;
@@ -476,5 +476,5 @@ index 91e18b5..9fcdcc8 100644
 +
  #endif /* MPLAYER_CONTROL_H */
 -- 
-1.9.0
+1.9.1
 

@@ -1,0 +1,50 @@
+From a061dc259d7404ea15854db1f26d65673fc205b4 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Wed, 12 Mar 2014 03:11:42 +0100
+Subject: [PATCH 26/27] dvdnav: use dvdnav/read from videolan git
+
+---
+ configure              | 4 ++--
+ stream/stream_dvdnav.c | 8 ++++----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/configure b/configure
+index 40c0df0..31d732f 100755
+--- a/configure
++++ b/configure
+@@ -8148,8 +8148,8 @@ if test "$_dvdnav" = yes ; then
+     cflags_libdvdnav="-Ilibdvdnav"
+     inputmodules="dvdnav(internal) $inputmodules"
+   else
+-    extra_cflags="$extra_cflags $($_dvdnavconfig --cflags)"
+-    extra_ldflags="$extra_ldflags $($_dvdnavconfig --minilibs)"
++    extra_cflags="$extra_cflags $($_pkg_config --cflags dvdnavmini)"
++    extra_ldflags="$extra_ldflags $($_pkg_config --libs dvdnavmini)"
+     inputmodules="dvdnav $inputmodules"
+   fi
+ else
+diff --git a/stream/stream_dvdnav.c b/stream/stream_dvdnav.c
+index dbf4226..c6b69e7 100644
+--- a/stream/stream_dvdnav.c
++++ b/stream/stream_dvdnav.c
+@@ -714,13 +714,13 @@ static int mp_dvdnav_get_aid_from_format (stream_t *stream, int index, uint8_t l
+ 
+   format = dvdnav_audio_stream_format(priv->dvdnav, lg);
+   switch(format) {
+-  case DVDNAV_FORMAT_AC3:
++  case DVD_AUDIO_FORMAT_AC3:
+     return index + 128;
+-  case DVDNAV_FORMAT_DTS:
++  case DVD_AUDIO_FORMAT_DTS:
+     return index + 136;
+-  case DVDNAV_FORMAT_LPCM:
++  case DVD_AUDIO_FORMAT_LPCM:
+     return index + 160;
+-  case DVDNAV_FORMAT_MPEGAUDIO:
++  case DVD_AUDIO_FORMAT_MPEG2_EXT:
+     return index;
+   default:
+     return -1;
+-- 
+1.9.1
+

@@ -1,4 +1,4 @@
-From 6e9cca4b5d4eb7bd5149d7d176c9d3e983ca36a8 Mon Sep 17 00:00:00 2001
+From 9943bc3f49bb49302886413451f627276568c660 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 18/27] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 18/27] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 652f520..1202138 100755
+index 3ae4c4d..dd0d976 100755
 --- a/configure
 +++ b/configure
 @@ -441,6 +441,7 @@ Codecs:
@@ -60,7 +60,7 @@ index 652f520..1202138 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9126,6 +9147,7 @@ $def_libdirac_lavc
+@@ -9128,6 +9149,7 @@ $def_libdirac_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index 652f520..1202138 100755
  $def_libopenjpeg
  $def_librtmp
  $def_libschroedinger_lavc
-@@ -9204,7 +9226,6 @@ $def_truncf
+@@ -9206,7 +9228,6 @@ $def_truncf
  #define CONFIG_GNUTLS 0
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +77,5 @@ index 652f520..1202138 100755
  #define CONFIG_MEMORY_POISONING 0
  #define CONFIG_OPENSSL 0
 -- 
-1.9.0
+1.9.1
 

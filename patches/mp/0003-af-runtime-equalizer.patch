@@ -1,4 +1,4 @@
-From 79d5cebe9d05e6c9f80c3e9d2fc4524ff5b786a6 Mon Sep 17 00:00:00 2001
+From fdbad3596d23ad3fd48c4ea0e1914bd2f9fb1f67 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/27] af: runtime equalizer
@@ -102,5 +102,5 @@ index 78e12e7..0b7c614 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-1.9.0
+1.9.1
 

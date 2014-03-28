@@ -1,4 +1,4 @@
-From 7b8835c50d4bd6d22bee006813d7f32f90af86a5 Mon Sep 17 00:00:00 2001
+From f451338f613559cfea5e587f5d1ba0dc59b4adc5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -18,10 +18,10 @@ Subject: [PATCH 27/27] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index 0dcefa2..fd75c27 100644
+index abfb6c1..9fe31b3 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -687,6 +687,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -686,6 +686,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index 0dcefa2..fd75c27 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -862,6 +864,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -861,6 +863,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,7 +41,7 @@ index 0dcefa2..fd75c27 100644
  
  libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
 diff --git a/configure b/configure
-index 71ff010..b06e1b4 100755
+index 31d732f..7df1829 100755
 --- a/configure
 +++ b/configure
 @@ -1538,13 +1538,13 @@ fi
@@ -4699,5 +4699,5 @@ index f2627e8..671081f 100755
  version=$svn_revision
  fi
 -- 
-1.9.0
+1.9.1
 

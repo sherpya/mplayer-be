@@ -1,4 +1,4 @@
-From cc31e5de1d47b3e442603f049ef5af1ec5fed06f Mon Sep 17 00:00:00 2001
+From a2c6326fa9b87fa7aaa2301dc997d40bb4eb275b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 21/27] replaced some signed char with unsigned char
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.9.0
+1.9.1
 
