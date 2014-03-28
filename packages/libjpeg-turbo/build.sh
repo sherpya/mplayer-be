@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libjpeg-turbo
-VERSION=1.3.0
+VERSION=1.3.1
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 
