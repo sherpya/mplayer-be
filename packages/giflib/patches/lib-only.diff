@@ -1,16 +1,7 @@
-diff -ur giflib-5.0.5.orig/Makefile.in giflib-5.0.5/Makefile.in
---- giflib-5.0.5.orig/Makefile.in	2013-08-29 22:04:00.000000000 +0200
-+++ giflib-5.0.5/Makefile.in	2013-08-31 04:37:18.253572323 +0200
-@@ -101,7 +101,7 @@
- CTAGS = ctags
- am__tty_colors = \
- red=; grn=; lgn=; blu=; std=
--DIST_SUBDIRS = lib util pic doc
-+DIST_SUBDIRS = lib
- DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
- distdir = $(PACKAGE)-$(VERSION)
- top_distdir = $(distdir)
-@@ -258,7 +258,7 @@
+diff -ur giflib-5.0.6.orig/Makefile.in giflib-5.0.6/Makefile.in
+--- giflib-5.0.6.orig/Makefile.in	2014-03-29 10:56:48.000000000 +0100
++++ giflib-5.0.6/Makefile.in	2014-04-13 03:28:13.419163015 +0200
+@@ -517,7 +517,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@

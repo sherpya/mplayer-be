@@ -4,9 +4,9 @@
 # See LICENSE for licensing informations
 
 PACKAGE=giflib
-VERSION=5.0.5
+VERSION=5.0.6
 EXT=tar.bz2
-BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}-5.x
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 
