@@ -1,4 +1,4 @@
-From 9fc94ff8aaec81da3e8c4d3c969d79a53609366e Mon Sep 17 00:00:00 2001
+From 82fa858e9de1174d37d0eceb0d902167a2559853 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:09:04 +0100
 Subject: [PATCH 4/4] use upstream version tag, my repo is always rebased
@@ -21,5 +21,5 @@ index 6f72b2c..95c2724 100755
  # no revision number found
  test "$revision" || revision=$(cd "$1" && cat RELEASE 2> /dev/null)
 -- 
-1.8.5.2
+1.9.2
 

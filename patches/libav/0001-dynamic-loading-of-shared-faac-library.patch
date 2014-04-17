@@ -1,4 +1,4 @@
-From 811f2734757936cab235e65121c45a08bc94d91e Mon Sep 17 00:00:00 2001
+From 7a1a711d269e715133d3a5ac8e1691bdb4069023 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 24 Jun 2013 05:47:22 +0200
 Subject: [PATCH 1/4] dynamic loading of shared faac library
@@ -9,10 +9,10 @@ Subject: [PATCH 1/4] dynamic loading of shared faac library
  2 files changed, 66 insertions(+), 10 deletions(-)
 
 diff --git a/configure b/configure
-index e9fc08c..4d85385 100755
+index 63a9e72..dca7542 100755
 --- a/configure
 +++ b/configure
-@@ -3528,7 +3528,6 @@ die_license_disabled gpl libxavs
+@@ -3637,7 +3637,6 @@ die_license_disabled gpl libxavs
  die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
@@ -20,15 +20,15 @@ index e9fc08c..4d85385 100755
  die_license_disabled nonfree libfdk_aac
  die_license_disabled nonfree openssl
  
-@@ -3908,7 +3907,7 @@ enabled avisynth          && { { check_header "avisynth/avisynth_c.h" && check_l
+@@ -4023,7 +4022,7 @@ enabled avisynth          && { { check_header "avisynth/avisynth_c.h" && check_l
                                 die "ERROR: LoadLibrary/dlopen not found, or avisynth header not found"; }
  enabled frei0r            && { check_header frei0r.h || die "ERROR: frei0r.h header not found"; }
  enabled gnutls            && require_pkg_config gnutls gnutls/gnutls.h gnutls_global_init
 -enabled libfaac           && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
 +enabled libfaac           && check_header libfaac "stdint.h faac.h"
  enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
+ enabled libfontconfig     && require_pkg_config fontconfig "fontconfig/fontconfig.h" FcInit
  enabled libfreetype       && require_pkg_config freetype2 "ft2build.h FT_FREETYPE_H" FT_Init_FreeType
- enabled libgsm            && { for gsm_hdr in "gsm.h" "gsm/gsm.h"; do
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
 index 9b5b11a..5f75455 100644
 --- a/libavcodec/libfaac.c
@@ -170,5 +170,5 @@ index 9b5b11a..5f75455 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-1.8.5.2
+1.9.2
 
