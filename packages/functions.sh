@@ -27,6 +27,15 @@ sanity_check()
 }
 sanity_check
 
+export_toolchain()
+{
+    export AR=${CROSS_PREFIX}ar
+    export RANLIB=${CROSS_PREFIX}ranlib
+    export STRIP=${CROSS_PREFIX}strip
+    export CC=${CROSS_PREFIX}gcc
+    export CXX=${CROSS_PREFIX}g++
+}
+
 save_function()
 {
     local ORIG_FUNC=$(declare -f $1)
