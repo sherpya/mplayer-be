@@ -12,9 +12,14 @@ BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
 STATICLIBS="libiconv"
 CONFOPTS="--disable-nls"
+CFLAGS="-Werror=pointer-to-int-cast"
 
 pkg_make_target()
 {
+    # llp64
+    sed -i -e 's/(int)(long)\&/(int)(intptr_t)\&/g' lib/*.{c,h}
+    sed -i -e 's/(unsigned long)/(uintptr_t)/g' srclib/malloca.c
+
     make ${MAKEOPTS} install-lib
 }
 
