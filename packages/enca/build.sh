@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for ENCA - Extremely Naive Charset Analyser
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=enca
@@ -23,7 +23,7 @@ export ac_cv_file__dev_arandom=false
 pkg_make_target()
 {
     # host compiler
-    ( cd tools && gcc -o make_hash make_hash.c )
+    gcc -DHAVE_MEMORY_H tools/make_hash.c -O2 -o tools/make_hash
     make ${MAKEOPTS} install
 }
 
