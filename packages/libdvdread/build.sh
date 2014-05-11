@@ -10,8 +10,7 @@ GIT_REPO="git://git.videolan.org/libdvdread.git"
 depends lib/libdvdcss.a
 
 BUILDDIR=libdvdread
-CONFOPTS="--with-libdvdcss --disable-apidoc"
-
 STATICLIBS="libdvdread"
+CONFOPTS="--with-libdvdcss --disable-apidoc"
 
 git_clean && pkg_build && git_clean

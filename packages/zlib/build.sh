@@ -10,13 +10,11 @@ BASEURL=http://zlib.net
 
 . $(dirname $0)/../functions.sh
 
+export_toolchain
+
 pkg_configure()
 {
-    AR=${CROSS_PREFIX}ar            \
-    RANLIB=${CROSS_PREFIX}ranlib    \
-    CC=${CROSS_PREFIX}gcc           \
-    CFLAGS=${GLOBAL_CFLAGS}         \
-    ./configure --static || return 1
+    CFLAGS="${GLOBAL_CFLAGS}" ./configure --static || return 1
 }
 
 pkg_make_target()

@@ -10,7 +10,6 @@ GIT_REPO="git://git.videolan.org/libdvdnav.git"
 depends lib/libdvdread.a
 
 BUILDDIR=libdvdnav
-
 STATICLIBS="libdvdnav"
 
 git_clean && pkg_build && git_clean

@@ -7,8 +7,8 @@ GIT_REPO="git://git.videolan.org/libdvdcss.git"
 
 . $(dirname $0)/../functions.sh
 
-CONFOPTS="--disable-doc"
 BUILDDIR=libdvdcss
 STATICLIBS="libdvdcss"
+CONFOPTS="--disable-doc"
 
 git_clean && pkg_build && git_clean
