@@ -127,7 +127,6 @@ pkg_configure()
         --prefix=${PREFIX}  \
         --enable-static     \
         --disable-shared    \
-        --disable-nls       \
         ${CONFOPTS} || return 1
 }
 

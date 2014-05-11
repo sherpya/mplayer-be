@@ -11,6 +11,7 @@ BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 . $(dirname $0)/../functions.sh
 
 STATICLIBS="libiconv"
+CONFOPTS="--disable-nls"
 
 pkg_make_target()
 {
