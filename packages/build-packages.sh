@@ -3,11 +3,13 @@
 # Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+LOG=/tmp/build-$$.log
+echo "Logging to $LOG"
 while read package; do
-    pushd $package > /dev/null
+    pushd $package >> $LOG
 
     echo -n "Building $package..."
-    ./build.sh > /dev/null 2>&1
+    ./build.sh >> $LOG 2>&1
 
     if [ $? -gt 0 ]; then
          echo "failed"
@@ -15,7 +17,7 @@ while read package; do
     fi
     echo "ok"
 
-    popd >/dev/null
+    popd > /dev/null
 done << EOF
 winpthreads
 dlfcn-win32
