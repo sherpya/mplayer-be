@@ -5,6 +5,8 @@
 
 . $(dirname $0)/../../config.sh
 
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
+
 topdir=$(cd .. && pwd)
 
 shopt -s nullglob
@@ -129,8 +131,8 @@ pkg_configure()
         fi
     fi
 
-    CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS} -mno-ms-bitfields"   \
-    CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS} -mno-ms-bitfields" \
+    CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
+    CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
     ./configure             \
         --host=${HOST}      \
         --prefix=${PREFIX}  \

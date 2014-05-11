@@ -12,7 +12,6 @@ BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
 STATICLIBS="libiconv"
 CONFOPTS="--disable-nls"
-CFLAGS="-Werror=pointer-to-int-cast"
 
 pkg_make_target()
 {
