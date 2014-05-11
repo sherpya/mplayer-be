@@ -6,8 +6,7 @@
 PACKAGE=libpng
 VERSION=1.6.10
 EXT=tar.xz
-#BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng16/${VERSION}
-BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng16/1.6.10rc03
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng16/${VERSION}
 
 . $(dirname $0)/../functions.sh
 
