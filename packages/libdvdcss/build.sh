@@ -9,6 +9,7 @@ GIT_REPO="git://git.videolan.org/libdvdcss.git"
 
 BUILDDIR=libdvdcss
 STATICLIBS="libdvdcss"
+CFLAGS="-Wno-error=pointer-to-int-cast"
 CONFOPTS="--disable-doc"
 
 git_clean && pkg_build && git_clean
