@@ -1,0 +1,12 @@
+diff -ur lame-3.99.5.orig/libmp3lame/vector/Makefile.in lame-3.99.5/libmp3lame/vector/Makefile.in
+--- lame-3.99.5.orig/libmp3lame/vector/Makefile.in	2011-04-20 14:53:28.000000000 +0200
++++ lame-3.99.5/libmp3lame/vector/Makefile.in	2014-05-11 17:40:21.177380892 +0200
+@@ -89,7 +89,7 @@
+ AWK = @AWK@
+ CC = @CC@
+ CCDEPMODE = @CCDEPMODE@
+-CFLAGS = @CFLAGS@
++CFLAGS = @CFLAGS@ -msse2
+ CONFIG_DEFS = @CONFIG_DEFS@
+ CONFIG_MATH_LIB = @CONFIG_MATH_LIB@
+ CPP = @CPP@
