@@ -11,6 +11,5 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 . $(dirname $0)/../functions.sh
 
 STATICLIBS="libjpeg libturbojpeg"
-CONFOPTS="--mandir=${PREFIX}/share/man"
 
 pkg_build && pkg_clean
