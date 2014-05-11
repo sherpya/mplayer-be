@@ -20,11 +20,13 @@ pkg_configure()
 
 pkg_make_target()
 {
+    make                            \
     LD=${CROSS_PREFIX}ld            \
     CC=${CROSS_PREFIX}gcc           \
     CXX=${CROSS_PREFIX}g++          \
-    COMPILE_OPTS=${GLOBAL_CFLAGS}   \
-    make ${MAKEOPTS} || return 1
+    CFLAGS="${GLOBAL_CFLAGS}"       \
+    CXXFLAGS="${GLOBAL_CFLAGS}"     \
+    ${MAKEOPTS} || return 1
 
     rm -fr ${LIVEDIST}/*
     find -regex ".*\.\(a\|h\|hh\)" | cpio -pdvm ${LIVEDIST}
