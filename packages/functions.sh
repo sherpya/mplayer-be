@@ -120,8 +120,8 @@ pkg_configure()
         fi
     fi
 
-    CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
-    CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
+    CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS} -mno-ms-bitfields"   \
+    CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS} -mno-ms-bitfields" \
     ./configure             \
         --host=${HOST}      \
         --prefix=${PREFIX}  \
