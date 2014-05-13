@@ -22,7 +22,7 @@ msgcolor=yes
 ## For Vista or later you should avoid using directx vo, it will
 ## disable Aero
 #vo=directx
-#vo=direct3d
+vo=direct3d
 
 ## video filtering and postprocessing
 ## eq is useful if your video card does not support video overlay.
