@@ -1,7 +1,7 @@
-From a2c6326fa9b87fa7aaa2301dc997d40bb4eb275b Mon Sep 17 00:00:00 2001
+From 56bbd652f237ea6c9f9dd7b78bb657e0379b1d70 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 21/27] replaced some signed char with unsigned char
+Subject: [PATCH 21/28] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -63,7 +63,7 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index edfa49e..5810701 100644
+index 710c29a..2753fe5 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
 @@ -702,8 +702,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-1.9.1
+2.0.0.rc2
 

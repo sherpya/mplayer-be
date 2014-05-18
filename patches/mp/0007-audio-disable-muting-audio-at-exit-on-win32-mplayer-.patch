@@ -1,7 +1,7 @@
-From c48fd32c0372c2f3287e93e3e5fbc92d5c3ef4d0 Mon Sep 17 00:00:00 2001
+From 719153345b6070f2b97cc5a454899d0f3c934c66 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:45:25 +0100
-Subject: [PATCH 07/27] audio: disable muting audio at exit on win32, mplayer
+Subject: [PATCH 07/28] audio: disable muting audio at exit on win32, mplayer
  somehow crashes
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 07/27] audio: disable muting audio at exit on win32, mplayer
  1 file changed, 2 insertions(+)
 
 diff --git a/mplayer.c b/mplayer.c
-index b9bf292..c45edc4 100644
+index b238e43..33dc665 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -713,8 +713,10 @@ void exit_player_with_rc(enum exit_reason how, int rc)
@@ -24,5 +24,5 @@ index b9bf292..c45edc4 100644
  #if defined(__MINGW32__) || defined(__CYGWIN__)
      timeEndPeriod(1);
 -- 
-1.9.1
+2.0.0.rc2
 
