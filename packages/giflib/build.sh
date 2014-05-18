@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for giflib
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=giflib
-VERSION=5.0.6
+VERSION=5.1.0
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
