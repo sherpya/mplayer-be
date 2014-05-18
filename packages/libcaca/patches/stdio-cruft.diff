@@ -1,0 +1,57 @@
+diff -ur libcaca-0.99.beta19.orig/caca/figfont.c libcaca-0.99.beta19/caca/figfont.c
+--- libcaca-0.99.beta19.orig/caca/figfont.c	2012-12-28 18:34:08.000000000 +0100
++++ libcaca-0.99.beta19/caca/figfont.c	2014-05-18 04:00:40.019720725 +0200
+@@ -633,27 +633,6 @@
+ }
+ 
+ /*
+- * Functions for the mingw32 runtime
+- */
+-
+-#if defined _WIN32 && defined __GNUC__ && __GNUC__ >= 3
+-int sprintf_s(char *s, size_t n, const char *fmt, ...)
+-{
+-    va_list args;
+-    int ret;
+-    va_start(args, fmt);
+-    ret = vsnprintf(s, n, fmt, args);
+-    va_end(args);
+-    return ret;
+-}
+-
+-int vsnprintf(char *s, size_t n, const char *fmt, va_list ap)
+-{
+-    return 0;
+-}
+-#endif
+-
+-/*
+  * XXX: The following functions are aliases.
+  */
+ 
+diff -ur libcaca-0.99.beta19.orig/caca/string.c libcaca-0.99.beta19/caca/string.c
+--- libcaca-0.99.beta19.orig/caca/string.c	2012-12-28 18:34:08.000000000 +0100
++++ libcaca-0.99.beta19/caca/string.c	2014-05-18 04:00:19.375720235 +0200
+@@ -607,22 +607,6 @@
+ }
+ 
+ /*
+- * Functions for the mingw32 runtime
+- */
+-
+-#if defined _WIN32 && defined __GNUC__ && __GNUC__ >= 3
+-int vsnprintf_s(char *s, size_t n, size_t c, const char *fmt, va_list ap)
+-{
+-    return vsnprintf(s, n, fmt, ap);
+-}
+-
+-int vsnprintf(char *s, size_t n, const char *fmt, va_list ap)
+-{
+-    return 0;
+-}
+-#endif
+-
+-/*
+  * XXX: The following functions are aliases.
+  */
+ 
