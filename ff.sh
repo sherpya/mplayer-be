@@ -35,6 +35,7 @@ case "$product" in
         enable avisynth
         enable postproc
         enable fontconfig
+        enable libfdk-aac
         enable libass
         enable libmodplug
         enable libtwolame
