@@ -1,0 +1,248 @@
+From e153499ed3909058a8d0471b26994755048bcab5 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Mon, 19 May 2014 05:31:53 +0200
+Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
+
+---
+ configure                  |  3 +-
+ libavcodec/libfdk-aacdec.c | 69 ++++++++++++++++++++++++++++++++++++++++++++--
+ libavcodec/libfdk-aacenc.c | 59 +++++++++++++++++++++++++++++++++++++--
+ 3 files changed, 124 insertions(+), 7 deletions(-)
+
+diff --git a/configure b/configure
+index df14a88..8e5b737 100755
+--- a/configure
++++ b/configure
+@@ -4197,7 +4197,6 @@ die_license_disabled gpl libzvbi
+ die_license_disabled gpl x11grab
+ 
+ die_license_disabled nonfree libaacplus
+-enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
+ enabled gpl && die_license_disabled_gpl nonfree openssl
+ 
+ die_license_disabled version3 libopencore_amrnb
+@@ -4636,7 +4635,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
+ enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+ enabled libfaac           && check_header "stdint.h faac.h"
+-enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
++enabled libfdk_aac        && check_header fdk-aac/aacenc_lib.h
+ flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
+ enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
+ enabled fontconfig        && enable libfontconfig
+diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
+index de1089d..39c0ba5 100644
+--- a/libavcodec/libfdk-aacdec.c
++++ b/libavcodec/libfdk-aacdec.c
+@@ -29,6 +29,17 @@
+  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  */
+ 
++#ifndef _WIN32
++#include <dlfcn.h>
++#define LIBEXT "so"
++#else
++#include <windows.h>
++#define LIBEXT "dll"
++#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
++#define dlclose(handle) FreeLibrary((HMODULE) handle)
++#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
++#endif
++
+ #include <fdk-aac/aacdecoder_lib.h>
+ 
+ #include "libavutil/channel_layout.h"
+@@ -37,6 +48,35 @@
+ #include "avcodec.h"
+ #include "internal.h"
+ 
++typedef LINKSPEC_H HANDLE_AACDECODER (*imp_aacDecoder_Open)(TRANSPORT_TYPE transportFmt, UINT nrOfLayers);
++typedef LINKSPEC_H void (*imp_aacDecoder_Close)(HANDLE_AACDECODER self);
++typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_Fill)(HANDLE_AACDECODER self, UCHAR *pBuffer[], const UINT bufferSize[], UINT *bytesValid);
++typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_DecodeFrame)(HANDLE_AACDECODER self, INT_PCM *pTimeData, const INT timeDataSize, const UINT flags);
++typedef LINKSPEC_H CStreamInfo* (*imp_aacDecoder_GetStreamInfo)(HANDLE_AACDECODER self);
++typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_ConfigRaw)(HANDLE_AACDECODER self, UCHAR *conf[], const UINT length[]);
++typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_SetParam)(const HANDLE_AACDECODER self, const AACDEC_PARAM param, const INT value);
++
++typedef struct _aacDecLib {
++    imp_aacDecoder_Open aacDecoder_Open;
++    imp_aacDecoder_Close aacDecoder_Close;
++    imp_aacDecoder_Fill aacDecoder_Fill;
++    imp_aacDecoder_DecodeFrame aacDecoder_DecodeFrame;
++    imp_aacDecoder_ConfigRaw aacDecoder_ConfigRaw;
++    imp_aacDecoder_GetStreamInfo aacDecoder_GetStreamInfo;
++    imp_aacDecoder_SetParam aacDecoder_SetParam;
++} aacDecLib;
++
++#define DLSYM(x) \
++    do \
++    { \
++        s->pfn.x = ( imp_##x ) dlsym(s->hLib, AV_STRINGIFY(x)); \
++        if (!s->pfn.x ) \
++        { \
++            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic libfaac." LIBEXT "\n"); \
++            return -1; \
++        } \
++    } while (0)
++
+ enum ConcealMethod {
+     CONCEAL_METHOD_DEFAULT              = -1,
+     CONCEAL_METHOD_SPECTRAL_MUTING      =  0,
+@@ -50,6 +90,8 @@ typedef struct FDKAACDecContext {
+     HANDLE_AACDECODER handle;
+     int initialized;
+     enum ConcealMethod conceal_method;
++    void *hLib;
++    aacDecLib pfn;
+ } FDKAACDecContext;
+ 
+ #define OFFSET(x) offsetof(FDKAACDecContext, x)
+@@ -70,7 +112,7 @@ static const AVClass fdk_aac_dec_class = {
+ static int get_stream_info(AVCodecContext *avctx)
+ {
+     FDKAACDecContext *s   = avctx->priv_data;
+-    CStreamInfo *info     = aacDecoder_GetStreamInfo(s->handle);
++    CStreamInfo *info     = s->pfn.aacDecoder_GetStreamInfo(s->handle);
+     int channel_counts[9] = { 0 };
+     int i, ch_error       = 0;
+     uint64_t ch_layout    = 0;
+@@ -182,8 +224,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
+ {
+     FDKAACDecContext *s = avctx->priv_data;
+ 
+-    if (s->handle)
+-        aacDecoder_Close(s->handle);
++    if (s->hLib && s->handle) {
++        s->pfn.aacDecoder_Close(s->handle);
++        dlclose(s->hLib);
++    }
+ 
+     return 0;
+ }
+@@ -193,6 +237,25 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+     FDKAACDecContext *s = avctx->priv_data;
+     AAC_DECODER_ERROR err;
+ 
++    if (!(s->hLib = dlopen("libfdk-aac-0." LIBEXT, RTLD_NOW))) {
++        av_log(avctx, AV_LOG_ERROR, "Unable to load libfdk-aac." LIBEXT "\n");
++        return -1;
++    }
++
++    DLSYM(aacDecoder_Open);
++#define aacDecoder_Open s->pfn.aacDecoder_Open
++    DLSYM(aacDecoder_Close);
++    DLSYM(aacDecoder_Fill);
++#define aacDecoder_Fill s->pfn.aacDecoder_Fill
++    DLSYM(aacDecoder_DecodeFrame);
++#define aacDecoder_DecodeFrame s->pfn.aacDecoder_DecodeFrame
++    DLSYM(aacDecoder_GetStreamInfo);
++#define aacDecoder_GetStreamInfo s->pfn.aacDecoder_GetStreamInfo
++    DLSYM(aacDecoder_ConfigRaw);
++#define aacDecoder_ConfigRaw s->pfn.aacDecoder_ConfigRaw
++    DLSYM(aacDecoder_SetParam);
++#define aacDecoder_SetParam s->pfn.aacDecoder_SetParam
++
+     s->handle = aacDecoder_Open(avctx->extradata_size ? TT_MP4_RAW : TT_MP4_ADTS, 1);
+     if (!s->handle) {
+         av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
+diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
+index 7a85dff..93a4251 100644
+--- a/libavcodec/libfdk-aacenc.c
++++ b/libavcodec/libfdk-aacenc.c
+@@ -29,6 +29,17 @@
+  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  */
+ 
++#ifndef _WIN32
++#include <dlfcn.h>
++#define LIBEXT "so"
++#else
++#include <windows.h>
++#define LIBEXT "dll"
++#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
++#define dlclose(handle) FreeLibrary((HMODULE) handle)
++#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
++#endif
++
+ #include <fdk-aac/aacenc_lib.h>
+ 
+ #include "libavutil/channel_layout.h"
+@@ -38,6 +49,31 @@
+ #include "audio_frame_queue.h"
+ #include "internal.h"
+ 
++typedef AACENC_ERROR (*imp_aacEncOpen)(HANDLE_AACENCODER *phAacEncoder, const UINT encModules, const UINT maxChannels);
++typedef AACENC_ERROR (*imp_aacEncClose)(HANDLE_AACENCODER *phAacEncoder);
++typedef AACENC_ERROR (*imp_aacEncEncode)(const HANDLE_AACENCODER hAacEncoder, const AACENC_BufDesc *inBufDesc, const AACENC_BufDesc *outBufDesc, const AACENC_InArgs *inargs, AACENC_OutArgs *outargs);
++typedef AACENC_ERROR (*imp_aacEncInfo)(const HANDLE_AACENCODER hAacEncoder, AACENC_InfoStruct *pInfo);
++typedef AACENC_ERROR (*imp_aacEncoder_SetParam)(const HANDLE_AACENCODER hAacEncoder, const AACENC_PARAM param, const UINT value);
++
++typedef struct _aacEncLib {
++    imp_aacEncOpen aacEncOpen;
++    imp_aacEncClose aacEncClose;
++    imp_aacEncEncode aacEncEncode;
++    imp_aacEncInfo aacEncInfo;
++    imp_aacEncoder_SetParam aacEncoder_SetParam;
++} aacEncLib;
++
++#define DLSYM(x) \
++    do \
++    { \
++        s->pfn.x = ( imp_##x ) dlsym(s->hLib, AV_STRINGIFY(x)); \
++        if (!s->pfn.x ) \
++        { \
++            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic libfaac." LIBEXT "\n"); \
++            return -1; \
++        } \
++    } while (0)
++
+ typedef struct AACContext {
+     const AVClass *class;
+     HANDLE_AACENCODER handle;
+@@ -48,6 +84,8 @@ typedef struct AACContext {
+     int header_period;
+     int vbr;
+ 
++    void *hLib;
++    aacEncLib pfn;
+     AudioFrameQueue afq;
+ } AACContext;
+ 
+@@ -105,8 +143,10 @@ static int aac_encode_close(AVCodecContext *avctx)
+ {
+     AACContext *s = avctx->priv_data;
+ 
+-    if (s->handle)
+-        aacEncClose(&s->handle);
++    if (s->hLib && s->handle) {
++        s->pfn.aacEncClose(&s->handle);
++        dlclose(s->hLib);
++    }
+     av_freep(&avctx->extradata);
+     ff_af_queue_close(&s->afq);
+ 
+@@ -123,6 +163,21 @@ static av_cold int aac_encode_init(AVCodecContext *avctx)
+     int aot = FF_PROFILE_AAC_LOW + 1;
+     int sce = 0, cpe = 0;
+ 
++    if (!(s->hLib = dlopen("libfdk-aac-0." LIBEXT, RTLD_NOW))) {
++        av_log(avctx, AV_LOG_ERROR, "Unable to load libfdk-aac." LIBEXT "\n");
++        return -1;
++    }
++
++    DLSYM(aacEncOpen);
++#define aacEncOpen s->pfn.aacEncOpen
++    DLSYM(aacEncClose);
++    DLSYM(aacEncEncode);
++#define aacEncEncode s->pfn.aacEncEncode
++    DLSYM(aacEncInfo);
++#define aacEncInfo s->pfn.aacEncInfo
++    DLSYM(aacEncoder_SetParam);
++#define aacEncoder_SetParam s->pfn.aacEncoder_SetParam
++
+     if ((err = aacEncOpen(&s->handle, 0, avctx->channels)) != AACENC_OK) {
+         av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
+                aac_get_error(err));
+-- 
+2.0.0.rc2
+
