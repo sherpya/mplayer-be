@@ -13,12 +13,14 @@ BASEURL=http://dl.cihar.com/${PACKAGE}
 depends lib/libiconv.a
 
 STATICLIBS="libenca"
+CONFOPTS="--disable-external"
 
 # not cross build friendly
 export ac_cv_file__dev_random=false
 export ac_cv_file__dev_urandom=false
 export ac_cv_file__dev_srandom=false
 export ac_cv_file__dev_arandom=false
+export yeti_cv_file_locale_alias=
 
 pkg_make_target()
 {
