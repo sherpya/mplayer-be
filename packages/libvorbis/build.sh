@@ -3,6 +3,8 @@
 # Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+# includes fixes for: CVE-2012-0444
+
 PACKAGE=libvorbis
 VERSION=1.3.4
 EXT=tar.xz
