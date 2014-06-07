@@ -10,6 +10,7 @@ BASEURL=http://ftp.gnu.org/gnu/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 
+depends lib/libiconv.a
 depends lib/libcddb.a
 
 STATICLIBS="libcdio libcdio++ libiso9660 libiso9660++ libudf"
