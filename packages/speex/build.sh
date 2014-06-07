@@ -13,5 +13,6 @@ BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 depends lib/libogg.a
 
 STATICLIBS="libspeex libspeexdsp"
+CONFOPTS="--disable-oggtest"
 
 pkg_build && pkg_clean
