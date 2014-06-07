@@ -10,8 +10,6 @@ BASEURL=http://dl.cihar.com/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 
-depends lib/libiconv.a
-
 STATICLIBS="libenca"
 CONFOPTS="--disable-external"
 
