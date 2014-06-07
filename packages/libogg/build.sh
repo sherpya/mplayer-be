@@ -12,4 +12,8 @@ BASEURL=http://downloads.xiph.org/releases/ogg
 
 STATICLIBS="libogg"
 
+# eh?
+export ac_cv_sizeof_u_int16_t=2
+export ac_cv_sizeof_u_int32_t=4
+
 pkg_build && pkg_clean
