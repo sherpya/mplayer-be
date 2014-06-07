@@ -11,6 +11,7 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION
 . $(dirname $0)/../functions.sh
 
 STATICLIBS="libcddb"
+CONFOPTS="--without-cdio"
 
 export ac_cv_func_alarm=false
 
