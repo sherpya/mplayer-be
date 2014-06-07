@@ -12,7 +12,6 @@ BASEURL=http://downloads.xiph.org/releases/theora
 
 depends lib/libogg.a
 depends lib/libvorbis.a
-depends lib/libpng.a
 
 STATICLIBS="libtheora libtheoraenc libtheoradec"
 CONFOPTS="--disable-examples --disable-oggtest --disable-vorbistest" 
