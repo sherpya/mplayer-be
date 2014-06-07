@@ -10,8 +10,6 @@ BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 
-depends lib/libogg.a
-
 STATICLIBS="libspeex libspeexdsp"
 CONFOPTS="--disable-oggtest"
 
