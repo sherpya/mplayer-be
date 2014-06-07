@@ -10,11 +10,8 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION
 
 . $(dirname $0)/../functions.sh
 
-depends lib/libpthread.a
-depends lib/libiconv.a
-
 STATICLIBS="libmp3lame"
-CONFOPTS="--disable-decoder"
+CONFOPTS="--disable-decoder --disable-frontend"
 
 export alex_cv_ieee854_float80=yes
 
