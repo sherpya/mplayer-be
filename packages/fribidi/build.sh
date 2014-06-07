@@ -11,5 +11,6 @@ BASEURL=http://fribidi.org/download
 . $(dirname $0)/../functions.sh
 
 STATICLIBS="libfribidi"
+CONFOPTS="--with-glib=no"
 
 pkg_build && pkg_clean
