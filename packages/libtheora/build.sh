@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for Theora Video Codec
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libtheora
@@ -15,5 +15,6 @@ depends lib/libvorbis.a
 depends lib/libpng.a
 
 STATICLIBS="libtheora libtheoraenc libtheoradec"
+CONFOPTS="--disable-examples --disable-oggtest --disable-vorbistest" 
 
 pkg_build && pkg_clean
