@@ -11,5 +11,6 @@ BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 . $(dirname $0)/../functions.sh
 
 STATICLIBS="libopus"
+CONFOPTS="--disable-doc --disable-extra-programs"
 
 pkg_build && pkg_clean

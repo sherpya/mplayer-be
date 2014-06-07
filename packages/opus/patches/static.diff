@@ -1,0 +1,12 @@
+diff -ur opus-1.1.orig/include/opus_defines.h opus-1.1/include/opus_defines.h
+--- opus-1.1.orig/include/opus_defines.h	2013-11-29 21:17:15.000000000 +0100
++++ opus-1.1/include/opus_defines.h	2014-06-07 02:55:47.458877789 +0200
+@@ -62,7 +62,7 @@
+ 
+ /** @cond OPUS_INTERNAL_DOC */
+ /**Export control for opus functions */
+-
++#define OPUS_EXPORT
+ #ifndef OPUS_EXPORT
+ # if defined(WIN32)
+ #  ifdef OPUS_BUILD
