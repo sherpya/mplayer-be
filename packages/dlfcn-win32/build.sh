@@ -14,6 +14,7 @@ pkg_configure()
 {
     ./configure             \
         --prefix=${PREFIX}  \
+        --disable-wine      \
         --cross-prefix=${CROSS_PREFIX} || return 0
 }
 
