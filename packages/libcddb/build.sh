@@ -10,6 +10,7 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION
 
 . $(dirname $0)/../functions.sh
 
+depends lib/libiconv.a
 depends lib/libregex.a
 
 STATICLIBS="libcddb"
