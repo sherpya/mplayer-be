@@ -4,9 +4,9 @@
 # See LICENSE for licensing informations
 
 PACKAGE=openjpeg
-VERSION=1.5.1
+VERSION=1.5.2
 EXT=tar.gz
-BASEURL=http://openjpeg.googlecode.com/files
+BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}.mirror/${VERSION}
 
 CMAKE=1
 CMAKEOPTS=" \

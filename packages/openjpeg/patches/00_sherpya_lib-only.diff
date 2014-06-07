@@ -1,0 +1,52 @@
+diff -ur openjpeg-1.5.2.orig/CMakeLists.txt openjpeg-1.5.2/CMakeLists.txt
+--- openjpeg-1.5.2.orig/CMakeLists.txt	2014-03-27 11:58:08.000000000 +0100
++++ openjpeg-1.5.2/CMakeLists.txt	2014-06-07 05:46:57.567121873 +0200
+@@ -287,20 +287,20 @@
+ 
+ #-----------------------------------------------------------------------------
+ # install all targets referenced as OPENJPEGTargets
+-INSTALL(EXPORT OpenJPEGTargets DESTINATION ${OPENJPEG_INSTALL_PACKAGE_DIR})
+-CONFIGURE_FILE( ${OPENJPEG_SOURCE_DIR}/CMake/OpenJPEGConfig.cmake.in
+-  ${OPENJPEG_BINARY_DIR}/OpenJPEGConfig.cmake
+-  @ONLY
+-)
+-INSTALL( FILES ${OPENJPEG_BINARY_DIR}/OpenJPEGConfig.cmake
+-  DESTINATION ${OPENJPEG_INSTALL_PACKAGE_DIR}
+-)
++#INSTALL(EXPORT OpenJPEGTargets DESTINATION ${OPENJPEG_INSTALL_PACKAGE_DIR})
++#CONFIGURE_FILE( ${OPENJPEG_SOURCE_DIR}/CMake/OpenJPEGConfig.cmake.in
++#  ${OPENJPEG_BINARY_DIR}/OpenJPEGConfig.cmake
++#  @ONLY
++#)
++#INSTALL( FILES ${OPENJPEG_BINARY_DIR}/OpenJPEGConfig.cmake
++#  DESTINATION ${OPENJPEG_INSTALL_PACKAGE_DIR}
++#)
+ 
+ #-----------------------------------------------------------------------------
+ # install CHANGES and LICENSE
+-IF(EXISTS ${OPENJPEG_SOURCE_DIR}/CHANGES)
+-  INSTALL(FILES CHANGES DESTINATION ${OPENJPEG_INSTALL_DOC_DIR})
+-ENDIF(EXISTS ${OPENJPEG_SOURCE_DIR}/CHANGES)
+-INSTALL(FILES LICENSE DESTINATION ${OPENJPEG_INSTALL_DOC_DIR})
++#IF(EXISTS ${OPENJPEG_SOURCE_DIR}/CHANGES)
++#  INSTALL(FILES CHANGES DESTINATION ${OPENJPEG_INSTALL_DOC_DIR})
++#ENDIF(EXISTS ${OPENJPEG_SOURCE_DIR}/CHANGES)
++#INSTALL(FILES LICENSE DESTINATION ${OPENJPEG_INSTALL_DOC_DIR})
+ 
+ INCLUDE (CMake/OpenJPEGCPack.cmake)
+diff -ur openjpeg-1.5.2.orig/libopenjpeg/CMakeLists.txt openjpeg-1.5.2/libopenjpeg/CMakeLists.txt
+--- openjpeg-1.5.2.orig/libopenjpeg/CMakeLists.txt	2014-03-27 11:58:08.000000000 +0100
++++ openjpeg-1.5.2/libopenjpeg/CMakeLists.txt	2014-06-07 05:47:15.395122297 +0200
+@@ -59,9 +59,9 @@
+ )
+ 
+ # install man page of the library
+-INSTALL(
+-  FILES       ${OPENJPEG_SOURCE_DIR}/doc/man/man3/libopenjpeg.3
+-  DESTINATION ${OPENJPEG_INSTALL_MAN_DIR}/man3)
++#INSTALL(
++#  FILES       ${OPENJPEG_SOURCE_DIR}/doc/man/man3/libopenjpeg.3
++#  DESTINATION ${OPENJPEG_INSTALL_MAN_DIR}/man3)
+ 
+ # internal utilities to generate t1_luts.h
+ # no need to install:
