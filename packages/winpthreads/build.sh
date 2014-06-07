@@ -8,6 +8,5 @@ SVN_REPO="https://svn.code.sf.net/p/mingw-w64/code/trunk/mingw-w64-libraries/win
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=winpthreads
-STATICLIBS="libwinpthread"
 
 distclean && pkg_build && distclean
