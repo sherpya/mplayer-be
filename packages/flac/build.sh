@@ -13,5 +13,6 @@ BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 depends lib/libogg.a
 
 STATICLIBS="libFLAC libFLAC++"
+CONFOPTS="--disable-oggtest --disable-xmms-plugin"
 
 pkg_build && pkg_clean
