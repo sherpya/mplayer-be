@@ -62,6 +62,9 @@ export ac_cv_func_stat_empty_string_bug=no
 # iconv
 export am_cv_func_iconv=yes
 export am_cv_func_iconv_works=yes
+export am_cv_lib_iconv=yes
+export am_cv_proto_iconv_arg1=const
+export am_cv_proto_iconv='extern size_t iconv (iconv_t cd, const char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);'
 
 # checked by gavl
 # 32bit Linux / 32-64 Bit Windows 1/0
