@@ -1,17 +1,17 @@
-From 8d29da539ed44c73a4858ad985c9f39eb31309db Mon Sep 17 00:00:00 2001
+From 2fabf5a347bc383202f4f90b44fdd515f69ef758 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 19/28] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 20/29] configure: added --with-arch and --with-tune overrides
 
 ---
  configure | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 605b8ef..a433f3a 100755
+index 5159a63..02351be 100755
 --- a/configure
 +++ b/configure
-@@ -548,6 +548,8 @@ Available values are: all $msg_lang_all
+@@ -549,6 +549,8 @@ Available values are: all $msg_lang_all
  Miscellaneous options:
    --enable-runtime-cpudetection    enable runtime CPU detection [disable]
    --enable-cross-compile enable cross-compilation [autodetect]
@@ -20,7 +20,7 @@ index 605b8ef..a433f3a 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -950,6 +952,12 @@ for ac_option do
+@@ -954,6 +956,12 @@ for ac_option do
    --target=*)
      _target=$(option_value $ac_option)
      ;;
@@ -33,7 +33,7 @@ index 605b8ef..a433f3a 100755
    --cc=*)
      _cc=$(option_value $ac_option)
      ;;
-@@ -2665,6 +2673,9 @@ EOF
+@@ -2674,6 +2682,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  
@@ -44,5 +44,5 @@ index 605b8ef..a433f3a 100755
    if x86 ; then
      test "$_cmov"     != no && _cmov=yes
 -- 
-2.0.0.rc2
+2.0.0
 

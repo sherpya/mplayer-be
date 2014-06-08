@@ -1,0 +1,71 @@
+From b56e4ca6e1d9dca3cf96baef61f63c23edaf7301 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sun, 8 Jun 2014 10:17:40 +0200
+Subject: [PATCH 19/29] configure: enabled support for libfdk-aac in lavc
+
+---
+ configure | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/configure b/configure
+index 709161f..5159a63 100755
+--- a/configure
++++ b/configure
+@@ -422,6 +422,7 @@ Codecs:
+   --enable-faad             enable FAAD2 (AAC) [autodetect]
+   --disable-faac            disable support for FAAC (AAC encoder) [autodetect]
+   --disable-faac-lavc       disable support for FAAC in libavcodec [autodetect]
++  --disable-libfdk-aac      disable support for libfdk-aac in libavcodec [autodetect]
+   --disable-ladspa          disable LADSPA plugin support [autodetect]
+   --disable-libbs2b         disable libbs2b audio filter support [autodetect]
+   --disable-libdv           disable libdv 0.9.5 en/decoding support [autodetect]
+@@ -738,6 +739,7 @@ _libmpeg2_internal=no
+ _faad=auto
+ _faac=auto
+ _faac_lavc=auto
++_libfdk_aac=auto
+ _ladspa=auto
+ _libbs2b=auto
+ _libilbc=auto
+@@ -1159,6 +1161,8 @@ for ac_option do
+   --disable-faac)       _faac=no        ;;
+   --enable-faac-lavc)   _faac_lavc=yes  ;;
+   --disable-faac-lavc)  _faac_lavc=no   ;;
++  --enable-libfdk-aac)  _libfdk_aac=yes ;;
++  --disable-libfdk-aac) _libfdk_aac=no  ;;
+   --enable-ladspa)      _ladspa=yes     ;;
+   --disable-ladspa)     _ladspa=no      ;;
+   --enable-libbs2b)     _libbs2b=yes    ;;
+@@ -6778,6 +6782,21 @@ res_comment="in FFmpeg: $_faac_lavc"
+ echores "$_faac"
+ 
+ 
++echocheck "libfdk-aac support"
++if test "$_libfdk_aac" = auto; then
++  _libfdk_aac=no
++  ld_libfdk_aac="-lfdk-aac"
++  statement_check fdk-aac/aacenc_lib.h 'aacEncOpen(0,0,0)' $ld_libfdk_aac && _libfdk_aac=yes
++fi
++if test "$_libfdk_aac" = yes ; then
++  def_libfdk_aac='#define CONFIG_LIBFDK_AAC 1'
++  libavencoders="$libavencoders LIBFDK_AAC_ENCODER"
++else
++  def_libfdk_aac='#define CONFIG_LIBFDK_AAC 0'
++fi
++echores "$_libfdk_aac"
++
++
+ echocheck "FAAD2 support"
+ if test "$_faad" = auto ; then
+   _faad=no
+@@ -9160,6 +9179,7 @@ $def_windows_h
+ $def_bzlib
+ $def_crystalhd
+ $def_faac_lavc
++$def_libfdk_aac
+ $def_libdirac_lavc
+ $def_libgsm
+ $def_libopencore_amrnb
+-- 
+2.0.0
+

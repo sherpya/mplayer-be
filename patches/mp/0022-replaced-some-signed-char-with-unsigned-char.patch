@@ -1,7 +1,7 @@
-From 56bbd652f237ea6c9f9dd7b78bb657e0379b1d70 Mon Sep 17 00:00:00 2001
+From 62af96183a43fed86924da0da3f628a2b70807cb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 21/28] replaced some signed char with unsigned char
+Subject: [PATCH 22/29] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -103,7 +103,7 @@ index 0f65358..8ee6bec 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index 1d61b30..6986648 100644
+index ecc5ff5..2a11931 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -89,12 +89,12 @@ int sub_format=SUB_INVALID;
@@ -121,7 +121,7 @@ index 1d61b30..6986648 100644
  	int i = 0;
  	while (isspace(s[i])) ++i;
  	if (i) strcpy(s, s + i);
-@@ -738,8 +738,8 @@ static void sub_pp_ssa(subtitle *sub) {
+@@ -779,8 +779,8 @@ static void sub_pp_ssa(subtitle *sub) {
   * by set, based on code by szabi (dunnowhat sub format ;-)
   */
  static subtitle *sub_read_line_pjs(stream_t *st,subtitle *current, int utf16) {
@@ -132,7 +132,7 @@ index 1d61b30..6986648 100644
  
      if (!stream_read_line (st, line, LINE_LEN, utf16))
  	return NULL;
-@@ -779,7 +779,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
+@@ -820,7 +820,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
  	char line[LINE_LEN+1];
  	float a,b;
  	int num=0;
@@ -141,7 +141,7 @@ index 1d61b30..6986648 100644
  
  	do
  	{
-@@ -917,7 +917,7 @@ retry:
+@@ -958,7 +958,7 @@ retry:
  
  static subtitle *sub_read_line_jacosub(stream_t* st, subtitle * current, int utf16)
  {
@@ -150,7 +150,7 @@ index 1d61b30..6986648 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1833,7 +1833,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1874,7 +1874,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -159,7 +159,7 @@ index 1d61b30..6986648 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1888,7 +1888,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1929,7 +1929,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.0.0.rc2
+2.0.0
 

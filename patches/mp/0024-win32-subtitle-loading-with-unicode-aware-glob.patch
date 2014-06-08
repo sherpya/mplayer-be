@@ -1,14 +1,14 @@
-From b44200d4369eff129b72601416b2ca836b2fe0b1 Mon Sep 17 00:00:00 2001
+From de06c5f0233dd72cc30902d0161c1440a483e263 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 22:52:25 +0200
-Subject: [PATCH 23/28] win32: subtitle loading with unicode aware glob
+Subject: [PATCH 24/29] win32: subtitle loading with unicode aware glob
 
 ---
  sub/subreader.c | 54 ++++++++++++++++++++++++++++++++++++++++--------------
  1 file changed, 40 insertions(+), 14 deletions(-)
 
 diff --git a/sub/subreader.c b/sub/subreader.c
-index 5e9fbb8..880d208 100644
+index 0acba72..5191192 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -28,7 +28,12 @@
@@ -47,7 +47,7 @@ index 5e9fbb8..880d208 100644
  static int eol(unsigned char p) {
  	return p=='\r' || p=='\n' || p=='\0';
  }
-@@ -1941,9 +1961,8 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
+@@ -1982,9 +2002,8 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
      char *sub_exts[] = {"utf", "utf8", "utf-8", "sub", "srt", "smi", "rt", "txt", "ssa", "aqt", "jss", "js", "ass", NULL};
  
      FILE *f;
@@ -59,7 +59,7 @@ index 5e9fbb8..880d208 100644
  
      len = (strlen(fname) > 256 ? strlen(fname) : 256)
           + (strlen(path) > 256 ? strlen(path) : 256) + 2;
-@@ -1971,21 +1990,23 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
+@@ -2012,21 +2031,23 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
      // 1 = any subtitle file
      // 2 = any sub file containing movie name
      // 3 = sub file containing movie name and the lang extension
@@ -91,7 +91,7 @@ index 5e9fbb8..880d208 100644
                  idx = mp_dir_join(path, idxname);
                  free(idxname);
                  f = fopen(idx, "rt");
-@@ -2058,9 +2079,13 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
+@@ -2099,9 +2120,13 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
                          prio++;
                      }
  #endif
@@ -106,7 +106,7 @@ index 5e9fbb8..880d208 100644
                          struct subfn *sub = &slist->subs[slist->sid++];
  
                          fclose(f);
-@@ -2074,7 +2099,8 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
+@@ -2115,7 +2140,8 @@ static void append_dir_subtitles(struct sub_list *slist, const char *path,
              if (slist->sid >= MAX_SUBTITLE_FILES)
                  break;
          }
@@ -117,5 +117,5 @@ index 5e9fbb8..880d208 100644
  
      free(tmp_sub_id);
 -- 
-2.0.0.rc2
+2.0.0
 
