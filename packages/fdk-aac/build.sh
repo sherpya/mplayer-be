@@ -8,6 +8,7 @@ GIT_REPO="git://github.com/mstorsjo/fdk-aac.git"
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=fdk-aac
+STATICLIBS="libfdk-aac"
 
 pkg_configure()
 {
