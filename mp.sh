@@ -94,6 +94,8 @@ configure()
     enable faac
     disable faac-lavc
 
+    enable libfdk-aac
+
     add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
 	echo configure ${CONFIGURE_OPTS} $*
