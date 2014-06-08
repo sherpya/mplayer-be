@@ -50,6 +50,7 @@ export gl_cv_func_realpath_works=no
 export gl_cv_have_raw_decl_realpath=no
 export double_slash_root=no
 export func_strerror_0_works=yes
+export gl_cv_func_strerror_0_works=yes
 export ac_cv_func_malloc_0_nonnull=yes
 export gl_cv_func_malloc_0_nonnull=1
 export ac_cv_func_realloc=yes
