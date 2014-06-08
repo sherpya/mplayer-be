@@ -30,6 +30,10 @@ ac_cv_header_alloca_h=${ac_cv_header_alloca_h=no}
 ac_cv_func_memcmp=${ac_cv_func_memcmp=yes}
 ac_cv_func_memcmp_working=${ac_cv_func_memcmp_working=yes}
 ac_cv_func_strtod=${ac_cv_func_strtod=yes}
+ac_cv_header_fcntl_h=${ac_cv_header_fcntl_h=yes}
+ac_cv_func_fcntl=${ac_cv_func_fcntl=no}
+gl_cv_have_raw_decl_fcntl=${gl_cv_have_raw_decl_fcntl=no}
+gl_cv_header_working_fcntl_h=${gl_cv_header_working_fcntl_h=no}
 
 # int types
 ac_cv_c_bigendian=${ac_cv_c_bigendian=no}
@@ -137,7 +141,6 @@ ac_cv_func_ctime=${ac_cv_func_ctime=yes}
 ac_cv_func_difftime=${ac_cv_func_difftime=yes}
 ac_cv_func__doprnt=${ac_cv_func__doprnt=no}
 ac_cv_func_drand48=${ac_cv_func_drand48=no}
-ac_cv_func_fcntl=${ac_cv_func_fcntl=no}
 ac_cv_func_feenableexcept=${ac_cv_func_feenableexcept=no}
 ac_cv_func_fork=${ac_cv_func_fork=no}
 ac_cv_func_fork_works=${ac_cv_func_fork_works=no}
@@ -345,7 +348,6 @@ ac_cv_header_dsound_h=${ac_cv_header_dsound_h=yes}
 ac_cv_header_endian_h=${ac_cv_header_endian_h=no}
 ac_cv_header_errno_h=${ac_cv_header_errno_h=yes}
 ac_cv_header_expat_h=${ac_cv_header_expat_h=yes}
-ac_cv_header_fcntl_h=${ac_cv_header_fcntl_h=yes}
 ac_cv_header_float_h=${ac_cv_header_float_h=yes}
 ac_cv_header_getopt_h=${ac_cv_header_getopt_h=yes}
 ac_cv_header_GL_gl_h=${ac_cv_header_GL_gl_h=yes}
