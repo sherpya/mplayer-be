@@ -30,6 +30,7 @@ libiconv
 enca
 expat
 faac
+fdk-aac
 libpng
 freetype
 fontconfig
