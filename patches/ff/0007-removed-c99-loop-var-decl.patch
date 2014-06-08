@@ -1,4 +1,4 @@
-From d69fb3a69e5a1e3bf9864cc01eca9b818fab12fe Mon Sep 17 00:00:00 2001
+From ae4a28337b24a2c4377f1b9df974dc4f911239c8 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 9 Feb 2014 07:02:48 +0100
 Subject: [PATCH 7/9] removed c99 loop var decl

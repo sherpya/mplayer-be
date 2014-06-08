@@ -1,4 +1,4 @@
-From a12eff5eedc225bb4123e77c9220f29995290f83 Mon Sep 17 00:00:00 2001
+From 20b350c37c9904ef29b9bb7393c317f2079d7641 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 May 2014 05:31:53 +0200
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 124 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index d9ddf4e..cf57527 100755
+index b3a3ce4..22af6e5 100755
 --- a/configure
 +++ b/configure
-@@ -4208,7 +4208,6 @@ die_license_disabled gpl libzvbi
+@@ -4209,7 +4209,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index d9ddf4e..cf57527 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4660,7 +4659,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4661,7 +4660,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -31,7 +31,7 @@ index d9ddf4e..cf57527 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index 6ffef03..c35e036 100644
+index 6ffef03..a6a57a0 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -40,10 +40,10 @@ index 6ffef03..c35e036 100644
  
 +#ifndef _WIN32
 +#include <dlfcn.h>
-+#define LIBEXT "so"
++#define LIBNAME "libfdk-aac.so.0"
 +#else
 +#include <windows.h>
-+#define LIBEXT "dll"
++#define LIBNAME "libfdk-aac-0.dll"
 +#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
 +#define dlclose(handle) FreeLibrary((HMODULE) handle)
 +#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
@@ -80,7 +80,7 @@ index 6ffef03..c35e036 100644
 +        s->pfn.x = ( imp_##x ) dlsym(s->hLib, AV_STRINGIFY(x)); \
 +        if (!s->pfn.x ) \
 +        { \
-+            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic libfaac." LIBEXT "\n"); \
++            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic " LIBNAME "\n"); \
 +            return -1; \
 +        } \
 +    } while (0)
@@ -123,8 +123,8 @@ index 6ffef03..c35e036 100644
      FDKAACDecContext *s = avctx->priv_data;
      AAC_DECODER_ERROR err;
  
-+    if (!(s->hLib = dlopen("libfdk-aac-0." LIBEXT, RTLD_NOW))) {
-+        av_log(avctx, AV_LOG_ERROR, "Unable to load libfdk-aac." LIBEXT "\n");
++    if (!(s->hLib = dlopen(LIBNAME, RTLD_NOW))) {
++        av_log(avctx, AV_LOG_ERROR, "Unable to load " LIBNAME "\n");
 +        return -1;
 +    }
 +
@@ -146,7 +146,7 @@ index 6ffef03..c35e036 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index b9c9a13..fbb1a5c 100644
+index b9c9a13..25003f0 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -17,6 +17,17 @@
@@ -155,10 +155,10 @@ index b9c9a13..fbb1a5c 100644
  
 +#ifndef _WIN32
 +#include <dlfcn.h>
-+#define LIBEXT "so"
++#define LIBNAME "libfdk-aac.so.0"
 +#else
 +#include <windows.h>
-+#define LIBEXT "dll"
++#define LIBNAME "libfdk-aac-0.dll"
 +#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
 +#define dlclose(handle) FreeLibrary((HMODULE) handle)
 +#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
@@ -191,7 +191,7 @@ index b9c9a13..fbb1a5c 100644
 +        s->pfn.x = ( imp_##x ) dlsym(s->hLib, AV_STRINGIFY(x)); \
 +        if (!s->pfn.x ) \
 +        { \
-+            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic libfaac." LIBEXT "\n"); \
++            av_log(avctx, AV_LOG_ERROR, "Unable to find symbol " AV_STRINGIFY(x) " in dynamic " LIBNAME "\n"); \
 +            return -1; \
 +        } \
 +    } while (0)
@@ -225,8 +225,8 @@ index b9c9a13..fbb1a5c 100644
      int aot = FF_PROFILE_AAC_LOW + 1;
      int sce = 0, cpe = 0;
  
-+    if (!(s->hLib = dlopen("libfdk-aac-0." LIBEXT, RTLD_NOW))) {
-+        av_log(avctx, AV_LOG_ERROR, "Unable to load libfdk-aac." LIBEXT "\n");
++    if (!(s->hLib = dlopen(LIBNAME, RTLD_NOW))) {
++        av_log(avctx, AV_LOG_ERROR, "Unable to load " LIBNAME "\n");
 +        return -1;
 +    }
 +
