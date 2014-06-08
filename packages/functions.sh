@@ -133,6 +133,8 @@ pkg_configure()
         fi
     fi
 
+    test -n "${C}" && CONFOPTS="-C ${CONFOPTS}"
+
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
     ./configure             \
