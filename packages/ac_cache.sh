@@ -30,11 +30,11 @@ export ac_cv_sys_largefile_source=no
 export lt_cv_prog_gnu_ldcxx=yes
 export lt_cv_prog_gnu_ld=yes
 
-# disable alloca
-export ac_cv_func_alloca=no
-export ac_cv_func_alloca_works=no
-export ac_cv_working_alloca_h=no
-export ac_cv_header_alloca_h=no
+# uncomment to disable alloca
+#export ac_cv_func_alloca=no
+#export ac_cv_func_alloca_works=no
+#export ac_cv_working_alloca_h=no
+#export ac_cv_header_alloca_h=no
 
 # misdetected while crosscompiling
 export ac_cv_func_memcmp=yes
