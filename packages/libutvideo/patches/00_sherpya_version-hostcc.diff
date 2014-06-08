@@ -1,0 +1,13 @@
+diff --git a/configure b/configure
+index c1590d8..4a3e072 100755
+--- a/configure
++++ b/configure
+@@ -439,7 +439,7 @@ echo "}">>version.c
+ 
+ sed -i 's/    /\n/g' version.c
+ 
+-$CC -o version$EXE version.c
++gcc -o version$EXE version.c
+ 
+ UTVIDEO_VERSION_MASTER=`echo $(./version$EXE | sed 's/\r//g')`
+ #end of messy version generating block
