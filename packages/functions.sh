@@ -131,7 +131,7 @@ pkg_configure()
         fi
     fi
 
-    test -z "${NOCACHE}" && CONFOPTS="${CONFOPTS} --cache-file=${topdir}/config.cache"
+    . ${topdir}/ac_cache.sh
 
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
