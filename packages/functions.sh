@@ -1,6 +1,6 @@
-# vim: ft=sh
+# vim: ft=sh:
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 . $(dirname $0)/../../config.sh
@@ -130,6 +130,8 @@ pkg_configure()
             return 0
         fi
     fi
+
+    test -z "${NOCACHE}" && CONFOPTS="${CONFOPTS} --cache-file=${topdir}/config.cache"
 
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
