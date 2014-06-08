@@ -3,11 +3,14 @@
 # Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+topdir=$(cd .. && pwd)
+
 . $(dirname $0)/../../config.sh
 
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
+# load ac cache
+. ${topdir}/ac_cache.sh
 
-topdir=$(cd .. && pwd)
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
 
 shopt -s nullglob
 
@@ -129,8 +132,6 @@ pkg_configure()
             return 0
         fi
     fi
-
-    . ${topdir}/ac_cache.sh
 
     CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
     CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
