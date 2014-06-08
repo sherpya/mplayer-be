@@ -125,7 +125,6 @@ pkg_configure()
     if [ ! -x configure ]; then
         if [ -e configure.ac -o -e configure.in ]; then
             autoreconf -fi
-            rm -fr autom4te.cache
         else
             return 0
         fi
