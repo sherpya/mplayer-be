@@ -124,7 +124,7 @@ export ac_cv_type_long_long_int=yes
 # programs
 export ac_cv_path_DOXYGEN=no
 export ac_cv_path_GTK_CONFIG=no
-export ac_cv_prog_GTKDOC=no
+export ac_cv_prog_GTKDOC=false
 export ac_cv_prog_HASDOCBOOK=no
 export ac_cv_prog_HAVE_DOXYGEN=no
 export ac_cv_prog_HAVE_PKG_CONFIG=yes
