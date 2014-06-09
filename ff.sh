@@ -109,6 +109,7 @@ configure()
     enable libx265
     enable libxavs
     enable libxvid
+    enable libwebp
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
