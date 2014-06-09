@@ -1,0 +1,42 @@
+diff -ur flac-1.3.0.orig/src/libFLAC++/metadata.cpp flac-1.3.0/src/libFLAC++/metadata.cpp
+--- flac-1.3.0.orig/src/libFLAC++/metadata.cpp	2013-05-26 11:30:33.928201884 +0200
++++ flac-1.3.0/src/libFLAC++/metadata.cpp	2014-06-09 03:33:59.529087203 +0200
+@@ -31,6 +31,10 @@
+  */
+ 
+ #define __STDC_LIMIT_MACROS 1 /* otherwise SIZE_MAX is not defined for c++ */
++#ifdef HAVE_CONFIG_H
++#include "config.h"
++#endif
++
+ #include "share/alloc.h"
+ #include "FLAC++/metadata.h"
+ #include "FLAC/assert.h"
+diff -ur flac-1.3.0.orig/src/libFLAC++/stream_decoder.cpp flac-1.3.0/src/libFLAC++/stream_decoder.cpp
+--- flac-1.3.0.orig/src/libFLAC++/stream_decoder.cpp	2013-05-26 11:30:33.928201884 +0200
++++ flac-1.3.0/src/libFLAC++/stream_decoder.cpp	2014-06-09 03:33:59.529087203 +0200
+@@ -30,6 +30,10 @@
+  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  */
+ 
++#ifdef HAVE_CONFIG_H
++#include "config.h"
++#endif
++
+ #include "FLAC++/decoder.h"
+ #include "FLAC/assert.h"
+ 
+diff -ur flac-1.3.0.orig/src/libFLAC++/stream_encoder.cpp flac-1.3.0/src/libFLAC++/stream_encoder.cpp
+--- flac-1.3.0.orig/src/libFLAC++/stream_encoder.cpp	2013-05-26 11:30:33.928201884 +0200
++++ flac-1.3.0/src/libFLAC++/stream_encoder.cpp	2014-06-09 03:33:59.533087203 +0200
+@@ -30,6 +30,10 @@
+  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  */
+ 
++#ifdef HAVE_CONFIG_H
++#include "config.h"
++#endif
++
+ #include "FLAC++/encoder.h"
+ #include "FLAC++/metadata.h"
+ #include "FLAC/assert.h"

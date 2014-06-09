@@ -1,11 +1,11 @@
 #!/bin/bash
 # Build script for Free Lossless Audio Codec
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=flac
-VERSION=1.2.1
-EXT=tar.gz
+VERSION=1.3.0
+EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
