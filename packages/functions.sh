@@ -8,7 +8,10 @@ topdir=$(cd .. && pwd)
 . $(dirname $0)/../../config.sh
 
 # load ac cache
-. ${topdir}/ac_cache.sh
+if [ -z ${NOCACHE} ]; then
+    echo Loading ac cache
+    . ${topdir}/ac_cache.sh
+fi
 
 GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
 
