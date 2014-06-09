@@ -1,0 +1,19 @@
+diff -ur game-music-emu-0.6.0.orig/gme/CMakeLists.txt game-music-emu-0.6.0/gme/CMakeLists.txt
+--- game-music-emu-0.6.0.orig/gme/CMakeLists.txt	2012-05-27 22:48:53.000000000 +0200
++++ game-music-emu-0.6.0/gme/CMakeLists.txt	2014-06-09 04:50:18.208939446 +0200
+@@ -137,13 +137,13 @@
+ # On some platforms we may need to change headers or whatnot based on whether
+ # we're building the library or merely using the library. The following is
+ # only defined when building the library to allow us to tell which is which.
+-add_definitions(-DBLARGG_BUILD_DLL)
++#add_definitions(-DBLARGG_BUILD_DLL)
+ 
+ # For the gme_types.h
+ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ 
+ # Add library to be compiled.
+-add_library(gme SHARED ${libgme_SRCS})
++add_library(gme STATIC ${libgme_SRCS})
+ 
+ # The version is the release.  The "soversion" is the API version.  As long
+ # as only build fixes are performed (i.e. no backwards-incompatible changes

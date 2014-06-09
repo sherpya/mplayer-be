@@ -42,6 +42,7 @@ case "$product" in
         enable libsoxr
         enable libutvideo
         enable libvidstab
+        enable libgme
         enable frei0r
         config frei0r_filter
         ;;

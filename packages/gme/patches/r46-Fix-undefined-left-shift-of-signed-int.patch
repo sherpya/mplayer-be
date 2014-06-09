@@ -1,0 +1,41 @@
+From ad8e6b7b60125567ada71ad5dd5b31194c20e027 Mon Sep 17 00:00:00 2001
+From: "michael.pyne" <michael.pyne@ed62ecc2-ceed-11dd-a8b6-f5aca7b582bb>
+Date: Sun, 9 Jun 2013 22:36:07 +0000
+Subject: [PATCH 2/2] Fix undefined left-shift of signed int.
+
+Detected by PVS Studio [1], left shift of a signed integer that causes the sign
+bit to "fall off" is technically undefined behavior (though neither clang nor gcc seem
+to warn for this case).
+
+Could also be fixed by using an unsigned bitmask, doing the shifts, and
+reinterpreting as an int when doing the comparison to 0, but that seems more
+trouble than it's worth.
+
+I've tested by playing a bunch of SPC files, haven't heard any problems.
+
+[1] http://www.viva64.com/en/examples-V610/
+
+
+git-svn-id: http://game-music-emu.googlecode.com/svn/trunk@46 ed62ecc2-ceed-11dd-a8b6-f5aca7b582bb
+---
+ gme/Spc_Cpu.cpp | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/gme/Spc_Cpu.cpp b/gme/Spc_Cpu.cpp
+index 90f60ed..19aae11 100644
+--- a/gme/Spc_Cpu.cpp
++++ b/gme/Spc_Cpu.cpp
+@@ -433,9 +433,7 @@ void Snes_Spc::cpu_write( int data, int addr, rel_time_t time )
+ 			#endif
+ 			
+ 			// Registers other than $F2 and $F4-$F7
+-			//if ( reg != 2 && reg != 4 && reg != 5 && reg != 6 && reg != 7 )
+-			// TODO: this is a bit on the fragile side
+-			if ( ((~0x2F00 << (bits_in_int - 16)) << reg) < 0 ) // 36%
++			if ( reg != 2 && (reg < 4 || reg > 7) ) // 36%
+ 				cpu_write_smp_reg( data, time, reg );
+ 		}
+ 		// High mem/address wrap-around
+-- 
+2.0.0
+

@@ -1,0 +1,108 @@
+From e84e7671ffec29d8b1a5f8b48bfd0600be309b5b Mon Sep 17 00:00:00 2001
+From: "gblargg@gmail.com"
+ <gblargg@gmail.com@ed62ecc2-ceed-11dd-a8b6-f5aca7b582bb>
+Date: Wed, 5 Jun 2013 17:54:52 +0000
+Subject: [PATCH 1/2] added gme_tell_samples() and gme_seek_samples()
+
+git-svn-id: http://game-music-emu.googlecode.com/svn/trunk@45 ed62ecc2-ceed-11dd-a8b6-f5aca7b582bb
+---
+ gme/Music_Emu.cpp | 13 +++++++++++--
+ gme/Music_Emu.h   |  6 ++++++
+ gme/gme.cpp       |  2 ++
+ gme/gme.h         |  6 ++++++
+ 4 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/gme/Music_Emu.cpp b/gme/Music_Emu.cpp
+index 30b25dc..942e86e 100644
+--- a/gme/Music_Emu.cpp
++++ b/gme/Music_Emu.cpp
+@@ -178,6 +178,11 @@ blargg_long Music_Emu::msec_to_samples( blargg_long msec ) const
+ 	return (sec * sample_rate() + msec * sample_rate() / 1000) * stereo;
+ }
+ 
++long Music_Emu::tell_samples() const
++{
++	return out_time;
++}
++
+ long Music_Emu::tell() const
+ {
+ 	blargg_long rate = sample_rate() * stereo;
+@@ -185,14 +190,18 @@ long Music_Emu::tell() const
+ 	return sec * 1000 + (out_time - sec * rate) * 1000 / rate;
+ }
+ 
+-blargg_err_t Music_Emu::seek( long msec )
++blargg_err_t Music_Emu::seek_samples( long time )
+ {
+-	blargg_long time = msec_to_samples( msec );
+ 	if ( time < out_time )
+ 		RETURN_ERR( start_track( current_track_ ) );
+ 	return skip( time - out_time );
+ }
+ 
++blargg_err_t Music_Emu::seek( long msec )
++{
++	return seek_samples( msec_to_samples( msec ) );
++}
++
+ blargg_err_t Music_Emu::skip( long count )
+ {
+ 	require( current_track() >= 0 ); // start_track() must have been called already
+diff --git a/gme/Music_Emu.h b/gme/Music_Emu.h
+index b96f4b6..d98f7ce 100644
+--- a/gme/Music_Emu.h
++++ b/gme/Music_Emu.h
+@@ -41,9 +41,15 @@ public:
+ 	// Number of milliseconds (1000 msec = 1 second) played since beginning of track
+ 	long tell() const;
+ 	
++	// Number of samples generated since beginning of track
++	long tell_samples() const;
++
+ 	// Seek to new time in track. Seeking backwards or far forward can take a while.
+ 	blargg_err_t seek( long msec );
+ 	
++	// Equivalent to restarting track then skipping n samples
++	blargg_err_t seek_samples( long n );
++	
+ 	// Skip n samples
+ 	blargg_err_t skip( long n );
+ 	
+diff --git a/gme/gme.cpp b/gme/gme.cpp
+index c05f25e..4770984 100644
+--- a/gme/gme.cpp
++++ b/gme/gme.cpp
+@@ -337,7 +337,9 @@ BLARGG_EXPORT gme_err_t gme_play           ( Music_Emu* me, int n, short* p )
+ BLARGG_EXPORT void      gme_set_fade       ( Music_Emu* me, int start_msec )      { me->set_fade( start_msec ); }
+ BLARGG_EXPORT int       gme_track_ended    ( Music_Emu const* me )                { return me->track_ended(); }
+ BLARGG_EXPORT int       gme_tell           ( Music_Emu const* me )                { return me->tell(); }
++BLARGG_EXPORT int       gme_tell_samples   ( Music_Emu const* me )                { return me->tell_samples(); }
+ BLARGG_EXPORT gme_err_t gme_seek           ( Music_Emu* me, int msec )            { return me->seek( msec ); }
++BLARGG_EXPORT gme_err_t gme_seek_samples   ( Music_Emu* me, int n )               { return me->seek_samples( n ); }
+ BLARGG_EXPORT int       gme_voice_count    ( Music_Emu const* me )                { return me->voice_count(); }
+ BLARGG_EXPORT void      gme_ignore_silence ( Music_Emu* me, int disable )         { me->ignore_silence( disable != 0 ); }
+ BLARGG_EXPORT void      gme_set_tempo      ( Music_Emu* me, double t )            { me->set_tempo( t ); }
+diff --git a/gme/gme.h b/gme/gme.h
+index 1f2a2d1..8eb952e 100644
+--- a/gme/gme.h
++++ b/gme/gme.h
+@@ -47,9 +47,15 @@ int gme_track_ended( Music_Emu const* );
+ /* Number of milliseconds (1000 = one second) played since beginning of track */
+ int gme_tell( Music_Emu const* );
+ 
++/* Number of samples generated since beginning of track */
++int gme_tell_samples( Music_Emu const* );
++
+ /* Seek to new time in track. Seeking backwards or far forward can take a while. */
+ gme_err_t gme_seek( Music_Emu*, int msec );
+ 
++/* Equivalent to restarting track then skipping n samples */
++gme_err_t gme_seek_samples( Music_Emu*, int n );
++
+ 
+ /******** Informational ********/
+ 
+-- 
+2.0.0
+

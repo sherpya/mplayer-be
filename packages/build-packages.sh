@@ -60,6 +60,7 @@ libdvdcss
 libdvdread
 libdvdnav
 openjpeg
+gme
 speex
 opus
 flac
