@@ -10,8 +10,6 @@ for dir in bin lib include live; do
     sudo chown $owner ${PREFIX}/$dir
 done
 
-sudo rm -f ${PREFIX}/lib/lib*pthread*
-
 PKGCONFIG="${PREFIX}/bin/${HOST}-pkg-config"
 
 cat > ${PKGCONFIG} << EOF
