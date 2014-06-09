@@ -90,6 +90,8 @@ configure()
 	enable dvdread
 	disable dvdread-internal
 
+    enable bluray
+
     enable menu
     enable faac
     disable faac-lavc
