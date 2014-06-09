@@ -1,28 +1,29 @@
-diff -ur mingw-w64-3.1.0/debian/changelog mingw-w64-3.1.0-2~sherpya/debian/changelog
---- mingw-w64-3.1.0/debian/changelog	2014-01-10 07:14:21.000000000 +0100
-+++ mingw-w64-3.1.0-2~sherpya/debian/changelog	2014-01-10 13:59:40.557620423 +0100
+diff -ur mingw-w64-3.1.0.orig/debian/changelog mingw-w64-3.1.0/debian/changelog
+--- mingw-w64-3.1.0.orig/debian/changelog	2014-06-08 23:02:32.000000000 +0200
++++ mingw-w64-3.1.0/debian/changelog	2014-06-09 07:45:28.956600257 +0200
 @@ -1,3 +1,9 @@
-+mingw-w64 (3.1.0-2~sherpya-1) UNRELEASED; urgency=medium
++mingw-w64 (3.1.0-2.1~sherpya) UNRELEASED; urgency=medium
 +
-+  * Build with -march=i486
++  * Rebuild with -march=i486
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Fri, 10 Jan 2014 13:59:31 +0100
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Mon, 09 Jun 2014 07:45:01 +0200
 +
- mingw-w64 (3.1.0-1) unstable; urgency=medium
+ mingw-w64 (3.1.0-2) unstable; urgency=medium
  
-   * New upstream release.
-diff -ur mingw-w64-3.1.0/debian/control mingw-w64-3.1.0-2~sherpya/debian/control
---- mingw-w64-3.1.0/debian/control	2014-01-10 07:04:04.000000000 +0100
-+++ mingw-w64-3.1.0-2~sherpya/debian/control	2014-01-10 13:59:17.765619881 +0100
-@@ -34,19 +34,6 @@
-  This package contains the headers and libraries required to build
-  32-bit software using MinGW-w64.
+   * Use strtok_s to implement strtok_r instead of the non-reentrant
+diff -ur mingw-w64-3.1.0.orig/debian/control mingw-w64-3.1.0/debian/control
+--- mingw-w64-3.1.0.orig/debian/control	2014-06-08 22:44:27.000000000 +0200
++++ mingw-w64-3.1.0/debian/control	2014-06-09 07:45:47.300599665 +0200
+@@ -38,23 +38,6 @@
+  The wine package can be used to test software built using MinGW-w64
+  without using Windows.
  
 -Package: mingw-w64-x86-64-dev
 -Architecture: all
 -Depends: ${misc:Depends}, mingw-w64-common
 -Breaks: gcc-mingw-w64 (<< 4.6.0), mingw-w64-dev (<< 2.0.3-1), mingw-w64-dev (= 3.0~svn4933-1), libpthreads-mingw-w64
 -Replaces: mingw-w64-dev (<< 2.0.3-1), mingw-w64-dev (= 3.0~svn4933-1), libpthreads-mingw-w64
+-Suggests: wine64
 -Description: Development files for MinGW-w64 targeting Win64
 - MinGW-w64 provides a development and runtime environment for 32- and
 - 64-bit (x86 and x64) Windows applications using the Windows API and
@@ -30,13 +31,16 @@ diff -ur mingw-w64-3.1.0/debian/control mingw-w64-3.1.0-2~sherpya/debian/control
 - .
 - This package contains the headers and libraries required to build
 - 64-bit software using MinGW-w64.
+- .
+- The wine64 package can be used to test software built using MinGW-w64
+- without using Windows.
 -
  Package: mingw-w64
  Architecture: all
  Depends: gcc-mingw-w64, g++-mingw-w64 | gcc-mingw-w64 (<< 4.6.3-3+4), ${misc:Depends}
-diff -ur mingw-w64-3.1.0/debian/rules mingw-w64-3.1.0-2~sherpya/debian/rules
---- mingw-w64-3.1.0/debian/rules	2013-11-10 14:42:53.000000000 +0100
-+++ mingw-w64-3.1.0-2~sherpya/debian/rules	2014-01-10 13:59:17.765619881 +0100
+diff -ur mingw-w64-3.1.0.orig/debian/rules mingw-w64-3.1.0/debian/rules
+--- mingw-w64-3.1.0.orig/debian/rules	2013-11-10 14:42:53.000000000 +0100
++++ mingw-w64-3.1.0/debian/rules	2014-06-09 07:44:19.588602496 +0200
 @@ -16,7 +16,7 @@
  # Target architectures
  target32 := i686-w64-mingw32
