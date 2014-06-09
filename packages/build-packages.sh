@@ -76,6 +76,7 @@ vo-aacenc
 vo-amrwbenc
 wavpack
 x264
+x265
 xavs
 xvidcore
 EOF

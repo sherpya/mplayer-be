@@ -79,6 +79,11 @@ pkg_unpack()
         return 0
     fi
 
+    if [ -n "${HG_REPO}" ]; then
+        test -d ${BUILDDIR}/.git || ( hg clone ${HG_REPO} ${BUILDDIR} || return 1 )
+        return 0
+    fi
+
     if [ -n "${SVN_REPO}" ]; then
         test -d ${BUILDDIR}/.svn || ( svn co ${SVN_REPO} ${BUILDDIR} || return 1 )
         return 0
@@ -229,10 +234,13 @@ pkg_build()
     pkg_unpack || return 1
     apply_patches || return 1
 
-    ( cd ${BUILDDIR} && pkg_configure ) || return 1
-    ( cd ${BUILDDIR} && ln_to_cp )
+    ( cd ${BUILDDIR}/${BUILDSUBDIR} && pkg_configure ) || return 1
+    ( cd ${BUILDDIR}/${BUILDSUBDIR} && ln_to_cp )
+
+    # stop here if C is set
     test -n "${C}" && exit 0
-    ( cd ${BUILDDIR} && pkg_make_target ) || return 1
+
+    ( cd ${BUILDDIR}/${BUILDSUBDIR} && pkg_make_target ) || return 1
 
     fix_la
 }
@@ -241,6 +249,12 @@ git_clean()
 {
     test -d ${BUILDDIR} || return 0
     ( cd ${BUILDDIR} && git reset --hard && git clean -qdfx )
+}
+
+hg_clean()
+{
+    test -d ${BUILDDIR} || return 0
+    ( cd ${BUILDDIR} && hg update --clean && hg purge )
 }
 
 cmake_clean()

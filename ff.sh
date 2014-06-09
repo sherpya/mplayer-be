@@ -106,6 +106,7 @@ configure()
     enable libvpx
     enable libwavpack
     enable libx264
+    enable libx265
     enable libxavs
     enable libxvid
 
