@@ -7,12 +7,6 @@ topdir=$(cd .. && pwd)
 
 . $(dirname $0)/../../config.sh
 
-# load ac cache
-if [ -z ${NOCACHE} ]; then
-    echo Loading ac cache
-    . ${topdir}/ac_cache.sh
-fi
-
 GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
 
 shopt -s nullglob
@@ -139,6 +133,12 @@ pkg_configure()
         else
             return 0
         fi
+    fi
+
+    # load ac cache
+    if [ -z ${NOCACHE} ]; then
+        echo Loading ac cache
+        . ${topdir}/ac_cache.sh
     fi
 
     test -n "${C}" && CONFOPTS="-C ${CONFOPTS}"
