@@ -1,0 +1,240 @@
+diff -ur libxml2-2.9.1.orig/parser.c libxml2-2.9.1/parser.c
+--- libxml2-2.9.1.orig/parser.c	2013-04-16 15:39:18.000000000 +0200
++++ libxml2-2.9.1/parser.c	2014-06-29 17:51:39.668502524 +0200
+@@ -1289,7 +1289,7 @@
+         return;
+ 
+     xmlHashAddEntry2(ctxt->attsSpecial, fullname, fullattr,
+-                     (void *) (long) type);
++                     (void *) (intptr_t) type);
+     return;
+ 
+ mem_error:
+@@ -1308,7 +1308,7 @@
+                             const xmlChar *unused ATTRIBUTE_UNUSED) {
+     xmlParserCtxtPtr ctxt = (xmlParserCtxtPtr) data;
+ 
+-    if (((long) payload) == XML_ATTRIBUTE_CDATA) {
++    if (((intptr_t) payload) == XML_ATTRIBUTE_CDATA) {
+         xmlHashRemoveEntry2(ctxt->attsSpecial, fullname, fullattr, NULL);
+     }
+ }
+@@ -1820,7 +1820,7 @@
+     ctxt->name = value;
+     ctxt->pushTab[ctxt->nameNr * 3] = (void *) prefix;
+     ctxt->pushTab[ctxt->nameNr * 3 + 1] = (void *) URI;
+-    ctxt->pushTab[ctxt->nameNr * 3 + 2] = (void *) (long) nsNr;
++    ctxt->pushTab[ctxt->nameNr * 3 + 2] = (void *) (intptr_t) nsNr;
+     return (ctxt->nameNr++);
+ mem_error:
+     xmlErrMemory(ctxt, NULL);
+@@ -9107,7 +9107,7 @@
+     if (ctxt->attsSpecial != NULL) {
+         int type;
+ 
+-        type = (int) (long) xmlHashQLookup2(ctxt->attsSpecial,
++        type = (int) (intptr_t) xmlHashQLookup2(ctxt->attsSpecial,
+                                             pref, elem, *prefix, name);
+         if (type != 0)
+             normalize = 1;
+@@ -11565,7 +11565,7 @@
+ 		    xmlParseEndTag2(ctxt,
+ 		           (void *) ctxt->pushTab[ctxt->nameNr * 3 - 3],
+ 		           (void *) ctxt->pushTab[ctxt->nameNr * 3 - 2], 0,
+-		       (int) (long) ctxt->pushTab[ctxt->nameNr * 3 - 1], 0);
++		       (int) (intptr_t) ctxt->pushTab[ctxt->nameNr * 3 - 1], 0);
+ 		    nameNsPop(ctxt);
+ 		}
+ #ifdef LIBXML_SAX1_ENABLED
+diff -ur libxml2-2.9.1.orig/relaxng.c libxml2-2.9.1/relaxng.c
+--- libxml2-2.9.1.orig/relaxng.c	2013-02-27 06:08:50.000000000 +0100
++++ libxml2-2.9.1/relaxng.c	2014-06-29 17:56:57.016513795 +0200
+@@ -9365,7 +9365,7 @@
+             if (tmp == NULL) {
+                 i = nbgroups;
+             } else {
+-                i = ((long) tmp) - 1;
++                i = ((intptr_t) tmp) - 1;
+                 if (partitions->flags & IS_NEEDCHECK) {
+                     group = partitions->groups[i];
+                     if (!xmlRelaxNGNodeMatchesList(cur, group->defs))
+diff -ur libxml2-2.9.1.orig/tree.c libxml2-2.9.1/tree.c
+--- libxml2-2.9.1.orig/tree.c	2013-02-27 06:08:51.000000000 +0100
++++ libxml2-2.9.1/tree.c	2014-06-29 17:52:02.544503336 +0200
+@@ -4562,7 +4562,7 @@
+ 	(node->type == XML_PI_NODE)) {
+ 	if (node->line == 65535) {
+ 	    if ((node->type == XML_TEXT_NODE) && (node->psvi != NULL))
+-	        result = (long) node->psvi;
++	        result = (intptr_t) node->psvi;
+ 	    else if ((node->type == XML_ELEMENT_NODE) &&
+ 	             (node->children != NULL))
+ 	        result = xmlGetLineNoInternal(node->children, depth + 1);
+diff -ur libxml2-2.9.1.orig/xmlIO.c libxml2-2.9.1/xmlIO.c
+--- libxml2-2.9.1.orig/xmlIO.c	2013-03-27 03:35:08.000000000 +0100
++++ libxml2-2.9.1/xmlIO.c	2014-06-29 17:53:06.336505602 +0200
+@@ -819,7 +819,7 @@
+ xmlFdRead (void * context, char * buffer, int len) {
+     int ret;
+ 
+-    ret = read((int) (long) context, &buffer[0], len);
++    ret = read((int) (intptr_t) context, &buffer[0], len);
+     if (ret < 0) xmlIOErr(0, "read()");
+     return(ret);
+ }
+@@ -840,7 +840,7 @@
+     int ret = 0;
+ 
+     if (len > 0) {
+-	ret = write((int) (long) context, &buffer[0], len);
++	ret = write((int) (intptr_t) context, &buffer[0], len);
+ 	if (ret < 0) xmlIOErr(0, "write()");
+     }
+     return(ret);
+@@ -858,7 +858,7 @@
+ static int
+ xmlFdClose (void * context) {
+     int ret;
+-    ret = close((int) (long) context);
++    ret = close((int) (intptr_t) context);
+     if (ret < 0) xmlIOErr(0, "close()");
+     return(ret);
+ }
+@@ -2983,7 +2983,7 @@
+ 
+     ret = xmlAllocParserInputBuffer(enc);
+     if (ret != NULL) {
+-        ret->context = (void *) (long) fd;
++        ret->context = (void *) (intptr_t) fd;
+ 	ret->readcallback = xmlFdRead;
+ 	ret->closecallback = xmlFdClose;
+     }
+@@ -3089,7 +3089,7 @@
+ 
+     ret = xmlAllocOutputBufferInternal(encoder);
+     if (ret != NULL) {
+-        ret->context = (void *) (long) fd;
++        ret->context = (void *) (intptr_t) fd;
+ 	ret->writecallback = xmlFdWrite;
+ 	ret->closecallback = NULL;
+     }
+diff -ur libxml2-2.9.1.orig/xmlmemory.c libxml2-2.9.1/xmlmemory.c
+--- libxml2-2.9.1.orig/xmlmemory.c	2013-02-27 06:08:52.000000000 +0100
++++ libxml2-2.9.1/xmlmemory.c	2014-06-29 17:53:36.548506675 +0200
+@@ -463,7 +463,7 @@
+ 
+ error:
+     xmlGenericError(xmlGenericErrorContext,
+-	    "xmlMemFree(%lX) error\n", (unsigned long) ptr);
++	    "xmlMemFree(%lX) error\n", (uintptr_t) ptr);
+     xmlMallocBreakpoint();
+     return;
+ }
+diff -ur libxml2-2.9.1.orig/xpath.c libxml2-2.9.1/xpath.c
+--- libxml2-2.9.1.orig/xpath.c	2013-04-01 10:42:12.000000000 +0200
++++ libxml2-2.9.1/xpath.c	2014-06-29 17:56:19.692512469 +0200
+@@ -3028,13 +3028,13 @@
+      */
+     if ((node1->type == XML_ELEMENT_NODE) &&
+ 	(node2->type == XML_ELEMENT_NODE) &&
+-	(0 > (long) node1->content) &&
+-	(0 > (long) node2->content) &&
++	(0 > (intptr_t) node1->content) &&
++	(0 > (intptr_t) node2->content) &&
+ 	(node1->doc == node2->doc)) {
+ 	long l1, l2;
+ 
+-	l1 = -((long) node1->content);
+-	l2 = -((long) node2->content);
++	l1 = -((intptr_t) node1->content);
++	l2 = -((intptr_t) node2->content);
+ 	if (l1 < l2)
+ 	    return(1);
+ 	if (l1 > l2)
+@@ -3091,13 +3091,13 @@
+      */
+     if ((node1->type == XML_ELEMENT_NODE) &&
+ 	(node2->type == XML_ELEMENT_NODE) &&
+-	(0 > (long) node1->content) &&
+-	(0 > (long) node2->content) &&
++	(0 > (intptr_t) node1->content) &&
++	(0 > (intptr_t) node2->content) &&
+ 	(node1->doc == node2->doc)) {
+ 	long l1, l2;
+ 
+-	l1 = -((long) node1->content);
+-	l2 = -((long) node2->content);
++	l1 = -((intptr_t) node1->content);
++	l2 = -((intptr_t) node2->content);
+ 	if (l1 < l2)
+ 	    return(1);
+ 	if (l1 > l2)
+@@ -3142,12 +3142,12 @@
+     switch (node1->type) {
+ 	case XML_ELEMENT_NODE:
+ 	    if (node2->type == XML_ELEMENT_NODE) {
+-		if ((0 > (long) node1->content) && /* TODO: Would a != 0 suffice here? */
+-		    (0 > (long) node2->content) &&
++		if ((0 > (intptr_t) node1->content) && /* TODO: Would a != 0 suffice here? */
++		    (0 > (intptr_t) node2->content) &&
+ 		    (node1->doc == node2->doc))
+ 		{
+-		    l1 = -((long) node1->content);
+-		    l2 = -((long) node2->content);
++		    l1 = -((intptr_t) node1->content);
++		    l2 = -((intptr_t) node2->content);
+ 		    if (l1 < l2)
+ 			return(1);
+ 		    if (l1 > l2)
+@@ -3192,7 +3192,7 @@
+ 		node1 = node1->parent;
+ 	    }
+ 	    if ((node1 == NULL) || (node1->type != XML_ELEMENT_NODE) ||
+-		(0 <= (long) node1->content)) {
++		(0 <= (intptr_t) node1->content)) {
+ 		/*
+ 		* Fallback for whatever case.
+ 		*/
+@@ -3242,7 +3242,7 @@
+ 		node2 = node2->parent;
+ 	    }
+ 	    if ((node2 == NULL) || (node2->type != XML_ELEMENT_NODE) ||
+-		(0 <= (long) node1->content))
++		(0 <= (intptr_t) node1->content))
+ 	    {
+ 		node2 = miscNode2;
+ 		precedence2 = 0;
+@@ -3315,12 +3315,12 @@
+      */
+     if ((node1->type == XML_ELEMENT_NODE) &&
+ 	(node2->type == XML_ELEMENT_NODE) &&
+-	(0 > (long) node1->content) &&
+-	(0 > (long) node2->content) &&
++	(0 > (intptr_t) node1->content) &&
++	(0 > (intptr_t) node2->content) &&
+ 	(node1->doc == node2->doc)) {
+ 
+-	l1 = -((long) node1->content);
+-	l2 = -((long) node2->content);
++	l1 = -((intptr_t) node1->content);
++	l2 = -((intptr_t) node2->content);
+ 	if (l1 < l2)
+ 	    return(1);
+ 	if (l1 > l2)
+@@ -3383,12 +3383,12 @@
+      */
+     if ((node1->type == XML_ELEMENT_NODE) &&
+ 	(node2->type == XML_ELEMENT_NODE) &&
+-	(0 > (long) node1->content) &&
+-	(0 > (long) node2->content) &&
++	(0 > (intptr_t) node1->content) &&
++	(0 > (intptr_t) node2->content) &&
+ 	(node1->doc == node2->doc)) {
+ 
+-	l1 = -((long) node1->content);
+-	l2 = -((long) node2->content);
++	l1 = -((intptr_t) node1->content);
++	l2 = -((intptr_t) node2->content);
+ 	if (l1 < l2)
+ 	    return(1);
+ 	if (l1 > l2)
