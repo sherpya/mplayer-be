@@ -1,4 +1,4 @@
-From 20b350c37c9904ef29b9bb7393c317f2079d7641 Mon Sep 17 00:00:00 2001
+From 395e5375ed5120f7afa6f6ce145c471a00b21f09 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 May 2014 05:31:53 +0200
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 124 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index b3a3ce4..22af6e5 100755
+index 1891d3b..fc7d73b 100755
 --- a/configure
 +++ b/configure
-@@ -4209,7 +4209,6 @@ die_license_disabled gpl libzvbi
+@@ -4235,7 +4235,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index b3a3ce4..22af6e5 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4661,7 +4660,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4702,7 +4701,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -31,7 +31,7 @@ index b3a3ce4..22af6e5 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index 6ffef03..a6a57a0 100644
+index 376dd39..dff58c0 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -86,9 +86,9 @@ index 6ffef03..a6a57a0 100644
 +    } while (0)
 +
  enum ConcealMethod {
-     CONCEAL_METHOD_DEFAULT              = -1,
      CONCEAL_METHOD_SPECTRAL_MUTING      =  0,
-@@ -38,6 +78,8 @@ typedef struct FDKAACDecContext {
+     CONCEAL_METHOD_NOISE_SUBSTITUTION   =  1,
+@@ -37,6 +77,8 @@ typedef struct FDKAACDecContext {
      HANDLE_AACDECODER handle;
      int initialized;
      enum ConcealMethod conceal_method;
@@ -97,7 +97,7 @@ index 6ffef03..a6a57a0 100644
  } FDKAACDecContext;
  
  #define OFFSET(x) offsetof(FDKAACDecContext, x)
-@@ -58,7 +100,7 @@ static const AVClass fdk_aac_dec_class = {
+@@ -56,7 +98,7 @@ static const AVClass fdk_aac_dec_class = {
  static int get_stream_info(AVCodecContext *avctx)
  {
      FDKAACDecContext *s   = avctx->priv_data;
@@ -106,7 +106,7 @@ index 6ffef03..a6a57a0 100644
      int channel_counts[9] = { 0 };
      int i, ch_error       = 0;
      uint64_t ch_layout    = 0;
-@@ -170,8 +212,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
+@@ -168,8 +210,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
  {
      FDKAACDecContext *s = avctx->priv_data;
  
@@ -119,7 +119,7 @@ index 6ffef03..a6a57a0 100644
  
      return 0;
  }
-@@ -181,6 +225,25 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+@@ -179,6 +223,25 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
      FDKAACDecContext *s = avctx->priv_data;
      AAC_DECODER_ERROR err;
  
@@ -244,5 +244,5 @@ index b9c9a13..25003f0 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.0.0
+2.0.1
 

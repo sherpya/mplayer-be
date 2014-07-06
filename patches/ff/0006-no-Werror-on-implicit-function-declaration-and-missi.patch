@@ -1,4 +1,4 @@
-From ff5e90f07fb411fc0ee5b900c0c9057a17ba269c Mon Sep 17 00:00:00 2001
+From c97f9b62df5648caae2228643518d6c502be4de9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 03:08:08 +0100
 Subject: [PATCH 6/9] no Werror on implicit-function-declaration and
@@ -9,10 +9,10 @@ Subject: [PATCH 6/9] no Werror on implicit-function-declaration and
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index c4894cd..fd42043 100755
+index 65250d7..e546ee6 100755
 --- a/configure
 +++ b/configure
-@@ -5008,8 +5008,6 @@ elif enabled ccc; then
+@@ -5049,8 +5049,6 @@ elif enabled ccc; then
      add_cflags -msg_disable unsupieee
  elif enabled gcc; then
      check_optflags -fno-tree-vectorize
@@ -22,5 +22,5 @@ index c4894cd..fd42043 100755
      check_cflags -Werror=vla
      enabled extra_warnings || check_disable_warning -Wno-maybe-uninitialized
 -- 
-2.0.0
+2.0.1
 
