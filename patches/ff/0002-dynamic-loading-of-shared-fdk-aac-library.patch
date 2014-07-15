@@ -1,4 +1,4 @@
-From 395e5375ed5120f7afa6f6ce145c471a00b21f09 Mon Sep 17 00:00:00 2001
+From 5c8743eaf3b75e96ace1d4f549d1de9ee317f096 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 May 2014 05:31:53 +0200
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 124 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index 1891d3b..fc7d73b 100755
+index 8de78a8..5be5d2d 100755
 --- a/configure
 +++ b/configure
-@@ -4235,7 +4235,6 @@ die_license_disabled gpl libzvbi
+@@ -4254,7 +4254,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index 1891d3b..fc7d73b 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4702,7 +4701,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4722,7 +4721,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -31,7 +31,7 @@ index 1891d3b..fc7d73b 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index 376dd39..dff58c0 100644
+index 624d579..a5a415b 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@

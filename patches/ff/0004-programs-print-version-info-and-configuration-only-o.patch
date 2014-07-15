@@ -1,4 +1,4 @@
-From aeaae188deaccb346837820f5d3fdfa935068286 Mon Sep 17 00:00:00 2001
+From 3514a0ad346c6965324f37c0650ba98255f8ca4c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 4/9] programs: print version info and configuration only on
