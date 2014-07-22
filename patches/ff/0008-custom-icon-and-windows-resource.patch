@@ -1,4 +1,4 @@
-From c9bc44d2570ec41c6e1cabab83690040390c246b Mon Sep 17 00:00:00 2001
+From 0e350ce78289a746f97994af8f0988fd3dc2c061 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 8/9] custom icon and windows resource
@@ -18,10 +18,10 @@ Subject: [PATCH 8/9] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 86b3508..8eb5fda 100644
+index 57f6a91..5af731e 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -101,6 +101,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -102,6 +102,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
  OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
@@ -30,7 +30,7 @@ index 86b3508..8eb5fda 100644
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -115,6 +117,8 @@ ffprobe.o cmdutils.o : libavutil/ffversion.h
+@@ -116,6 +118,8 @@ ffprobe.o cmdutils.o : libavutil/ffversion.h
  $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
  	$(CP) $< $@
  	$(STRIP) $@
@@ -38,7 +38,7 @@ index 86b3508..8eb5fda 100644
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
  
  %$(PROGSSUF)_g$(EXESUF): %.o $(FF_DEP_LIBS)
- 	$(LD) $(LDFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
+ 	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
 diff --git a/common.rc b/common.rc
 new file mode 100644
 index 0000000..6dcbe77

@@ -1,4 +1,4 @@
-From 5c8743eaf3b75e96ace1d4f549d1de9ee317f096 Mon Sep 17 00:00:00 2001
+From fb606bb3aeedebfb4296ea9a7ee60191e3e0cea2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 May 2014 05:31:53 +0200
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 124 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index 8de78a8..5be5d2d 100755
+index 0c24457..98dfcde 100755
 --- a/configure
 +++ b/configure
-@@ -4254,7 +4254,6 @@ die_license_disabled gpl libzvbi
+@@ -4272,7 +4272,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index 8de78a8..5be5d2d 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4722,7 +4721,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4742,7 +4741,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
