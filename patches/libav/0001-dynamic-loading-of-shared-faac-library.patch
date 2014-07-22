@@ -1,4 +1,4 @@
-From c97142c8d0d1a3416f3ad3b48b07733f26c670ed Mon Sep 17 00:00:00 2001
+From 967decec684acda3455fe0967771d83422f538d9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 24 Jun 2013 05:47:22 +0200
 Subject: [PATCH 1/4] dynamic loading of shared faac library
@@ -9,10 +9,10 @@ Subject: [PATCH 1/4] dynamic loading of shared faac library
  2 files changed, 66 insertions(+), 10 deletions(-)
 
 diff --git a/configure b/configure
-index 47fd690..31ee9e5 100755
+index 1cc2265..bacf335 100755
 --- a/configure
 +++ b/configure
-@@ -3643,7 +3643,6 @@ die_license_disabled gpl libxavs
+@@ -3695,7 +3695,6 @@ die_license_disabled gpl libxavs
  die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
@@ -20,7 +20,7 @@ index 47fd690..31ee9e5 100755
  die_license_disabled nonfree libfdk_aac
  die_license_disabled nonfree openssl
  
-@@ -4031,7 +4030,7 @@ enabled avisynth          && { { check_header "avisynth/avisynth_c.h" && check_l
+@@ -4100,7 +4099,7 @@ enabled avisynth          && { { check_header "avisynth/avisynth_c.h" && check_l
  enabled frei0r            && { check_header frei0r.h || die "ERROR: frei0r.h header not found"; }
  enabled gnutls            && require_pkg_config gnutls gnutls/gnutls.h gnutls_global_init
  enabled libbs2b           && require_pkg_config libbs2b bs2b.h bs2b_open
@@ -170,5 +170,5 @@ index 9b5b11a..5f75455 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-2.0.0.rc0
+2.0.1
 

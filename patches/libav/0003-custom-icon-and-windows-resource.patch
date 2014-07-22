@@ -1,4 +1,4 @@
-From d014e0b5e8232acbbb7b7f3b1e30ace629375f1a Mon Sep 17 00:00:00 2001
+From a7106b765fa0c5fe1e55c491fc36b2a8e5a1d8e8 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
@@ -18,10 +18,10 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index c34320b..ccc8d7d 100644
+index cc016b3..c073c4f 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -138,6 +138,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -140,6 +140,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
  OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
@@ -30,7 +30,7 @@ index c34320b..ccc8d7d 100644
  $(1)$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -147,6 +149,9 @@ endef
+@@ -149,6 +151,9 @@ endef
  
  $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P:$(EXESUF)=))))
  
@@ -38,7 +38,7 @@ index c34320b..ccc8d7d 100644
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
 +
  $(PROGS): %$(EXESUF): %.o $(FF_DEP_LIBS)
- 	$(LD) $(LDFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
+ 	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
  
 diff --git a/avconv.ico b/avconv.ico
 new file mode 100644
@@ -1747,5 +1747,5 @@ index 0000000..e65e018
 +
 +MAIN    ICON DISCARDABLE    __ICON__
 -- 
-2.0.0.rc0
+2.0.1
 
