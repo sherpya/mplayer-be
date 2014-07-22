@@ -1,19 +1,19 @@
 diff -ur mingw-w64-3.1.0.orig/debian/changelog mingw-w64-3.1.0/debian/changelog
---- mingw-w64-3.1.0.orig/debian/changelog	2014-06-08 23:02:32.000000000 +0200
-+++ mingw-w64-3.1.0/debian/changelog	2014-06-09 07:45:28.956600257 +0200
+--- mingw-w64-3.1.0.orig/debian/changelog	2014-07-21 22:55:26.000000000 +0200
++++ mingw-w64-3.1.0/debian/changelog	2014-07-22 15:42:39.884587180 +0200
 @@ -1,3 +1,9 @@
-+mingw-w64 (3.1.0-2.1~sherpya) UNRELEASED; urgency=medium
++mingw-w64 (3.1.0-3.1~sherpya) UNRELEASED; urgency=medium
 +
 +  * Rebuild with -march=i486
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Mon, 09 Jun 2014 07:45:01 +0200
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Tue, 22 Jul 2014 15:42:10 +0200
 +
- mingw-w64 (3.1.0-2) unstable; urgency=medium
+ mingw-w64 (3.1.0-3) unstable; urgency=medium
  
-   * Use strtok_s to implement strtok_r instead of the non-reentrant
+   * g++-mingw-w64 exists separately in stable, drop obsolete alternate
 diff -ur mingw-w64-3.1.0.orig/debian/control mingw-w64-3.1.0/debian/control
---- mingw-w64-3.1.0.orig/debian/control	2014-06-08 22:44:27.000000000 +0200
-+++ mingw-w64-3.1.0/debian/control	2014-06-09 07:45:47.300599665 +0200
+--- mingw-w64-3.1.0.orig/debian/control	2014-07-21 22:43:52.000000000 +0200
++++ mingw-w64-3.1.0/debian/control	2014-07-22 15:41:32.296585574 +0200
 @@ -38,23 +38,6 @@
   The wine package can be used to test software built using MinGW-w64
   without using Windows.
@@ -37,10 +37,10 @@ diff -ur mingw-w64-3.1.0.orig/debian/control mingw-w64-3.1.0/debian/control
 -
  Package: mingw-w64
  Architecture: all
- Depends: gcc-mingw-w64, g++-mingw-w64 | gcc-mingw-w64 (<< 4.6.3-3+4), ${misc:Depends}
+ Depends: gcc-mingw-w64, g++-mingw-w64, ${misc:Depends}
 diff -ur mingw-w64-3.1.0.orig/debian/rules mingw-w64-3.1.0/debian/rules
 --- mingw-w64-3.1.0.orig/debian/rules	2013-11-10 14:42:53.000000000 +0100
-+++ mingw-w64-3.1.0/debian/rules	2014-06-09 07:44:19.588602496 +0200
++++ mingw-w64-3.1.0/debian/rules	2014-07-22 15:41:32.296585574 +0200
 @@ -16,7 +16,7 @@
  # Target architectures
  target32 := i686-w64-mingw32
