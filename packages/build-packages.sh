@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 grep -q enabled /proc/sys/fs/binfmt_misc/status 2>/dev/null && \
- { echo "binfmt support is enabled, aborting"; exit 1; }
+ { echo 'binfmt support is enabled, aborting - disable with: echo 0 > /proc/sys/fs/binfmt_misc/status'; exit 1; }
 
 LOG=/tmp/build-$$.log
 echo "Logging to $LOG"
