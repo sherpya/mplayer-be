@@ -1,12 +1,12 @@
-diff -ur libdvdread.orig/Makefile.am libdvdread/Makefile.am
---- libdvdread.orig/Makefile.am	2014-03-09 04:52:02.791031153 +0100
-+++ libdvdread/Makefile.am	2014-03-09 05:06:04.251027065 +0100
-@@ -2,8 +2,6 @@
+diff --git a/Makefile.am b/Makefile.am
+index e51764c..f78745d 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,7 +2,6 @@ ACLOCAL_AMFLAGS = -Im4
  
  AM_CPPFLAGS = -I$(top_srcdir)/src $(CSS_CFLAGS)
  
 -dist_doc_DATA = AUTHORS ChangeLog COPYING NEWS README TODO
--
- DISTCLEANFILES = ChangeLog
  
- ChangeLog: $(wildcard $(srcdir)/.git/logs/HEAD)
+ MAINTAINERCLEANFILES = ChangeLog
+ 

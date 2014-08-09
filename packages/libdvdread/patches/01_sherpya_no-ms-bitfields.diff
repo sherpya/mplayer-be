@@ -1,12 +1,12 @@
 diff --git a/configure.ac b/configure.ac
-index 9fa0a19..ac8e113 100644
+index 7b2dad3..713fea0 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -85,6 +85,7 @@ AS_IF([test x"$with_libdvdcss" = "xyes"], [
- AC_SUBST([CSS_REQUIRES])
+@@ -86,6 +86,7 @@ AC_SUBST([CSS_REQUIRES])
  
- CC_CHECK_CFLAGS_APPEND([-Wall -Wsign-compare])
+ CC_CHECK_CFLAGS_APPEND([-Wall -Wsign-compare -Wextra])
+ 
 +CC_CHECK_CFLAGS_APPEND([-mno-ms-bitfields])
  
- 
  AC_ARG_ENABLE([apidoc],
+   AS_HELP_STRING([--disable-apidoc], [Disable building (with Doxygen) and intalling API documentation @<:@default=auto@:@>]))
