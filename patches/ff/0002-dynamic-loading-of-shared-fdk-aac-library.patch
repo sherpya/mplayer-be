@@ -1,4 +1,4 @@
-From fb606bb3aeedebfb4296ea9a7ee60191e3e0cea2 Mon Sep 17 00:00:00 2001
+From dab06081a078f9cb1a3121b08cba253fc0a31b05 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 May 2014 05:31:53 +0200
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 124 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index 0c24457..98dfcde 100755
+index 74da94f..2a02a43 100755
 --- a/configure
 +++ b/configure
-@@ -4272,7 +4272,6 @@ die_license_disabled gpl libzvbi
+@@ -4275,7 +4275,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index 0c24457..98dfcde 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4742,7 +4741,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4755,7 +4754,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -244,5 +244,5 @@ index b9c9a13..25003f0 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.0.1
+2.1.0.rc1
 

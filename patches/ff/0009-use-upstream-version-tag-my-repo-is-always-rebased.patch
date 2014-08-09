@@ -1,25 +1,28 @@
-From 459c85eb72834f0fec8bf0762b90c6236c6dc796 Mon Sep 17 00:00:00 2001
+From ab63fc6818bca7fa91b025319b86b3873276e717 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Mon, 4 Feb 2013 04:03:37 +0100
+Date: Sat, 9 Aug 2014 04:25:30 +0200
 Subject: [PATCH 9/9] use upstream version tag, my repo is always rebased
 
 ---
- version.sh | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ version.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/version.sh b/version.sh
-index 92edcb9..15729fd 100755
+index f9754eb..f724110 100755
 --- a/version.sh
 +++ b/version.sh
-@@ -4,7 +4,7 @@
- 
+@@ -5,9 +5,9 @@
  # check for git short hash
  if ! test "$revision"; then
--    revision=$(cd "$1" && git describe --tags --match N 2> /dev/null)
-+    revision=$(cd "$1" && git describe --tags --match N upstream/master 2> /dev/null)
+     if (cd "$1" && grep git RELEASE 2> /dev/null >/dev/null) ; then
+-        revision=$(cd "$1" && git describe --tags --match N 2> /dev/null)
++        revision=$(cd "$1" && git describe --tags --match N upstream/master 2> /dev/null)
+     else
+-        revision=$(cd "$1" && git describe --tags --always 2> /dev/null)
++        revision=$(cd "$1" && git describe --tags --always upstream/master 2> /dev/null)
+     fi
  fi
  
- # Shallow Git clones (--depth) do not have the N tag:
 -- 
-2.0.1
+2.1.0.rc1
 

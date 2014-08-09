@@ -1,4 +1,4 @@
-From 3041800043a5bb5e0eedaaa626aee73e53b31fa8 Mon Sep 17 00:00:00 2001
+From 5cab947a8e54c32aa046ee1e8b31a0df05a2d3e0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 15 Jul 2014 07:47:11 +0200
 Subject: [PATCH 6/9] no Werror on implicit-function-declaration and
@@ -9,10 +9,10 @@ Subject: [PATCH 6/9] no Werror on implicit-function-declaration and
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index c4869ec..bc69d0b 100755
+index d7ba3b4..4ee77bf 100755
 --- a/configure
 +++ b/configure
-@@ -5094,8 +5094,6 @@ elif enabled ccc; then
+@@ -5109,8 +5109,6 @@ elif enabled ccc; then
  elif enabled gcc; then
      check_optflags -fno-tree-vectorize
      check_cflags -Werror=format-security
@@ -22,5 +22,5 @@ index c4869ec..bc69d0b 100755
      check_cflags -Werror=vla
      check_cflags -Wformat
 -- 
-2.0.1
+2.1.0.rc1
 
