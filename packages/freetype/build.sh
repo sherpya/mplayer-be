@@ -1,7 +1,9 @@
 #!/bin/bash
 # Build script for FreeType library
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
+
+# includes fixes for: CVE-2014-2240, CVE-2014-2241
 
 PACKAGE=freetype
 VERSION=2.5.3
