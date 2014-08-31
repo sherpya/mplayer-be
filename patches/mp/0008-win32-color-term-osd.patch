@@ -1,14 +1,14 @@
-From 3a0540f1bba947b82e2f3ea43fbea5f4d3dcb87c Mon Sep 17 00:00:00 2001
+From fcd743ce62698a5429c92fcc46dd8a1fb7ffd544 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
-Subject: [PATCH 08/29] win32: color term osd
+Subject: [PATCH 08/30] win32: color term osd
 
 ---
  mplayer.c | 28 +++++++++++++++++++++++++---
  1 file changed, 25 insertions(+), 3 deletions(-)
 
 diff --git a/mplayer.c b/mplayer.c
-index 33dc665..0baa62b 100644
+index aae7630..674f761 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -197,6 +197,25 @@ int use_gui;
@@ -37,7 +37,7 @@ index 33dc665..0baa62b 100644
  static int list_properties;
  
  int osd_level = 1;
-@@ -1583,8 +1602,10 @@ static void update_osd_msg(void)
+@@ -1580,8 +1599,10 @@ static void update_osd_msg(void)
              strncpy((char *)osd_text, msg->msg, 127);
              if (mpctx->sh_video)
                  vo_osd_changed(OSDTYPE_OSD);
@@ -50,7 +50,7 @@ index 33dc665..0baa62b 100644
          }
          return;
      }
-@@ -1655,7 +1676,8 @@ static void update_osd_msg(void)
+@@ -1652,7 +1673,8 @@ static void update_osd_msg(void)
      // Clear the term osd line
      if (term_osd && osd_text[0]) {
          osd_text[0] = 0;
@@ -61,5 +61,5 @@ index 33dc665..0baa62b 100644
  }
  
 -- 
-2.0.0
+2.1.0
 

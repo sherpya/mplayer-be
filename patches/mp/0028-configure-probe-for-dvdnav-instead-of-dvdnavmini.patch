@@ -1,0 +1,27 @@
+From 5cb8ccc11534e25d9645424bbd1fe8cc8e0561f6 Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Sun, 31 Aug 2014 05:34:16 +0200
+Subject: [PATCH 28/30] configure: probe for dvdnav instead of dvdnavmini
+
+---
+ configure | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 2533d4a..be5dfb1 100755
+--- a/configure
++++ b/configure
+@@ -8203,8 +8203,8 @@ if test "$_dvdnav" = yes ; then
+     cflags_libdvdnav="-Ilibdvdnav"
+     inputmodules="dvdnav(internal) $inputmodules"
+   else
+-    extra_cflags="$extra_cflags $($_pkg_config --cflags dvdnavmini)"
+-    extra_ldflags="$extra_ldflags $($_pkg_config --libs dvdnavmini)"
++    extra_cflags="$extra_cflags $($_pkg_config --cflags dvdnav)"
++    extra_ldflags="$extra_ldflags $($_pkg_config --libs dvdnav)"
+     inputmodules="dvdnav $inputmodules"
+   fi
+ else
+-- 
+2.1.0
+

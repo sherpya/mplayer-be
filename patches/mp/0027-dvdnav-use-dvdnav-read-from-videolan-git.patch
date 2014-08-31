@@ -1,7 +1,7 @@
-From f41d900f26b4f6298f6337b3c70ef50172c733d5 Mon Sep 17 00:00:00 2001
+From 413f41fb67bffc4320f6f0b8fb92681333fbdd42 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 12 Mar 2014 03:11:42 +0100
-Subject: [PATCH 27/29] dvdnav: use dvdnav/read from videolan git
+Subject: [PATCH 27/30] dvdnav: use dvdnav/read from videolan git
 
 ---
  configure              | 4 ++--
@@ -9,10 +9,10 @@ Subject: [PATCH 27/29] dvdnav: use dvdnav/read from videolan git
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/configure b/configure
-index 905b498..60aa154 100755
+index 6f13640..2533d4a 100755
 --- a/configure
 +++ b/configure
-@@ -8178,8 +8178,8 @@ if test "$_dvdnav" = yes ; then
+@@ -8203,8 +8203,8 @@ if test "$_dvdnav" = yes ; then
      cflags_libdvdnav="-Ilibdvdnav"
      inputmodules="dvdnav(internal) $inputmodules"
    else
@@ -46,5 +46,5 @@ index dbf4226..c6b69e7 100644
    default:
      return -1;
 -- 
-2.0.0
+2.1.0
 

@@ -1,7 +1,7 @@
-From 409caa2ec824cd55ef5b8da72966c1608bf532ed Mon Sep 17 00:00:00 2001
+From ee22c69de620325e2495aee779ccff7e3d0d0db2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 18 May 2014 04:31:04 +0200
-Subject: [PATCH 28/29] giflib: compatibilty with 5.1+
+Subject: [PATCH 29/30] giflib: compatibilty with 5.1+
 
 ---
  libmpdemux/demux_gif.c | 3 +++
@@ -37,5 +37,5 @@ index 5061870..e8e024f 100644
  
  // how many frames per second we are aiming for during output.
 -- 
-2.0.0
+2.1.0
 
