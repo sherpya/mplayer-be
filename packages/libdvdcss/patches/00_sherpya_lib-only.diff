@@ -1,12 +1,12 @@
-diff -ur libdvdcss.orig/Makefile.am libdvdcss/Makefile.am
---- libdvdcss.orig/Makefile.am	2014-03-09 04:58:02.271029406 +0100
-+++ libdvdcss/Makefile.am	2014-03-09 05:02:59.695027961 +0100
-@@ -2,8 +2,6 @@
+diff --git a/Makefile.am b/Makefile.am
+index 15002e9..c1c923a 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,7 +2,6 @@ ACLOCAL_AMFLAGS = -I m4
  
  EXTRA_DIST = msvc libdvdcss.spec doc/header.html doc/footer.html INSTALL
  
 -dist_doc_DATA = AUTHORS COPYING NEWS README ChangeLog
--
- DISTCLEANFILES = ChangeLog
  
- ChangeLog: $(wildcard $(srcdir)/.git/logs/HEAD)
+ MAINTAINERCLEANFILES = ChangeLog
+ 
