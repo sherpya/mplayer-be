@@ -1,7 +1,7 @@
-From b2d5d4e9e67c5da85915fa0598035394abc29c34 Mon Sep 17 00:00:00 2001
+From 71aec99e518127afb58f2cb72f05968325fe072b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 8/9] custom icon and windows resource
+Subject: [PATCH 7/8] custom icon and windows resource
 
 ---
  Makefile    |   4 ++++
@@ -1746,5 +1746,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.1.0.rc1
+2.1.0
 

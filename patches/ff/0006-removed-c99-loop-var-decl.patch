@@ -1,7 +1,7 @@
-From 5fd71df564d760b0cc65759f839a9656664d301d Mon Sep 17 00:00:00 2001
+From da4f9b40d1c10aa9876993a18ee425a34fac5e8d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 9 Feb 2014 07:02:48 +0100
-Subject: [PATCH 7/9] removed c99 loop var decl
+Subject: [PATCH 6/8] removed c99 loop var decl
 
 ---
  libavcodec/cinepakenc.c | 3 ++-
@@ -22,5 +22,5 @@ index 7277345..d827e7d 100644
                  if(keyframe && mode == MODE_MC)
                      continue;
 -- 
-2.1.0.rc1
+2.1.0
 
