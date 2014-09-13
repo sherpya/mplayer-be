@@ -1,19 +1,19 @@
-diff -ur mingw-w64-3.1.0.orig/debian/changelog mingw-w64-3.1.0/debian/changelog
---- mingw-w64-3.1.0.orig/debian/changelog	2014-07-27 23:39:35.000000000 +0200
-+++ mingw-w64-3.1.0/debian/changelog	2014-07-28 11:44:34.118482090 +0200
+diff -ur mingw-w64-3.2.0.orig/debian/changelog mingw-w64-3.2.0/debian/changelog
+--- mingw-w64-3.2.0.orig/debian/changelog	2014-09-11 23:30:00.000000000 +0200
++++ mingw-w64-3.2.0/debian/changelog	2014-09-13 17:22:12.966432088 +0200
 @@ -1,3 +1,9 @@
-+mingw-w64 (3.1.0-4.1~sherpya) UNRELEASED; urgency=medium
++mingw-w64 (3.2.0-2.1~sherpya) UNRELEASED; urgency=medium
 +
 +  * Rebuild with -march=i486
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Mon, 28 Jul 2014 11:44:24 +0200
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Sat, 13 Sep 2014 17:21:52 +0200
 +
- mingw-w64 (3.1.0-4) unstable; urgency=medium
+ mingw-w64 (3.2.0-2) unstable; urgency=medium
  
-   * Update strtok_r.patch as done upstream, to remove the conditions on
-diff -ur mingw-w64-3.1.0.orig/debian/control mingw-w64-3.1.0/debian/control
---- mingw-w64-3.1.0.orig/debian/control	2014-07-21 22:43:52.000000000 +0200
-+++ mingw-w64-3.1.0/debian/control	2014-07-28 11:44:11.806481559 +0200
+   * Add missing / to open boilerplate in a few headers. (Closes:
+diff -ur mingw-w64-3.2.0.orig/debian/control mingw-w64-3.2.0/debian/control
+--- mingw-w64-3.2.0.orig/debian/control	2014-07-21 22:43:52.000000000 +0200
++++ mingw-w64-3.2.0/debian/control	2014-09-13 17:21:31.702431108 +0200
 @@ -38,23 +38,6 @@
   The wine package can be used to test software built using MinGW-w64
   without using Windows.
@@ -38,9 +38,9 @@ diff -ur mingw-w64-3.1.0.orig/debian/control mingw-w64-3.1.0/debian/control
  Package: mingw-w64
  Architecture: all
  Depends: gcc-mingw-w64, g++-mingw-w64, ${misc:Depends}
-diff -ur mingw-w64-3.1.0.orig/debian/rules mingw-w64-3.1.0/debian/rules
---- mingw-w64-3.1.0.orig/debian/rules	2013-11-10 14:42:53.000000000 +0100
-+++ mingw-w64-3.1.0/debian/rules	2014-07-28 11:44:11.806481559 +0200
+diff -ur mingw-w64-3.2.0.orig/debian/rules mingw-w64-3.2.0/debian/rules
+--- mingw-w64-3.2.0.orig/debian/rules	2013-11-10 14:42:53.000000000 +0100
++++ mingw-w64-3.2.0/debian/rules	2014-09-13 17:21:31.702431108 +0200
 @@ -16,7 +16,7 @@
  # Target architectures
  target32 := i686-w64-mingw32
