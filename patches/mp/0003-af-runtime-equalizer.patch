@@ -1,7 +1,7 @@
-From 0fe2ae7dbc6be3fa44bc4676d98911d4a94be9e4 Mon Sep 17 00:00:00 2001
+From e30fdf7858069c149640c00254e2abad32238e3a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 03/30] af: runtime equalizer
+Subject: [PATCH 03/29] af: runtime equalizer
 
 ---
  DOCS/tech/slave.txt  |  5 +++++
@@ -48,7 +48,7 @@ index 27bfbf2..df6a136 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 5250a3f..0f31668 100644
+index 4f80e68..b71ee1d 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
@@ -102,5 +102,5 @@ index 78e12e7..0b7c614 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-2.1.0
+2.1.1
 

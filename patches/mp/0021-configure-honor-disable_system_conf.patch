@@ -1,7 +1,7 @@
-From a180b4a7ed5bd834168060e6d3d59b4059267ee5 Mon Sep 17 00:00:00 2001
+From dcb313562b0a2dd60474db6c010f3503fbaf7e8b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 21/30] configure: honor disable_system_conf
+Subject: [PATCH 21/29] configure: honor disable_system_conf
 
 except stream_dvb
 ---
@@ -12,7 +12,7 @@ except stream_dvb
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index d2e3a9d..26d8b64 100644
+index f6cd5ec..1e5184a 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -35,6 +35,7 @@
@@ -55,7 +55,7 @@ index e8a0e7a..3e6daf3 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index 674f761..ae99984 100644
+index 91ae317..5353610 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -3037,7 +3037,7 @@ int main(int argc, char *argv[])
@@ -82,5 +82,5 @@ index 0147937..522d8d6 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.1.0
+2.1.1
 

@@ -1,14 +1,14 @@
-From fcd743ce62698a5429c92fcc46dd8a1fb7ffd544 Mon Sep 17 00:00:00 2001
+From b0df41b29cb975879beeb84564569d677654026d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:25 +0100
-Subject: [PATCH 08/30] win32: color term osd
+Subject: [PATCH 08/29] win32: color term osd
 
 ---
  mplayer.c | 28 +++++++++++++++++++++++++---
  1 file changed, 25 insertions(+), 3 deletions(-)
 
 diff --git a/mplayer.c b/mplayer.c
-index aae7630..674f761 100644
+index f349cbe..91ae317 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -197,6 +197,25 @@ int use_gui;
@@ -61,5 +61,5 @@ index aae7630..674f761 100644
  }
  
 -- 
-2.1.0
+2.1.1
 
