@@ -1,10 +1,10 @@
 diff --git a/Makefile.am b/Makefile.am
-index 15002e9..c1c923a 100644
+index 726ea7f..40931e4 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -2,7 +2,6 @@ ACLOCAL_AMFLAGS = -I m4
  
- EXTRA_DIST = msvc libdvdcss.spec doc/header.html doc/footer.html INSTALL
+ EXTRA_DIST = msvc libdvdcss.spec INSTALL
  
 -dist_doc_DATA = AUTHORS COPYING NEWS README ChangeLog
  
