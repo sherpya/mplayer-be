@@ -1,4 +1,4 @@
-From db06de7afc870c2479de44172c94ec4a06348e62 Mon Sep 17 00:00:00 2001
+From a57fe9798bf99d561f53fa5710230a6d8ce1a1be Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 4/8] programs: print version info and configuration only on
@@ -9,7 +9,7 @@ Subject: [PATCH 4/8] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/cmdutils.c b/cmdutils.c
-index 1143ea1..1661071 100644
+index 7353dd5..879bb46 100644
 --- a/cmdutils.c
 +++ b/cmdutils.c
 @@ -1077,7 +1077,7 @@ static void print_program_info(int flags, int level)
@@ -33,5 +33,5 @@ index 1143ea1..1661071 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-2.1.0
+2.1.1
 
