@@ -1,4 +1,4 @@
-From d554b0505b865add4727443a58721ee60461f0c0 Mon Sep 17 00:00:00 2001
+From 2d3b47fbec07049627ceb1b81db67206321ef508 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 31 Aug 2014 05:34:16 +0200
 Subject: [PATCH 28/29] configure: probe for dvdnav instead of dvdnavmini
@@ -8,10 +8,10 @@ Subject: [PATCH 28/29] configure: probe for dvdnav instead of dvdnavmini
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index 80ab831..b89b28a 100755
+index 5aeb761..6113133 100755
 --- a/configure
 +++ b/configure
-@@ -8171,8 +8171,8 @@ if test "$_dvdnav" = yes ; then
+@@ -8193,8 +8193,8 @@ if test "$_dvdnav" = yes ; then
      cflags_libdvdnav="-Ilibdvdnav"
      inputmodules="dvdnav(internal) $inputmodules"
    else

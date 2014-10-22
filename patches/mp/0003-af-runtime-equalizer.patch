@@ -1,4 +1,4 @@
-From e30fdf7858069c149640c00254e2abad32238e3a Mon Sep 17 00:00:00 2001
+From 4342ce98ee4795d072e5a097c2d2971a44fbad7a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/29] af: runtime equalizer
