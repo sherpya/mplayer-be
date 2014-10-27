@@ -1,4 +1,6 @@
 #!/bin/bash
+# squid breaks uscan ftp parser
+unset ftp_proxy
 (
 echo '<up-to-date>'
 while read package version; do
