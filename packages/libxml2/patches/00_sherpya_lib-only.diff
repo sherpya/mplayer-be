@@ -1,16 +1,16 @@
-diff -ur libxml2-2.9.1.orig/Makefile.in libxml2-2.9.1/Makefile.in
---- libxml2-2.9.1.orig/Makefile.in	2013-04-19 09:36:12.000000000 +0200
-+++ libxml2-2.9.1/Makefile.in	2014-06-09 06:45:50.128715748 +0200
-@@ -155,7 +155,7 @@
+diff -ur libxml2-2.9.2.orig/Makefile.in libxml2-2.9.2/Makefile.in
+--- libxml2-2.9.2.orig/Makefile.in	2014-10-16 09:35:13.000000000 +0200
++++ libxml2-2.9.2/Makefile.in	2014-10-27 10:08:07.990605768 +0100
+@@ -186,7 +186,7 @@
  testdso_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
  	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
  	$(testdso_la_LDFLAGS) $(LDFLAGS) -o $@
 -PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
-+PROGRAMS = 
++PROGRAMS =
  am_runsuite_OBJECTS = runsuite.$(OBJEXT)
  runsuite_OBJECTS = $(am_runsuite_OBJECTS)
  am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) $(top_builddir)/libxml2.la \
-@@ -611,7 +611,7 @@
+@@ -678,7 +678,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
@@ -19,12 +19,12 @@ diff -ur libxml2-2.9.1.orig/Makefile.in libxml2-2.9.1/Makefile.in
  DIST_SUBDIRS = include . doc example python xstc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
  AM_CFLAGS = $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
-@@ -1703,15 +1703,13 @@
+@@ -1780,15 +1780,13 @@
  
  info-am:
  
--install-data-am: install-data-local install-m4dataDATA install-man \
--	install-pkgconfigDATA
+-install-data-am: install-cmakeDATA install-data-local \
+-	install-m4dataDATA install-man install-pkgconfigDATA
 +install-data-am: install-pkgconfigDATA
  
  install-dvi: install-dvi-recursive

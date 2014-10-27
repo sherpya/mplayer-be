@@ -3,8 +3,10 @@
 # Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+# includes fixes for: CVE-2014-3660
+
 PACKAGE=libxml2
-VERSION=2.9.1
+VERSION=2.9.2
 EXT=tar.gz
 BASEURL=ftp://xmlsoft.org/libxml2/
 
