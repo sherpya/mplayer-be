@@ -88,7 +88,6 @@ configure()
 
 	enable dvdnav
 	enable dvdread
-	disable dvdread-internal
 
     enable bluray
 
