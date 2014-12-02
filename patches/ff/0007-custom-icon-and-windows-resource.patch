@@ -1,4 +1,4 @@
-From 2365fda5397f32cd8c05cb58bca39b563b8cfc31 Mon Sep 17 00:00:00 2001
+From 5c1f8ac4032498b9216675866cfb6ca111d13e8c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 7/8] custom icon and windows resource
@@ -18,10 +18,10 @@ Subject: [PATCH 7/8] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 57f6a91..5af731e 100644
+index 1e1dbb3..d3cc287 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -102,6 +102,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -103,6 +103,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
  OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
@@ -30,7 +30,7 @@ index 57f6a91..5af731e 100644
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -116,6 +118,8 @@ ffprobe.o cmdutils.o : libavutil/ffversion.h
+@@ -117,6 +119,8 @@ ffprobe.o cmdutils.o : libavutil/ffversion.h
  $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
  	$(CP) $< $@
  	$(STRIP) $@
@@ -1746,5 +1746,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.1.1
+2.1.3
 

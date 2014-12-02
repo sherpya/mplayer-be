@@ -1,19 +1,19 @@
-From 9809861815a6e1e41b483b40ba15cb66abffa23a Mon Sep 17 00:00:00 2001
+From 9b43f4d00ea65890644bef36e223c4469e91d38c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
-Date: Mon, 19 May 2014 05:31:53 +0200
+Date: Tue, 2 Dec 2014 16:29:15 +0100
 Subject: [PATCH 2/8] dynamic loading of shared fdk-aac library
 
 ---
  configure                  |  3 +-
- libavcodec/libfdk-aacdec.c | 81 ++++++++++++++++++++++++++++++++++++++++++----
- libavcodec/libfdk-aacenc.c | 59 +++++++++++++++++++++++++++++++--
- 3 files changed, 133 insertions(+), 10 deletions(-)
+ libavcodec/libfdk-aacdec.c | 73 ++++++++++++++++++++++++++++++++++++++++++++--
+ libavcodec/libfdk-aacenc.c | 59 +++++++++++++++++++++++++++++++++++--
+ 3 files changed, 128 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index 2cddab3..93ae38a 100755
+index be8c0df..c5033bc 100755
 --- a/configure
 +++ b/configure
-@@ -4325,7 +4325,6 @@ die_license_disabled gpl libzvbi
+@@ -4341,7 +4341,6 @@ die_license_disabled gpl libzvbi
  die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
@@ -21,7 +21,7 @@ index 2cddab3..93ae38a 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4823,7 +4822,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -4846,7 +4845,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -31,7 +31,7 @@ index 2cddab3..93ae38a 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index e4bae1a..2ec6e2b 100644
+index 90cd956..453c38f 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -52,7 +52,7 @@ index e4bae1a..2ec6e2b 100644
  #include <fdk-aac/aacdecoder_lib.h>
  
  #include "libavutil/channel_layout.h"
-@@ -25,6 +36,39 @@
+@@ -25,6 +36,37 @@
  #include "avcodec.h"
  #include "internal.h"
  
@@ -64,8 +64,6 @@ index e4bae1a..2ec6e2b 100644
 +typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_ConfigRaw)(HANDLE_AACDECODER self, UCHAR *conf[], const UINT length[]);
 +typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_SetParam)(const HANDLE_AACDECODER self, const AACDEC_PARAM param, const INT value);
 +typedef LINKSPEC_H AAC_DECODER_ERROR (*imp_aacDecoder_AncDataInit)(HANDLE_AACDECODER self, UCHAR *buffer, int size);
-+
-+
 +
 +typedef struct _aacDecLib {
 +    imp_aacDecoder_Open aacDecoder_Open;
@@ -89,10 +87,10 @@ index e4bae1a..2ec6e2b 100644
 +        } \
 +    } while (0)
 +
- enum ConcealMethod {
-     CONCEAL_METHOD_SPECTRAL_MUTING      =  0,
-     CONCEAL_METHOD_NOISE_SUBSTITUTION   =  1,
-@@ -36,6 +80,8 @@ typedef struct FDKAACDecContext {
+ /* The version macro is introduced the same time as the setting enum was
+  * changed, so this check should suffice. */
+ #ifndef AACDECODER_LIB_VL0
+@@ -42,6 +84,8 @@ typedef struct FDKAACDecContext {
      const AVClass *class;
      HANDLE_AACDECODER handle;
      int initialized;
@@ -101,16 +99,16 @@ index e4bae1a..2ec6e2b 100644
      uint8_t *decoder_buffer;
      uint8_t *anc_buffer;
      enum ConcealMethod conceal_method;
-@@ -75,7 +121,7 @@ static const AVClass fdk_aac_dec_class = {
+@@ -81,7 +125,7 @@ static const AVClass fdk_aac_dec_class = {
  static int get_stream_info(AVCodecContext *avctx)
  {
      FDKAACDecContext *s   = avctx->priv_data;
 -    CStreamInfo *info     = aacDecoder_GetStreamInfo(s->handle);
 +    CStreamInfo *info     = s->pfn.aacDecoder_GetStreamInfo(s->handle);
-     int channel_counts[9] = { 0 };
+     int channel_counts[0x24] = { 0 };
      int i, ch_error       = 0;
      uint64_t ch_layout    = 0;
-@@ -187,8 +233,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
+@@ -193,8 +237,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
  {
      FDKAACDecContext *s = avctx->priv_data;
  
@@ -123,7 +121,7 @@ index e4bae1a..2ec6e2b 100644
      av_freep(&s->decoder_buffer);
      av_freep(&s->anc_buffer);
  
-@@ -201,6 +249,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+@@ -207,6 +253,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
      AAC_DECODER_ERROR err;
      int ret;
  
@@ -151,19 +149,6 @@ index e4bae1a..2ec6e2b 100644
      s->handle = aacDecoder_Open(avctx->extradata_size ? TT_MP4_RAW : TT_MP4_ADTS, 1);
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
-@@ -320,9 +389,9 @@ static int fdk_aac_decode_frame(AVCodecContext *avctx, void *data,
-             buf_size = DECODER_BUFFSIZE * DECODER_MAX_CHANNELS;
-             buf = s->decoder_buffer;
-         } else {
--            buf = frame->extended_data[0];
--            buf_size = avctx->channels * frame->nb_samples *
--                       av_get_bytes_per_sample(avctx->sample_fmt);
-+        buf = frame->extended_data[0];
-+        buf_size = avctx->channels * frame->nb_samples *
-+                   av_get_bytes_per_sample(avctx->sample_fmt);
-         }
-     } else {
-         buf_size = DECODER_BUFFSIZE * DECODER_MAX_CHANNELS;
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
 index 3eadb36..31258ce 100644
 --- a/libavcodec/libfdk-aacenc.c
@@ -263,5 +248,5 @@ index 3eadb36..31258ce 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.1.1
+2.1.3
 
