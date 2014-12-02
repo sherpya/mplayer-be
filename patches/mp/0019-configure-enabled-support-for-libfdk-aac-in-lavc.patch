@@ -1,17 +1,17 @@
-From c8f6d20907f66b76e0db0e4ba7fb2e3be5b0f630 Mon Sep 17 00:00:00 2001
+From a6baf46d2cf4689966116d65dee870bc93688205 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
-Subject: [PATCH 19/29] configure: enabled support for libfdk-aac in lavc
+Subject: [PATCH 19/27] configure: enabled support for libfdk-aac in lavc
 
 ---
  configure | 20 ++++++++++++++++++++
  1 file changed, 20 insertions(+)
 
 diff --git a/configure b/configure
-index 038bcaa..3962a55 100755
+index d6ab2f2..81eb9e1 100755
 --- a/configure
 +++ b/configure
-@@ -422,6 +422,7 @@ Codecs:
+@@ -420,6 +420,7 @@ Codecs:
    --enable-faad             enable FAAD2 (AAC) [autodetect]
    --disable-faac            disable support for FAAC (AAC encoder) [autodetect]
    --disable-faac-lavc       disable support for FAAC in libavcodec [autodetect]
@@ -19,7 +19,7 @@ index 038bcaa..3962a55 100755
    --disable-ladspa          disable LADSPA plugin support [autodetect]
    --disable-libbs2b         disable libbs2b audio filter support [autodetect]
    --disable-libdv           disable libdv 0.9.5 en/decoding support [autodetect]
-@@ -739,6 +740,7 @@ _libmpeg2_internal=no
+@@ -737,6 +738,7 @@ _libmpeg2_internal=no
  _faad=auto
  _faac=auto
  _faac_lavc=auto
@@ -27,7 +27,7 @@ index 038bcaa..3962a55 100755
  _ladspa=auto
  _libbs2b=auto
  _libilbc=auto
-@@ -1154,6 +1156,8 @@ for ac_option do
+@@ -1150,6 +1152,8 @@ for ac_option do
    --disable-faac)       _faac=no        ;;
    --enable-faac-lavc)   _faac_lavc=yes  ;;
    --disable-faac-lavc)  _faac_lavc=no   ;;
@@ -36,7 +36,7 @@ index 038bcaa..3962a55 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -6823,6 +6827,21 @@ res_comment="in FFmpeg: $_faac_lavc"
+@@ -6745,6 +6749,21 @@ res_comment="in FFmpeg: $_faac_lavc"
  echores "$_faac"
  
  
@@ -58,7 +58,7 @@ index 038bcaa..3962a55 100755
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
    _faad=no
-@@ -9189,6 +9208,7 @@ $def_windows_h
+@@ -9093,6 +9112,7 @@ $def_windows_h
  $def_bzlib
  $def_crystalhd
  $def_faac_lavc
@@ -67,5 +67,5 @@ index 038bcaa..3962a55 100755
  $def_libgsm
  $def_libopencore_amrnb
 -- 
-2.1.1
+2.1.3
 

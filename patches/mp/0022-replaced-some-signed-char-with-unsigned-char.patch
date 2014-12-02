@@ -1,7 +1,7 @@
-From 69eb87a60db3b65fa0169bc846bf6a44575a949c Mon Sep 17 00:00:00 2001
+From a6115e16b8844207384c7d1024ff920f4b3c7c54 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 22/29] replaced some signed char with unsigned char
+Subject: [PATCH 22/27] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -63,10 +63,10 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index 710c29a..2753fe5 100644
+index 4ea3cf3..dea152f 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
-@@ -702,8 +702,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
+@@ -709,8 +709,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
    return mem;
  }
  
@@ -78,10 +78,10 @@ index 710c29a..2753fe5 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index ce641e0..feec05c 100644
+index 9fa39d4..f5e43ee 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
-@@ -399,6 +399,6 @@ typedef struct {
+@@ -402,6 +402,6 @@ typedef struct {
  
  int bluray_id_from_lang(stream_t *s, enum stream_ctrl_type type, const char *lang);
  
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.1.1
+2.1.3
 

@@ -1,7 +1,7 @@
-From 8c2c3652a8553a30af7e470d9b8c9510b7baa250 Mon Sep 17 00:00:00 2001
+From d87c10d6339d469f9e046160475fdb13abfdc496 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 29/29] sherpya's customizations
+Subject: [PATCH 27/27] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -18,10 +18,10 @@ Subject: [PATCH 29/29] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index d9990f9..b9291f6 100644
+index fa08370..bfa3a19 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -687,6 +687,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -663,6 +663,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index d9990f9..b9291f6 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -862,6 +864,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -834,6 +836,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -39,12 +39,12 @@ index d9990f9..b9291f6 100644
 +
  gui/%: CFLAGS += -Wno-strict-prototypes
  
- libdvdcss/%:   CFLAGS := $(CFLAGS_LIBDVDCSS) $(CFLAGS)
+ loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 6113133..13d9409 100755
+index d0c6202..56bf827 100755
 --- a/configure
 +++ b/configure
-@@ -1543,13 +1543,13 @@ fi
+@@ -1535,13 +1535,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 6113133..13d9409 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1814,6 +1814,7 @@ fi
+@@ -1806,6 +1806,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index f2627e8..671081f 100755
  version=$svn_revision
  fi
 -- 
-2.1.1
+2.1.3
 
