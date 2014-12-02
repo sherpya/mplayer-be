@@ -3,8 +3,10 @@
 # Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+# includes fixes for: CVE-2014-8962, CVE-2014-9028
+
 PACKAGE=flac
-VERSION=1.3.0
+VERSION=1.3.1
 EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
