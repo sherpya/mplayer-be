@@ -37,8 +37,8 @@ make_binary_dist()
 
     rm -fr ../dist/${ARCH}
     install -d ../dist/${ARCH}
-    ${STRIP} .libs/libfdk-aac-0.dll
-    install -m 644 .libs/libfdk-aac-0.dll ../dist/${ARCH}
+    ${STRIP} .libs/libfdk-aac-1.dll
+    install -m 644 .libs/libfdk-aac-1.dll ../dist/${ARCH}
     unix2dos -n NOTICE ../dist/${ARCH}/NOTICE.txt
 
     ( cd ../dist && 7z a -mx=9 ${PACKAGE} ${ARCH} && rm -fr ${ARCH} )
