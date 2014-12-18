@@ -1,4 +1,4 @@
-From 411c10e7f1a66c04085dd99630b5fc7d73d7c020 Mon Sep 17 00:00:00 2001
+From 3c7cdeb7b0b4d7752c5dd82bdd3da11bb076aef6 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
 Subject: [PATCH 17/27] configure: reduced some warnings on gcc flags
@@ -8,19 +8,19 @@ Subject: [PATCH 17/27] configure: reduced some warnings on gcc flags
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/configure b/configure
-index c358b44..c3ebd91 100755
+index e146779..8df93a9 100755
 --- a/configure
 +++ b/configure
-@@ -2780,7 +2780,7 @@ if test -z "$CFLAGS" || test "$_profile" != "" || test "$_debug" != ""; then
+@@ -2786,7 +2786,7 @@ if test -z "$CFLAGS" || test "$_profile" != "" || test "$_debug" != ""; then
      CFLAGS="-O2 $_march $_mcpu $_pipe"
    else
      CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
--    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
-+    WARNFLAGS="-Wall -Wno-format -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls"
+-    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Werror=format-security"
++    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Werror=format-security -Wno-format"
      WARN_CFLAGS="-Werror-implicit-function-declaration"
      extra_ldflags="$extra_ldflags -ffast-math"
    fi
-@@ -2804,13 +2804,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
+@@ -2810,13 +2810,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"

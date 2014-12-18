@@ -1,4 +1,4 @@
-From c70c1b82cd4f71db9d3fe2920611dc16a41cc6b1 Mon Sep 17 00:00:00 2001
+From 7f151f72217e3d4d4cee66d292555ba0f5548e0a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 19:06:27 +0200
 Subject: [PATCH 23/27] subs: fix oom on huge number overlapping lines

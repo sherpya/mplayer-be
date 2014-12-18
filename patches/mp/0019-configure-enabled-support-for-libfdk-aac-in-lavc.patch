@@ -1,4 +1,4 @@
-From a6baf46d2cf4689966116d65dee870bc93688205 Mon Sep 17 00:00:00 2001
+From a66a6a655b59e0629f3101f89b583e643352b731 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
 Subject: [PATCH 19/27] configure: enabled support for libfdk-aac in lavc
@@ -8,7 +8,7 @@ Subject: [PATCH 19/27] configure: enabled support for libfdk-aac in lavc
  1 file changed, 20 insertions(+)
 
 diff --git a/configure b/configure
-index d6ab2f2..81eb9e1 100755
+index 01a3f82..ed14617 100755
 --- a/configure
 +++ b/configure
 @@ -420,6 +420,7 @@ Codecs:
@@ -36,7 +36,7 @@ index d6ab2f2..81eb9e1 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -6745,6 +6749,21 @@ res_comment="in FFmpeg: $_faac_lavc"
+@@ -6751,6 +6755,21 @@ res_comment="in FFmpeg: $_faac_lavc"
  echores "$_faac"
  
  
@@ -58,7 +58,7 @@ index d6ab2f2..81eb9e1 100755
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
    _faad=no
-@@ -9093,6 +9112,7 @@ $def_windows_h
+@@ -9099,6 +9118,7 @@ $def_windows_h
  $def_bzlib
  $def_crystalhd
  $def_faac_lavc

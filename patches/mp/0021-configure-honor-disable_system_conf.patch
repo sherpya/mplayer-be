@@ -1,4 +1,4 @@
-From eb188d2f284abc565cd6206568a5d04af7425d9f Mon Sep 17 00:00:00 2001
+From 9f8c8c46910cc2f383c25c1e12ef28950d74b3df Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/27] configure: honor disable_system_conf

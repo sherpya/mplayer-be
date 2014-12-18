@@ -1,4 +1,4 @@
-From 9dd7ca8c88b6a5163047e8b7ce2fd09192fd9064 Mon Sep 17 00:00:00 2001
+From 9079fda6f5ecaca61e53d3ba3cd4cae91e923c99 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
 Subject: [PATCH 04/27] win32: added vo native directshow decoder

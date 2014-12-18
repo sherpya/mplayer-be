@@ -1,4 +1,4 @@
-From d87c10d6339d469f9e046160475fdb13abfdc496 Mon Sep 17 00:00:00 2001
+From 423961bcd6275699c17e7621970b83dd854aa52d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -41,7 +41,7 @@ index fa08370..bfa3a19 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index d0c6202..56bf827 100755
+index de9abe7..43ea1e5 100755
 --- a/configure
 +++ b/configure
 @@ -1535,13 +1535,13 @@ fi

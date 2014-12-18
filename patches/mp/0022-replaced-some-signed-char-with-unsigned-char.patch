@@ -1,4 +1,4 @@
-From a6115e16b8844207384c7d1024ff920f4b3c7c54 Mon Sep 17 00:00:00 2001
+From a1b49a7144e4e4b7d87892117979c4c04b6057a9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 22/27] replaced some signed char with unsigned char
@@ -63,10 +63,10 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index 4ea3cf3..dea152f 100644
+index a07c636..4fc8853 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
-@@ -709,8 +709,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
+@@ -708,8 +708,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
    return mem;
  }
  
