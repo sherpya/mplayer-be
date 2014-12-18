@@ -1,0 +1,15 @@
+diff --git a/Makefile.am b/Makefile.am
+index 2cbd6d0..cd76074 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -206,10 +206,6 @@ libilbc_la_SOURCES = \
+     $(sigproc_sources) \
+     $(sigproc_headers)
+ 
+-dist_doc_DATA = \
+-    $(top_srcdir)/NEWS.md \
+-    $(top_srcdir)/README.md
+-
+ DISTCLEANFILES = \
+     doltcompile \
+     doltlibtool
