@@ -1,4 +1,4 @@
-From ab5cab84e931dd29ebcbd9a5778e2d5672f09719 Mon Sep 17 00:00:00 2001
+From 057d48a857781ff59082fab97989cde037784194 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:46:30 +0100
 Subject: [PATCH 13/27] qtx: qtx decoder spams on stdout and causes problems
@@ -29,5 +29,5 @@ index e621a62..4f60dbc 100644
 +#undef printf
  #endif /* MPLAYER_COMPONENTS_H */
 -- 
-2.1.3
+2.1.4
 

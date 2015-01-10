@@ -1,4 +1,4 @@
-From f50d62e664d52552b97fb46c09b6c8754d89b60b Mon Sep 17 00:00:00 2001
+From 0c8944cecbb06ea7dfbeb712f69c06f0f3eced1d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:42:25 +0100
 Subject: [PATCH 14/27] mpcodecs: make faac encoder dynamic load faac library
@@ -142,5 +142,5 @@ index 5fb399a..bf6f83f 100644
  		decoder_specific_len = 0;
  
 -- 
-2.1.3
+2.1.4
 

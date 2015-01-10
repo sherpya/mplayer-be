@@ -1,4 +1,4 @@
-From 9f8c8c46910cc2f383c25c1e12ef28950d74b3df Mon Sep 17 00:00:00 2001
+From 4f9ee4f4167927188f3aa8012a6b649327a97580 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/27] configure: honor disable_system_conf
@@ -82,5 +82,5 @@ index 0147937..522d8d6 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.1.3
+2.1.4
 
