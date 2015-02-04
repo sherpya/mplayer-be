@@ -6,7 +6,7 @@
 # includes fixes for: CVE-2014-2240, CVE-2014-2241
 
 PACKAGE=freetype
-VERSION=2.5.3
+VERSION=2.5.5
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 
