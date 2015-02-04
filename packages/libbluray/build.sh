@@ -12,6 +12,6 @@ depends lib/libfreetype.a
 
 BUILDDIR="libbluray"
 STATICLIBS="libbluray"
-CONFOPTS="--enable-examples=no"
+CONFOPTS="--enable-examples=no --disable-bdjava"
 
 git_clean && pkg_build && git_clean
