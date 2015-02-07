@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=lzo
-VERSION=2.08
+VERSION=2.09
 EXT=tar.gz
 BASEURL=http://www.oberhumer.com/opensource/${PACKAGE}/download
 

@@ -1,7 +1,7 @@
-diff -ur lzo-2.08.orig/Makefile.in lzo-2.08/Makefile.in
---- lzo-2.08.orig/Makefile.in	2014-06-29 11:38:49.000000000 +0200
-+++ lzo-2.08/Makefile.in	2014-06-29 15:56:35.344257319 +0200
-@@ -1371,7 +1371,7 @@
+diff -ur lzo-2.09.orig/Makefile.in lzo-2.09/Makefile.in
+--- lzo-2.09.orig/Makefile.in	2015-02-04 12:24:51.000000000 +0100
++++ lzo-2.09/Makefile.in	2015-02-07 12:04:08.381763748 +0100
+@@ -1381,7 +1381,7 @@
  
  info-am:
  
