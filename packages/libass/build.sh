@@ -1,9 +1,9 @@
 #!/bin/bash
 # Build script for libass subtitle renderer
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://code.google.com/p/libass/"
+GIT_REPO="https://github.com/libass/libass"
 
 . $(dirname $0)/../functions.sh
 
