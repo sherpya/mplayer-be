@@ -1,4 +1,4 @@
-From 0ccdfc53f026ccf09f5b2302f9bff1c9a5911af8 Mon Sep 17 00:00:00 2001
+From a22ea6db9c07922b9d28c06ee85361ed19210cff Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
 Subject: [PATCH 8/8] use upstream version tag, my repo is always rebased

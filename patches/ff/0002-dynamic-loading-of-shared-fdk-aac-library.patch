@@ -1,4 +1,4 @@
-From 8013caf8206ab641228091af8fddf969e0efbfe8 Mon Sep 17 00:00:00 2001
+From a7a128743a6b7da8e08ea87afb26c860f5ebc138 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 2 Dec 2014 16:29:15 +0100
 Subject: [PATCH 2/8] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/8] dynamic loading of shared fdk-aac library
  3 files changed, 128 insertions(+), 7 deletions(-)
 
 diff --git a/configure b/configure
-index 57bd6de..92c1f90 100755
+index 884c7b7..45230b3 100755
 --- a/configure
 +++ b/configure
-@@ -4379,7 +4379,6 @@ die_license_disabled gpl x11grab
+@@ -4402,7 +4402,6 @@ die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
  die_license_disabled nonfree nvenc
@@ -21,9 +21,9 @@ index 57bd6de..92c1f90 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -4885,7 +4884,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
-                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
+@@ -4927,7 +4926,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+ enabled libdcadec         && require libdcadec libdcadec/dca_context.h dcadec_context_create -ldcadec
  enabled libfaac           && check_header "stdint.h faac.h"
 -enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
 +enabled libfdk_aac        && check_header fdk-aac/aacenc_lib.h
@@ -31,7 +31,7 @@ index 57bd6de..92c1f90 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index a8ed104..4215b05 100644
+index f7fc811..0ac1316 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -98,7 +98,7 @@ index a8ed104..4215b05 100644
 +    aacDecLib pfn;
      uint8_t *decoder_buffer;
      uint8_t *anc_buffer;
-     enum ConcealMethod conceal_method;
+     int conceal_method;
 @@ -85,7 +129,7 @@ static const AVClass fdk_aac_dec_class = {
  static int get_stream_info(AVCodecContext *avctx)
  {
