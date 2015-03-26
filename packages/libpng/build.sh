@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for libpng library
-# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libpng
-VERSION=1.6.16
+VERSION=1.6.17
 EXT=tar.xz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/libpng16/${VERSION}
 
