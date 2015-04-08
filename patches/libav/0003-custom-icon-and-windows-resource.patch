@@ -1,4 +1,4 @@
-From a7106b765fa0c5fe1e55c491fc36b2a8e5a1d8e8 Mon Sep 17 00:00:00 2001
+From ea3fa64880fec1d13ef4bdcdc1093139450045a5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
@@ -1747,5 +1747,5 @@ index 0000000..e65e018
 +
 +MAIN    ICON DISCARDABLE    __ICON__
 -- 
-2.0.1
+2.1.4
 
