@@ -7,7 +7,7 @@ index c1590d8..4a3e072 100755
  sed -i 's/    /\n/g' version.c
  
 -$CC -o version$EXE version.c
-+gcc -o version$EXE version.c
++cc -o version$EXE version.c
  
  UTVIDEO_VERSION_MASTER=`echo $(./version$EXE | sed 's/\r//g')`
  #end of messy version generating block
