@@ -1,19 +1,19 @@
-diff -ur mingw-w64-3.2.0.orig/debian/changelog mingw-w64-3.2.0/debian/changelog
---- mingw-w64-3.2.0.orig/debian/changelog	2014-09-11 23:30:00.000000000 +0200
-+++ mingw-w64-3.2.0/debian/changelog	2014-09-13 17:22:12.966432088 +0200
+diff -ur mingw-w64-4.0.2.orig/debian/changelog mingw-w64-4.0.2/debian/changelog
+--- mingw-w64-4.0.2.orig/debian/changelog	2015-05-26 00:18:14.000000000 +0200
++++ mingw-w64-4.0.2/debian/changelog	2015-05-26 18:10:20.888858651 +0200
 @@ -1,3 +1,9 @@
-+mingw-w64 (3.2.0-2.1~sherpya) UNRELEASED; urgency=medium
++mingw-w64 (4.0.2-2.1~sherpya) UNRELEASED; urgency=medium
 +
 +  * Rebuild with -march=i486
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Sat, 13 Sep 2014 17:21:52 +0200
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Tue, 26 May 2015 18:09:43 +0200
 +
- mingw-w64 (3.2.0-2) unstable; urgency=medium
+ mingw-w64 (4.0.2-2) unstable; urgency=medium
  
-   * Add missing / to open boilerplate in a few headers. (Closes:
-diff -ur mingw-w64-3.2.0.orig/debian/control mingw-w64-3.2.0/debian/control
---- mingw-w64-3.2.0.orig/debian/control	2014-07-21 22:43:52.000000000 +0200
-+++ mingw-w64-3.2.0/debian/control	2014-09-13 17:21:31.702431108 +0200
+   * Build the extra libraries using the newly provided runtime
+diff -ur mingw-w64-4.0.2.orig/debian/control mingw-w64-4.0.2/debian/control
+--- mingw-w64-4.0.2.orig/debian/control	2015-05-25 22:57:06.000000000 +0200
++++ mingw-w64-4.0.2/debian/control	2015-05-26 18:07:16.352854265 +0200
 @@ -38,23 +38,6 @@
   The wine package can be used to test software built using MinGW-w64
   without using Windows.
@@ -38,15 +38,15 @@ diff -ur mingw-w64-3.2.0.orig/debian/control mingw-w64-3.2.0/debian/control
  Package: mingw-w64
  Architecture: all
  Depends: gcc-mingw-w64, g++-mingw-w64, ${misc:Depends}
-diff -ur mingw-w64-3.2.0.orig/debian/rules mingw-w64-3.2.0/debian/rules
---- mingw-w64-3.2.0.orig/debian/rules	2013-11-10 14:42:53.000000000 +0100
-+++ mingw-w64-3.2.0/debian/rules	2014-09-13 17:21:31.702431108 +0200
+diff -ur mingw-w64-4.0.2.orig/debian/rules mingw-w64-4.0.2/debian/rules
+--- mingw-w64-4.0.2.orig/debian/rules	2015-05-25 23:37:13.000000000 +0200
++++ mingw-w64-4.0.2/debian/rules	2015-05-26 18:09:41.236857708 +0200
 @@ -16,7 +16,7 @@
  # Target architectures
  target32 := i686-w64-mingw32
  target64 := x86_64-w64-mingw32
 -targets := $(target32) $(target64)
-+targets := $(target32) #$(target64)
++targets := $(target32)
  
  # Host architecture
  host := $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
@@ -59,21 +59,12 @@ diff -ur mingw-w64-3.2.0.orig/debian/rules mingw-w64-3.2.0/debian/rules
  	touch $@
  target64crt := $(target64)~$(target64)~crt
  $(target64crt)-configure-stamp: $(target64)~$(target64)~headers-install-stamp autoreconf-stamp
-@@ -102,7 +102,7 @@
- 		mv $(top_dir)/debian/tmp/usr/$$target/bin/*.dll $(top_dir)/debian/tmp/usr/$$target/lib/; \
- 		rmdir $(top_dir)/debian/tmp/usr/$$target/bin; \
- 		chmod 644 $(top_dir)/debian/tmp/usr/$$target/lib/*.dll; \
--		rm $(top_dir)/debian/tmp/usr/$$target/lib/*.la; \
-+		rm -f $(top_dir)/debian/tmp/usr/$$target/lib/*.la; \
- 	done
- 	touch $@
- 
 @@ -125,7 +125,7 @@
  	if [ "$(call rulehost,$*)" = "$(host)" ]; then \
  		dh_auto_configure -D$(call sourcefolder,$*) -B$(call buildfolder,$*) -- $(shell dpkg-buildflags --export=configure) --host=$(call rulehost,$*) --target=$(call ruletarget,$*); \
  	else \
--		CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/include" dh_auto_configure -D$(call sourcefolder,$*) -B$(call buildfolder,$*) -- --prefix=/usr/$(call ruletarget,$*) --host=$(call rulehost,$*) --target=$(call ruletarget,$*); \
-+		CFLAGS="$(CFLAGS) -mtune=generic -march=i486" CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/include" dh_auto_configure -D$(call sourcefolder,$*) -B$(call buildfolder,$*) -- --prefix=/usr/$(call ruletarget,$*) --host=$(call rulehost,$*) --target=$(call ruletarget,$*); \
+-		CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/include" LDFLAGS="$(LDFLAGS) -L$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/lib" dh_auto_configure -D$(call sourcefolder,$*) -B$(call buildfolder,$*) -- --prefix=/usr/$(call ruletarget,$*) --host=$(call rulehost,$*) --target=$(call ruletarget,$*); \
++		CFLAGS="$(CFLAGS) -mtune=generic -march=i486" CPPFLAGS="$(CPPFLAGS) -I$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/include" LDFLAGS="$(LDFLAGS) -L$(top_dir)/debian/tmp/usr/$(call ruletarget,$*)/lib" dh_auto_configure -D$(call sourcefolder,$*) -B$(call buildfolder,$*) -- --prefix=/usr/$(call ruletarget,$*) --host=$(call rulehost,$*) --target=$(call ruletarget,$*); \
  	fi
  	touch $*-configure-stamp
  
