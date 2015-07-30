@@ -1,7 +1,7 @@
-diff -ur wavpack-4.70.0.orig/Makefile.in wavpack-4.70.0/Makefile.in
---- wavpack-4.70.0.orig/Makefile.in	2013-10-19 07:17:30.000000000 +0200
-+++ wavpack-4.70.0/Makefile.in	2014-01-26 04:42:34.807463436 +0100
-@@ -282,7 +282,7 @@
+diff -ur wavpack-4.75.0.orig/Makefile.in wavpack-4.75.0/Makefile.in
+--- wavpack-4.75.0.orig/Makefile.in	2015-05-21 02:23:30.000000000 +0200
++++ wavpack-4.75.0/Makefile.in	2015-07-30 07:22:30.944134889 +0200
+@@ -350,7 +350,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  AUTOMAKE_OPTIONS = foreign

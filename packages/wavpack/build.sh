@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for WavPack
-# Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=wavpack
-VERSION=4.70.0
+VERSION=4.75.0
 EXT=tar.bz2
 BASEURL=http://wavpack.com
 
