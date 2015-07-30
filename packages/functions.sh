@@ -74,7 +74,7 @@ pkg_unpack()
     fi
 
     if [ -n "${HG_REPO}" ]; then
-        test -d ${BUILDDIR}/.git || ( hg clone ${HG_REPO} ${BUILDDIR} || return 1 )
+        test -d ${BUILDDIR}/.hg || ( hg clone ${HG_REPO} ${BUILDDIR} || return 1 )
         return 0
     fi
 
