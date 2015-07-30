@@ -1,7 +1,7 @@
-From 8190d52d439d602c9fbffde34c37114ea77749b5 Mon Sep 17 00:00:00 2001
+From 483aa01c608cdfb8149f9ee3d7473caec2cd8fb1 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 7/8] custom icon and windows resource
+Subject: [PATCH 8/9] custom icon and windows resource
 
 ---
  Makefile    |   4 ++++
@@ -18,10 +18,10 @@ Subject: [PATCH 7/8] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index fe0e02f..663a267 100644
+index 4e788cd..4af686d 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -103,6 +103,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -104,6 +104,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
  OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
@@ -30,7 +30,7 @@ index fe0e02f..663a267 100644
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -117,6 +119,8 @@ ffprobe.o cmdutils.o libavcodec/utils.o libavformat/utils.o libavdevice/avdevice
+@@ -118,6 +120,8 @@ ffprobe.o cmdutils.o libavcodec/utils.o libavformat/utils.o libavdevice/avdevice
  $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
  	$(CP) $< $@
  	$(STRIP) $@
@@ -1746,5 +1746,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.1.4
+2.5.0
 

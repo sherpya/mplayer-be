@@ -1,19 +1,19 @@
-From 2f766c3aa8593a08c28b3c3f397e6ae4eeb8111b Mon Sep 17 00:00:00 2001
+From d1577142837d16fdbcff844b2f180fdf1b6be088 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 2 Dec 2014 16:29:15 +0100
-Subject: [PATCH 2/8] dynamic loading of shared fdk-aac library
+Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
 
 ---
- configure                  |  3 +-
+ configure                  |  5 +---
  libavcodec/libfdk-aacdec.c | 73 ++++++++++++++++++++++++++++++++++++++++++++--
  libavcodec/libfdk-aacenc.c | 59 +++++++++++++++++++++++++++++++++++--
- 3 files changed, 128 insertions(+), 7 deletions(-)
+ 3 files changed, 128 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index 5fd6220..72e6791 100755
+index 1067330..c2cc412 100755
 --- a/configure
 +++ b/configure
-@@ -4483,7 +4483,6 @@ die_license_disabled gpl x11grab
+@@ -4636,7 +4636,6 @@ die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
  die_license_disabled nonfree nvenc
@@ -21,17 +21,19 @@ index 5fd6220..72e6791 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -5024,7 +5023,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
- enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
- enabled libdcadec         && require_pkg_config dcadec libdcadec/dca_context.h dcadec_context_create
+@@ -5195,9 +5194,7 @@ enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+ enabled libdcadec         && require_pkg_config dcadec libdcadec/dca_context.h dcadec_context_create &&
+                              check_struct libdcadec/dca_context.h "struct dcadec_exss_info" matrix_encoding
  enabled libfaac           && check_header "stdint.h faac.h"
--enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
+-enabled libfdk_aac        && { use_pkg_config fdk-aac "fdk-aac/aacenc_lib.h" aacEncOpen ||
+-                               { require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac &&
+-                                 warn "using libfdk without pkg-config"; } }
 +enabled libfdk_aac        && check_header fdk-aac/aacenc_lib.h
  flite_libs="-lflite_cmu_time_awb -lflite_cmu_us_awb -lflite_cmu_us_kal -lflite_cmu_us_kal16 -lflite_cmu_us_rms -lflite_cmu_us_slt -lflite_usenglish -lflite_cmulex -lflite"
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index f7fc811..0ac1316 100644
+index 2488199..438221a 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -150,7 +152,7 @@ index f7fc811..0ac1316 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index 3eadb36..31258ce 100644
+index 5df0c90..4258734 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -17,6 +17,17 @@
@@ -248,5 +250,5 @@ index 3eadb36..31258ce 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.1.4
+2.5.0
 

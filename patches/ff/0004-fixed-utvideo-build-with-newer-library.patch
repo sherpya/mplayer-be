@@ -1,0 +1,40 @@
+From 497b2ffdebaac091d7130fe87c8b2d3db920edcc Mon Sep 17 00:00:00 2001
+From: sherpya <sherpya@netfarm.it>
+Date: Thu, 30 Jul 2015 08:00:09 +0200
+Subject: [PATCH 4/9] fixed utvideo build with newer library
+
+---
+ libavcodec/libutvideodec.cpp | 2 +-
+ libavcodec/libutvideoenc.cpp | 3 +--
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/libavcodec/libutvideodec.cpp b/libavcodec/libutvideodec.cpp
+index e4b87a8..d4d3f29 100644
+--- a/libavcodec/libutvideodec.cpp
++++ b/libavcodec/libutvideodec.cpp
+@@ -150,7 +150,7 @@ static int utvideo_decode_frame(AVCodecContext *avctx, void *data,
+     pic->key_frame = 1;
+ 
+     /* Decode the frame */
+-    utv->codec->DecodeFrame(utv->buffer, avpkt->data, true);
++    utv->codec->DecodeFrame(utv->buffer, avpkt->data);
+ 
+     /* Set the output data depending on the colorspace */
+     switch (avctx->pix_fmt) {
+diff --git a/libavcodec/libutvideoenc.cpp b/libavcodec/libutvideoenc.cpp
+index 8ad6e7c..9594a7c 100644
+--- a/libavcodec/libutvideoenc.cpp
++++ b/libavcodec/libutvideoenc.cpp
+@@ -122,8 +122,7 @@ static av_cold int utvideo_encode_init(AVCodecContext *avctx)
+     /* Get extradata from encoder */
+     avctx->extradata_size = utv->codec->EncodeGetExtraDataSize();
+     utv->codec->EncodeGetExtraData(info, avctx->extradata_size, in_format,
+-                                   avctx->width, avctx->height,
+-                                   CBGROSSWIDTH_WINDOWS);
++                                   avctx->width, avctx->height);
+     avctx->extradata = (uint8_t *)info;
+ 
+     /* Set flags */
+-- 
+2.5.0
+
