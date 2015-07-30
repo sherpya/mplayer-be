@@ -1,0 +1,14 @@
+diff --git a/GNUmakefile b/GNUmakefile
+index 6eac317..750aeab 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -72,6 +72,9 @@ OBJ = $(UTV_CORE_DIR)/Codec.o \
+       $(UTV_CORE_DIR)/UQ00Codec.o \
+       $(UTV_CORE_DIR)/UQY2Codec.o \
+       $(UTV_CORE_DIR)/utv_core.o \
++      utv_logl/LogUtil.o \
++      utv_logl/LogWriter.o \
++      utv_logl/LogPath.o \
+       $(ASM_OBJECTS)
+ 
+ ifneq ($(ARCH),)
