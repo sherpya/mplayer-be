@@ -1,4 +1,4 @@
-From bfd435dc33daf2986d827f617d03ee00c57f906b Mon Sep 17 00:00:00 2001
+From 86fd485b3a3bc8f572d938a651d433e7085c7eef Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:02 +0100
 Subject: [PATCH 06/27] win32: color console
@@ -98,5 +98,5 @@ index ec29a8e..5cf0a89 100644
      fflush(stream);
  }
 -- 
-2.1.4
+2.5.0
 

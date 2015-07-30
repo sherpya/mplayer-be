@@ -1,4 +1,4 @@
-From 4f9ee4f4167927188f3aa8012a6b649327a97580 Mon Sep 17 00:00:00 2001
+From c08f6dad13a52d7492f451c25fdf3af7ca570f12 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/27] configure: honor disable_system_conf
@@ -55,10 +55,10 @@ index e8a0e7a..3e6daf3 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index ba00797..38bf8ce 100644
+index e9288c6..d5dd620 100644
 --- a/mplayer.c
 +++ b/mplayer.c
-@@ -3037,7 +3037,7 @@ int main(int argc, char *argv[])
+@@ -3041,7 +3041,7 @@ int main(int argc, char *argv[])
              if (menu_init(mpctx, menu_cfg))
                  mp_msg(MSGT_CPLAYER, MSGL_V, "Menu initialized: %s\n", menu_cfg);
              else {
@@ -82,5 +82,5 @@ index 0147937..522d8d6 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.1.4
+2.5.0
 

@@ -1,4 +1,4 @@
-From 9ae951c1481478a7b592a8fcdefda8af0ef8f77e Mon Sep 17 00:00:00 2001
+From 97d92f697cfe5b32f92418051aacf738cd83f700 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 27/27] sherpya's customizations
@@ -18,7 +18,7 @@ Subject: [PATCH 27/27] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index fa08370..bfa3a19 100644
+index 99edf53..53fa372 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -663,6 +663,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
@@ -30,7 +30,7 @@ index fa08370..bfa3a19 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -834,6 +836,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -832,6 +834,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,7 +41,7 @@ index fa08370..bfa3a19 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index dbeae5d..1fbd277 100755
+index c386ed9..49a19d4 100755
 --- a/configure
 +++ b/configure
 @@ -1535,13 +1535,13 @@ fi
@@ -60,7 +60,7 @@ index dbeae5d..1fbd277 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1806,6 +1806,7 @@ fi
+@@ -1807,6 +1807,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index 7fd0420..91b202c 100755
  version=$svn_revision
  fi
 -- 
-2.1.4
+2.5.0
 
