@@ -1,4 +1,4 @@
-From ea3fa64880fec1d13ef4bdcdc1093139450045a5 Mon Sep 17 00:00:00 2001
+From 48940b90f654d5f21051d6a02b5e9f8fa7022fa9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:04:24 +0100
 Subject: [PATCH 3/4] custom icon and windows resource
@@ -18,10 +18,10 @@ Subject: [PATCH 3/4] custom icon and windows resource
  create mode 100644 common.rc
 
 diff --git a/Makefile b/Makefile
-index cc016b3..c073c4f 100644
+index e9a95aa..b46f040 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -140,6 +140,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -141,6 +141,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
  OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
@@ -30,7 +30,7 @@ index cc016b3..c073c4f 100644
  $(1)$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -149,6 +151,9 @@ endef
+@@ -150,6 +152,9 @@ endef
  
  $(foreach P,$(PROGS),$(eval $(call DOPROG,$(P:$(EXESUF)=))))
  
@@ -1747,5 +1747,5 @@ index 0000000..e65e018
 +
 +MAIN    ICON DISCARDABLE    __ICON__
 -- 
-2.1.4
+2.5.0
 

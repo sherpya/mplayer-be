@@ -1,4 +1,4 @@
-From c7a7f8af2c2c0430f20a997578d71ac20d147a8b Mon Sep 17 00:00:00 2001
+From fd734e35de80baacf4e4427592854d63f3a43cac Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 24 Jun 2013 05:47:22 +0200
 Subject: [PATCH 1/4] dynamic loading of shared faac library
@@ -9,28 +9,28 @@ Subject: [PATCH 1/4] dynamic loading of shared faac library
  2 files changed, 66 insertions(+), 10 deletions(-)
 
 diff --git a/configure b/configure
-index 8821cbc..f968513 100755
+index 482be43..26b9a06 100755
 --- a/configure
 +++ b/configure
-@@ -3784,7 +3784,6 @@ die_license_disabled gpl libxavs
+@@ -3881,7 +3881,6 @@ die_license_disabled gpl libxavs
  die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
 -die_license_disabled nonfree libfaac
  die_license_disabled nonfree libfdk_aac
+ die_license_disabled nonfree nvenc
  die_license_disabled nonfree openssl
- 
-@@ -4224,7 +4223,7 @@ enabled frei0r            && { check_header frei0r.h || die "ERROR: frei0r.h hea
+@@ -4339,7 +4338,7 @@ enabled frei0r            && { check_header frei0r.h || die "ERROR: frei0r.h hea
  enabled gnutls            && require_pkg_config gnutls gnutls/gnutls.h gnutls_global_init
  enabled libbs2b           && require_pkg_config libbs2b bs2b.h bs2b_open
  enabled libdcadec         && require libdcadec libdcadec/dca_context.h dcadec_context_create -ldcadec
 -enabled libfaac           && require2 libfaac "stdint.h faac.h" faacEncGetVersion -lfaac
 +enabled libfaac           && check_header libfaac "stdint.h faac.h"
- enabled libfdk_aac        && require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac
+ enabled libfdk_aac        && require_pkg_config fdk-aac "fdk-aac/aacenc_lib.h" aacEncOpen
  enabled libfontconfig     && require_pkg_config fontconfig "fontconfig/fontconfig.h" FcInit
  enabled libfreetype       && require_pkg_config freetype2 "ft2build.h FT_FREETYPE_H" FT_Init_FreeType
 diff --git a/libavcodec/libfaac.c b/libavcodec/libfaac.c
-index ad51a03..ec86546 100644
+index 5cdbe27..d8c352f 100644
 --- a/libavcodec/libfaac.c
 +++ b/libavcodec/libfaac.c
 @@ -32,6 +32,48 @@
@@ -149,7 +149,7 @@ index ad51a03..ec86546 100644
 -        if (!faacEncGetDecoderSpecificInfo(s->faac_handle, &buffer,
 +        if (!s->pfn.faacEncGetDecoderSpecificInfo(s->faac_handle, &buffer,
                                             &decoder_specific_info_size)) {
-             avctx->extradata = av_malloc(decoder_specific_info_size + FF_INPUT_BUFFER_PADDING_SIZE);
+             avctx->extradata = av_malloc(decoder_specific_info_size + AV_INPUT_BUFFER_PADDING_SIZE);
              if (!avctx->extradata) {
 @@ -151,7 +208,7 @@ static av_cold int Faac_encode_init(AVCodecContext *avctx)
          free(buffer);
@@ -170,5 +170,5 @@ index ad51a03..ec86546 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-2.1.4
+2.5.0
 
