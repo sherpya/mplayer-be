@@ -1,6 +1,6 @@
-diff -ur libjpeg-turbo-1.4.0.orig/Makefile.in libjpeg-turbo-1.4.0/Makefile.in
---- libjpeg-turbo-1.4.0.orig/Makefile.in	2015-01-07 05:56:55.000000000 +0100
-+++ libjpeg-turbo-1.4.0/Makefile.in	2015-02-04 04:08:29.797435437 +0100
+diff -ur libjpeg-turbo-1.4.1.orig/Makefile.in libjpeg-turbo-1.4.1/Makefile.in
+--- libjpeg-turbo-1.4.1.orig/Makefile.in	2015-06-08 20:41:46.000000000 +0200
++++ libjpeg-turbo-1.4.1/Makefile.in	2015-07-30 07:24:52.159138625 +0200
 @@ -51,9 +51,8 @@
  @VERSION_SCRIPT_TRUE@am__append_8 = $(VERSION_SCRIPT_FLAG)libjpeg.map
  @WITH_SIMD_TRUE@am__append_9 = simd
@@ -13,7 +13,7 @@ diff -ur libjpeg-turbo-1.4.0.orig/Makefile.in libjpeg-turbo-1.4.0/Makefile.in
  @WITH_TURBOJPEG_TRUE@am__append_11 = tjbench
  @WITH_TURBOJPEG_TRUE@am__append_12 = tjunittest
  @WITH_12BIT_FALSE@am__append_13 = rdbmp.c rdtarga.c
-@@ -2065,9 +2064,7 @@
+@@ -2089,9 +2088,7 @@
  
  info-am:
  
