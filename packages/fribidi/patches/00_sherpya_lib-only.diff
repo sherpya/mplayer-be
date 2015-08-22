@@ -1,10 +1,10 @@
-diff -ur fribidi-0.19.6.orig/Makefile.in fribidi-0.19.6/Makefile.in
---- fribidi-0.19.6.orig/Makefile.in	2013-12-06 21:56:59.000000000 +0100
-+++ fribidi-0.19.6/Makefile.in	2013-12-08 06:32:32.576424558 +0100
-@@ -361,7 +361,7 @@
- top_build_prefix = @top_build_prefix@
+diff -ur fribidi-0.19.7.orig/Makefile.in fribidi-0.19.7/Makefile.in
+--- fribidi-0.19.7.orig/Makefile.in	2015-08-04 16:15:25.000000000 +0200
++++ fribidi-0.19.7/Makefile.in	2015-08-22 04:14:25.861547178 +0200
+@@ -376,7 +376,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
+ ACLOCAL_AMFLAGS = -I m4
 -SUBDIRS = gen.tab charset lib bin doc test
 +SUBDIRS = gen.tab charset lib
  EXTRA_DIST = bootstrap ChangeLog.old
