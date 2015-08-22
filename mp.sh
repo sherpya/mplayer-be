@@ -86,6 +86,8 @@ configure()
     disable vidix
     disable inet6
 
+    enable gnutls
+
 	enable dvdnav
 	enable dvdread
 

@@ -85,9 +85,10 @@ configure()
     enable hardcoded-tables
     enable memalign-hack
 
+    enable gnutls
+    enable pthreads
     enable avfilter
     enable avresample
-    enable pthreads
 
     enable libcdio
     enable libfaac
