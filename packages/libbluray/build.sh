@@ -10,7 +10,7 @@ GIT_REPO="git://git.videolan.org/libbluray.git"
 depends lib/libxml2.a
 depends lib/libfreetype.a
 
-BUILDDIR="libbluray"
+BUILDDIR=libbluray
 STATICLIBS="libbluray"
 CONFOPTS="--enable-examples=no --disable-bdjava"
 
