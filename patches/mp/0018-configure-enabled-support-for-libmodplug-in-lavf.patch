@@ -1,14 +1,14 @@
-From 809bffbd82577e60e7daf1c8faf594a74486fe54 Mon Sep 17 00:00:00 2001
+From ae062c8ad58cc885666c309c4956b43016adfdce Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 18/27] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 18/28] configure: enabled support for libmodplug in lavf
 
 ---
  configure | 23 ++++++++++++++++++++++-
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 2c54be1..998c9c2 100755
+index e00b6a5..8a2585b 100755
 --- a/configure
 +++ b/configure
 @@ -439,6 +439,7 @@ Codecs:

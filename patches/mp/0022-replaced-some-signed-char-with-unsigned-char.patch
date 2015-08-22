@@ -1,7 +1,7 @@
-From dbbab03669fb6522d99e137443e1aa0d771df9ed Mon Sep 17 00:00:00 2001
+From 3161df63d9948f5368049c6f8f7e6047aa16e59b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 22/27] replaced some signed char with unsigned char
+Subject: [PATCH 22/28] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -63,10 +63,10 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index a07c636..4fc8853 100644
+index 9e19095..4a81dcf 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
-@@ -708,8 +708,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
+@@ -711,8 +711,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
    return mem;
  }
  

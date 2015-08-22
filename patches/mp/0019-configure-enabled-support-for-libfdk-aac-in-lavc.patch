@@ -1,14 +1,14 @@
-From e75b4c57ea7c35bab5cc0e3ce59df482094cf3bf Mon Sep 17 00:00:00 2001
+From 5aa01d7eb9cb91a5446f643911afb2473b2cf19f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
-Subject: [PATCH 19/27] configure: enabled support for libfdk-aac in lavc
+Subject: [PATCH 19/28] configure: enabled support for libfdk-aac in lavc
 
 ---
  configure | 20 ++++++++++++++++++++
  1 file changed, 20 insertions(+)
 
 diff --git a/configure b/configure
-index 998c9c2..89b0476 100755
+index 8a2585b..fc55962 100755
 --- a/configure
 +++ b/configure
 @@ -420,6 +420,7 @@ Codecs:

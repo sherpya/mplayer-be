@@ -1,7 +1,7 @@
-From 97d92f697cfe5b32f92418051aacf738cd83f700 Mon Sep 17 00:00:00 2001
+From e9de6357b47fe14050ca8fdaff9a74682e1cefb5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 27/27] sherpya's customizations
+Subject: [PATCH 28/28] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -41,7 +41,7 @@ index 99edf53..53fa372 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index c386ed9..49a19d4 100755
+index b801bd2..9a00396 100755
 --- a/configure
 +++ b/configure
 @@ -1535,13 +1535,13 @@ fi
