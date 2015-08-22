@@ -1,0 +1,26 @@
+diff -ur openssl-1.0.2d.orig/Makefile.org openssl-1.0.2d/Makefile.org
+--- openssl-1.0.2d.orig/Makefile.org	2015-07-09 13:57:15.000000000 +0200
++++ openssl-1.0.2d/Makefile.org	2015-08-18 13:41:15.709002052 +0200
+@@ -136,7 +136,7 @@
+ 
+ BASEADDR=
+ 
+-DIRS=   crypto ssl engines apps test tools
++DIRS=   crypto ssl
+ ENGDIRS= ccgost
+ SHLIBDIRS= crypto ssl
+ 
+@@ -532,12 +532,8 @@
+ install_sw:
+ 	@$(PERL) $(TOP)/util/mkdir-p.pl $(INSTALL_PREFIX)$(INSTALLTOP)/bin \
+ 		$(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR) \
+-		$(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/engines \
+ 		$(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/pkgconfig \
+-		$(INSTALL_PREFIX)$(INSTALLTOP)/include/openssl \
+-		$(INSTALL_PREFIX)$(OPENSSLDIR)/misc \
+-		$(INSTALL_PREFIX)$(OPENSSLDIR)/certs \
+-		$(INSTALL_PREFIX)$(OPENSSLDIR)/private
++		$(INSTALL_PREFIX)$(INSTALLTOP)/include/openssl
+ 	@set -e; headerlist="$(EXHEADER)"; for i in $$headerlist;\
+ 	do \
+ 	(cp $$i $(INSTALL_PREFIX)$(INSTALLTOP)/include/openssl/$$i; \
