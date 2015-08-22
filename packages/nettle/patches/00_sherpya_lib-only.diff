@@ -1,0 +1,12 @@
+diff -ur nettle-3.1.1.orig/Makefile.in nettle-3.1.1/Makefile.in
+--- nettle-3.1.1.orig/Makefile.in	2015-04-24 19:22:03.000000000 +0200
++++ nettle-3.1.1/Makefile.in	2015-08-22 02:12:43.594086493 +0200
+@@ -17,7 +17,7 @@
+ 
+ OPT_NETTLE_SOURCES = @OPT_NETTLE_SOURCES@
+ 
+-SUBDIRS = tools testsuite examples
++SUBDIRS =
+ 
+ include config.make
+ 

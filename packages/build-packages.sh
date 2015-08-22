@@ -39,6 +39,9 @@ giflib
 frei0r
 lame
 regex
+gmp
+nettle
+gnutls
 libcddb
 libcdio
 libcdio-paranoia

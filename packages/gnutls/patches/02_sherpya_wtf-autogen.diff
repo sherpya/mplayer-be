@@ -1,0 +1,26 @@
+--- gnutls-3.3.17.orig/src/libopts/autoopts/options.h	2015-03-23 08:19:23.000000000 +0100
++++ gnutls-3.3.17/src/libopts/autoopts/options.h	2015-08-22 03:05:29.706331478 +0200
+@@ -82,6 +82,14 @@
+  */
+ #define AO_EXIT_REQ_USAGE 10064
+ 
++#undef  VOIDP
++/**
++ * Coerce a value into a void pointer with no const or volatile attributes.
++ * Somewhere along the line, the above set of includes need to set up
++ * the "uintptr_t" type.
++ */
++#define VOIDP(_a)  ((void *)(uintptr_t)(_a))
++
+ /**
+  *  PUBLIC DEFINES
+  *
+@@ -101,7 +109,7 @@
+  * @{
+  */
+ /// autoopts structure version
+-#define OPTIONS_STRUCT_VERSION      167936
++#define OPTIONS_STRUCT_VERSION      167937
+ /// autoopts structure version string
+ #define OPTIONS_VERSION_STRING      "41:0:16"
+ /// minimum version the autoopts library supports

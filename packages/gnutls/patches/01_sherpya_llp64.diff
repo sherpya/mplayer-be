@@ -1,0 +1,65 @@
+diff -ur gnutls-3.3.17.orig/lib/gnutls_record.c gnutls-3.3.17/lib/gnutls_record.c
+--- gnutls-3.3.17.orig/lib/gnutls_record.c	2015-03-23 08:19:23.000000000 +0100
++++ gnutls-3.3.17/lib/gnutls_record.c	2015-08-22 03:48:24.088552464 +0200
+@@ -159,9 +159,9 @@
+ 			  int recv_int, int send_int)
+ {
+ 	session->internals.transport_send_ptr =
+-	    (gnutls_transport_ptr_t) (long) send_int;
++	    (gnutls_transport_ptr_t) (intptr_t) send_int;
+ 	session->internals.transport_recv_ptr =
+-	    (gnutls_transport_ptr_t) (long) recv_int;
++	    (gnutls_transport_ptr_t) (intptr_t) recv_int;
+ }
+ 
+ #if 0
+@@ -238,8 +238,8 @@
+ 			  int *recv_int, int *send_int)
+ {
+ 
+-	*recv_int = (long) session->internals.transport_recv_ptr;
+-	*send_int = (long) session->internals.transport_send_ptr;
++	*recv_int = (intptr_t) session->internals.transport_recv_ptr;
++	*send_int = (intptr_t) session->internals.transport_send_ptr;
+ }
+ 
+ /**
+@@ -256,7 +256,7 @@
+  **/
+ int gnutls_transport_get_int(gnutls_session_t session)
+ {
+-	return (long) session->internals.transport_recv_ptr;
++	return (intptr_t) session->internals.transport_recv_ptr;
+ }
+ 
+ /**
+diff -ur gnutls-3.3.17.orig/lib/x509_b64.c gnutls-3.3.17/lib/x509_b64.c
+--- gnutls-3.3.17.orig/lib/x509_b64.c	2015-03-23 08:19:23.000000000 +0100
++++ gnutls-3.3.17/lib/x509_b64.c	2015-08-22 03:50:03.071918300 +0200
+@@ -301,7 +301,7 @@
+ 		return GNUTLS_E_BASE64_UNEXPECTED_HEADER_ERROR;
+ 	}
+ 
+-	data_size -= (unsigned long int) rdata - (unsigned long int) data;
++	data_size -= rdata - data;
+ 
+ 	if (data_size < 4 + strlen(bottom)) {
+ 		gnutls_assert();
+@@ -318,7 +318,7 @@
+ 		return GNUTLS_E_BASE64_DECODING_ERROR;
+ 	}
+ 	data_size -= strlen(ENDSTR);
+-	data_size -= (unsigned long int) kdata - (unsigned long int) rdata;
++	data_size -= kdata - rdata;
+ 
+ 	rdata = kdata + strlen(ENDSTR);
+ 
+@@ -332,7 +332,7 @@
+ 
+ 	/* position of kdata is before the ----END--- footer 
+ 	 */
+-	rdata_size = (unsigned long int) kdata - (unsigned long int) rdata;
++	rdata_size = kdata - rdata;
+ 
+ 	if (rdata_size < 4) {
+ 		gnutls_assert();
