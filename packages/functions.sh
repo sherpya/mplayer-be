@@ -1,6 +1,6 @@
 # vim: ft=sh:
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 topdir=$(cd .. && pwd)
@@ -51,14 +51,6 @@ depends()
         echo "Missing dependency $1"
         exit 1
     fi
-}
-
-do_single_target()
-{
-    MAKEFILES=$(find ${BUILDDIR} -name Makefile)
-    for makefile in ${MAKEFILES}; do
-        grep -q $1 $makefile && ( cd $(dirname $makefile) && make $1)
-    done
 }
 
 pkg_download()
