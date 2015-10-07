@@ -1,7 +1,7 @@
-diff -ur soxr-0.1.1-Source.orig/CMakeLists.txt soxr-0.1.1-Source/CMakeLists.txt
---- soxr-0.1.1-Source.orig/CMakeLists.txt	2013-03-01 12:03:17.000000000 +0100
-+++ soxr-0.1.1-Source/CMakeLists.txt	2013-03-10 02:15:07.649624783 +0100
-@@ -218,14 +218,6 @@
+diff -ur soxr-0.1.2-Source.orig/CMakeLists.txt soxr-0.1.2-Source/CMakeLists.txt
+--- soxr-0.1.2-Source.orig/CMakeLists.txt	2015-08-27 21:37:22.000000000 +0200
++++ soxr-0.1.2-Source/CMakeLists.txt	2015-10-07 03:31:42.131910846 +0200
+@@ -219,14 +219,6 @@
    enable_testing ()
  endif ()
  
