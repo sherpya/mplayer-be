@@ -1,4 +1,4 @@
-From d1577142837d16fdbcff844b2f180fdf1b6be088 Mon Sep 17 00:00:00 2001
+From 94fb711a32ee72bba9be2a87601c45b362a75d5f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 2 Dec 2014 16:29:15 +0100
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 128 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index 1067330..c2cc412 100755
+index 638ce4a..3d301d9 100755
 --- a/configure
 +++ b/configure
-@@ -4636,7 +4636,6 @@ die_license_disabled gpl x11grab
+@@ -4696,7 +4696,6 @@ die_license_disabled gpl x11grab
  
  die_license_disabled nonfree libaacplus
  die_license_disabled nonfree nvenc
@@ -21,7 +21,7 @@ index 1067330..c2cc412 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 libopencore_amrnb
-@@ -5195,9 +5194,7 @@ enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
+@@ -5274,9 +5273,7 @@ enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libdcadec         && require_pkg_config dcadec libdcadec/dca_context.h dcadec_context_create &&
                               check_struct libdcadec/dca_context.h "struct dcadec_exss_info" matrix_encoding
  enabled libfaac           && check_header "stdint.h faac.h"
@@ -33,7 +33,7 @@ index 1067330..c2cc412 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index 2488199..438221a 100644
+index e5f7c4e..668ed24 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -92,15 +92,15 @@ index 2488199..438221a 100644
  /* The version macro is introduced the same time as the setting enum was
   * changed, so this check should suffice. */
  #ifndef AACDECODER_LIB_VL0
-@@ -42,6 +84,8 @@ typedef struct FDKAACDecContext {
+@@ -41,6 +83,8 @@ enum ConcealMethod {
+ typedef struct FDKAACDecContext {
      const AVClass *class;
      HANDLE_AACDECODER handle;
-     int initialized;
 +    void *hLib;
 +    aacDecLib pfn;
      uint8_t *decoder_buffer;
+     int decoder_buffer_size;
      uint8_t *anc_buffer;
-     int conceal_method;
 @@ -85,7 +129,7 @@ static const AVClass fdk_aac_dec_class = {
  static int get_stream_info(AVCodecContext *avctx)
  {
@@ -123,9 +123,9 @@ index 2488199..438221a 100644
      av_freep(&s->decoder_buffer);
      av_freep(&s->anc_buffer);
  
-@@ -211,6 +257,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+@@ -210,6 +256,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+     FDKAACDecContext *s = avctx->priv_data;
      AAC_DECODER_ERROR err;
-     int ret;
  
 +    if (!(s->hLib = dlopen(LIBNAME, RTLD_NOW))) {
 +        av_log(avctx, AV_LOG_ERROR, "Unable to load " LIBNAME "\n");
@@ -152,7 +152,7 @@ index 2488199..438221a 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index 5df0c90..4258734 100644
+index 98a817b..aa96bac 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -17,6 +17,17 @@
@@ -250,5 +250,5 @@ index 5df0c90..4258734 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.5.0
+2.6.1
 

@@ -1,4 +1,4 @@
-From 497b2ffdebaac091d7130fe87c8b2d3db920edcc Mon Sep 17 00:00:00 2001
+From c1502600a9b92bc6e7cdeb166372b68beabe629a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 30 Jul 2015 08:00:09 +0200
 Subject: [PATCH 4/9] fixed utvideo build with newer library
@@ -9,10 +9,10 @@ Subject: [PATCH 4/9] fixed utvideo build with newer library
  2 files changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/libavcodec/libutvideodec.cpp b/libavcodec/libutvideodec.cpp
-index e4b87a8..d4d3f29 100644
+index 47261a6..ff9419a 100644
 --- a/libavcodec/libutvideodec.cpp
 +++ b/libavcodec/libutvideodec.cpp
-@@ -150,7 +150,7 @@ static int utvideo_decode_frame(AVCodecContext *avctx, void *data,
+@@ -149,7 +149,7 @@ static int utvideo_decode_frame(AVCodecContext *avctx, void *data,
      pic->key_frame = 1;
  
      /* Decode the frame */
@@ -22,7 +22,7 @@ index e4b87a8..d4d3f29 100644
      /* Set the output data depending on the colorspace */
      switch (avctx->pix_fmt) {
 diff --git a/libavcodec/libutvideoenc.cpp b/libavcodec/libutvideoenc.cpp
-index 8ad6e7c..9594a7c 100644
+index 8746247..c68a2c9 100644
 --- a/libavcodec/libutvideoenc.cpp
 +++ b/libavcodec/libutvideoenc.cpp
 @@ -122,8 +122,7 @@ static av_cold int utvideo_encode_init(AVCodecContext *avctx)
@@ -36,5 +36,5 @@ index 8ad6e7c..9594a7c 100644
  
      /* Set flags */
 -- 
-2.5.0
+2.6.1
 
