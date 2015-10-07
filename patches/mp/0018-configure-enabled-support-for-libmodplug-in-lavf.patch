@@ -1,4 +1,4 @@
-From ae062c8ad58cc885666c309c4956b43016adfdce Mon Sep 17 00:00:00 2001
+From 846546888db768df05d563cff59832a35ae7db0d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 18/28] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 18/28] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index e00b6a5..8a2585b 100755
+index 58d9c45..01307e7 100755
 --- a/configure
 +++ b/configure
 @@ -439,6 +439,7 @@ Codecs:
@@ -36,7 +36,7 @@ index e00b6a5..8a2585b 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7195,6 +7199,23 @@ else
+@@ -7219,6 +7223,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +60,7 @@ index e00b6a5..8a2585b 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9119,6 +9140,7 @@ $def_libdirac_lavc
+@@ -9145,6 +9166,7 @@ $def_libdirac_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index e00b6a5..8a2585b 100755
  $def_libopenjpeg
  $def_librtmp
  $def_libschroedinger_lavc
-@@ -9199,7 +9221,6 @@ $def_truncf
+@@ -9227,7 +9249,6 @@ $def_truncf
  $def_gnutls
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +77,5 @@ index e00b6a5..8a2585b 100755
  #define CONFIG_MEMORY_POISONING 0
  #define CONFIG_OPENSSL 0
 -- 
-2.5.0
+2.6.1
 

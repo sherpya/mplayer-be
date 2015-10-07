@@ -1,4 +1,4 @@
-From 3161df63d9948f5368049c6f8f7e6047aa16e59b Mon Sep 17 00:00:00 2001
+From d6d695a9428948410110edb8b2b7dde722f18d2a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 22/28] replaced some signed char with unsigned char
@@ -78,7 +78,7 @@ index 9e19095..4a81dcf 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index 9fa39d4..f5e43ee 100644
+index 615f579..11aa037 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
 @@ -402,6 +402,6 @@ typedef struct {
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.5.0
+2.6.1
 
