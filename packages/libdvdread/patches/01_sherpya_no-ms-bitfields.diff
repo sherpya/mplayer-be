@@ -1,8 +1,8 @@
 diff --git a/configure.ac b/configure.ac
-index 7b2dad3..713fea0 100644
+index 51da287..8960e97 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -86,6 +86,7 @@ AC_SUBST([CSS_REQUIRES])
+@@ -93,6 +93,7 @@ AC_SUBST([CSS_REQUIRES])
  
  CC_CHECK_CFLAGS_APPEND([-Wall -Wsign-compare -Wextra])
  
