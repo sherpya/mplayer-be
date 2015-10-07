@@ -1,7 +1,7 @@
-diff -ur libjpeg-turbo-1.4.1.orig/Makefile.in libjpeg-turbo-1.4.1/Makefile.in
---- libjpeg-turbo-1.4.1.orig/Makefile.in	2015-06-08 20:41:46.000000000 +0200
-+++ libjpeg-turbo-1.4.1/Makefile.in	2015-07-30 07:24:52.159138625 +0200
-@@ -51,9 +51,8 @@
+diff -ur libjpeg-turbo-1.4.2.orig/Makefile.in libjpeg-turbo-1.4.2/Makefile.in
+--- libjpeg-turbo-1.4.2.orig/Makefile.in	2015-09-21 20:48:45.000000000 +0200
++++ libjpeg-turbo-1.4.2/Makefile.in	2015-10-07 03:37:11.287694949 +0200
+@@ -101,9 +101,8 @@
  @VERSION_SCRIPT_TRUE@am__append_8 = $(VERSION_SCRIPT_FLAG)libjpeg.map
  @WITH_SIMD_TRUE@am__append_9 = simd
  @WITH_SIMD_FALSE@am__append_10 = jsimd_none.c
@@ -13,7 +13,7 @@ diff -ur libjpeg-turbo-1.4.1.orig/Makefile.in libjpeg-turbo-1.4.1/Makefile.in
  @WITH_TURBOJPEG_TRUE@am__append_11 = tjbench
  @WITH_TURBOJPEG_TRUE@am__append_12 = tjunittest
  @WITH_12BIT_FALSE@am__append_13 = rdbmp.c rdtarga.c
-@@ -2089,9 +2088,7 @@
+@@ -2338,9 +2337,7 @@
  
  info-am:
  
@@ -22,5 +22,5 @@ diff -ur libjpeg-turbo-1.4.1.orig/Makefile.in libjpeg-turbo-1.4.1/Makefile.in
 -	install-nodist_includeHEADERS
 +install-data-am: install-includeHEADERS install-nodist_includeHEADERS
  
- install-exec-am: install-binPROGRAMS install-libLTLIBRARIES
+ install-dvi: install-dvi-recursive
  
