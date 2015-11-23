@@ -1,7 +1,7 @@
-diff -ur libxml2-2.9.2.orig/Makefile.in libxml2-2.9.2/Makefile.in
---- libxml2-2.9.2.orig/Makefile.in	2014-10-16 09:35:13.000000000 +0200
-+++ libxml2-2.9.2/Makefile.in	2014-10-27 10:08:07.990605768 +0100
-@@ -186,7 +186,7 @@
+diff -ur libxml2-2.9.3.orig/Makefile.in libxml2-2.9.3/Makefile.in
+--- libxml2-2.9.3.orig/Makefile.in	2015-11-20 10:49:34.000000000 +0100
++++ libxml2-2.9.3/Makefile.in	2015-11-23 01:13:54.091454448 +0100
+@@ -189,7 +189,7 @@
  testdso_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
  	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
  	$(testdso_la_LDFLAGS) $(LDFLAGS) -o $@
@@ -10,7 +10,7 @@ diff -ur libxml2-2.9.2.orig/Makefile.in libxml2-2.9.2/Makefile.in
  am_runsuite_OBJECTS = runsuite.$(OBJEXT)
  runsuite_OBJECTS = $(am_runsuite_OBJECTS)
  am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) $(top_builddir)/libxml2.la \
-@@ -678,7 +678,7 @@
+@@ -688,7 +688,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
@@ -19,7 +19,7 @@ diff -ur libxml2-2.9.2.orig/Makefile.in libxml2-2.9.2/Makefile.in
  DIST_SUBDIRS = include . doc example python xstc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
  AM_CFLAGS = $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
-@@ -1780,15 +1780,13 @@
+@@ -1796,15 +1796,13 @@
  
  info-am:
  

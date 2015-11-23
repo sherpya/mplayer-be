@@ -1,7 +1,7 @@
-diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
---- libxml2-2.9.2.orig/parser.c	2014-10-16 07:57:40.000000000 +0200
-+++ libxml2-2.9.2/parser.c	2014-10-27 10:09:28.878604108 +0100
-@@ -1315,7 +1315,7 @@
+diff -ur libxml2-2.9.3.orig/parser.c libxml2-2.9.3/parser.c
+--- libxml2-2.9.3.orig/parser.c	2015-11-20 08:56:41.000000000 +0100
++++ libxml2-2.9.3/parser.c	2015-11-23 01:14:25.970849159 +0100
+@@ -1317,7 +1317,7 @@
          return;
  
      xmlHashAddEntry2(ctxt->attsSpecial, fullname, fullattr,
@@ -10,7 +10,7 @@ diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
      return;
  
  mem_error:
-@@ -1334,7 +1334,7 @@
+@@ -1336,7 +1336,7 @@
                              const xmlChar *unused ATTRIBUTE_UNUSED) {
      xmlParserCtxtPtr ctxt = (xmlParserCtxtPtr) data;
  
@@ -19,7 +19,7 @@ diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
          xmlHashRemoveEntry2(ctxt->attsSpecial, fullname, fullattr, NULL);
      }
  }
-@@ -1846,7 +1846,7 @@
+@@ -1848,7 +1848,7 @@
      ctxt->name = value;
      ctxt->pushTab[ctxt->nameNr * 3] = (void *) prefix;
      ctxt->pushTab[ctxt->nameNr * 3 + 1] = (void *) URI;
@@ -28,7 +28,7 @@ diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
      return (ctxt->nameNr++);
  mem_error:
      xmlErrMemory(ctxt, NULL);
-@@ -9186,7 +9186,7 @@
+@@ -9230,7 +9230,7 @@
      if (ctxt->attsSpecial != NULL) {
          int type;
  
@@ -37,7 +37,7 @@ diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
                                              pref, elem, *prefix, name);
          if (type != 0)
              normalize = 1;
-@@ -11672,7 +11672,7 @@
+@@ -11743,7 +11743,7 @@
  		    xmlParseEndTag2(ctxt,
  		           (void *) ctxt->pushTab[ctxt->nameNr * 3 - 3],
  		           (void *) ctxt->pushTab[ctxt->nameNr * 3 - 2], 0,
@@ -46,10 +46,10 @@ diff -ur libxml2-2.9.2.orig/parser.c libxml2-2.9.2/parser.c
  		    nameNsPop(ctxt);
  		}
  #ifdef LIBXML_SAX1_ENABLED
-diff -ur libxml2-2.9.2.orig/relaxng.c libxml2-2.9.2/relaxng.c
---- libxml2-2.9.2.orig/relaxng.c	2014-10-03 13:28:06.000000000 +0200
-+++ libxml2-2.9.2/relaxng.c	2014-10-27 10:09:28.886604108 +0100
-@@ -9381,7 +9381,7 @@
+diff -ur libxml2-2.9.3.orig/relaxng.c libxml2-2.9.3/relaxng.c
+--- libxml2-2.9.3.orig/relaxng.c	2015-11-03 09:13:42.000000000 +0100
++++ libxml2-2.9.3/relaxng.c	2015-11-23 01:14:25.974849082 +0100
+@@ -9385,7 +9385,7 @@
              if (tmp == NULL) {
                  i = nbgroups;
              } else {
@@ -58,10 +58,10 @@ diff -ur libxml2-2.9.2.orig/relaxng.c libxml2-2.9.2/relaxng.c
                  if (partitions->flags & IS_NEEDCHECK) {
                      group = partitions->groups[i];
                      if (!xmlRelaxNGNodeMatchesList(cur, group->defs))
-diff -ur libxml2-2.9.2.orig/tree.c libxml2-2.9.2/tree.c
---- libxml2-2.9.2.orig/tree.c	2014-10-13 09:57:09.000000000 +0200
-+++ libxml2-2.9.2/tree.c	2014-10-27 10:09:28.890604108 +0100
-@@ -4576,7 +4576,7 @@
+diff -ur libxml2-2.9.3.orig/tree.c libxml2-2.9.3/tree.c
+--- libxml2-2.9.3.orig/tree.c	2015-11-03 08:28:09.000000000 +0100
++++ libxml2-2.9.3/tree.c	2015-11-23 01:14:25.974849082 +0100
+@@ -4595,7 +4595,7 @@
  	(node->type == XML_PI_NODE)) {
  	if (node->line == 65535) {
  	    if ((node->type == XML_TEXT_NODE) && (node->psvi != NULL))
@@ -70,9 +70,9 @@ diff -ur libxml2-2.9.2.orig/tree.c libxml2-2.9.2/tree.c
  	    else if ((node->type == XML_ELEMENT_NODE) &&
  	             (node->children != NULL))
  	        result = xmlGetLineNoInternal(node->children, depth + 1);
-diff -ur libxml2-2.9.2.orig/xmlIO.c libxml2-2.9.2/xmlIO.c
---- libxml2-2.9.2.orig/xmlIO.c	2014-10-13 10:17:39.000000000 +0200
-+++ libxml2-2.9.2/xmlIO.c	2014-10-27 10:09:28.890604108 +0100
+diff -ur libxml2-2.9.3.orig/xmlIO.c libxml2-2.9.3/xmlIO.c
+--- libxml2-2.9.3.orig/xmlIO.c	2015-11-03 13:36:33.000000000 +0100
++++ libxml2-2.9.3/xmlIO.c	2015-11-23 01:14:25.974849082 +0100
 @@ -826,7 +826,7 @@
  xmlFdRead (void * context, char * buffer, int len) {
      int ret;
@@ -118,9 +118,9 @@ diff -ur libxml2-2.9.2.orig/xmlIO.c libxml2-2.9.2/xmlIO.c
  	ret->writecallback = xmlFdWrite;
  	ret->closecallback = NULL;
      }
-diff -ur libxml2-2.9.2.orig/xmlmemory.c libxml2-2.9.2/xmlmemory.c
---- libxml2-2.9.2.orig/xmlmemory.c	2014-10-13 14:46:37.000000000 +0200
-+++ libxml2-2.9.2/xmlmemory.c	2014-10-27 10:09:28.890604108 +0100
+diff -ur libxml2-2.9.3.orig/xmlmemory.c libxml2-2.9.3/xmlmemory.c
+--- libxml2-2.9.3.orig/xmlmemory.c	2015-11-03 09:13:42.000000000 +0100
++++ libxml2-2.9.3/xmlmemory.c	2015-11-23 01:14:25.974849082 +0100
 @@ -465,7 +465,7 @@
  
  error:
@@ -130,9 +130,9 @@ diff -ur libxml2-2.9.2.orig/xmlmemory.c libxml2-2.9.2/xmlmemory.c
      xmlMallocBreakpoint();
      return;
  }
-diff -ur libxml2-2.9.2.orig/xpath.c libxml2-2.9.2/xpath.c
---- libxml2-2.9.2.orig/xpath.c	2014-10-03 13:28:06.000000000 +0200
-+++ libxml2-2.9.2/xpath.c	2014-10-27 10:11:00.270602233 +0100
+diff -ur libxml2-2.9.3.orig/xpath.c libxml2-2.9.3/xpath.c
+--- libxml2-2.9.3.orig/xpath.c	2015-11-03 10:34:07.000000000 +0100
++++ libxml2-2.9.3/xpath.c	2015-11-23 01:14:25.974849082 +0100
 @@ -167,12 +167,12 @@
      switch (node1->type) {
  	case XML_ELEMENT_NODE:
