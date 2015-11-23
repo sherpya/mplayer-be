@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=wavpack
-VERSION=4.75.0
+VERSION=4.75.2
 EXT=tar.bz2
 BASEURL=http://wavpack.com
 
