@@ -11,7 +11,7 @@ libdca	0.0.5
 libiconv	1.14
 libjpeg-turbo	1.4.2
 libogg	1.3.2
-libpng	1.6.18
+libpng	1.6.19
 libsoxr	0.1.2
 libtheora	1.2.0alpha1
 libvorbis	1.3.5
