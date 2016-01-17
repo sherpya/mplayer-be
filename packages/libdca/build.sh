@@ -10,6 +10,7 @@ BASEURL=http://download.videolan.org/pub/videolan/${PACKAGE}/${VERSION}
 
 . $(dirname $0)/../functions.sh
 
+CFLAGS="-D__NO_INLINE__"
 STATICLIBS="libdca"
 
 pkg_build && pkg_clean
