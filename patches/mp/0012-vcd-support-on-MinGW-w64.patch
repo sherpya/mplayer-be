@@ -1,4 +1,4 @@
-From c536c22ae24d3ead38a6412380cb3eab6d6074f1 Mon Sep 17 00:00:00 2001
+From 0ed9f5c470340447c9cf9a2bb3ed2501d07414a2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 05:05:55 +0100
 Subject: [PATCH 12/28] vcd support on MinGW-w64
@@ -9,10 +9,10 @@ Subject: [PATCH 12/28] vcd support on MinGW-w64
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index aa5b5d0..d20624e 100755
+index b6b7d7c..fc73bb0 100755
 --- a/configure
 +++ b/configure
-@@ -6108,7 +6108,7 @@ if test "$_vcd" = auto; then
+@@ -6105,7 +6105,7 @@ if test "$_vcd" = auto; then
    if linux || freebsd || netbsd || openbsd || dragonfly || bsdos || darwin || sunos || os2; then
      _vcd=yes
    elif mingw32; then
@@ -35,5 +35,5 @@ index a0035ad..9b77cee 100644
  
  typedef struct mp_vcd_priv_st mp_vcd_priv_t;
 -- 
-2.6.1
+2.7.0.rc3
 

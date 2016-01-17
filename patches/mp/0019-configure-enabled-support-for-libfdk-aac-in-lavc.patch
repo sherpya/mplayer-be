@@ -1,4 +1,4 @@
-From 86d163693994978f7d5bc68d06bc9fdfd99c647a Mon Sep 17 00:00:00 2001
+From f77a8404340df8547cd16e38b22234eee1870068 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
 Subject: [PATCH 19/28] configure: enabled support for libfdk-aac in lavc
@@ -8,7 +8,7 @@ Subject: [PATCH 19/28] configure: enabled support for libfdk-aac in lavc
  1 file changed, 20 insertions(+)
 
 diff --git a/configure b/configure
-index 01307e7..611a6e7 100755
+index f48a2c3..e64f416 100755
 --- a/configure
 +++ b/configure
 @@ -420,6 +420,7 @@ Codecs:
@@ -36,7 +36,7 @@ index 01307e7..611a6e7 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -6795,6 +6799,21 @@ res_comment="in FFmpeg: $_faac_lavc"
+@@ -6792,6 +6796,21 @@ res_comment="in FFmpeg: $_faac_lavc"
  echores "$_faac"
  
  
@@ -58,7 +58,7 @@ index 01307e7..611a6e7 100755
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
    _faad=no
-@@ -9162,6 +9181,7 @@ $def_windows_h
+@@ -9160,6 +9179,7 @@ $def_windows_h
  $def_bzlib
  $def_crystalhd
  $def_faac_lavc
@@ -67,5 +67,5 @@ index 01307e7..611a6e7 100755
  $def_libgsm
  $def_libopencore_amrnb
 -- 
-2.6.1
+2.7.0.rc3
 

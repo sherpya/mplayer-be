@@ -1,4 +1,4 @@
-From 193210c1a5c83b824c338dafde04ff084e57416b Mon Sep 17 00:00:00 2001
+From fd53414dbab500b6ffdbb78255fe71ee9ffd1151 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 05:14:05 +0100
 Subject: [PATCH 09/28] win32: disable_system_conf defaults to 1 on win32
@@ -24,5 +24,5 @@ index e774115..e8a0e7a 100644
  #ifdef CONFIG_GUI
  int disable_gui_conf=0;
 -- 
-2.6.1
+2.7.0.rc3
 

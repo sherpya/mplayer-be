@@ -1,4 +1,4 @@
-From 19554c9a41c8e3890bf8a9247e379ba5fcdb8267 Mon Sep 17 00:00:00 2001
+From 831c68805bf24f19e3b297e930b4287a4f6dcb02 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:43:34 +0100
 Subject: [PATCH 05/28] make fontconfig spam while creating font cache
@@ -39,5 +39,5 @@ index 527bc40..5b8f507 100644
  
  // ******************* Now, let's see the per-file stuff ********************
 -- 
-2.6.1
+2.7.0.rc3
 

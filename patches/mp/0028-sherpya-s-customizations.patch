@@ -1,4 +1,4 @@
-From 2e877a0377a71cf75a772c74fea01758a648c16d Mon Sep 17 00:00:00 2001
+From 58ba754cd0969b369e70c1aa4c6ed8f0187b279f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 28/28] sherpya's customizations
@@ -41,7 +41,7 @@ index 99edf53..53fa372 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 5a28e34..e9997ac 100755
+index 288cefe..b101986 100755
 --- a/configure
 +++ b/configure
 @@ -1535,13 +1535,13 @@ fi
@@ -4624,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index c2b124f..e033a96 100644
+index e5d9636..478f25b 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4652,7 @@ index c2b124f..e033a96 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2015 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2016 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4680,7 @@ index c2b124f..e033a96 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 7fd0420..91b202c 100755
+index 0d03da2..a93a9b6 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4699,5 @@ index 7fd0420..91b202c 100755
  version=$svn_revision
  fi
 -- 
-2.6.1
+2.7.0.rc3
 
