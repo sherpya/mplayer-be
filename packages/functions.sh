@@ -61,7 +61,7 @@ pkg_download()
 pkg_unpack()
 {
     if [ -n "${GIT_REPO}" ]; then
-        test -d ${BUILDDIR}/.git || ( git clone ${GIT_REPO} ${BUILDDIR} || return 1 )
+        test -d ${BUILDDIR}/.git || ( git clone --recursive ${GIT_REPO} ${BUILDDIR} || return 1 )
         return 0
     fi
 
