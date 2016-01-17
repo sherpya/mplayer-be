@@ -1,4 +1,4 @@
-From 6f4b14f94a7a74bf9a3b6aa068a916272d2a3101 Mon Sep 17 00:00:00 2001
+From b0c1925f0f1de3a4853f71258d06de405175e9ad Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
 Subject: [PATCH 9/9] use upstream version tag, my repo is always rebased
@@ -8,7 +8,7 @@ Subject: [PATCH 9/9] use upstream version tag, my repo is always rebased
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/version.sh b/version.sh
-index f9754eb..f724110 100755
+index a9d7e39..c8fcbdd 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -5,9 +5,9 @@
@@ -24,5 +24,5 @@ index f9754eb..f724110 100755
  fi
  
 -- 
-2.6.1
+2.7.0.rc3
 

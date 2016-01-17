@@ -1,4 +1,4 @@
-From 9b6b94411d48ec31e18671b8b6be2ef32a96ed1d Mon Sep 17 00:00:00 2001
+From 0aba4037bf74b046e9dfcb700464a63dc3e8afef Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
 Subject: [PATCH 3/9] avfilters: better behavior of frei0r on win32
@@ -8,10 +8,10 @@ Subject: [PATCH 3/9] avfilters: better behavior of frei0r on win32
  1 file changed, 24 insertions(+)
 
 diff --git a/libavfilter/vf_frei0r.c b/libavfilter/vf_frei0r.c
-index bbefe51..537a718 100644
+index 9aa3edc..fa16045 100644
 --- a/libavfilter/vf_frei0r.c
 +++ b/libavfilter/vf_frei0r.c
-@@ -41,6 +41,10 @@
+@@ -42,6 +42,10 @@
  #include "internal.h"
  #include "video.h"
  
@@ -22,7 +22,7 @@ index bbefe51..537a718 100644
  typedef f0r_instance_t (*f0r_construct_f)(unsigned int width, unsigned int height);
  typedef void (*f0r_destruct_f)(f0r_instance_t instance);
  typedef void (*f0r_deinit_f)(void);
-@@ -282,11 +286,31 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -283,11 +287,31 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
@@ -55,5 +55,5 @@ index bbefe51..537a718 100644
          av_log(ctx, AV_LOG_ERROR, "Could not find module '%s'.\n", dl_name);
          return AVERROR(EINVAL);
 -- 
-2.6.1
+2.7.0.rc3
 
