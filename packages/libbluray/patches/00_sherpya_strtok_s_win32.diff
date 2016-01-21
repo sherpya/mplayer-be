@@ -1,0 +1,16 @@
+diff --git a/contrib/libudfread/src/udfread.c b/src/udfread.c
+index ba910aa..bb5e1d3 100644
+--- a/contrib/libudfread/src/udfread.c
++++ b/contrib/libudfread/src/udfread.c
+@@ -33,11 +33,6 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
+-#ifdef _WIN32
+-#define strtok_r strtok_s
+-#endif
+-
+-
+ /*
+  * Logging
+  */
