@@ -240,7 +240,9 @@ pkg_build()
 git_clean()
 {
     test -d ${BUILDDIR} || return 0
-    ( cd ${BUILDDIR} && git reset --hard && git clean -qdfx )
+    ( cd ${BUILDDIR} && git reset --hard && git clean -qdfx \
+        && git submodule foreach git reset --hard \
+        && git submodule foreach git clean -qdfx )
 }
 
 hg_clean()
