@@ -1,4 +1,4 @@
-From 6e3a466fd6b2ff58e4817f4d26214e3e5c378a78 Mon Sep 17 00:00:00 2001
+From 610cf95b6312c077eec33eca62f27019f7884e5d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 17 Jan 2016 19:42:54 +0100
 Subject: [PATCH 1/9] dynamic loading of shared faac library
@@ -9,18 +9,18 @@ Subject: [PATCH 1/9] dynamic loading of shared faac library
  2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index cdf07ae..a6168d3 100755
+index c415d5a..dd51c05 100755
 --- a/configure
 +++ b/configure
-@@ -4857,7 +4857,6 @@ die_license_disabled gpl libzvbi
+@@ -4883,7 +4883,6 @@ die_license_disabled gpl libxavs
+ die_license_disabled gpl libxvid
  die_license_disabled gpl x11grab
  
- die_license_disabled nonfree libaacplus
 -die_license_disabled nonfree libfaac
  die_license_disabled nonfree nvenc
  enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
-@@ -5439,7 +5438,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -5465,7 +5464,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
                                 die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libdcadec         && require_pkg_config "dcadec >= 0.1.0" libdcadec/dca_context.h dcadec_context_create
@@ -175,5 +175,5 @@ index 98b3ba8..33aae7c 100644
                                    avpkt->data, avpkt->size);
      if (bytes_written < 0) {
 -- 
-2.7.0.rc3
+2.7.0
 
