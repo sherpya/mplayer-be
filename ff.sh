@@ -37,6 +37,7 @@ case "$product" in
         enable fontconfig
         enable libfdk-aac
         enable libass
+        enable libilbc
         enable libmodplug
         enable libtwolame
         enable libsoxr
@@ -44,6 +45,7 @@ case "$product" in
         enable libvidstab
         enable libbluray
         enable libgme
+        enable libx265
         enable frei0r
         config frei0r_filter
         ;;
@@ -52,7 +54,6 @@ case "$product" in
         PROGRAM="avconv"
         PROGRAMS="avprobe"
         disable avplay
-        disable avserver
         ;;
 esac
 
@@ -94,7 +95,6 @@ configure()
     enable libfaac
     enable libfreetype
     enable libgsm
-    enable libilbc
     enable libmp3lame
     enable libopencore-amrnb
     enable libopencore-amrwb
@@ -102,13 +102,11 @@ configure()
     enable libopenjpeg
     enable libspeex
     enable libtheora
-    enable libvo-aacenc
     enable libvo-amrwbenc
     enable libvorbis
     enable libvpx
     enable libwavpack
     enable libx264
-    enable libx265
     enable libxavs
     enable libxvid
     enable libwebp
