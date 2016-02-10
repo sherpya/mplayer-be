@@ -1,4 +1,4 @@
-From 610cf95b6312c077eec33eca62f27019f7884e5d Mon Sep 17 00:00:00 2001
+From 93cc99c48eadd1c236dada78bdcd36ab5dde5f8b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 17 Jan 2016 19:42:54 +0100
 Subject: [PATCH 1/9] dynamic loading of shared faac library
@@ -9,7 +9,7 @@ Subject: [PATCH 1/9] dynamic loading of shared faac library
  2 files changed, 67 insertions(+), 11 deletions(-)
 
 diff --git a/configure b/configure
-index c415d5a..dd51c05 100755
+index 2148f11..ba8242d 100755
 --- a/configure
 +++ b/configure
 @@ -4883,7 +4883,6 @@ die_license_disabled gpl libxavs

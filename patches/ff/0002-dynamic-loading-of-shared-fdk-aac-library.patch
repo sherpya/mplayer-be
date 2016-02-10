@@ -1,4 +1,4 @@
-From adbd97b33de4f9e6c718f765d7b93b6006a7b633 Mon Sep 17 00:00:00 2001
+From 5c0b3ade7a854a8eb61fb1c378b2f3f6ab3ef061 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 17 Jan 2016 19:43:22 +0100
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,7 +10,7 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 128 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index dd51c05..f105965 100755
+index ba8242d..d5c071f 100755
 --- a/configure
 +++ b/configure
 @@ -4884,7 +4884,6 @@ die_license_disabled gpl libxvid

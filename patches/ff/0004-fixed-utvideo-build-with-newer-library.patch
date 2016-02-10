@@ -1,4 +1,4 @@
-From a2df9b0c72e3497413c17d6ceb2c8680ac02e241 Mon Sep 17 00:00:00 2001
+From bec0ff14f2de284b1ed846ee6429905025e1feaa Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 30 Jul 2015 08:00:09 +0200
 Subject: [PATCH 4/9] fixed utvideo build with newer library
@@ -22,10 +22,10 @@ index 7c60f4f..ee6563b 100644
      /* Set the output data depending on the colorspace */
      switch (avctx->pix_fmt) {
 diff --git a/libavcodec/libutvideoenc.cpp b/libavcodec/libutvideoenc.cpp
-index 96d8fe1..a063305 100644
+index d5dfef9..1be471c 100644
 --- a/libavcodec/libutvideoenc.cpp
 +++ b/libavcodec/libutvideoenc.cpp
-@@ -123,8 +123,7 @@ static av_cold int utvideo_encode_init(AVCodecContext *avctx)
+@@ -131,8 +131,7 @@ FF_ENABLE_DEPRECATION_WARNINGS
      /* Get extradata from encoder */
      avctx->extradata_size = utv->codec->EncodeGetExtraDataSize();
      utv->codec->EncodeGetExtraData(info, avctx->extradata_size, in_format,
