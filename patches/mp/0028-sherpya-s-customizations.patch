@@ -1,4 +1,4 @@
-From 58ba754cd0969b369e70c1aa4c6ed8f0187b279f Mon Sep 17 00:00:00 2001
+From 302aeb32598110abe71e8e43f0a7263bc113a399 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 28/28] sherpya's customizations
@@ -18,10 +18,10 @@ Subject: [PATCH 28/28] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index 99edf53..53fa372 100644
+index e4320c3..2018571 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -663,6 +663,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -660,6 +660,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index 99edf53..53fa372 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -832,6 +834,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -829,6 +831,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,10 +41,10 @@ index 99edf53..53fa372 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 288cefe..b101986 100755
+index 2144606..dc4441c 100755
 --- a/configure
 +++ b/configure
-@@ -1535,13 +1535,13 @@ fi
+@@ -1540,13 +1540,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 288cefe..b101986 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1807,6 +1807,7 @@ fi
+@@ -1812,6 +1812,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index 0d03da2..a93a9b6 100755
  version=$svn_revision
  fi
 -- 
-2.7.0.rc3
+2.7.0
 

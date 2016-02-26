@@ -1,4 +1,4 @@
-From 1fb8f1dd2b89fc6b2f0534667c863fdc57b49b87 Mon Sep 17 00:00:00 2001
+From 1f7966a36f376988258419c5be07559ded6d82ae Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 22/28] replaced some signed char with unsigned char
@@ -16,10 +16,10 @@ this fixes some subtitle/charset related problems
  8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
-index ecf43b8..34e40d4 100644
+index 7cdd533..e013937 100644
 --- a/libmpdemux/mf.c
 +++ b/libmpdemux/mf.c
-@@ -70,7 +70,7 @@ mf_t* open_mf(char * filename){
+@@ -66,7 +66,7 @@ mf_t* open_mf(char * filename){
       while ( fgets( fname,PATH_MAX,lst_f ) )
        {
         /* remove spaces from end of fname */
@@ -29,7 +29,7 @@ index ecf43b8..34e40d4 100644
         if ( stat( fname,&fs ) )
          {
 diff --git a/libvo/vo_fbdev.c b/libvo/vo_fbdev.c
-index 9c2fbb4..228fae4 100644
+index 04c1507..4c20530 100644
 --- a/libvo/vo_fbdev.c
 +++ b/libvo/vo_fbdev.c
 @@ -105,8 +105,8 @@ static int validate_mode(fb_mode_t *m)
@@ -90,7 +90,7 @@ index 615f579..11aa037 100644
  
  #endif /* MPLAYER_STREAM_H */
 diff --git a/stream/tv.c b/stream/tv.c
-index 0f65358..8ee6bec 100644
+index d360c55..0bf10e5 100644
 --- a/stream/tv.c
 +++ b/stream/tv.c
 @@ -577,7 +577,7 @@ static int open_tv(tvi_handle_t *tvh)
@@ -103,10 +103,10 @@ index 0f65358..8ee6bec 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index ecc5ff5..2a11931 100644
+index c8109ba..7d4b0e5 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
-@@ -89,12 +89,12 @@ int sub_format=SUB_INVALID;
+@@ -90,12 +90,12 @@ int sub_format=SUB_INVALID;
  unsigned long previous_sub_end;
  #endif
  
@@ -121,7 +121,7 @@ index ecc5ff5..2a11931 100644
  	int i = 0;
  	while (isspace(s[i])) ++i;
  	if (i) strcpy(s, s + i);
-@@ -779,8 +779,8 @@ static void sub_pp_ssa(subtitle *sub) {
+@@ -780,8 +780,8 @@ static void sub_pp_ssa(subtitle *sub) {
   * by set, based on code by szabi (dunnowhat sub format ;-)
   */
  static subtitle *sub_read_line_pjs(stream_t *st,subtitle *current, int utf16) {
@@ -132,7 +132,7 @@ index ecc5ff5..2a11931 100644
  
      if (!stream_read_line (st, line, LINE_LEN, utf16))
  	return NULL;
-@@ -820,7 +820,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
+@@ -821,7 +821,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
  	char line[LINE_LEN+1];
  	float a,b;
  	int num=0;
@@ -141,7 +141,7 @@ index ecc5ff5..2a11931 100644
  
  	do
  	{
-@@ -958,7 +958,7 @@ retry:
+@@ -959,7 +959,7 @@ retry:
  
  static subtitle *sub_read_line_jacosub(stream_t* st, subtitle * current, int utf16)
  {
@@ -150,7 +150,7 @@ index ecc5ff5..2a11931 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1874,7 +1874,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1880,7 +1880,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -159,7 +159,7 @@ index ecc5ff5..2a11931 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1929,7 +1929,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1935,7 +1935,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.7.0.rc3
+2.7.0
 

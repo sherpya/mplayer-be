@@ -1,4 +1,4 @@
-From 9f8922d82a6005e9d019b0e6bfae6ba2c514bfec Mon Sep 17 00:00:00 2001
+From c2e4b0c1134dd1a3f0ddb8a85a9a8413dc1967cc Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/28] af: runtime equalizer
@@ -28,10 +28,10 @@ index 6413adc..028f7b6 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index 27bfbf2..df6a136 100644
+index afac2cb..f7fd2a3 100644
 --- a/command.c
 +++ b/command.c
-@@ -3215,6 +3215,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
+@@ -3218,6 +3218,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
              set_rectangle(sh_video, cmd->args[0].v.i, cmd->args[1].v.i);
              break;
  
@@ -48,7 +48,7 @@ index 27bfbf2..df6a136 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 4f80e68..b71ee1d 100644
+index 2dbcc00..89c926c 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
@@ -72,7 +72,7 @@ index e723618..ed5d180 100644
    MP_CMD_AF_ADD,
    MP_CMD_AF_DEL,
 diff --git a/libaf/af_equalizer.c b/libaf/af_equalizer.c
-index 78e12e7..0b7c614 100644
+index 8a8f272..7ba6568 100644
 --- a/libaf/af_equalizer.c
 +++ b/libaf/af_equalizer.c
 @@ -142,6 +142,7 @@ static int control(struct af_instance_s* af, int cmd, void* arg)
@@ -102,5 +102,5 @@ index 78e12e7..0b7c614 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-2.7.0.rc3
+2.7.0
 

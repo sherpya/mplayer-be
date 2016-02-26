@@ -1,4 +1,4 @@
-From a2df2efb27eb75aef71babea47a284e4653d1b1c Mon Sep 17 00:00:00 2001
+From 6c34038b5ad9d305a296561d0577c10af09417bf Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 14 Jun 2013 05:25:38 +0200
 Subject: [PATCH 25/28] mpdemux: live555 async interface
@@ -9,10 +9,10 @@ Subject: [PATCH 25/28] mpdemux: live555 async interface
  2 files changed, 35 insertions(+), 22 deletions(-)
 
 diff --git a/configure b/configure
-index 86ee15a..288cefe 100755
+index 88701f5..2144606 100755
 --- a/configure
 +++ b/configure
-@@ -7055,13 +7055,9 @@ echores "$_nemesi"
+@@ -7075,13 +7075,9 @@ echores "$_nemesi"
  echocheck "LIVE555 Streaming Media libraries"
  if test "$_live" = auto  && test "$networking" = yes ; then
    cat > $TMPCPP << EOF
@@ -137,5 +137,5 @@ index ad7a7f1..05d06e0 100644
      rtpState->sipClient->sendBYE();
    }
 -- 
-2.7.0.rc3
+2.7.0
 

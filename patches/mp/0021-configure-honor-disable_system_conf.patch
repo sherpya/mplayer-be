@@ -1,4 +1,4 @@
-From f658da7d835cfaf56d20489d301a55cbae3aa884 Mon Sep 17 00:00:00 2001
+From 2597d83b7c451de21b65a360edbc5ade5f3a55ff Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/28] configure: honor disable_system_conf
@@ -12,7 +12,7 @@ except stream_dvb
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index f6cd5ec..1e5184a 100644
+index e5023a7..b63cc97 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -35,6 +35,7 @@
@@ -23,7 +23,7 @@ index f6cd5ec..1e5184a 100644
  #include "mp_fifo.h"
  #include "osdep/getch2.h"
  #include "osdep/keycodes.h"
-@@ -1780,7 +1781,7 @@ mp_input_init(void) {
+@@ -1782,7 +1783,7 @@ mp_input_init(void) {
      }
      // Try global conf dir
      file = MPLAYER_CONFDIR "/input.conf";
@@ -55,10 +55,10 @@ index e8a0e7a..3e6daf3 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index e9288c6..d5dd620 100644
+index 2e6dcbb..ec6b2d5 100644
 --- a/mplayer.c
 +++ b/mplayer.c
-@@ -3041,7 +3041,7 @@ int main(int argc, char *argv[])
+@@ -3063,7 +3063,7 @@ int main(int argc, char *argv[])
              if (menu_init(mpctx, menu_cfg))
                  mp_msg(MSGT_CPLAYER, MSGL_V, "Menu initialized: %s\n", menu_cfg);
              else {
@@ -68,7 +68,7 @@ index e9288c6..d5dd620 100644
                  else {
                      mp_msg(MSGT_CPLAYER, MSGL_ERR, MSGTR_MenuInitFailed);
 diff --git a/sub/font_load_ft.c b/sub/font_load_ft.c
-index 0147937..522d8d6 100644
+index 15a9121..a0b9f64 100644
 --- a/sub/font_load_ft.c
 +++ b/sub/font_load_ft.c
 @@ -902,7 +902,8 @@ static int load_sub_face(const char *name, int face_index, FT_Face *face)
@@ -82,5 +82,5 @@ index 0147937..522d8d6 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.7.0.rc3
+2.7.0
 
