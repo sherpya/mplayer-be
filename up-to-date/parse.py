@@ -20,6 +20,6 @@ if __name__ == '__main__':
             local = p.find('debian-mangled-uversion').text
             remote = p.find('upstream-version').text
             status = p.find('status').text
-        if status.find('Newer') != -1:
+        if status.find('newer') != -1:
             status = status + ' ' + p.find('upstream-url').text
         print 'Package: %s - local %s - remote %s : %s' % (package, local, remote, status)
