@@ -1,4 +1,4 @@
-From 5c0b3ade7a854a8eb61fb1c378b2f3f6ab3ef061 Mon Sep 17 00:00:00 2001
+From 778e4b0538167ae024368ccbdb39053ccf7440f0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 17 Jan 2016 19:43:22 +0100
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,18 +10,18 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 128 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index ba8242d..d5c071f 100755
+index 7390f83..ea1d817 100755
 --- a/configure
 +++ b/configure
-@@ -4884,7 +4884,6 @@ die_license_disabled gpl libxvid
- die_license_disabled gpl x11grab
+@@ -4894,7 +4894,6 @@ die_license_disabled gpl x11grab
  
+ die_license_disabled nonfree cuda
  die_license_disabled nonfree nvenc
 -enabled gpl && die_license_disabled_gpl nonfree libfdk_aac
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 gmp
-@@ -5465,9 +5464,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -5478,9 +5477,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
  enabled libdcadec         && require_pkg_config "dcadec >= 0.1.0" libdcadec/dca_context.h dcadec_context_create
  enabled libfaac           && check_header "stdint.h faac.h"

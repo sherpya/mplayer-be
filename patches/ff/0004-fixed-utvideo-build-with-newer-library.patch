@@ -1,4 +1,4 @@
-From bec0ff14f2de284b1ed846ee6429905025e1feaa Mon Sep 17 00:00:00 2001
+From 5bf5369c92472a7eaa738623c48b54b3cc5e6de1 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 30 Jul 2015 08:00:09 +0200
 Subject: [PATCH 4/9] fixed utvideo build with newer library
