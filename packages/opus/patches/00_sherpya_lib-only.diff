@@ -1,7 +1,7 @@
-diff -ur opus-1.1.orig/Makefile.in opus-1.1/Makefile.in
---- opus-1.1.orig/Makefile.in	2013-12-05 00:29:30.000000000 +0100
-+++ opus-1.1/Makefile.in	2013-12-05 14:54:37.691716748 +0100
-@@ -2670,8 +2670,7 @@
+diff -ur opus-1.1.2.orig/Makefile.in opus-1.1.2/Makefile.in
+--- opus-1.1.2.orig/Makefile.in	2016-01-12 19:17:49.000000000 +0100
++++ opus-1.1.2/Makefile.in	2016-02-26 02:22:05.038216518 +0100
+@@ -2970,8 +2970,7 @@
  
  info-am:
  
