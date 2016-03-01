@@ -1,6 +1,6 @@
 #!/bin/bash
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 . ../config.sh
@@ -156,7 +156,7 @@ build_binary()
     echo "Building $package"
 
     if [ "$cpu" = "generic" ]; then
-        opts="--with-arch=i486 --with-tune=generic"
+        opts="--with-arch=i486 --with-tune=generic --disable-fast-clz"
     elif [ "$cpu" = "x86_64" ]; then
         opts="--with-arch=x86-64 --with-tune=generic"
     else
