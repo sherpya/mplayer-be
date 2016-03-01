@@ -1,19 +1,19 @@
 diff -ur mingw-w64-4.0.5.orig/debian/changelog mingw-w64-4.0.5/debian/changelog
---- mingw-w64-4.0.5.orig/debian/changelog	2016-02-27 14:25:01.000000000 +0100
-+++ mingw-w64-4.0.5/debian/changelog	2016-02-28 02:51:33.643232234 +0100
+--- mingw-w64-4.0.5.orig/debian/changelog	2016-02-28 14:34:02.000000000 +0100
++++ mingw-w64-4.0.5/debian/changelog	2016-03-01 02:53:48.603755208 +0100
 @@ -1,3 +1,9 @@
-+mingw-w64 (4.0.5-1.1~sherpya) UNRELEASED; urgency=medium
++mingw-w64 (4.0.5-2.1~sherpya) UNRELEASED; urgency=medium
 +
-+  * Rebuild with -march=i486
++  * Rebuild with -march=i486 
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Sun, 28 Feb 2016 02:50:39 +0100
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Tue, 01 Mar 2016 02:53:42 +0100
 +
- mingw-w64 (4.0.5-1) unstable; urgency=medium
+ mingw-w64 (4.0.5-2) unstable; urgency=medium
  
-   * New upstream release.
+   * Support no-inline builds in winnt.h. (Closes: #816146; thanks to
 diff -ur mingw-w64-4.0.5.orig/debian/control mingw-w64-4.0.5/debian/control
---- mingw-w64-4.0.5.orig/debian/control	2016-02-27 14:24:18.000000000 +0100
-+++ mingw-w64-4.0.5/debian/control	2016-02-28 02:50:17.279564204 +0100
+--- mingw-w64-4.0.5.orig/debian/control	2016-02-27 14:45:12.000000000 +0100
++++ mingw-w64-4.0.5/debian/control	2016-03-01 02:53:23.982274594 +0100
 @@ -38,23 +38,6 @@
   The wine package can be used to test software built using MinGW-w64
   without using Windows.
@@ -39,8 +39,8 @@ diff -ur mingw-w64-4.0.5.orig/debian/control mingw-w64-4.0.5/debian/control
  Architecture: all
  Depends: gcc-mingw-w64, g++-mingw-w64, ${misc:Depends}
 diff -ur mingw-w64-4.0.5.orig/debian/rules mingw-w64-4.0.5/debian/rules
---- mingw-w64-4.0.5.orig/debian/rules	2016-01-02 17:04:36.000000000 +0100
-+++ mingw-w64-4.0.5/debian/rules	2016-02-28 02:50:17.279564204 +0100
+--- mingw-w64-4.0.5.orig/debian/rules	2016-02-27 14:45:12.000000000 +0100
++++ mingw-w64-4.0.5/debian/rules	2016-03-01 02:53:23.982274594 +0100
 @@ -16,7 +16,7 @@
  # Target architectures
  target32 := i686-w64-mingw32
