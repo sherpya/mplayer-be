@@ -251,6 +251,12 @@ hg_clean()
     ( cd ${BUILDDIR} && hg update --clean && hg purge )
 }
 
+svn_clean()
+{
+    test -d ${BUILDDIR} || return 0
+    ( svn revert -R ${BUILDDIR} )
+}
+
 cmake_clean()
 {
     test -d ${BUILDDIR} || return 0
