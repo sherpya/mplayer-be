@@ -1,13 +1,13 @@
 # vim: ft=sh:
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 topdir=$(cd .. && pwd)
 
 . $(dirname $0)/../../config.sh
 
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast"
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast"
 
 shopt -s nullglob
 

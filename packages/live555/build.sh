@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for live555.com streaming media library
-# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=live
@@ -13,6 +13,10 @@ BASEURL=http://www.live555.com/liveMedia/public/
 BUILDDIR=live
 FILENAME=live.2013.02.11.tar.gz
 LIVEDIST=${PREFIX}/live
+
+# too much of a hassle (invalid conversion from int* to socklen_t* and other)
+# also this version is outdated
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=int-to-pointer-cast"
 
 pkg_configure()
 {

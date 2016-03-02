@@ -1,6 +1,6 @@
 diff -ur libxml2-2.9.3.orig/parser.c libxml2-2.9.3/parser.c
 --- libxml2-2.9.3.orig/parser.c	2015-11-20 08:56:41.000000000 +0100
-+++ libxml2-2.9.3/parser.c	2015-11-23 01:14:25.970849159 +0100
++++ libxml2-2.9.3/parser.c	2016-03-02 03:23:52.031227391 +0100
 @@ -1317,7 +1317,7 @@
          return;
  
@@ -48,7 +48,43 @@ diff -ur libxml2-2.9.3.orig/parser.c libxml2-2.9.3/parser.c
  #ifdef LIBXML_SAX1_ENABLED
 diff -ur libxml2-2.9.3.orig/relaxng.c libxml2-2.9.3/relaxng.c
 --- libxml2-2.9.3.orig/relaxng.c	2015-11-03 09:13:42.000000000 +0100
-+++ libxml2-2.9.3/relaxng.c	2015-11-23 01:14:25.974849082 +0100
++++ libxml2-2.9.3/relaxng.c	2016-03-02 03:46:31.490331078 +0100
+@@ -4402,7 +4402,7 @@
+                 if ((*tmp)->type == XML_RELAXNG_TEXT) {
+                     res = xmlHashAddEntry2(partitions->triage,
+                                            BAD_CAST "#text", NULL,
+-                                           (void *) (long) (i + 1));
++                                           (void *) (intptr_t) (i + 1));
+                     if (res != 0)
+                         is_determinist = -1;
+                 } else if (((*tmp)->type == XML_RELAXNG_ELEMENT) &&
+@@ -4410,22 +4410,22 @@
+                     if (((*tmp)->ns == NULL) || ((*tmp)->ns[0] == 0))
+                         res = xmlHashAddEntry2(partitions->triage,
+                                                (*tmp)->name, NULL,
+-                                               (void *) (long) (i + 1));
++                                               (void *) (intptr_t) (i + 1));
+                     else
+                         res = xmlHashAddEntry2(partitions->triage,
+                                                (*tmp)->name, (*tmp)->ns,
+-                                               (void *) (long) (i + 1));
++                                               (void *) (intptr_t) (i + 1));
+                     if (res != 0)
+                         is_determinist = -1;
+                 } else if ((*tmp)->type == XML_RELAXNG_ELEMENT) {
+                     if (((*tmp)->ns == NULL) || ((*tmp)->ns[0] == 0))
+                         res = xmlHashAddEntry2(partitions->triage,
+                                                BAD_CAST "#any", NULL,
+-                                               (void *) (long) (i + 1));
++                                               (void *) (intptr_t) (i + 1));
+                     else
+                         res = xmlHashAddEntry2(partitions->triage,
+                                                BAD_CAST "#any", (*tmp)->ns,
+-                                               (void *) (long) (i + 1));
++                                               (void *) (intptr_t) (i + 1));
+                     if ((*tmp)->nameClass != NULL)
+                         is_determinist = 2;
+                     if (res != 0)
 @@ -9385,7 +9385,7 @@
              if (tmp == NULL) {
                  i = nbgroups;
@@ -58,9 +94,21 @@ diff -ur libxml2-2.9.3.orig/relaxng.c libxml2-2.9.3/relaxng.c
                  if (partitions->flags & IS_NEEDCHECK) {
                      group = partitions->groups[i];
                      if (!xmlRelaxNGNodeMatchesList(cur, group->defs))
+diff -ur libxml2-2.9.3.orig/SAX2.c libxml2-2.9.3/SAX2.c
+--- libxml2-2.9.3.orig/SAX2.c	2015-11-03 08:28:08.000000000 +0100
++++ libxml2-2.9.3/SAX2.c	2016-03-02 03:46:49.066214908 +0100
+@@ -1908,7 +1908,7 @@
+ 	    else {
+ 	        ret->line = 65535;
+ 		if (ctxt->options & XML_PARSE_BIG_LINES)
+-		    ret->psvi = (void *) (long) ctxt->input->line;
++		    ret->psvi = (void *) (intptr_t) ctxt->input->line;
+ 	    }
+ 	}
+     }
 diff -ur libxml2-2.9.3.orig/tree.c libxml2-2.9.3/tree.c
 --- libxml2-2.9.3.orig/tree.c	2015-11-03 08:28:09.000000000 +0100
-+++ libxml2-2.9.3/tree.c	2015-11-23 01:14:25.974849082 +0100
++++ libxml2-2.9.3/tree.c	2016-03-02 03:23:52.035227357 +0100
 @@ -4595,7 +4595,7 @@
  	(node->type == XML_PI_NODE)) {
  	if (node->line == 65535) {
@@ -72,7 +120,7 @@ diff -ur libxml2-2.9.3.orig/tree.c libxml2-2.9.3/tree.c
  	        result = xmlGetLineNoInternal(node->children, depth + 1);
 diff -ur libxml2-2.9.3.orig/xmlIO.c libxml2-2.9.3/xmlIO.c
 --- libxml2-2.9.3.orig/xmlIO.c	2015-11-03 13:36:33.000000000 +0100
-+++ libxml2-2.9.3/xmlIO.c	2015-11-23 01:14:25.974849082 +0100
++++ libxml2-2.9.3/xmlIO.c	2016-03-02 03:23:52.035227357 +0100
 @@ -826,7 +826,7 @@
  xmlFdRead (void * context, char * buffer, int len) {
      int ret;
@@ -120,7 +168,7 @@ diff -ur libxml2-2.9.3.orig/xmlIO.c libxml2-2.9.3/xmlIO.c
      }
 diff -ur libxml2-2.9.3.orig/xmlmemory.c libxml2-2.9.3/xmlmemory.c
 --- libxml2-2.9.3.orig/xmlmemory.c	2015-11-03 09:13:42.000000000 +0100
-+++ libxml2-2.9.3/xmlmemory.c	2015-11-23 01:14:25.974849082 +0100
++++ libxml2-2.9.3/xmlmemory.c	2016-03-02 03:23:52.035227357 +0100
 @@ -465,7 +465,7 @@
  
  error:
@@ -132,7 +180,7 @@ diff -ur libxml2-2.9.3.orig/xmlmemory.c libxml2-2.9.3/xmlmemory.c
  }
 diff -ur libxml2-2.9.3.orig/xpath.c libxml2-2.9.3/xpath.c
 --- libxml2-2.9.3.orig/xpath.c	2015-11-03 10:34:07.000000000 +0100
-+++ libxml2-2.9.3/xpath.c	2015-11-23 01:14:25.974849082 +0100
++++ libxml2-2.9.3/xpath.c	2016-03-02 03:44:31.363112339 +0100
 @@ -167,12 +167,12 @@
      switch (node1->type) {
  	case XML_ELEMENT_NODE:
@@ -202,6 +250,15 @@ diff -ur libxml2-2.9.3.orig/xpath.c libxml2-2.9.3/xpath.c
  	if (l1 < l2)
  	    return(1);
  	if (l1 > l2)
+@@ -3233,7 +3233,7 @@
+     cur = doc->children;
+     while (cur != NULL) {
+ 	if (cur->type == XML_ELEMENT_NODE) {
+-	    cur->content = (void *) (-(++count));
++	    cur->content = (void *) (intptr_t) (-(++count));
+ 	    if (cur->children != NULL) {
+ 		cur = cur->children;
+ 		continue;
 @@ -3325,13 +3325,13 @@
       */
      if ((node1->type == XML_ELEMENT_NODE) &&
