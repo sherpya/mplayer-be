@@ -1,0 +1,170 @@
+diff --git a/src/device.c b/src/device.c
+index af735e0..ae8fc07 100644
+--- a/src/device.c
++++ b/src/device.c
+@@ -463,14 +463,14 @@ static int win2k_open ( dvdcss_t dvdcss, const char *psz_device )
+      * won't send back the right result).
+      * (See Microsoft Q241374: Read and Write Access Required for SCSI
+      * Pass Through Requests) */
+-    dvdcss->i_fd = (int)
++    dvdcss->i_fd = (intptr_t)
+                 CreateFile( psz_dvd, GENERIC_READ | GENERIC_WRITE,
+                             FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING,
+                             FILE_FLAG_RANDOM_ACCESS, NULL );
+ 
+     if( (HANDLE) dvdcss->i_fd == INVALID_HANDLE_VALUE )
+-        dvdcss->i_fd = (int)
++        dvdcss->i_fd = (intptr_t)
+                     CreateFile( psz_dvd, GENERIC_READ, FILE_SHARE_READ,
+                                 NULL, OPEN_EXISTING,
+                                 FILE_FLAG_RANDOM_ACCESS, NULL );
+diff --git a/src/ioctl.c b/src/ioctl.c
+index 07bcb0d..a33a08d 100644
+--- a/src/ioctl.c
++++ b/src/ioctl.c
+@@ -109,7 +109,7 @@ static void OS2InitSDC( struct OS2_ExecSCSICmd *, int );
+ /*****************************************************************************
+  * ioctl_ReadCopyright: check whether the disc is encrypted or not
+  *****************************************************************************/
+-int ioctl_ReadCopyright( int i_fd, int i_layer, int *pi_copyright )
++int ioctl_ReadCopyright( intptr_t i_fd, int i_layer, int *pi_copyright )
+ {
+     int i_ret;
+ 
+@@ -229,7 +229,7 @@ int ioctl_ReadCopyright( int i_fd, int i_layer, int *pi_copyright )
+ /*****************************************************************************
+  * ioctl_ReadDiscKey: get the disc key
+  *****************************************************************************/
+-int ioctl_ReadDiscKey( int i_fd, const int *pi_agid, uint8_t *p_key )
++int ioctl_ReadDiscKey( intptr_t i_fd, const int *pi_agid, uint8_t *p_key )
+ {
+     int i_ret;
+ 
+@@ -362,7 +362,7 @@ int ioctl_ReadDiscKey( int i_fd, const int *pi_agid, uint8_t *p_key )
+ /*****************************************************************************
+  * ioctl_ReadTitleKey: get the title key
+  *****************************************************************************/
+-int ioctl_ReadTitleKey( int i_fd, const int *pi_agid, int i_pos, uint8_t *p_key )
++int ioctl_ReadTitleKey( intptr_t i_fd, const int *pi_agid, int i_pos, uint8_t *p_key )
+ {
+     int i_ret;
+ 
+@@ -494,7 +494,7 @@ int ioctl_ReadTitleKey( int i_fd, const int *pi_agid, int i_pos, uint8_t *p_key
+ /*****************************************************************************
+  * ioctl_ReportAgid: get AGID from the drive
+  *****************************************************************************/
+-int ioctl_ReportAgid( int i_fd, int *pi_agid )
++int ioctl_ReportAgid( intptr_t i_fd, int *pi_agid )
+ {
+     int i_ret;
+ 
+@@ -589,7 +589,7 @@ int ioctl_ReportAgid( int i_fd, int *pi_agid )
+ /*****************************************************************************
+  * ioctl_ReportChallenge: get challenge from the drive
+  *****************************************************************************/
+-int ioctl_ReportChallenge( int i_fd, const int *pi_agid, uint8_t *p_challenge )
++int ioctl_ReportChallenge( intptr_t i_fd, const int *pi_agid, uint8_t *p_challenge )
+ {
+     int i_ret;
+ 
+@@ -697,7 +697,7 @@ int ioctl_ReportChallenge( int i_fd, const int *pi_agid, uint8_t *p_challenge )
+ /*****************************************************************************
+  * ioctl_ReportASF: get ASF from the drive
+  *****************************************************************************/
+-int ioctl_ReportASF( int i_fd, int *pi_asf )
++int ioctl_ReportASF( intptr_t i_fd, int *pi_asf )
+ {
+     int i_ret;
+ 
+@@ -807,7 +807,7 @@ int ioctl_ReportASF( int i_fd, int *pi_asf )
+ /*****************************************************************************
+  * ioctl_ReportKey1: get the first key from the drive
+  *****************************************************************************/
+-int ioctl_ReportKey1( int i_fd, const int *pi_agid, uint8_t *p_key )
++int ioctl_ReportKey1( intptr_t i_fd, const int *pi_agid, uint8_t *p_key )
+ {
+     int i_ret;
+ 
+@@ -910,7 +910,7 @@ int ioctl_ReportKey1( int i_fd, const int *pi_agid, uint8_t *p_key )
+ /*****************************************************************************
+  * ioctl_InvalidateAgid: invalidate the current AGID
+  *****************************************************************************/
+-int ioctl_InvalidateAgid( int i_fd, int *pi_agid )
++int ioctl_InvalidateAgid( intptr_t i_fd, int *pi_agid )
+ {
+     int i_ret;
+ 
+@@ -993,7 +993,7 @@ int ioctl_InvalidateAgid( int i_fd, int *pi_agid )
+ /*****************************************************************************
+  * ioctl_SendChallenge: send challenge to the drive
+  *****************************************************************************/
+-int ioctl_SendChallenge( int i_fd, const int *pi_agid, const uint8_t *p_challenge )
++int ioctl_SendChallenge( intptr_t i_fd, const int *pi_agid, const uint8_t *p_challenge )
+ {
+     int i_ret;
+ 
+@@ -1102,7 +1102,7 @@ int ioctl_SendChallenge( int i_fd, const int *pi_agid, const uint8_t *p_challeng
+ /*****************************************************************************
+  * ioctl_SendKey2: send the second key to the drive
+  *****************************************************************************/
+-int ioctl_SendKey2( int i_fd, const int *pi_agid, const uint8_t *p_key )
++int ioctl_SendKey2( intptr_t i_fd, const int *pi_agid, const uint8_t *p_key )
+ {
+     int i_ret;
+ 
+@@ -1211,7 +1211,7 @@ int ioctl_SendKey2( int i_fd, const int *pi_agid, const uint8_t *p_key )
+ /*****************************************************************************
+  * ioctl_ReportRPC: get RPC (Regional Playback Control) status for the drive
+  *****************************************************************************/
+-int ioctl_ReportRPC( int i_fd, int *p_type, int *p_mask, int *p_scheme )
++int ioctl_ReportRPC( intptr_t i_fd, int *p_type, int *p_mask, int *p_scheme )
+ {
+     int i_ret;
+ 
+diff --git a/src/ioctl.h b/src/ioctl.h
+index 9cf3b41..5b1bbbb 100644
+--- a/src/ioctl.h
++++ b/src/ioctl.h
+@@ -25,17 +25,17 @@
+ 
+ #include <stdint.h>
+ 
+-int ioctl_ReadCopyright     ( int, int, int * );
+-int ioctl_ReadDiscKey       ( int, const int *, uint8_t * );
+-int ioctl_ReadTitleKey      ( int, const int *, int, uint8_t * );
+-int ioctl_ReportAgid        ( int, int * );
+-int ioctl_ReportChallenge   ( int, const int *, uint8_t * );
+-int ioctl_ReportKey1        ( int, const int *, uint8_t * );
+-int ioctl_ReportASF         ( int, int * );
+-int ioctl_InvalidateAgid    ( int, int * );
+-int ioctl_SendChallenge     ( int, const int *, const uint8_t * );
+-int ioctl_SendKey2          ( int, const int *, const uint8_t * );
+-int ioctl_ReportRPC         ( int, int *, int *, int * );
++int ioctl_ReadCopyright     ( intptr_t, int, int * );
++int ioctl_ReadDiscKey       ( intptr_t, const int *, uint8_t * );
++int ioctl_ReadTitleKey      ( intptr_t, const int *, int, uint8_t * );
++int ioctl_ReportAgid        ( intptr_t, int * );
++int ioctl_ReportChallenge   ( intptr_t, const int *, uint8_t * );
++int ioctl_ReportKey1        ( intptr_t, const int *, uint8_t * );
++int ioctl_ReportASF         ( intptr_t, int * );
++int ioctl_InvalidateAgid    ( intptr_t, int * );
++int ioctl_SendChallenge     ( intptr_t, const int *, const uint8_t * );
++int ioctl_SendKey2          ( intptr_t, const int *, const uint8_t * );
++int ioctl_ReportRPC         ( intptr_t, int *, int *, int * );
+ 
+ #define DVD_DISCKEY_SIZE 2048
+ 
+diff --git a/src/libdvdcss.h b/src/libdvdcss.h
+index 93668e0..c3e3ee1 100644
+--- a/src/libdvdcss.h
++++ b/src/libdvdcss.h
+@@ -45,7 +45,7 @@ struct dvdcss_s
+ {
+     /* File descriptor */
+     char * psz_device;
+-    int    i_fd;
++    intptr_t i_fd;
+     int    i_pos;
+ 
+     /* File handling */
