@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for dlfcn wrapper for win32
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 SVN_REPO="http://dlfcn-win32.googlecode.com/svn/trunk"
@@ -12,16 +12,16 @@ BUILDDIR=dlfcn-win32
 # why configure does return false?
 pkg_configure()
 {
-    ./configure             \
-        --prefix=${PREFIX}  \
-        --disable-wine      \
+    ./configure                 \
+        --prefix=${PREFIX}      \
+        --disable-wine          \
         --cross-prefix=${CROSS_PREFIX} || return 0
 }
 
 pkg_make_target()
 {
-    make ${MAKEOPTS}
+    CFLAGS="${GLOBAL_CFLAGS}" make ${MAKEOPTS}
     make ${MAKEOPTS} install
 }
 
-distclean && pkg_build && distclean
+distclean && svn_clean && pkg_build && distclean && svn_clean

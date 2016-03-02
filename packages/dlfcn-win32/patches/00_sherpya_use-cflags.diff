@@ -1,0 +1,13 @@
+Index: src/Makefile
+===================================================================
+--- src/Makefile.orig	(revision 39)
++++ src/Makefile		(working copy)
+@@ -24,7 +24,7 @@
+ all: $(TARGETS)
+ 
+ %.o: %.c
+-	$(CC) -o $@ -c $< -Wall -O3 -fomit-frame-pointer
++	$(CC) -o $@ -c $< -Wall -O3 -fomit-frame-pointer $(CFLAGS)
+ 
+ libdl.a: $(LIB_OBJS)
+ 	$(AR) cru $@ $^
