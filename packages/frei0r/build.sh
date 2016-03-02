@@ -4,6 +4,7 @@
 # See LICENSE for licensing informations
 
 GIT_REPO="git://code.dyne.org/frei0r.git"
+MARCH=i686
 
 CMAKE=1
 CMAKEOPTS="-DCMAKE_MODULE_LINKER_FLAGS=-s"

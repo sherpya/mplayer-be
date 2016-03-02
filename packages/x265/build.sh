@@ -4,6 +4,7 @@
 # See LICENSE for licensing informations
 
 HG_REPO="http://hg.videolan.org/x265"
+MARCH=i686
 
 . $(dirname $0)/../functions.sh
 

@@ -4,6 +4,7 @@
 # See LICENSE for licensing informations
 
 GIT_REPO="https://chromium.googlesource.com/webm/libvpx.git"
+MARCH=i686
 
 . $(dirname $0)/../functions.sh
 
@@ -16,6 +17,7 @@ BUILDDIR=libvpx
 
 pkg_configure()
 {
+    CFLAGS="${GLOBAL_CFLAGS}"       \
     CROSS=${HOST}- ./configure      \
         --prefix=${PREFIX}          \
         --target=${VPX_TARGET}      \

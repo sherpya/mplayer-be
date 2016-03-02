@@ -4,6 +4,7 @@
 # See LICENSE for licensing informations
 
 GIT_REPO="git://github.com/mstorsjo/fdk-aac.git"
+MARCH=i686
 
 . $(dirname $0)/../functions.sh
 
