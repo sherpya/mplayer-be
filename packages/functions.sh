@@ -103,11 +103,14 @@ is_cmake()
 pkg_configure_cmake()
 {
     mkdir build_cross
-    ( cd build_cross && cmake               \
-        -DCMAKE_BUILD_TYPE=Release          \
-        -DBUILD_SHARED_LIBS=0               \
-        -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
-        -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake \
+    ( cd build_cross &&                                 \
+        CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"             \
+        CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"           \
+        cmake                                           \
+        -DCMAKE_BUILD_TYPE=Release                      \
+        -DBUILD_SHARED_LIBS=0                           \
+        -DCMAKE_INSTALL_PREFIX=${PREFIX}                \
+        -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake  \
         ${CMAKEOPTS} ..
     ) || return 1
 }
