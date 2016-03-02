@@ -1,0 +1,14 @@
+diff -ur wavpack-4.75.2.orig/src/wavpack_local.h wavpack-4.75.2/src/wavpack_local.h
+--- wavpack-4.75.2.orig/src/wavpack_local.h	2015-09-16 02:17:47.000000000 +0200
++++ wavpack-4.75.2/src/wavpack_local.h	2016-03-02 05:38:42.038109801 +0100
+@@ -24,6 +24,10 @@
+                             //  (only works on little-endian machines)
+ #endif
+ 
++#if defined(_WIN32)
++#include <intrin.h>
++#endif
++
+ #include <sys/types.h>
+ 
+ // This header file contains all the definitions required by WavPack.

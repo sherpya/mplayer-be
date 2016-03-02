@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d02fe2a..88ed3b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -25,7 +25,7 @@ else()
+     set(LIBSUFFIX "")
+ endif()
+ 
+-add_definitions( -Wall -O3 -g -Wno-pointer-sign -fPIC -std=gnu99)
++add_definitions( -Wall -O3 -g -Wno-pointer-sign -std=gnu99)
+ # add_definitions(  -Wall -O0 -g -Wno-pointer-sign )
+ 
+ ### ORC is not used in any active code at the moment  ###

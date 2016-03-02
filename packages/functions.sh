@@ -7,7 +7,14 @@ topdir=$(cd .. && pwd)
 
 . $(dirname $0)/../../config.sh
 
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast"
+# -Werror=implicit-function-declaration
+# dangerous because of configure scripts
+
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields \
+    -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast \
+    -Wno-maybe-uninitialized \
+    -Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-parameter \
+    -Wno-attributes -Wno-unknown-pragmas -Wno-switch"
 
 shopt -s nullglob
 

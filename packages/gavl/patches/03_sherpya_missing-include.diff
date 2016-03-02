@@ -1,0 +1,12 @@
+Only in gavl-1.4.0.orig/include/gavl: gavl_version.h
+diff -ur gavl-1.4.0.orig/src/fill_test.c gavl-1.4.0/src/fill_test.c
+--- gavl-1.4.0.orig/src/fill_test.c	2012-06-08 13:49:30.000000000 +0200
++++ gavl-1.4.0/src/fill_test.c	2016-03-02 04:55:06.787357904 +0100
+@@ -22,6 +22,7 @@
+ #include <gavl.h>
+ //#include "colorspace.h" // Common routines
+ #include <stdio.h>
++#include <string.h>
+ #include <png.h>
+ 
+ static void
