@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for GNU regex
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=regex
@@ -17,16 +17,12 @@ pkg_configure()
 
 pkg_make_target()
 {
-    echo -n "Building..."
-    ${CROSS_PREFIX}gcc -DSTDC_HEADERS=1 -DHAVE_STRING_H=1 -c regex.c -o regex.o
-    ${CROSS_PREFIX}ar cru libregex.a regex.o
-    ${CROSS_PREFIX}ranlib libregex.a
-    echo "done"
+    cmd ${CROSS_PREFIX}gcc ${GLOBAL_CFLAGS} -DSTDC_HEADERS=1 -DHAVE_STRING_H=1 -c regex.c -o regex.o
+    cmd ${CROSS_PREFIX}ar cr libregex.a regex.o
+    cmd ${CROSS_PREFIX}ranlib libregex.a
 
-    echo -n "Installing..."
-    install -m644 libregex.a ${PREFIX}/lib/libregex.a
-    install -m644 regex.h ${PREFIX}/include/regex.h
-    echo "done"
+    cmd install -m644 libregex.a ${PREFIX}/lib/libregex.a
+    cmd install -m644 regex.h ${PREFIX}/include/regex.h
 }
 
 pkg_build && pkg_clean

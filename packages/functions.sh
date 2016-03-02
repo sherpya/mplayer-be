@@ -168,6 +168,12 @@ print_file_name()
     ${CROSS_PREFIX}gcc -print-file-name=$1
 }
 
+cmd()
+{
+    echo $*
+    $*
+}
+
 make_ld_script()
 {
     eval $(grep dependency_libs= $1)
