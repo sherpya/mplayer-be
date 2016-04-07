@@ -1,4 +1,4 @@
-From 65310bae4d40f2f8a555e9ede59311cb64e898a0 Mon Sep 17 00:00:00 2001
+From ac56c68cef4660e9df63f3041cd461a57e8c729e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 21 Mar 2013 10:29:04 +0100
 Subject: [PATCH 10/28] win32: filename glob() + unicode
@@ -163,5 +163,5 @@ index 4d29885..0573184 100644
  	}
  
 -- 
-2.7.0
+2.8.0.rc3
 

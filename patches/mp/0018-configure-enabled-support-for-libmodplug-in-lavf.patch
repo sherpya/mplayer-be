@@ -1,4 +1,4 @@
-From d3f0620dbf57834f08fe9358c188f5ffe6c3ad8f Mon Sep 17 00:00:00 2001
+From 7802a539de47d72ec7032d12880faceae2f4fa44 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 18/28] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 18/28] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 113bfe2..ca98667 100755
+index 15385bc..b5ced22 100755
 --- a/configure
 +++ b/configure
 @@ -442,6 +442,7 @@ Codecs:
@@ -36,7 +36,7 @@ index 113bfe2..ca98667 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7237,6 +7241,23 @@ else
+@@ -7272,6 +7276,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +60,7 @@ index 113bfe2..ca98667 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9169,6 +9190,7 @@ $def_libdirac_lavc
+@@ -9204,6 +9225,7 @@ $def_libdirac_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index 113bfe2..ca98667 100755
  $def_libopenjpeg
  $def_librtmp
  $def_libschroedinger_lavc
-@@ -9255,7 +9277,6 @@ $def_gnutls
+@@ -9290,7 +9312,6 @@ $def_gnutls
  $def_openssl
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +77,5 @@ index 113bfe2..ca98667 100755
  #define CONFIG_MEMORY_POISONING 0
  #define CONFIG_POWERPC_PERF 0
 -- 
-2.7.0
+2.8.0.rc3
 

@@ -1,4 +1,4 @@
-From 302aeb32598110abe71e8e43f0a7263bc113a399 Mon Sep 17 00:00:00 2001
+From 6e2e2899918ef6074ee97f15b1e2b4b136aa6648 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 28/28] sherpya's customizations
@@ -41,7 +41,7 @@ index e4320c3..2018571 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 2144606..dc4441c 100755
+index 2495b47..580655c 100755
 --- a/configure
 +++ b/configure
 @@ -1540,13 +1540,13 @@ fi
@@ -60,7 +60,7 @@ index 2144606..dc4441c 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1812,6 +1812,7 @@ fi
+@@ -1823,6 +1823,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index 0d03da2..a93a9b6 100755
  version=$svn_revision
  fi
 -- 
-2.7.0
+2.8.0.rc3
 

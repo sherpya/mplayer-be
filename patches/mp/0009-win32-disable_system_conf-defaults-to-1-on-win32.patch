@@ -1,4 +1,4 @@
-From 05c7d2c2e631031511dea984c095b2612704e3a2 Mon Sep 17 00:00:00 2001
+From 88135813c9d61de8067b8e51a6ba5c2d4e0d683a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 05:14:05 +0100
 Subject: [PATCH 09/28] win32: disable_system_conf defaults to 1 on win32
@@ -8,7 +8,7 @@ Subject: [PATCH 09/28] win32: disable_system_conf defaults to 1 on win32
  1 file changed, 4 insertions(+)
 
 diff --git a/mpcommon.c b/mpcommon.c
-index e774115..e8a0e7a 100644
+index ebc9711..031ae7d 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
 @@ -427,7 +427,11 @@ int select_video(demuxer_t* demuxer, int video_id)
@@ -24,5 +24,5 @@ index e774115..e8a0e7a 100644
  #ifdef CONFIG_GUI
  int disable_gui_conf=0;
 -- 
-2.7.0
+2.8.0.rc3
 

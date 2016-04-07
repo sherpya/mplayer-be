@@ -1,4 +1,4 @@
-From 2597d83b7c451de21b65a360edbc5ade5f3a55ff Mon Sep 17 00:00:00 2001
+From 4ed0a0a287eea9206084734014a6a26060651725 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/28] configure: honor disable_system_conf
@@ -12,7 +12,7 @@ except stream_dvb
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index e5023a7..b63cc97 100644
+index 4d7d928..4014e6c 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -35,6 +35,7 @@
@@ -23,7 +23,7 @@ index e5023a7..b63cc97 100644
  #include "mp_fifo.h"
  #include "osdep/getch2.h"
  #include "osdep/keycodes.h"
-@@ -1782,7 +1783,7 @@ mp_input_init(void) {
+@@ -1778,7 +1779,7 @@ mp_input_init(void) {
      }
      // Try global conf dir
      file = MPLAYER_CONFDIR "/input.conf";
@@ -33,7 +33,7 @@ index e5023a7..b63cc97 100644
    }
    else
 diff --git a/mpcommon.c b/mpcommon.c
-index e8a0e7a..3e6daf3 100644
+index 031ae7d..6df42b1 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
 @@ -599,7 +599,7 @@ int common_init(void)
@@ -55,10 +55,10 @@ index e8a0e7a..3e6daf3 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index 2e6dcbb..ec6b2d5 100644
+index a655c70..621538d 100644
 --- a/mplayer.c
 +++ b/mplayer.c
-@@ -3063,7 +3063,7 @@ int main(int argc, char *argv[])
+@@ -3050,7 +3050,7 @@ int main(int argc, char *argv[])
              if (menu_init(mpctx, menu_cfg))
                  mp_msg(MSGT_CPLAYER, MSGL_V, "Menu initialized: %s\n", menu_cfg);
              else {
@@ -82,5 +82,5 @@ index 15a9121..a0b9f64 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.7.0
+2.8.0.rc3
 

@@ -1,4 +1,4 @@
-From 0bf9c2be791af96d7c50b60bb434838f2fb19710 Mon Sep 17 00:00:00 2001
+From de528d13360a6c2c9920f17af6573a5dc206c28b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 22:52:25 +0200
 Subject: [PATCH 24/28] win32: subtitle loading with unicode aware glob
@@ -8,7 +8,7 @@ Subject: [PATCH 24/28] win32: subtitle loading with unicode aware glob
  1 file changed, 40 insertions(+), 14 deletions(-)
 
 diff --git a/sub/subreader.c b/sub/subreader.c
-index e73d1bf..3a54adb 100644
+index b3d43d2..2041ec8 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -28,7 +28,12 @@
@@ -117,5 +117,5 @@ index e73d1bf..3a54adb 100644
  
      free(tmp_sub_id);
 -- 
-2.7.0
+2.8.0.rc3
 

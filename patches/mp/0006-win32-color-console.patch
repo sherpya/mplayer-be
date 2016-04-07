@@ -1,4 +1,4 @@
-From 9765c304f2266b0901187da2ef4575d2f8af834d Mon Sep 17 00:00:00 2001
+From 07b7bfefbad0bafada00d941c8dad4f72085137e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:02 +0100
 Subject: [PATCH 06/28] win32: color console
@@ -8,7 +8,7 @@ Subject: [PATCH 06/28] win32: color console
  1 file changed, 45 insertions(+)
 
 diff --git a/mp_msg.c b/mp_msg.c
-index ec29a8e..5cf0a89 100644
+index c98a894..3d0aff9 100644
 --- a/mp_msg.c
 +++ b/mp_msg.c
 @@ -35,6 +35,26 @@
@@ -54,7 +54,7 @@ index ec29a8e..5cf0a89 100644
      int i;
      char *env = getenv("MPLAYER_VERBOSE");
      if (env)
-@@ -112,7 +141,11 @@ static void set_msg_color(FILE* stream, int lev)
+@@ -123,7 +152,11 @@ static void set_msg_color(FILE* stream, int lev)
      }
  #endif
      if (mp_msg_color)
@@ -66,7 +66,7 @@ index ec29a8e..5cf0a89 100644
  }
  
  static void print_msg_module(FILE* stream, int mod)
-@@ -169,11 +202,19 @@ static void print_msg_module(FILE* stream, int mod)
+@@ -180,11 +213,19 @@ static void print_msg_module(FILE* stream, int mod)
  
      if (!mp_msg_module)
          return;
@@ -86,7 +86,7 @@ index ec29a8e..5cf0a89 100644
      fprintf(stream, ": ");
  }
  
-@@ -241,6 +282,10 @@ void mp_msg_va(int mod, int lev, const char *format, va_list va){
+@@ -252,6 +293,10 @@ void mp_msg_va(int mod, int lev, const char *format, va_list va){
  
      fprintf(stream, "%s", tmp);
      if (mp_msg_color)
@@ -98,5 +98,5 @@ index ec29a8e..5cf0a89 100644
      fflush(stream);
  }
 -- 
-2.7.0
+2.8.0.rc3
 

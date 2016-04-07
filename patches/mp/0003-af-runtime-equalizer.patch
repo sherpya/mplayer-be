@@ -1,4 +1,4 @@
-From c2e4b0c1134dd1a3f0ddb8a85a9a8413dc1967cc Mon Sep 17 00:00:00 2001
+From d333e1de8a42eeca69537579d5d4826f6f293bd1 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
 Subject: [PATCH 03/28] af: runtime equalizer
@@ -28,7 +28,7 @@ index 6413adc..028f7b6 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index afac2cb..f7fd2a3 100644
+index 0e5c11f..f8226b0 100644
 --- a/command.c
 +++ b/command.c
 @@ -3218,6 +3218,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
@@ -48,7 +48,7 @@ index afac2cb..f7fd2a3 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 2dbcc00..89c926c 100644
+index 206c820..8f18b68 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
@@ -60,7 +60,7 @@ index 2dbcc00..89c926c 100644
    { MP_CMD_AF_ADD, "af_add", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
    { MP_CMD_AF_DEL, "af_del", 1,  { {MP_CMD_ARG_STRING, {0}}, {-1,{0}} } },
 diff --git a/input/input.h b/input/input.h
-index e723618..ed5d180 100644
+index 935276f..f1c761f 100644
 --- a/input/input.h
 +++ b/input/input.h
 @@ -156,6 +156,7 @@ typedef enum {
@@ -102,5 +102,5 @@ index 8a8f272..7ba6568 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-2.7.0
+2.8.0.rc3
 

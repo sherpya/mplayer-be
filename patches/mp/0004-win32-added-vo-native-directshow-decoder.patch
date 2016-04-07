@@ -1,4 +1,4 @@
-From 2e5cbbf21014bdaa0eafc8eb12c8e6388674d313 Mon Sep 17 00:00:00 2001
+From b7de9d48eb10a965edb193ce1f2507f93a787453 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
 Subject: [PATCH 04/28] win32: added vo native directshow decoder
@@ -7,8 +7,8 @@ Subject: [PATCH 04/28] win32: added vo native directshow decoder
  Makefile                  |   1 +
  etc/codecs.conf           |  87 +++++++++++++++++++++++++
  libmpcodecs/vd.c          |   2 +
- libmpcodecs/vd_dsnative.c | 160 ++++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 250 insertions(+)
+ libmpcodecs/vd_dsnative.c | 161 ++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 251 insertions(+)
  create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
@@ -24,10 +24,10 @@ index d345cb2..e4320c3 100644
                                          libmpcodecs/vd_vfwex.c          \
                                          libmpdemux/demux_avs.c          \
 diff --git a/etc/codecs.conf b/etc/codecs.conf
-index a3d480a..c6c8119 100644
+index 17864ab..a31da2b 100644
 --- a/etc/codecs.conf
 +++ b/etc/codecs.conf
-@@ -4565,6 +4565,93 @@ videocodec ffrawabgr
+@@ -4566,6 +4566,93 @@ videocodec ffrawabgr
    dll rawvideo
    out ABGR
  
@@ -143,10 +143,10 @@ index 6c1580e..1a6ae16 100644
      &mpcodecs_vd_vfwex,
 diff --git a/libmpcodecs/vd_dsnative.c b/libmpcodecs/vd_dsnative.c
 new file mode 100644
-index 0000000..afe87de
+index 0000000..a1f1db4
 --- /dev/null
 +++ b/libmpcodecs/vd_dsnative.c
-@@ -0,0 +1,160 @@
+@@ -0,0 +1,161 @@
 +#include <stdio.h>
 +#include <stdlib.h>
 +#include <stdarg.h>
@@ -219,6 +219,7 @@ index 0000000..afe87de
 +#ifdef WIN32_LOADER
 +    dsn.ldt_fs = Setup_LDT_Keeper();
 +#endif
++    const char *dll = codec_idx2str(sh->codec->dll_idx);
 +
 +    memset(&dsn, 0, sizeof(dsn));
 +    dsn.hLib = LoadLibraryA("dsnative.dll");
@@ -252,7 +253,7 @@ index 0000000..afe87de
 +    if (sh->ds->demuxer->filename)
 +        GetFullPathNameA(sh->ds->demuxer->filename, MAX_PATH, fname, NULL);
 +
-+    if (!(dsn.codec = dsn.DSOpenVideoCodec(sh->codec->dll, sh->codec->guid, sh->bih,
++    if (!(dsn.codec = dsn.DSOpenVideoCodec(dll, sh->codec->guid, sh->bih,
 +                                           sh->codec->outfmt[sh->outfmtidx], sh->fps, fname, &err)))
 +    {
 +        mp_msg(MSGT_DECVIDEO, MSGL_ERR, "[dsnative] Codec init failed: %s\n", dsn.DSStrError(err));
@@ -308,5 +309,5 @@ index 0000000..afe87de
 +    return mpi;
 +}
 -- 
-2.7.0
+2.8.0.rc3
 
