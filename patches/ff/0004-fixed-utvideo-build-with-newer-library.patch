@@ -1,4 +1,4 @@
-From 5bf5369c92472a7eaa738623c48b54b3cc5e6de1 Mon Sep 17 00:00:00 2001
+From 67b8168fc3fe49503d540464f223edddc586364f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 30 Jul 2015 08:00:09 +0200
 Subject: [PATCH 4/9] fixed utvideo build with newer library
@@ -9,7 +9,7 @@ Subject: [PATCH 4/9] fixed utvideo build with newer library
  2 files changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/libavcodec/libutvideodec.cpp b/libavcodec/libutvideodec.cpp
-index 7c60f4f..ee6563b 100644
+index a456735..5b66849 100644
 --- a/libavcodec/libutvideodec.cpp
 +++ b/libavcodec/libutvideodec.cpp
 @@ -150,7 +150,7 @@ static int utvideo_decode_frame(AVCodecContext *avctx, void *data,
@@ -36,5 +36,5 @@ index d5dfef9..1be471c 100644
  
      /* Set flags */
 -- 
-2.7.0
+2.8.0.rc3
 

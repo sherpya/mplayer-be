@@ -1,4 +1,4 @@
-From 642731e8230e085cbe62587c6964a2046aec8cfe Mon Sep 17 00:00:00 2001
+From 6f592dea72da11c8986c104c0eab07f01ec73204 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 9 Feb 2014 07:02:48 +0100
 Subject: [PATCH 7/9] removed c99 loop var decl
@@ -22,5 +22,5 @@ index 06b06da..0aee391 100644
                  if(keyframe && mode == MODE_MC)
                      continue;
 -- 
-2.7.0
+2.8.0.rc3
 

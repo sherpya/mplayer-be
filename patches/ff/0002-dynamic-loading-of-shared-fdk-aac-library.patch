@@ -1,4 +1,4 @@
-From 778e4b0538167ae024368ccbdb39053ccf7440f0 Mon Sep 17 00:00:00 2001
+From 1907b08456d2c8a17202fb4bb1b00b6b28f696ed Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 17 Jan 2016 19:43:22 +0100
 Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
@@ -10,10 +10,10 @@ Subject: [PATCH 2/9] dynamic loading of shared fdk-aac library
  3 files changed, 128 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index 7390f83..ea1d817 100755
+index bdba677..e77c873 100755
 --- a/configure
 +++ b/configure
-@@ -4894,7 +4894,6 @@ die_license_disabled gpl x11grab
+@@ -4947,7 +4947,6 @@ die_license_disabled gpl x11grab
  
  die_license_disabled nonfree cuda
  die_license_disabled nonfree nvenc
@@ -21,9 +21,9 @@ index 7390f83..ea1d817 100755
  enabled gpl && die_license_disabled_gpl nonfree openssl
  
  die_license_disabled version3 gmp
-@@ -5478,9 +5477,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+@@ -5534,9 +5533,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
  enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
- enabled libdcadec         && require_pkg_config "dcadec >= 0.1.0" libdcadec/dca_context.h dcadec_context_create
  enabled libfaac           && check_header "stdint.h faac.h"
 -enabled libfdk_aac        && { use_pkg_config fdk-aac "fdk-aac/aacenc_lib.h" aacEncOpen ||
 -                               { require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac &&
@@ -33,7 +33,7 @@ index 7390f83..ea1d817 100755
  enabled libflite          && require2 libflite "flite/flite.h" flite_init $flite_libs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index e5f7c4e..668ed24 100644
+index e5f7c4e..0d95f2f 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -42,10 +42,10 @@ index e5f7c4e..668ed24 100644
  
 +#ifndef _WIN32
 +#include <dlfcn.h>
-+#define LIBNAME "libfdk-aac.so.0"
++#define LIBNAME "libfdk-aac.so.1"
 +#else
 +#include <windows.h>
-+#define LIBNAME "libfdk-aac-0.dll"
++#define LIBNAME "libfdk-aac-1.dll"
 +#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
 +#define dlclose(handle) FreeLibrary((HMODULE) handle)
 +#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
@@ -152,7 +152,7 @@ index e5f7c4e..668ed24 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index 98a817b..aa96bac 100644
+index 98a817b..1b28a91 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -17,6 +17,17 @@
@@ -161,10 +161,10 @@ index 98a817b..aa96bac 100644
  
 +#ifndef _WIN32
 +#include <dlfcn.h>
-+#define LIBNAME "libfdk-aac.so.0"
++#define LIBNAME "libfdk-aac.so.1"
 +#else
 +#include <windows.h>
-+#define LIBNAME "libfdk-aac-0.dll"
++#define LIBNAME "libfdk-aac-1.dll"
 +#define dlopen(fname, f) ((void *) LoadLibraryA(fname))
 +#define dlclose(handle) FreeLibrary((HMODULE) handle)
 +#define dlsym(handle, name) GetProcAddress((HMODULE) handle, name)
@@ -250,5 +250,5 @@ index 98a817b..aa96bac 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.7.0
+2.8.0.rc3
 

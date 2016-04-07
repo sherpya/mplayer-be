@@ -1,4 +1,4 @@
-From 3e4e001ba9a3296ee460fd970637894a14213a81 Mon Sep 17 00:00:00 2001
+From 7667b4003cb54399deab0ad242ab0ee9438ee13c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 8/9] custom icon and windows resource
@@ -18,7 +18,7 @@ Subject: [PATCH 8/9] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 87a9869..a3b5002 100644
+index d881fcc..34689a9 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -109,6 +109,8 @@ include $(SRC_PATH)/doc/Makefile
@@ -1746,5 +1746,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.7.0
+2.8.0.rc3
 
