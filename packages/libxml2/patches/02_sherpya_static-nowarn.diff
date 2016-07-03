@@ -1,7 +1,7 @@
-diff -ur libxml2-2.9.3.orig/libxml.h libxml2-2.9.3/libxml.h
---- libxml2-2.9.3.orig/libxml.h	2015-05-06 14:04:36.000000000 +0200
-+++ libxml2-2.9.3/libxml.h	2016-03-02 05:26:49.331825400 +0100
-@@ -106,7 +106,7 @@
+diff -ur libxml2-2.9.4.orig/libxml.h libxml2-2.9.4/libxml.h
+--- libxml2-2.9.4.orig/libxml.h	2016-05-23 09:25:25.000000000 +0200
++++ libxml2-2.9.4/libxml.h	2016-07-03 06:53:24.582052212 +0200
+@@ -109,7 +109,7 @@
  #endif
  #endif
  #endif

@@ -15,7 +15,7 @@ libpng	1.6.23
 libsoxr	0.1.2
 libtheora	1.2.0alpha1
 libvorbis	1.3.5
-libxml2	2.9.3
+libxml2	2.9.4
 lzo	2.09
 opencore-amr	0.1.3
 openjpeg	1.5.2
