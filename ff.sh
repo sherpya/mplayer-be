@@ -41,7 +41,6 @@ case "$product" in
         enable libmodplug
         enable libtwolame
         enable libsoxr
-        enable libutvideo
         enable libvidstab
         enable libbluray
         enable libgme
