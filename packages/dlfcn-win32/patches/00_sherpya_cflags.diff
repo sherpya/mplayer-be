@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index aec9ba8..2e36f46 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ # dlfcn-win32 Makefile
+ #
+ include config.mak
+-CFLAGS = -Wall -O3 -fomit-frame-pointer
++CFLAGS += -Wall -fomit-frame-pointer
+ LIBS  += -lpsapi
+ 
+ ifeq ($(BUILD_SHARED),yes)
