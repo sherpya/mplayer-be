@@ -27,13 +27,4 @@ pkg_configure()
         --disable-examples
 }
 
-gen_ld_script()
-{
-    echo "Generating linker script"
-    lib=${PREFIX}/lib/libvpx.a
-    lib_s=${PREFIX}/lib/libvpx_s.a
-    mv -f $lib $lib_s
-    echo "GROUP ( -lvpx_s -lpthread )" > $lib
-}
-
-git_clean && pkg_build && gen_ld_script && git_clean
+git_clean && pkg_build && ( gen_ld_script libvpx.a -lpthread ) && git_clean

@@ -21,6 +21,7 @@ pkg_make_target()
 {
     CFLAGS="${GLOBAL_CFLAGS}" make V=1 ${MAKEOPTS}
     make ${MAKEOPTS} install
+    gen_ld_script libdl.a -lpsapi
 }
 
 git_clean && pkg_build && git_clean

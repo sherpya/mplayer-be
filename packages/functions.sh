@@ -184,6 +184,15 @@ cmd()
     $*
 }
 
+gen_ld_script()
+{
+    lib=${PREFIX}/lib/$1
+    lib_s="${1:3:-2}_s"
+    echo "Generating linker script $lib: $2"
+    mv -f $lib ${PREFIX}/lib/lib$lib_s.a
+    echo "GROUP ( -l$lib_s $2 )" > $lib
+}
+
 make_ld_script()
 {
     eval $(grep dependency_libs= $1)
