@@ -1,7 +1,7 @@
-From 645853451967fb6dceee10f7fa6bc6bcdd8d8324 Mon Sep 17 00:00:00 2001
+From 62091555e215ab1c47212d627e8b7d065cdbd5eb Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
-Subject: [PATCH 5/9] programs: print version info and configuration only on
+Subject: [PATCH 4/8] programs: print version info and configuration only on
  -version
 
 ---
@@ -33,5 +33,5 @@ index 03a4836..534e9b2 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-2.8.0.rc3
+2.8.1
 
