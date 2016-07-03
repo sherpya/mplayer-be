@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Fontconfig
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=fontconfig
-VERSION=2.11.1
+VERSION=2.12.0
 EXT=tar.bz2
 BASEURL=http://www.freedesktop.org/software/${PACKAGE}/release
 
