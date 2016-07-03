@@ -1,6 +1,6 @@
-diff -ur libjpeg-turbo-1.4.2.orig/Makefile.in libjpeg-turbo-1.4.2/Makefile.in
---- libjpeg-turbo-1.4.2.orig/Makefile.in	2015-09-21 20:48:45.000000000 +0200
-+++ libjpeg-turbo-1.4.2/Makefile.in	2015-10-07 03:37:11.287694949 +0200
+diff -ur libjpeg-turbo-1.5.0.orig/Makefile.in libjpeg-turbo-1.5.0/Makefile.in
+--- libjpeg-turbo-1.5.0.orig/Makefile.in	2016-06-07 19:33:56.000000000 +0200
++++ libjpeg-turbo-1.5.0/Makefile.in	2016-07-03 06:48:44.120002568 +0200
 @@ -101,9 +101,8 @@
  @VERSION_SCRIPT_TRUE@am__append_8 = $(VERSION_SCRIPT_FLAG)libjpeg.map
  @WITH_SIMD_TRUE@am__append_9 = simd
@@ -8,19 +8,19 @@ diff -ur libjpeg-turbo-1.4.2.orig/Makefile.in libjpeg-turbo-1.4.2/Makefile.in
 -bin_PROGRAMS = cjpeg$(EXEEXT) djpeg$(EXEEXT) jpegtran$(EXEEXT) \
 -	rdjpgcom$(EXEEXT) wrjpgcom$(EXEEXT) $(am__EXEEXT_1)
 -noinst_PROGRAMS = jcstest$(EXEEXT) $(am__EXEEXT_2)
-+bin_PROGRAMS = 
-+noinst_PROGRAMS = 
++bin_PROGRAMS =
++noinst_PROGRAMS =
  @WITH_TURBOJPEG_TRUE@am__append_11 = tjbench
  @WITH_TURBOJPEG_TRUE@am__append_12 = tjunittest
  @WITH_12BIT_FALSE@am__append_13 = rdbmp.c rdtarga.c
-@@ -2338,9 +2337,7 @@
+@@ -2381,9 +2380,7 @@
  
  info-am:
  
 -install-data-am: install-dist_docDATA install-dist_exampleDATA \
 -	install-includeHEADERS install-man \
--	install-nodist_includeHEADERS
-+install-data-am: install-includeHEADERS install-nodist_includeHEADERS
+-	install-nodist_includeHEADERS install-pkgconfigDATA
++install-data-am: install-includeHEADERS install-nodist_includeHEADERS install-pkgconfigDATA
  
  install-dvi: install-dvi-recursive
  
