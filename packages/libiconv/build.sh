@@ -13,6 +13,8 @@ BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 STATICLIBS="libiconv"
 CONFOPTS="--disable-nls"
 
+CFLAGS="-include stdint.h"
+
 pkg_make_target()
 {
     # llp64
