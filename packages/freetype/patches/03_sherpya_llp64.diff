@@ -1,7 +1,7 @@
-diff -ur freetype-2.6.3.orig/src/truetype/ttgload.c freetype-2.6.3/src/truetype/ttgload.c
---- freetype-2.6.3.orig/src/truetype/ttgload.c	2016-02-03 19:13:58.000000000 +0100
-+++ freetype-2.6.3/src/truetype/ttgload.c	2016-03-02 02:45:04.370105508 +0100
-@@ -1650,7 +1650,7 @@
+diff -ur freetype-2.6.5.orig/src/truetype/ttgload.c freetype-2.6.5/src/truetype/ttgload.c
+--- freetype-2.6.5.orig/src/truetype/ttgload.c	2016-06-25 17:44:05.000000000 +0200
++++ freetype-2.6.5/src/truetype/ttgload.c	2016-08-06 03:02:05.516212138 +0200
+@@ -1692,7 +1692,7 @@
  
        /* check whether we already have a composite glyph with this index */
        if ( FT_List_Find( &loader->composites,
@@ -10,8 +10,8 @@ diff -ur freetype-2.6.3.orig/src/truetype/ttgload.c freetype-2.6.3/src/truetype/
        {
          FT_TRACE1(( "TT_Load_Composite_Glyph:"
                      " infinite recursion detected\n" ));
-@@ -1664,7 +1664,7 @@
- 
+@@ -1707,7 +1707,7 @@
+       {
          if ( FT_NEW( node ) )
            goto Exit;
 -        node->data = (void*)(unsigned long)glyph_index;
