@@ -1,7 +1,7 @@
-diff -ur libpng-1.6.23.orig/Makefile.in libpng-1.6.23/Makefile.in
---- libpng-1.6.23.orig/Makefile.in	2016-06-09 13:45:06.000000000 +0200
-+++ libpng-1.6.23/Makefile.in	2016-07-03 06:50:59.431058808 +0200
-@@ -1951,7 +1951,7 @@
+diff -ur libpng-1.6.24.orig/Makefile.in libpng-1.6.24/Makefile.in
+--- libpng-1.6.24.orig/Makefile.in	2016-08-04 04:16:33.000000000 +0200
++++ libpng-1.6.24/Makefile.in	2016-08-06 03:03:50.783697117 +0200
+@@ -1963,7 +1963,7 @@
  
  info-am:
  
@@ -10,7 +10,7 @@ diff -ur libpng-1.6.23.orig/Makefile.in libpng-1.6.23/Makefile.in
  	install-pkgconfigDATA install-pkgincludeHEADERS
  	@$(NORMAL_INSTALL)
  	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
-@@ -1959,7 +1959,7 @@
+@@ -1971,7 +1971,7 @@
  
  install-dvi-am:
  
