@@ -1,7 +1,7 @@
-diff -ur fontconfig-2.12.0.orig/Makefile.in fontconfig-2.12.0/Makefile.in
---- fontconfig-2.12.0.orig/Makefile.in	2016-06-15 13:11:57.000000000 +0200
-+++ fontconfig-2.12.0/Makefile.in	2016-07-03 06:38:23.972453808 +0200
-@@ -433,9 +433,7 @@
+diff -ur fontconfig-2.12.1.orig/Makefile.in fontconfig-2.12.1/Makefile.in
+--- fontconfig-2.12.1.orig/Makefile.in	2016-08-05 07:49:13.000000000 +0200
++++ fontconfig-2.12.1/Makefile.in	2016-08-06 02:58:47.773143873 +0200
+@@ -434,9 +434,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
@@ -12,7 +12,7 @@ diff -ur fontconfig-2.12.0.orig/Makefile.in fontconfig-2.12.0/Makefile.in
  ACLOCAL_AMFLAGS = -I m4
  EXTRA_DIST = fontconfig.pc.in fonts.conf.in fonts.dtd \
  	fontconfig.spec.in fontconfig.spec fontconfig-zip.in \
-@@ -926,8 +924,7 @@
+@@ -927,8 +925,7 @@
  
  info-am:
  

@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=fontconfig
-VERSION=2.12.0
+VERSION=2.12.1
 EXT=tar.bz2
 BASEURL=http://www.freedesktop.org/software/${PACKAGE}/release
 
