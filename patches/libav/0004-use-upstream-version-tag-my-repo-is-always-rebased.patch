@@ -1,4 +1,4 @@
-From 246ddcdabae1c4992e220bd7abda0853609f79e7 Mon Sep 17 00:00:00 2001
+From fff3fd749436b5189612451f405561c4d3a2681d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 12 Feb 2013 04:09:04 +0100
 Subject: [PATCH 4/4] use upstream version tag, my repo is always rebased
