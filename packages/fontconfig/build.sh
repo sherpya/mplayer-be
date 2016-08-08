@@ -3,6 +3,9 @@
 # Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+# 2.12.1 includes fixes for:
+# CVE-2016-5384
+
 PACKAGE=fontconfig
 VERSION=2.12.1
 EXT=tar.bz2
