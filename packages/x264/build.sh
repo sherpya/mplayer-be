@@ -9,7 +9,7 @@ MARCH=i686
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=x264
-CONFOPTS="--enable-win32thread --cross-prefix=${HOST}-"
+CONFOPTS="--disable-cli --cross-prefix=${HOST}-"
 
 pkg_make_target()
 {
