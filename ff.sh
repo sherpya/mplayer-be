@@ -91,7 +91,6 @@ configure()
     enable avresample
 
     enable libcdio
-    enable libfaac
     enable libfreetype
     enable libgsm
     enable libmp3lame
