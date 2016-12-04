@@ -6,7 +6,7 @@
 # includes fixes for: CVE-2013-6629, CVE-2013-6630
 
 PACKAGE=libjpeg-turbo
-VERSION=1.5.0
+VERSION=1.5.1
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 

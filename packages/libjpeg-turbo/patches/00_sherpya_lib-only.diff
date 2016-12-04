@@ -1,19 +1,19 @@
-diff -ur libjpeg-turbo-1.5.0.orig/Makefile.in libjpeg-turbo-1.5.0/Makefile.in
---- libjpeg-turbo-1.5.0.orig/Makefile.in	2016-06-07 19:33:56.000000000 +0200
-+++ libjpeg-turbo-1.5.0/Makefile.in	2016-07-03 06:48:44.120002568 +0200
-@@ -101,9 +101,8 @@
- @VERSION_SCRIPT_TRUE@am__append_8 = $(VERSION_SCRIPT_FLAG)libjpeg.map
- @WITH_SIMD_TRUE@am__append_9 = simd
- @WITH_SIMD_FALSE@am__append_10 = jsimd_none.c
+diff -ur libjpeg-turbo-1.5.1.orig/Makefile.in libjpeg-turbo-1.5.1/Makefile.in
+--- libjpeg-turbo-1.5.1.orig/Makefile.in	2016-09-21 01:37:04.000000000 +0200
++++ libjpeg-turbo-1.5.1/Makefile.in	2016-12-04 01:44:56.292549190 +0100
+@@ -102,9 +102,8 @@
+ @VERSION_SCRIPT_TRUE@am__append_9 = $(VERSION_SCRIPT_FLAG)libjpeg.map
+ @WITH_SIMD_TRUE@am__append_10 = simd
+ @WITH_SIMD_FALSE@am__append_11 = jsimd_none.c
 -bin_PROGRAMS = cjpeg$(EXEEXT) djpeg$(EXEEXT) jpegtran$(EXEEXT) \
 -	rdjpgcom$(EXEEXT) wrjpgcom$(EXEEXT) $(am__EXEEXT_1)
 -noinst_PROGRAMS = jcstest$(EXEEXT) $(am__EXEEXT_2)
 +bin_PROGRAMS =
 +noinst_PROGRAMS =
- @WITH_TURBOJPEG_TRUE@am__append_11 = tjbench
- @WITH_TURBOJPEG_TRUE@am__append_12 = tjunittest
- @WITH_12BIT_FALSE@am__append_13 = rdbmp.c rdtarga.c
-@@ -2381,9 +2380,7 @@
+ @WITH_TURBOJPEG_TRUE@am__append_12 = tjbench
+ @WITH_TURBOJPEG_TRUE@am__append_13 = tjunittest
+ @WITH_12BIT_FALSE@am__append_14 = rdbmp.c rdtarga.c
+@@ -2382,9 +2381,7 @@
  
  info-am:
  
