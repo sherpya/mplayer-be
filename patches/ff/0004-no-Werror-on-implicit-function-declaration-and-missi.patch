@@ -1,7 +1,7 @@
-From b3c0b72a7ecd2117fcebeec40f820d71f8b46094 Mon Sep 17 00:00:00 2001
+From 1a9e619492eb8c4acffe413f421270c39901a72b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 15 Jul 2014 07:47:11 +0200
-Subject: [PATCH 5/8] no Werror on implicit-function-declaration and
+Subject: [PATCH 4/7] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---
@@ -9,12 +9,12 @@ Subject: [PATCH 5/8] no Werror on implicit-function-declaration and
  1 file changed, 2 deletions(-)
 
 diff --git a/configure b/configure
-index ca4b368..be30032 100755
+index f2e03e9..75dbc2f 100755
 --- a/configure
 +++ b/configure
-@@ -6136,8 +6136,6 @@ elif enabled gcc; then
-         *)    enabled x86 || check_optflags -fno-tree-vectorize ;;
-     esac
+@@ -6217,8 +6217,6 @@ elif enabled ccc; then
+ elif enabled gcc; then
+     check_optflags -fno-tree-vectorize
      check_cflags -Werror=format-security
 -    check_cflags -Werror=implicit-function-declaration
 -    check_cflags -Werror=missing-prototypes
@@ -22,5 +22,5 @@ index ca4b368..be30032 100755
      check_cflags -Werror=vla
      check_cflags -Wformat
 -- 
-2.8.1
+2.10.2
 
