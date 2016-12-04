@@ -1,7 +1,7 @@
-From b6468610dc1c26d1c088022175afdbbc81d9c4b9 Mon Sep 17 00:00:00 2001
+From 97dabe880c6ffeb2fd818542d200e2ece474a8cc Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
-Subject: [PATCH 02/28] af: winamp dsp audio filter
+Subject: [PATCH 02/29] af: winamp dsp audio filter
 
 ---
  Makefile         |   1 +
@@ -476,5 +476,5 @@ index 91e18b5..9fcdcc8 100644
 +
  #endif /* MPLAYER_CONTROL_H */
 -- 
-2.8.0.rc3
+2.10.2
 

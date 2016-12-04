@@ -1,7 +1,7 @@
-From 31d3483cd64b71fb9560a3e1d258a7370f0772a2 Mon Sep 17 00:00:00 2001
+From c8629ddc59f3f2575405a5a6e3a3e83a8acc4a2a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 13 Mar 2013 04:42:49 +0100
-Subject: [PATCH 01/28] linux: controlled CreateFile() in win32 loader
+Subject: [PATCH 01/29] linux: controlled CreateFile() in win32 loader
 
 it allows e.g. two pass encoding using vp6vfw.dll
 ---
@@ -197,5 +197,5 @@ index bbd3fae..c7ce88e 100644
    char* lpBuffer,  // address of buffer for system directory
    UINT uSize        // size of directory buffer
 -- 
-2.8.0.rc3
+2.10.2
 
