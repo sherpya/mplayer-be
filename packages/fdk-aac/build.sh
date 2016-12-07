@@ -9,8 +9,6 @@ MARCH=i686
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=fdk-aac
-STATICLIBS="libfdk-aac"
-CONFOPTS="--enable-shared"
 
 PACKAGE="../dist/libfdk-aac-${ARCH}-$(cd fdk-aac && git describe --tags).7z"
 HEADERS="libAACdec/include/aacdecoder_lib.h \
@@ -21,12 +19,21 @@ HEADERS="libAACdec/include/aacdecoder_lib.h \
 
 export_toolchain
 
-save_function pkg_configure do_pkg_configure
 pkg_configure()
 {
     mkdir -p ../dist
     test -e ${PACKAGE} && return 0
-    do_pkg_configure $*
+
+    test -x configure || autoreconf -fi
+
+    . ${topdir}/ac_cache.sh
+
+    CC="${HOST}-gcc -static-libgcc" \
+    ./configure             \
+        --host=${HOST}      \
+        --prefix=${PREFIX}  \
+        --enable-shared     \
+        --disable-static  || return 1
 }
 
 make_binary_dist()
