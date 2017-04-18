@@ -1,19 +1,19 @@
-diff -ur flac-1.3.1.orig/Makefile.in flac-1.3.1/Makefile.in
---- flac-1.3.1.orig/Makefile.in	2014-11-27 03:46:59.808331810 +0100
-+++ flac-1.3.1/Makefile.in	2014-12-02 16:06:08.187371299 +0100
-@@ -382,7 +382,7 @@
+diff -ur flac-1.3.2.orig/Makefile.in flac-1.3.2/Makefile.in
+--- flac-1.3.2.orig/Makefile.in	2017-01-01 04:46:48.833726273 +0100
++++ flac-1.3.2/Makefile.in	2017-04-18 17:47:43.794967902 +0200
+@@ -397,7 +397,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
--SUBDIRS = doc include m4 man src examples test build objs
+-SUBDIRS = doc include m4 man src examples test build objs microbench
 +SUBDIRS = include src build objs
  EXTRA_DIST = \
  	COPYING.FDL \
  	COPYING.GPL \
-diff -ur flac-1.3.1.orig/src/libFLAC/Makefile.in flac-1.3.1/src/libFLAC/Makefile.in
---- flac-1.3.1.orig/src/libFLAC/Makefile.in	2014-11-27 03:47:01.212302110 +0100
-+++ flac-1.3.1/src/libFLAC/Makefile.in	2014-12-02 16:06:08.187371299 +0100
-@@ -944,7 +944,7 @@
+diff -ur flac-1.3.2.orig/src/libFLAC/Makefile.in flac-1.3.2/src/libFLAC/Makefile.in
+--- flac-1.3.2.orig/src/libFLAC/Makefile.in	2017-01-01 04:46:49.461728428 +0100
++++ flac-1.3.2/src/libFLAC/Makefile.in	2017-04-18 17:48:05.282789785 +0200
+@@ -966,7 +966,7 @@
  
  info-am:
  
@@ -22,10 +22,10 @@ diff -ur flac-1.3.1.orig/src/libFLAC/Makefile.in flac-1.3.1/src/libFLAC/Makefile
  
  install-dvi: install-dvi-recursive
  
-diff -ur flac-1.3.1.orig/src/libFLAC++/Makefile.in flac-1.3.1/src/libFLAC++/Makefile.in
---- flac-1.3.1.orig/src/libFLAC++/Makefile.in	2014-11-27 03:47:01.144303548 +0100
-+++ flac-1.3.1/src/libFLAC++/Makefile.in	2014-12-02 16:06:08.187371299 +0100
-@@ -707,7 +707,7 @@
+diff -ur flac-1.3.2.orig/src/libFLAC++/Makefile.in flac-1.3.2/src/libFLAC++/Makefile.in
+--- flac-1.3.2.orig/src/libFLAC++/Makefile.in	2017-01-01 04:46:49.433728332 +0100
++++ flac-1.3.2/src/libFLAC++/Makefile.in	2017-04-18 17:48:24.734628852 +0200
+@@ -722,7 +722,7 @@
  
  info-am:
  
@@ -34,13 +34,13 @@ diff -ur flac-1.3.1.orig/src/libFLAC++/Makefile.in flac-1.3.1/src/libFLAC++/Make
  
  install-dvi: install-dvi-am
  
-diff -ur flac-1.3.1.orig/src/Makefile.in flac-1.3.1/src/Makefile.in
---- flac-1.3.1.orig/src/Makefile.in	2014-11-27 03:47:01.040305748 +0100
-+++ flac-1.3.1/src/Makefile.in	2014-12-02 16:06:28.631370879 +0100
-@@ -351,8 +351,6 @@
+diff -ur flac-1.3.2.orig/src/Makefile.in flac-1.3.2/src/Makefile.in
+--- flac-1.3.2.orig/src/Makefile.in	2017-01-01 04:46:49.385728167 +0100
++++ flac-1.3.2/src/Makefile.in	2017-04-18 17:48:38.954511383 +0200
+@@ -367,8 +367,6 @@
  SUBDIRS = \
- 	share \
  	libFLAC \
+ 	share \
 -	flac \
 -	metaflac \
  	$(XMMS_DIRS) \
