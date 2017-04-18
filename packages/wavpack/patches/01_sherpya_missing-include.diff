@@ -1,7 +1,7 @@
-diff -ur wavpack-4.75.2.orig/src/wavpack_local.h wavpack-4.75.2/src/wavpack_local.h
---- wavpack-4.75.2.orig/src/wavpack_local.h	2015-09-16 02:17:47.000000000 +0200
-+++ wavpack-4.75.2/src/wavpack_local.h	2016-03-02 05:38:42.038109801 +0100
-@@ -24,6 +24,10 @@
+diff -ur wavpack-5.1.0.orig/src/wavpack_local.h wavpack-5.1.0/src/wavpack_local.h
+--- wavpack-5.1.0.orig/src/wavpack_local.h	2017-01-10 05:02:45.000000000 +0100
++++ wavpack-5.1.0/src/wavpack_local.h	2017-04-18 18:17:00.815905655 +0200
+@@ -25,6 +25,10 @@
                              //  (only works on little-endian machines)
  #endif
  
