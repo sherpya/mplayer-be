@@ -1,2 +1,2 @@
-version=3
-http://www.videolan.org/developers/libdca.html http://download\.videolan\.org/pub/videolan/libdca/.*/libdca-(.*)\.tar\.bz2
+version=4
+http://download.videolan.org/pub/videolan/libdca/(\d.*)/libdca-(\d\S+)\.tar\.(?:bz2|gz|xz)
