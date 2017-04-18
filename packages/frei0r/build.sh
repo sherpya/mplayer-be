@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for frei0r plugins
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2017 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 GIT_REPO="git://code.dyne.org/frei0r.git"
@@ -28,6 +28,6 @@ for sharedlib in libstdc++-6.dll libgcc_s_sjlj-1.dll libgcc_s_seh-1.dll; do
     ${CROSS_PREFIX}strip ${LIBDIR}/${sharedlib}
 done
 
-for doc in AUTHORS ChangeLog COPYING README; do
+for doc in AUTHORS ChangeLog COPYING README.md; do
     unix2dos -n ${BUILDDIR}/$doc ${LIBDIR}/$doc.txt
 done
