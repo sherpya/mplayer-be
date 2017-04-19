@@ -32,6 +32,7 @@ case "$product" in
         PROGRAMS="ffprobe"
         disable ffplay
         disable ffserver
+        disable w32threads
         enable avisynth
         enable postproc
         enable fontconfig
@@ -83,7 +84,6 @@ configure()
     enable cross-compile
     enable runtime-cpudetect
     enable hardcoded-tables
-    enable memalign-hack
 
     enable gnutls
     enable pthreads
