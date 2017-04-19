@@ -1,4 +1,4 @@
-From d5b3e9971c27b04322f6b12f5e241fabb4b57ced Mon Sep 17 00:00:00 2001
+From 898aabd9437d544e4317a5533e7999adc7534629 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
 Subject: [PATCH 04/29] win32: added vo native directshow decoder
@@ -12,7 +12,7 @@ Subject: [PATCH 04/29] win32: added vo native directshow decoder
  create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
-index d345cb2..e4320c3 100644
+index d345cb2fa..e4320c30e 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -219,6 +219,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
@@ -24,10 +24,10 @@ index d345cb2..e4320c3 100644
                                          libmpcodecs/vd_vfwex.c          \
                                          libmpdemux/demux_avs.c          \
 diff --git a/etc/codecs.conf b/etc/codecs.conf
-index 2f587a6..c732042 100644
+index d2e05e157..2c08c481c 100644
 --- a/etc/codecs.conf
 +++ b/etc/codecs.conf
-@@ -4648,6 +4648,93 @@ videocodec ffrawabgr
+@@ -4688,6 +4688,93 @@ videocodec ffrawabgr
    dll rawvideo
    out ABGR
  
@@ -122,7 +122,7 @@ index 2f587a6..c732042 100644
  
  videocodec null
 diff --git a/libmpcodecs/vd.c b/libmpcodecs/vd.c
-index 6c1580e..1a6ae16 100644
+index 6c1580e2c..1a6ae16e7 100644
 --- a/libmpcodecs/vd.c
 +++ b/libmpcodecs/vd.c
 @@ -41,6 +41,7 @@ extern const vd_functions_t mpcodecs_vd_black;
@@ -143,7 +143,7 @@ index 6c1580e..1a6ae16 100644
      &mpcodecs_vd_vfwex,
 diff --git a/libmpcodecs/vd_dsnative.c b/libmpcodecs/vd_dsnative.c
 new file mode 100644
-index 0000000..a1f1db4
+index 000000000..a1f1db46a
 --- /dev/null
 +++ b/libmpcodecs/vd_dsnative.c
 @@ -0,0 +1,161 @@
@@ -309,5 +309,5 @@ index 0000000..a1f1db4
 +    return mpi;
 +}
 -- 
-2.10.2
+2.11.0
 

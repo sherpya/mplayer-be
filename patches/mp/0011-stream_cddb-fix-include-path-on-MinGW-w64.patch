@@ -1,4 +1,4 @@
-From 24a3316ede9837fc603c062b79306c55fdd9cb63 Mon Sep 17 00:00:00 2001
+From ccfa552a9e94079ae297db7fb06aaa9e19f9c271 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 3 Mar 2013 09:34:08 +0100
 Subject: [PATCH 11/29] stream_cddb: fix include path on MinGW-w64
@@ -8,7 +8,7 @@ Subject: [PATCH 11/29] stream_cddb: fix include path on MinGW-w64
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/stream/stream_cddb.c b/stream/stream_cddb.c
-index 06695f8..41d96ea 100644
+index 06695f81a..41d96ea9c 100644
 --- a/stream/stream_cddb.c
 +++ b/stream/stream_cddb.c
 @@ -60,7 +60,7 @@
@@ -21,5 +21,5 @@ index 06695f8..41d96ea 100644
  #include <dvd.h>
  #elif defined(__APPLE__) || defined(__DARWIN__)
 -- 
-2.10.2
+2.11.0
 

@@ -1,4 +1,4 @@
-From f3bdb2c47a92c18bd68f832d072d7a3d39c93ae5 Mon Sep 17 00:00:00 2001
+From 11490b12e19a0adb6025dfc660ce56e611269138 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 19 Aug 2013 10:27:53 +0200
 Subject: [PATCH 26/29] mpcodecs: theora decoder offset fix
@@ -11,7 +11,7 @@ The patch comes mplayer-dev ml and was made by Giorgio Vazzana
  1 file changed, 24 insertions(+), 2 deletions(-)
 
 diff --git a/libmpcodecs/vd_theora.c b/libmpcodecs/vd_theora.c
-index 51b1f80..f0d3a40 100644
+index 51b1f8031..f0d3a4000 100644
 --- a/libmpcodecs/vd_theora.c
 +++ b/libmpcodecs/vd_theora.c
 @@ -27,6 +27,7 @@
@@ -67,5 +67,5 @@ index 51b1f80..f0d3a40 100644
  
  err_out:
 -- 
-2.10.2
+2.11.0
 

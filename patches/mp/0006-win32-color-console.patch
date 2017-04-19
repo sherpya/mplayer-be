@@ -1,4 +1,4 @@
-From 3bc85ffb1e670632f152854e68c8d472794c1ac1 Mon Sep 17 00:00:00 2001
+From 7ca1824c6ddeb78f461cd4db9b35455166339ca5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:02 +0100
 Subject: [PATCH 06/29] win32: color console
@@ -8,7 +8,7 @@ Subject: [PATCH 06/29] win32: color console
  1 file changed, 45 insertions(+)
 
 diff --git a/mp_msg.c b/mp_msg.c
-index c98a894..3d0aff9 100644
+index c23550312..549201b87 100644
 --- a/mp_msg.c
 +++ b/mp_msg.c
 @@ -35,6 +35,26 @@
@@ -38,7 +38,7 @@ index c98a894..3d0aff9 100644
  int mp_msg_levels[MSGT_MAX]; // verbose level of this module. initialized to -2
  int mp_msg_level_all = MSGL_STATUS;
  int verbose = 0;
-@@ -78,6 +98,15 @@ const char* filename_recode(const char* filename)
+@@ -81,6 +101,15 @@ const char* filename_recode(const char* filename)
  }
  
  void mp_msg_init(void){
@@ -54,7 +54,7 @@ index c98a894..3d0aff9 100644
      int i;
      char *env = getenv("MPLAYER_VERBOSE");
      if (env)
-@@ -123,7 +152,11 @@ static void set_msg_color(FILE* stream, int lev)
+@@ -130,7 +159,11 @@ static void set_msg_color(FILE* stream, int lev)
      }
  #endif
      if (mp_msg_color)
@@ -66,7 +66,7 @@ index c98a894..3d0aff9 100644
  }
  
  static void print_msg_module(FILE* stream, int mod)
-@@ -180,11 +213,19 @@ static void print_msg_module(FILE* stream, int mod)
+@@ -187,11 +220,19 @@ static void print_msg_module(FILE* stream, int mod)
  
      if (!mp_msg_module)
          return;
@@ -86,7 +86,7 @@ index c98a894..3d0aff9 100644
      fprintf(stream, ": ");
  }
  
-@@ -252,6 +293,10 @@ void mp_msg_va(int mod, int lev, const char *format, va_list va){
+@@ -259,6 +300,10 @@ void mp_msg_va(int mod, int lev, const char *format, va_list va){
  
      fprintf(stream, "%s", tmp);
      if (mp_msg_color)
@@ -98,5 +98,5 @@ index c98a894..3d0aff9 100644
      fflush(stream);
  }
 -- 
-2.10.2
+2.11.0
 

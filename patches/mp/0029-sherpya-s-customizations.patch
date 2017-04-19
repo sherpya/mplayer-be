@@ -1,4 +1,4 @@
-From 308a97a5b6d4f699c1e0ceba0871792e30a1a621 Mon Sep 17 00:00:00 2001
+From 4d2113186d91761f1a2a464ddafe419e614f47f7 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 29/29] sherpya's customizations
@@ -18,7 +18,7 @@ Subject: [PATCH 29/29] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index e4320c3..2018571 100644
+index e4320c30e..201857113 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -660,6 +660,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
@@ -41,10 +41,10 @@ index e4320c3..2018571 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 0b17d33..ba46b44 100755
+index 2f4d62802..ca3a668fd 100755
 --- a/configure
 +++ b/configure
-@@ -1540,13 +1540,13 @@ fi
+@@ -1541,13 +1541,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 0b17d33..ba46b44 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1827,6 +1827,7 @@ fi
+@@ -1828,6 +1828,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4624,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index e5d9636..478f25b 100644
+index 8411aabab..86140a58d 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4652,7 @@ index e5d9636..478f25b 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2016 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2017 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4680,7 @@ index e5d9636..478f25b 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 0d03da2..a93a9b6 100755
+index 6eb8c0249..a0add1a9a 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4699,5 @@ index 0d03da2..a93a9b6 100755
  version=$svn_revision
  fi
 -- 
-2.10.2
+2.11.0
 

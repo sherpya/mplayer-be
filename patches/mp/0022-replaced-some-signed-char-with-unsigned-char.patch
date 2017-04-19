@@ -1,4 +1,4 @@
-From 5c2c603a9be147c6e1617e2f0435420b303aa809 Mon Sep 17 00:00:00 2001
+From 4195abeead30705621c99db7b2a4c76c9fa6b8af Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
 Subject: [PATCH 22/29] replaced some signed char with unsigned char
@@ -16,7 +16,7 @@ this fixes some subtitle/charset related problems
  8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
-index 7cdd533..e013937 100644
+index 7cdd533d7..e013937d9 100644
 --- a/libmpdemux/mf.c
 +++ b/libmpdemux/mf.c
 @@ -66,7 +66,7 @@ mf_t* open_mf(char * filename){
@@ -29,7 +29,7 @@ index 7cdd533..e013937 100644
         if ( stat( fname,&fs ) )
          {
 diff --git a/libvo/vo_fbdev.c b/libvo/vo_fbdev.c
-index 04c1507..4c20530 100644
+index 04c15078f..4c205301e 100644
 --- a/libvo/vo_fbdev.c
 +++ b/libvo/vo_fbdev.c
 @@ -105,8 +105,8 @@ static int validate_mode(fb_mode_t *m)
@@ -44,7 +44,7 @@ index 04c1507..4c20530 100644
  static int get_token(int num)
  {
 diff --git a/parser-cfg.c b/parser-cfg.c
-index 5c9d18a..92a3ed5 100644
+index 5c9d18ab5..92a3ed50e 100644
 --- a/parser-cfg.c
 +++ b/parser-cfg.c
 @@ -60,10 +60,10 @@ int m_config_parse_config_file(m_config_t* config, const char *conffile, int sil
@@ -63,7 +63,7 @@ index 5c9d18a..92a3ed5 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index 9e19095..4a81dcf 100644
+index 9e190957f..4a81dcf02 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
 @@ -711,8 +711,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
@@ -78,7 +78,7 @@ index 9e19095..4a81dcf 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index 615f579..11aa037 100644
+index 615f5793e..11aa03726 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
 @@ -402,6 +402,6 @@ typedef struct {
@@ -90,7 +90,7 @@ index 615f579..11aa037 100644
  
  #endif /* MPLAYER_STREAM_H */
 diff --git a/stream/tv.c b/stream/tv.c
-index d360c55..0bf10e5 100644
+index d360c555c..0bf10e5ec 100644
 --- a/stream/tv.c
 +++ b/stream/tv.c
 @@ -577,7 +577,7 @@ static int open_tv(tvi_handle_t *tvh)
@@ -103,7 +103,7 @@ index d360c55..0bf10e5 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index d57856b..73863b7 100644
+index d57856b0f..73863b797 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -90,12 +90,12 @@ int sub_format=SUB_INVALID;
@@ -169,7 +169,7 @@ index d57856b..73863b7 100644
      while (*s) {
  	if (!isspace(*s)) return 0;
 diff --git a/sub/vobsub.c b/sub/vobsub.c
-index f03dfc0..e13a6be 100644
+index f03dfc001..e13a6be9a 100644
 --- a/sub/vobsub.c
 +++ b/sub/vobsub.c
 @@ -235,7 +235,7 @@ typedef FILE rar_stream_t;
@@ -250,5 +250,5 @@ index f03dfc0..e13a6be 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.10.2
+2.11.0
 

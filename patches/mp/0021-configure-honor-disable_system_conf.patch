@@ -1,4 +1,4 @@
-From 4aff32f61357202e2734c68c55a3222d218cb5a7 Mon Sep 17 00:00:00 2001
+From 77a75888a16e330b28018c3aab59370d5716808c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
 Subject: [PATCH 21/29] configure: honor disable_system_conf
@@ -12,7 +12,7 @@ except stream_dvb
  4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index 4d7d928..4014e6c 100644
+index 4d7d9283e..4014e6c99 100644
 --- a/input/input.c
 +++ b/input/input.c
 @@ -35,6 +35,7 @@
@@ -33,10 +33,10 @@ index 4d7d928..4014e6c 100644
    }
    else
 diff --git a/mpcommon.c b/mpcommon.c
-index 031ae7d..6df42b1 100644
+index 3200e2555..af37ca741 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
-@@ -599,7 +599,7 @@ int common_init(void)
+@@ -596,7 +596,7 @@ int common_init(void)
      if (!codecs_file || !parse_codec_cfg(codecs_file)) {
          char *conf_path = get_path("codecs.conf");
          if (!parse_codec_cfg(conf_path)) {
@@ -45,7 +45,7 @@ index 031ae7d..6df42b1 100644
                  if (!parse_codec_cfg(NULL)) {
                      free(conf_path);
                      return 0;
-@@ -629,7 +629,7 @@ int common_init(void)
+@@ -626,7 +626,7 @@ int common_init(void)
              char *desc_path = get_path("font/font.desc");
              vo_font = read_font_desc(desc_path, font_factor, verbose>1);
              free(desc_path);
@@ -55,7 +55,7 @@ index 031ae7d..6df42b1 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index a655c70..621538d 100644
+index a655c7023..621538d79 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -3050,7 +3050,7 @@ int main(int argc, char *argv[])
@@ -68,7 +68,7 @@ index a655c70..621538d 100644
                  else {
                      mp_msg(MSGT_CPLAYER, MSGL_ERR, MSGTR_MenuInitFailed);
 diff --git a/sub/font_load_ft.c b/sub/font_load_ft.c
-index 15a9121..a0b9f64 100644
+index 15a912178..a0b9f6442 100644
 --- a/sub/font_load_ft.c
 +++ b/sub/font_load_ft.c
 @@ -902,7 +902,8 @@ static int load_sub_face(const char *name, int face_index, FT_Face *face)
@@ -82,5 +82,5 @@ index 15a9121..a0b9f64 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.10.2
+2.11.0
 

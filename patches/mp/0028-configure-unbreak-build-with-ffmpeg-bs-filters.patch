@@ -1,4 +1,4 @@
-From 3e67f54e476ea50bf4053c46e9f70fde28f78749 Mon Sep 17 00:00:00 2001
+From 1f8b996d49596114aa040d9fa890a268651674be Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Tue, 5 Jul 2016 04:18:34 +0200
 Subject: [PATCH 28/29] configure: unbreak build with ffmpeg bs filters
@@ -8,10 +8,10 @@ Subject: [PATCH 28/29] configure: unbreak build with ffmpeg bs filters
  1 file changed, 32 insertions(+)
 
 diff --git a/configure b/configure
-index 283de83..0b17d33 100755
+index 17d26ba39..2f4d62802 100755
 --- a/configure
 +++ b/configure
-@@ -8785,6 +8785,22 @@ CONFIG_VP56DSP = yes
+@@ -8790,6 +8790,22 @@ CONFIG_VP56DSP = yes
  CONFIG_VP8DSP = yes
  CONFIG_WMA_FREQS = yes
  CONFIG_WMV2DSP = yes
@@ -34,7 +34,7 @@ index 283de83..0b17d33 100755
  
  $mak_hardcoded_tables
  $mak_libavcodec_mpegaudio_hp
-@@ -9445,6 +9461,22 @@ $def_openssl
+@@ -9452,6 +9468,22 @@ $def_simd_align_32
  #define CONFIG_VP8DSP 1
  #define CONFIG_WMA_FREQS 1
  #define CONFIG_WMV2DSP 1
@@ -58,5 +58,5 @@ index 283de83..0b17d33 100755
  /* Use these registers in FFmpeg x86 inline asm. No proper detection yet. */
  #ifndef MP_DEBUG
 -- 
-2.10.2
+2.11.0
 
