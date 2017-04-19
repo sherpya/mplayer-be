@@ -1,16 +1,16 @@
-From 0cb79a570d068d604fa91283be00e773c444865f Mon Sep 17 00:00:00 2001
+From 0dc795c8675026f01b43f16012bcc7f3de0cf6ae Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 6/7] custom icon and windows resource
 
 ---
- Makefile    |   4 ++++
+ Makefile    |   5 +++++
  common.rc   |  36 ++++++++++++++++++++++++++++++++++++
  ffmpeg.ico  | Bin 0 -> 111290 bytes
  ffmpeg.rc   |   4 ++++
  ffprobe.ico | Bin 0 -> 104396 bytes
  ffprobe.rc  |   4 ++++
- 6 files changed, 48 insertions(+)
+ 6 files changed, 49 insertions(+)
  create mode 100644 common.rc
  create mode 100644 ffmpeg.ico
  create mode 100644 ffmpeg.rc
@@ -18,30 +18,31 @@ Subject: [PATCH 6/7] custom icon and windows resource
  create mode 100644 ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 8aa72fd..cd147e2 100644
+index 559c5b8d5f..cc4812db25 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -112,6 +112,8 @@ include $(SRC_PATH)/doc/Makefile
+@@ -120,6 +120,8 @@ include $(SRC_PATH)/doc/Makefile
  
  define DOPROG
- OBJS-$(1) += $(1).o $(EXEOBJS) $(OBJS-$(1)-yes)
+ OBJS-$(1) += $(1).o $(OBJS-$(1)-yes)
 +# if EXESUF is exe (win32) and the corresponding .rc file does exist
 +$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
  $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
  $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -126,6 +128,8 @@ ffprobe.o cmdutils.o libavcodec/utils.o libavformat/utils.o libavdevice/avdevice
- $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
+@@ -135,6 +137,9 @@ $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
  	$(CP) $< $@
  	$(STRIP) $@
+ 
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
 +	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
- 
++
  %$(PROGSSUF)_g$(EXESUF): %.o $(FF_DEP_LIBS)
  	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
+ 
 diff --git a/common.rc b/common.rc
 new file mode 100644
-index 0000000..6dcbe77
+index 0000000000..6dcbe77b0b
 --- /dev/null
 +++ b/common.rc
 @@ -0,0 +1,36 @@
@@ -998,7 +999,7 @@ HcmV?d00001
 
 diff --git a/ffmpeg.rc b/ffmpeg.rc
 new file mode 100644
-index 0000000..53d07ec
+index 0000000000..53d07ec727
 --- /dev/null
 +++ b/ffmpeg.rc
 @@ -0,0 +1,4 @@
@@ -1737,7 +1738,7 @@ HcmV?d00001
 
 diff --git a/ffprobe.rc b/ffprobe.rc
 new file mode 100644
-index 0000000..0322991
+index 0000000000..0322991266
 --- /dev/null
 +++ b/ffprobe.rc
 @@ -0,0 +1,4 @@
@@ -1746,5 +1747,5 @@ index 0000000..0322991
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.10.2
+2.11.0
 

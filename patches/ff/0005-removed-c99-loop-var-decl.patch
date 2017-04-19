@@ -1,4 +1,4 @@
-From 3410f3944fdd7d0925a58855a93b7fab36c461b9 Mon Sep 17 00:00:00 2001
+From b828c20288309835e110e87f62a581e5df81738e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 9 Feb 2014 07:02:48 +0100
 Subject: [PATCH 5/7] removed c99 loop var decl
@@ -8,10 +8,10 @@ Subject: [PATCH 5/7] removed c99 loop var decl
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/libavcodec/cinepakenc.c b/libavcodec/cinepakenc.c
-index 06b06da..0aee391 100644
+index a28f669070..32bc496997 100644
 --- a/libavcodec/cinepakenc.c
 +++ b/libavcodec/cinepakenc.c
-@@ -998,7 +998,8 @@ static int rd_strip(CinepakEncContext *s, int y, int h, int keyframe,
+@@ -995,7 +995,8 @@ static int rd_strip(CinepakEncContext *s, int y, int h, int keyframe,
      for(v1enough = 0, v1_size = SMALLEST_CODEBOOK; v1_size <= CODEBOOK_MAX && !v1enough; v1_size <<= 2) {
          for(v4enough = 0, v4_size = 0; v4_size <= v1_size && !v4enough; v4_size = v4_size ? v4_size << 2 : v1_size >= SMALLEST_CODEBOOK << 2 ? v1_size >> 2 : SMALLEST_CODEBOOK) {
              //try all modes
@@ -22,5 +22,5 @@ index 06b06da..0aee391 100644
                  if(keyframe && mode == MODE_MC)
                      continue;
 -- 
-2.10.2
+2.11.0
 
