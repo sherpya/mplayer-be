@@ -1,0 +1,13 @@
+diff --git a/libmodplug.pc.in b/libmodplug.pc.in
+index bbf05f9..42202c5 100644
+--- a/libmodplug.pc.in
++++ b/libmodplug.pc.in
+@@ -7,6 +7,6 @@ Name: libmodplug
+ Description: The ModPlug mod file playing library.
+ Version: @VERSION@
+ Requires: 
+-Libs: -L${libdir} -lmodplug 
+-Libs.private: -lstdc++ -lm
++Libs: -L${libdir} -lmodplug -lstdc++
++Libs.private: -lm
+ Cflags: -I${includedir}
