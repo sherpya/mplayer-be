@@ -1,15 +1,6 @@
-diff -ur libxml2-2.9.4.orig/Makefile.in libxml2-2.9.4/Makefile.in
---- libxml2-2.9.4.orig/Makefile.in	2016-05-23 10:00:36.000000000 +0200
-+++ libxml2-2.9.4/Makefile.in	2016-07-03 06:52:24.878465618 +0200
-@@ -189,7 +189,7 @@
- testdso_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
- 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
- 	$(testdso_la_LDFLAGS) $(LDFLAGS) -o $@
--PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
-+PROGRAMS =
- am_runsuite_OBJECTS = runsuite.$(OBJEXT)
- runsuite_OBJECTS = $(am_runsuite_OBJECTS)
- am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) $(top_builddir)/libxml2.la \
+diff -ur libxml2-2.9.7.orig/Makefile.in libxml2-2.9.7/Makefile.in
+--- libxml2-2.9.7.orig/Makefile.in	2017-11-02 21:16:49.000000000 +0100
++++ libxml2-2.9.7/Makefile.in	2017-11-11 02:28:23.564194423 +0100
 @@ -690,7 +690,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
@@ -19,7 +10,7 @@ diff -ur libxml2-2.9.4.orig/Makefile.in libxml2-2.9.4/Makefile.in
  DIST_SUBDIRS = include . doc example python xstc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
  AM_CFLAGS = $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
-@@ -1798,15 +1798,13 @@
+@@ -1800,15 +1800,13 @@
  
  info-am:
  
