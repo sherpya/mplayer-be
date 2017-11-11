@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for libjpeg-turbo
-# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2017 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-# includes fixes for: CVE-2013-6629, CVE-2013-6630
+# 1.5.1 includes fixes for: CVE-2013-6629, CVE-2013-6630
 
 PACKAGE=libjpeg-turbo
-VERSION=1.5.1
+VERSION=1.5.2
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 
