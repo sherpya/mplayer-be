@@ -3,7 +3,7 @@
 # Copyright (c) 2013-2017 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="git://code.dyne.org/frei0r.git"
+GIT_REPO="https://github.com/dyne/frei0r.git"
 MARCH=i686
 
 CMAKE=1
