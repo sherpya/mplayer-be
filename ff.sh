@@ -82,7 +82,7 @@ configure()
     add_opt --extra-ldflags=-static
     add_opt --arch=x86
     add_opt --target-os=mingw32
-    add_opt --extra-version=Sherpya
+    add_opt --extra-version=sherpya
 
     disable outdevs
 
