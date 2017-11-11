@@ -49,6 +49,14 @@ case "$product" in
         enable frei0r
         config frei0r_filter
         ;;
+    ffmpeg-mpv)
+        NAME="FFmpeg"
+        PROGRAM="ffmpeg"
+        PROGRAMS="ffprobe"
+        disable ffplay
+        disable ffserver
+        disable w32threads
+        ;;
     libav)
         NAME="Libav"
         PROGRAM="avconv"
