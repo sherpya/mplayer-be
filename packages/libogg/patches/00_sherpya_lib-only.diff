@@ -1,7 +1,7 @@
-diff -ur libogg-1.3.2.orig/Makefile.in libogg-1.3.2/Makefile.in
---- libogg-1.3.2.orig/Makefile.in	2014-05-27 21:52:45.000000000 +0200
-+++ libogg-1.3.2/Makefile.in	2014-05-30 03:16:30.478435241 +0200
-@@ -356,7 +356,7 @@
+diff -ur libogg-1.3.3.orig/Makefile.in libogg-1.3.3/Makefile.in
+--- libogg-1.3.3.orig/Makefile.in	2017-11-07 21:38:55.000000000 +0100
++++ libogg-1.3.3/Makefile.in	2017-11-11 02:22:03.811627347 +0100
+@@ -367,7 +367,7 @@
  
  #AUTOMAKE_OPTIONS = foreign 1.6 dist-zip
  AUTOMAKE_OPTIONS = foreign 1.11 dist-zip dist-xz
@@ -10,7 +10,7 @@ diff -ur libogg-1.3.2.orig/Makefile.in libogg-1.3.2/Makefile.in
  m4datadir = $(datadir)/aclocal
  m4data_DATA = ogg.m4
  pkgconfigdir = $(libdir)/pkgconfig
-@@ -825,7 +825,7 @@
+@@ -842,7 +842,7 @@
  
  info-am:
  
