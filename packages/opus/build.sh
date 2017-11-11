@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=opus
-VERSION=1.1.4
+VERSION=1.2.1
 EXT=tar.gz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
