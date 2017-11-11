@@ -1,2 +1,3 @@
 version=3
-http://sf.net/openjpeg.mirror/openjpeg-(1\.[\d|\.]*)\.tar\.gz
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/openjpeg-$1\.tar\.gz/ \
+  https://github.com/uclouvain/openjpeg/tags .*/v?(\d\S*)\.tar\.gz
