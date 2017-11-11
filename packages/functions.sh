@@ -205,6 +205,10 @@ make_ld_script()
             -L*) ;;
             -lm) ;;
             -lc) ;;
+            *.la) 
+                lib=$(basename $lib .la)
+                LIBS="${LIBS} -l${lib:3}"
+                ;;
             -l*) LIBS="${LIBS} $lib" ;;
         esac
     done
