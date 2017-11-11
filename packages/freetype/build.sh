@@ -3,6 +3,13 @@
 # Copyright (c) 2013-2017 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
+# 2.8 includes fixes for:
+# CVE-2017-8105 CVE-2017-8287 CVE-2017-7864 CVE-2017-7857
+# CVE-2017-7858
+
+# 2.7.1 includes fixes for:
+# CVE-2016-10244
+
 # 2.6.1 includes fixes for:
 # CVE-2014-9745 CVE-2014-9746 CVE-2014-9747
 
@@ -15,7 +22,7 @@
 # CVE-2014-9672 CVE-2014-9673 CVE-2014-9674 CVE-2014-9675
 
 PACKAGE=freetype
-VERSION=2.7.1
+VERSION=2.8
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 
