@@ -8,6 +8,7 @@ SVN_REPO="https://svn.code.sf.net/p/xavs/code/trunk"
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=xavs
+CONFOPTS="--extra-cflags=-fno-strict-aliasing"
 
 export_toolchain
 
