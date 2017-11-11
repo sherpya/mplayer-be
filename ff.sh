@@ -6,7 +6,7 @@
 . ../config.sh
 
 product=$(basename $(pwd))
-version=$(./version.sh)
+version=$(./ffbuild/version.sh)
 
 CONFIGURE_OPTS=""
 
