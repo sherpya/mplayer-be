@@ -11,8 +11,9 @@ BASEURL=https://github.com/uclouvain/${PACKAGE}/archive
 CMAKE=1
 CMAKEOPTS=" \
     -DOPENJPEG_INSTALL_INCLUDE_DIR=include  \
-    -DBUILD_SHARED_LIBS=0                   \
-    -DBUILD_CODEC=0"
+    -DBUILD_PKGCONFIG_FILES=ON              \
+    -DBUILD_SHARED_LIBS=OFF                 \
+    -DBUILD_CODEC=OFF"
 
 . $(dirname $0)/../functions.sh
 
