@@ -1,0 +1,12 @@
+diff -ur openjpeg-2.3.0.orig/src/lib/openmj2/openjpeg.h openjpeg-2.3.0/src/lib/openmj2/openjpeg.h
+--- openjpeg-2.3.0.orig/src/lib/openmj2/openjpeg.h	2017-10-05 00:23:14.000000000 +0200
++++ openjpeg-2.3.0/src/lib/openmj2/openjpeg.h	2017-11-11 03:03:39.196906034 +0100
+@@ -45,7 +45,7 @@
+ ==========================================================
+ */
+ 
+-#if defined(OPJ_STATIC) || !defined(_WIN32)
++#if 1 //defined(OPJ_STATIC) || !defined(_WIN32)
+ /* http://gcc.gnu.org/wiki/Visibility */
+ #if __GNUC__ >= 4
+ #define OPJ_API    __attribute__ ((visibility ("default")))
