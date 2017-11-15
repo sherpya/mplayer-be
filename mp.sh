@@ -93,7 +93,7 @@ configure()
 	enable dvdnav
 	enable dvdread
 
-    enable bluray
+    disable bluray
 
     enable menu
     enable faac

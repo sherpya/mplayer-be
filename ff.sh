@@ -43,7 +43,7 @@ case "$product" in
         enable libtwolame
         enable libsoxr
         enable libvidstab
-        enable libbluray
+        disable libbluray
         enable libgme
         enable libx265
         enable frei0r
