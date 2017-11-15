@@ -1,2 +1,3 @@
 version=3
-http://fribidi.org/download/fribidi-([\d|\.]*)\.tar\.[g|b]z2*
+opts=filenamemangle=s/.+\/(\d\S*)\.tar\.gz/fribidi-$1\.tar\.gz/ \
+  https://github.com/fribidi/fribidi/tags .*/(\d\S*)\.tar\.gz
