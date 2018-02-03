@@ -1,0 +1,13 @@
+diff --git a/src/libdvdcss.c b/src/libdvdcss.c
+index a659bf3..774a1c5 100644
+--- a/src/libdvdcss.c
++++ b/src/libdvdcss.c
+@@ -320,7 +320,7 @@ static int init_cache_dir( dvdcss_t dvdcss )
+         return -1;
+     }
+ 
+-    sprintf( psz_tagfile, "%s/" CACHE_TAG_NAME, dvdcss->psz_cachefile );
++    snprintf( psz_tagfile, sizeof(psz_tagfile), "%s/" CACHE_TAG_NAME, dvdcss->psz_cachefile );
+     i_fd = open( psz_tagfile, O_RDWR|O_CREAT, 0644 );
+     if( i_fd >= 0 )
+     {
