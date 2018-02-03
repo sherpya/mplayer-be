@@ -1,10 +1,10 @@
 diff --git a/src/libbluray/disc/properties.c b/src/libbluray/disc/properties.c
-index b01f5153..ba8edd71 100644
+index 42119e28..1305909b 100644
 --- a/src/libbluray/disc/properties.c
 +++ b/src/libbluray/disc/properties.c
-@@ -28,6 +28,7 @@
- #include "util/macro.h"
- #include "util/strutl.h"
+@@ -33,6 +33,7 @@
+ #include <stdio.h>
+ #endif
  
 +#include <stdio.h>
  #include <stdlib.h>
