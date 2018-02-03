@@ -31,7 +31,6 @@ case "$product" in
         PROGRAM="ffmpeg"
         PROGRAMS="ffprobe"
         disable ffplay
-        disable ffserver
         disable w32threads
         enable avisynth
         enable postproc
@@ -80,7 +79,7 @@ configure()
     add_opt --prefix=${PREFIX}
     add_opt --cross-prefix=${CROSS_PREFIX}
     add_opt --extra-ldflags=-static
-    add_opt --arch=x86
+    add_opt --arch=${ARCH}
     add_opt --target-os=mingw32
     add_opt --extra-version=sherpya
 
@@ -96,7 +95,6 @@ configure()
     enable gnutls
     enable pthreads
     enable avfilter
-    enable avresample
 
     enable libcdio
     enable libfreetype
