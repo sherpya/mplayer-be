@@ -63,7 +63,6 @@ libdvdcss
 libdvdread
 libdvdnav
 libxml2
-libbluray
 openjpeg
 libwebp
 gme
