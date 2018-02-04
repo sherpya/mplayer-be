@@ -102,6 +102,7 @@ configure()
     enable libfreetype
     enable libgsm
     enable libmp3lame
+    enable libopenh264
     enable libopencore-amrnb
     enable libopencore-amrwb
     enable libopus
