@@ -1,0 +1,20 @@
+diff -ur libcdio-0.90.orig/lib/driver/MSWindows/win32_ioctl.c libcdio-0.90/lib/driver/MSWindows/win32_ioctl.c
+--- libcdio-0.90.orig/lib/driver/MSWindows/win32_ioctl.c	2012-10-27 17:07:45.000000000 +0200
++++ libcdio-0.90/lib/driver/MSWindows/win32_ioctl.c	2018-02-04 07:16:45.676901672 +0100
+@@ -61,6 +61,7 @@
+ #include <sys/stat.h>
+ #include <errno.h>
+ #include <sys/types.h>
++#include <inttypes.h>
+ 
+ #include <cdio/cdio.h>
+ #include <cdio/sector.h>
+@@ -627,7 +628,7 @@
+   if (sptwb.Spt.ScsiStatus && sptwb.Spt.SenseInfoLength > 0) {
+     int sense_size = sptwb.Spt.SenseInfoLength;
+     if (sense_size > sizeof(sptwb.SenseBuf)) {
+-      cdio_warn("sense size returned %d is greater buffer size %d\n", 
++      cdio_warn("sense size returned %d is greater buffer size %" PRIdPTR "\n", 
+ 		sense_size, sizeof(sptwb.SenseBuf));
+       sense_size = sizeof(sptwb.SenseBuf);
+     }

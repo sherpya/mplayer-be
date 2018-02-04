@@ -11,7 +11,7 @@ topdir=$(cd .. && pwd)
 # dangerous because of configure scripts
 
 GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields \
-    -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast \
+    -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast -Werror=format \
     -Wno-maybe-uninitialized \
     -Wno-implicit-fallthrough -Wno-misleading-indentation \
     -Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-parameter \

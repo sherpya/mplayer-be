@@ -29,6 +29,9 @@ CONFOPTS=" \
     --enable-local-libopts \
     --without-p11-kit"
 
+# please someone decide how to print time_t
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=format"
+
 export libopts_cv_with_libregex=yes
 export libopts_cv_with_libregex_libs=-lregex
 export libopts_cv_with_regex_header=regex.h

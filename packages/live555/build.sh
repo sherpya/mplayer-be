@@ -16,7 +16,7 @@ LIVEDIST=${PREFIX}/live
 
 # too much of a hassle (invalid conversion from int* to socklen_t* and other)
 # also this version is outdated
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=int-to-pointer-cast"
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=int-to-pointer-cast -Wno-error=format"
 
 pkg_configure()
 {
