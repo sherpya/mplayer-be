@@ -5,6 +5,7 @@ fontconfig	2.12.6
 freetype	2.9
 fribidi	0.19.7
 giflib	5.1.4
+gmp 6.1.2
 lame	3.99.5
 libcaca	0.99.beta19
 libdca	0.0.5

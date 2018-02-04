@@ -1,10 +1,10 @@
-diff -ur gmp-6.0.0.orig/Makefile.in gmp-6.0.0/Makefile.in
---- gmp-6.0.0.orig/Makefile.in	2014-03-25 15:38:06.000000000 +0100
-+++ gmp-6.0.0/Makefile.in	2015-08-22 01:58:54.238653994 +0200
-@@ -463,7 +463,7 @@
- LIBGMPXX_LT_CURRENT = 8
- LIBGMPXX_LT_REVISION = 0
- LIBGMPXX_LT_AGE = 4
+diff -ur gmp-6.1.2.orig/Makefile.in gmp-6.1.2/Makefile.in
+--- gmp-6.1.2.orig/Makefile.in	2016-12-16 16:45:34.000000000 +0100
++++ gmp-6.1.2/Makefile.in	2018-02-04 03:35:30.130015617 +0100
+@@ -566,7 +566,7 @@
+ LIBGMPXX_LT_CURRENT = 9
+ LIBGMPXX_LT_REVISION = 2
+ LIBGMPXX_LT_AGE = 5
 -SUBDIRS = tests mpn mpz mpq mpf printf scanf rand cxx demos tune doc
 +SUBDIRS = mpn mpz mpq mpf printf scanf rand cxx tune
  
