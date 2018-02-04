@@ -36,6 +36,8 @@ bzip2
 libiconv
 enca
 expat
+kvazaar
+openh264
 faac
 fdk-aac
 libpng
