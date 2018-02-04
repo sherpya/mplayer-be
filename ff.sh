@@ -37,6 +37,7 @@ case "$product" in
         enable fontconfig
         enable libfdk-aac
         enable libass
+        enable libkvazaar
         enable libilbc
         enable libmodplug
         enable libtwolame

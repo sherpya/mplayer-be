@@ -1,0 +1,15 @@
+diff --git a/src/kvazaar.h b/src/kvazaar.h
+index b7f5e445..c7a45b36 100644
+--- a/src/kvazaar.h
++++ b/src/kvazaar.h
+@@ -33,6 +33,10 @@
+ extern "C" {
+ #endif
+ 
++#ifndef KVZ_STATIC_LIB
++#define KVZ_STATIC_LIB
++#endif
++
+ #if defined(KVZ_DLL_EXPORTS)
+   #if !defined(PIC)
+     // Building static kvazaar library.
