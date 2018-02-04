@@ -1,4 +1,4 @@
-From 54185d2867de2489a04afecd777e19c2621ac3ef Mon Sep 17 00:00:00 2001
+From 1e8692ca139f2a15922f530105a970ca68e220fa Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:47:00 +0100
 Subject: [PATCH 16/29] input: avoid spam when pressing an unknown key
@@ -20,5 +20,5 @@ index e3530ec64..4d7d9283e 100644
      for (i = 1; i < n; i++) {
        av_strlcat(key_name, "-", sizeof(key_name));
 -- 
-2.11.0
+2.15.1
 

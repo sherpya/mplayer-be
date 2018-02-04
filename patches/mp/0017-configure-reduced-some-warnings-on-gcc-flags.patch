@@ -1,26 +1,17 @@
-From 453689bbad46cf7d8858412b8b6de3b932da7ebf Mon Sep 17 00:00:00 2001
+From f78572a4f353ac2de45772387a46be750080ced2 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
 Subject: [PATCH 17/29] configure: reduced some warnings on gcc flags
 
 ---
- configure | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ configure | 3 ---
+ 1 file changed, 3 deletions(-)
 
 diff --git a/configure b/configure
-index 8e3430ffc..52cc63a42 100755
+index 139eb42bc..fb7c484e1 100755
 --- a/configure
 +++ b/configure
-@@ -2839,7 +2839,7 @@ if test -z "$CFLAGS" || test "$_profile" != "" || test "$_debug" != ""; then
-     CFLAGS="-O2 $_march $_mcpu $_pipe"
-   else
-     CFLAGS="-O4 $_march $_mcpu $_pipe -ffast-math -fomit-frame-pointer"
--    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Werror=format-security"
-+    WARNFLAGS="-Wall -Wno-switch -Wno-parentheses -Wpointer-arith -Wredundant-decls -Werror=format-security -Wno-format"
-     WARN_CFLAGS="-Werror-implicit-function-declaration"
-     extra_ldflags="$extra_ldflags -ffast-math"
-   fi
-@@ -2863,13 +2863,10 @@ cpp_condition_check features.h "defined __GLIBC__" &&
+@@ -2882,13 +2882,10 @@ fi
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
@@ -35,5 +26,5 @@ index 8e3430ffc..52cc63a42 100755
  
  # This provides significant size savings on gcc.
 -- 
-2.11.0
+2.15.1
 

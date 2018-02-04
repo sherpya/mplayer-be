@@ -1,4 +1,4 @@
-From 576165e6fd31d6ada70ea06523cbbd7dbc7b94e9 Mon Sep 17 00:00:00 2001
+From 7d96ef3f79bc5d9e131289f9e6e38c5ca920c19d Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
 Subject: [PATCH 02/29] af: winamp dsp audio filter
@@ -14,10 +14,10 @@ Subject: [PATCH 02/29] af: winamp dsp audio filter
  create mode 100644 libaf/af_wadsp.h
 
 diff --git a/Makefile b/Makefile
-index f59f6358e..d345cb2fa 100644
+index 854aa1c66..12bc4abe8 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -287,6 +287,7 @@ SRCS_COMMON = asxparser.c                       \
+@@ -286,6 +286,7 @@ SRCS_COMMON = asxparser.c                       \
                libaf/af_tools.c                  \
                libaf/af_volnorm.c                \
                libaf/af_volume.c                 \
@@ -39,16 +39,16 @@ index 3a4d9e2a6..281c8bfcd 100644
  
  static const af_info_t * const filter_list[] = {
     &af_info_dummy,
-@@ -91,6 +94,9 @@ static const af_info_t * const filter_list[] = {
+@@ -90,6 +93,9 @@ static const af_info_t * const filter_list[] = {
+    &af_info_stats,
  #ifdef CONFIG_LIBBS2B
     &af_info_bs2b,
- #endif
++#endif
 +#ifdef _WIN32
 +   &af_info_wadsp,
-+#endif
+ #endif
     NULL
  };
- 
 diff --git a/libaf/af_wadsp.c b/libaf/af_wadsp.c
 new file mode 100644
 index 000000000..8d008322c
@@ -476,5 +476,5 @@ index 91e18b55e..9fcdcc8f0 100644
 +
  #endif /* MPLAYER_CONTROL_H */
 -- 
-2.11.0
+2.15.1
 

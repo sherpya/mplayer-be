@@ -1,4 +1,4 @@
-From 4d2113186d91761f1a2a464ddafe419e614f47f7 Mon Sep 17 00:00:00 2001
+From 1f8e0e45f024164bfa8765bbc7dde207a05516be Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 29/29] sherpya's customizations
@@ -18,10 +18,10 @@ Subject: [PATCH 29/29] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index e4320c30e..201857113 100644
+index f67766c45..ebd61a0e0 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -660,6 +660,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -659,6 +659,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index e4320c30e..201857113 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -829,6 +831,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -828,6 +830,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,10 +41,10 @@ index e4320c30e..201857113 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 2f4d62802..ca3a668fd 100755
+index e479224c3..d680362a6 100755
 --- a/configure
 +++ b/configure
-@@ -1541,13 +1541,13 @@ fi
+@@ -1542,13 +1542,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 2f4d62802..ca3a668fd 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1828,6 +1828,7 @@ fi
+@@ -1843,6 +1843,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4624,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index 8411aabab..86140a58d 100644
+index 224db1020..d0d312a12 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4652,7 @@ index 8411aabab..86140a58d 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2017 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2018 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4680,7 @@ index 8411aabab..86140a58d 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 6eb8c0249..a0add1a9a 100755
+index 35e41a861..a98d0cd51 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4699,5 @@ index 6eb8c0249..a0add1a9a 100755
  version=$svn_revision
  fi
 -- 
-2.11.0
+2.15.1
 

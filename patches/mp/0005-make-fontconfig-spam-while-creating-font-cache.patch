@@ -1,4 +1,4 @@
-From c122de465d742e4727d0e48da02123afff32b2b9 Mon Sep 17 00:00:00 2001
+From 304fb7304b939e70b58f74f616fd719efcf7e48c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:43:34 +0100
 Subject: [PATCH 05/29] make fontconfig spam while creating font cache
@@ -8,7 +8,7 @@ Subject: [PATCH 05/29] make fontconfig spam while creating font cache
  1 file changed, 13 insertions(+)
 
 diff --git a/mplayer.c b/mplayer.c
-index b0d1f1f19..70c205dcd 100644
+index f73ff06f6..9cc063e60 100644
 --- a/mplayer.c
 +++ b/mplayer.c
 @@ -139,6 +139,11 @@
@@ -23,7 +23,7 @@ index b0d1f1f19..70c205dcd 100644
  int slave_mode;
  int player_idle_mode;
  int quiet;
-@@ -3075,6 +3080,14 @@ int main(int argc, char *argv[])
+@@ -3080,6 +3085,14 @@ int main(int argc, char *argv[])
          gui(GUI_SET_CONTEXT, mpctx);
          gui(GUI_SET_STATE, (void *)(intptr_t)(filename ? GUI_PLAY : GUI_STOP));
      }
@@ -39,5 +39,5 @@ index b0d1f1f19..70c205dcd 100644
  
  // ******************* Now, let's see the per-file stuff ********************
 -- 
-2.11.0
+2.15.1
 

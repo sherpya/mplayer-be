@@ -1,4 +1,4 @@
-From f6c92ec1dcc89f625df04025d1ccb47f4308c516 Mon Sep 17 00:00:00 2001
+From 34c131cabb1fc70a854f09ff1211fc448bb3b373 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
 Subject: [PATCH 19/29] configure: enabled support for libfdk-aac in lavc
@@ -8,7 +8,7 @@ Subject: [PATCH 19/29] configure: enabled support for libfdk-aac in lavc
  1 file changed, 20 insertions(+)
 
 diff --git a/configure b/configure
-index f8c22325a..89964b616 100755
+index 1a778f0cf..0788f7c73 100755
 --- a/configure
 +++ b/configure
 @@ -423,6 +423,7 @@ Codecs:
@@ -19,7 +19,7 @@ index f8c22325a..89964b616 100755
    --disable-ladspa          disable LADSPA plugin support [autodetect]
    --disable-libbs2b         disable libbs2b audio filter support [autodetect]
    --disable-libdv           disable libdv 0.9.5 en/decoding support [autodetect]
-@@ -740,6 +741,7 @@ _libmpeg2_internal=no
+@@ -741,6 +742,7 @@ _libmpeg2_internal=no
  _faad=auto
  _faac=auto
  _faac_lavc=auto
@@ -27,7 +27,7 @@ index f8c22325a..89964b616 100755
  _ladspa=auto
  _libbs2b=auto
  _libilbc=auto
-@@ -1155,6 +1157,8 @@ for ac_option do
+@@ -1156,6 +1158,8 @@ for ac_option do
    --disable-faac)       _faac=no        ;;
    --enable-faac-lavc)   _faac_lavc=yes  ;;
    --disable-faac-lavc)  _faac_lavc=no   ;;
@@ -36,7 +36,7 @@ index f8c22325a..89964b616 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -6854,6 +6858,21 @@ res_comment="in FFmpeg: $_faac_lavc"
+@@ -6913,6 +6917,21 @@ res_comment="in FFmpeg: $_faac_lavc"
  echores "$_faac"
  
  
@@ -58,7 +58,7 @@ index f8c22325a..89964b616 100755
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
    _faad=no
-@@ -9234,6 +9253,7 @@ $def_windows_h
+@@ -9299,6 +9318,7 @@ $def_windows_h
  $def_bzlib
  $def_crystalhd
  $def_faac_lavc
@@ -67,5 +67,5 @@ index f8c22325a..89964b616 100755
  $def_libgsm
  $def_libopencore_amrnb
 -- 
-2.11.0
+2.15.1
 
