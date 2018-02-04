@@ -137,3 +137,6 @@ export ac_cv_prog_make_make_set=yes
 export ac_cv_prog_NASM=nasm
 export ac_cv_prog_ac_yasm=yes
 export ac_cv_prog_YASM_CHECK=yes
+
+# windows xp compatibility
+export ac_cv_func_vsnprintf_s=no
