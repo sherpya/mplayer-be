@@ -1,19 +1,19 @@
-diff -ur gnutls-3.3.17.orig/lib/gnutls_record.c gnutls-3.3.17/lib/gnutls_record.c
---- gnutls-3.3.17.orig/lib/gnutls_record.c	2015-03-23 08:19:23.000000000 +0100
-+++ gnutls-3.3.17/lib/gnutls_record.c	2015-08-22 03:48:24.088552464 +0200
-@@ -159,9 +159,9 @@
- 			  int recv_int, int send_int)
+diff -ur gnutls-3.5.17.orig/lib/record.c gnutls-3.5.17/lib/record.c
+--- gnutls-3.5.17.orig/lib/record.c	2017-12-31 13:37:48.000000000 +0100
++++ gnutls-3.5.17/lib/record.c	2018-02-04 04:00:25.949534814 +0100
+@@ -144,9 +144,9 @@
+ 			  int recv_fd, int send_fd)
  {
  	session->internals.transport_send_ptr =
--	    (gnutls_transport_ptr_t) (long) send_int;
-+	    (gnutls_transport_ptr_t) (intptr_t) send_int;
+-	    (gnutls_transport_ptr_t) (long) send_fd;
++	    (gnutls_transport_ptr_t) (intptr_t) send_fd;
  	session->internals.transport_recv_ptr =
--	    (gnutls_transport_ptr_t) (long) recv_int;
-+	    (gnutls_transport_ptr_t) (intptr_t) recv_int;
+-	    (gnutls_transport_ptr_t) (long) recv_fd;
++	    (gnutls_transport_ptr_t) (intptr_t) recv_fd;
  }
  
  #if 0
-@@ -238,8 +238,8 @@
+@@ -227,8 +227,8 @@
  			  int *recv_int, int *send_int)
  {
  
@@ -24,7 +24,7 @@ diff -ur gnutls-3.3.17.orig/lib/gnutls_record.c gnutls-3.3.17/lib/gnutls_record.
  }
  
  /**
-@@ -256,7 +256,7 @@
+@@ -245,7 +245,7 @@
   **/
  int gnutls_transport_get_int(gnutls_session_t session)
  {
@@ -33,33 +33,15 @@ diff -ur gnutls-3.3.17.orig/lib/gnutls_record.c gnutls-3.3.17/lib/gnutls_record.
  }
  
  /**
-diff -ur gnutls-3.3.17.orig/lib/x509_b64.c gnutls-3.3.17/lib/x509_b64.c
---- gnutls-3.3.17.orig/lib/x509_b64.c	2015-03-23 08:19:23.000000000 +0100
-+++ gnutls-3.3.17/lib/x509_b64.c	2015-08-22 03:50:03.071918300 +0200
-@@ -301,7 +301,7 @@
- 		return GNUTLS_E_BASE64_UNEXPECTED_HEADER_ERROR;
- 	}
+diff -ur gnutls-3.5.17.orig/lib/system/fastopen.c gnutls-3.5.17/lib/system/fastopen.c
+--- gnutls-3.5.17.orig/lib/system/fastopen.c	2017-12-31 13:37:48.000000000 +0100
++++ gnutls-3.5.17/lib/system/fastopen.c	2018-02-04 04:01:36.549031106 +0100
+@@ -156,7 +156,7 @@
+ {
+ 	tfo_st *p = ptr;
  
--	data_size -= (unsigned long int) rdata - (unsigned long int) data;
-+	data_size -= rdata - data;
+-	return gnutls_system_recv_timeout((gnutls_transport_ptr_t)(long)p->fd, ms);
++	return gnutls_system_recv_timeout((gnutls_transport_ptr_t)(intptr_t)p->fd, ms);
+ }
  
- 	if (data_size < 4 + strlen(bottom)) {
- 		gnutls_assert();
-@@ -318,7 +318,7 @@
- 		return GNUTLS_E_BASE64_DECODING_ERROR;
- 	}
- 	data_size -= strlen(ENDSTR);
--	data_size -= (unsigned long int) kdata - (unsigned long int) rdata;
-+	data_size -= kdata - rdata;
- 
- 	rdata = kdata + strlen(ENDSTR);
- 
-@@ -332,7 +332,7 @@
- 
- 	/* position of kdata is before the ----END--- footer 
- 	 */
--	rdata_size = (unsigned long int) kdata - (unsigned long int) rdata;
-+	rdata_size = kdata - rdata;
- 
- 	if (rdata_size < 4) {
- 		gnutls_assert();
+ static ssize_t

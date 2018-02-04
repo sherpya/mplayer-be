@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for gnutls library
-# Copyright (c) 2015 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2015-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=gnutls
-VERSION=3.3.17
+VERSION=3.5.17
 EXT=tar.xz
-BASEURL=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3
+BASEURL=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5
 
 . $(dirname $0)/../functions.sh
 
@@ -17,12 +17,15 @@ depends lib/libnettle.a
 
 STATICLIBS="libgnutls libgnutls-openssl"
 CONFOPTS=" \
+    --disable-silent-rules \
     --disable-nls \
     --disable-doc \
     --disable-guile \
+    --disable-tools \
     --disable-tests \
     --disable-libdane \
-    --disable-silent-rules \
+    --with-included-libtasn1 \
+    --with-included-unistring \
     --enable-local-libopts \
     --without-p11-kit"
 
