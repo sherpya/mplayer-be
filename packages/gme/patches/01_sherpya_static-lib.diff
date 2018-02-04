@@ -1,6 +1,6 @@
-diff -ur game-music-emu-0.6.0.orig/gme/CMakeLists.txt game-music-emu-0.6.0/gme/CMakeLists.txt
---- game-music-emu-0.6.0.orig/gme/CMakeLists.txt	2012-05-27 22:48:53.000000000 +0200
-+++ game-music-emu-0.6.0/gme/CMakeLists.txt	2014-06-09 04:50:18.208939446 +0200
+diff -ur game-music-emu-0.6.2.orig/gme/CMakeLists.txt game-music-emu-0.6.2/gme/CMakeLists.txt
+--- game-music-emu-0.6.2.orig/gme/CMakeLists.txt	2017-12-07 04:19:39.000000000 +0100
++++ game-music-emu-0.6.2/gme/CMakeLists.txt	2018-02-04 04:40:41.886087194 +0100
 @@ -137,13 +137,13 @@
  # On some platforms we may need to change headers or whatnot based on whether
  # we're building the library or merely using the library. The following is
@@ -12,7 +12,7 @@ diff -ur game-music-emu-0.6.0.orig/gme/CMakeLists.txt game-music-emu-0.6.0/gme/C
  include_directories(${CMAKE_CURRENT_BINARY_DIR})
  
  # Add library to be compiled.
--add_library(gme SHARED ${libgme_SRCS})
+-add_library(gme ${libgme_SRCS})
 +add_library(gme STATIC ${libgme_SRCS})
  
  # The version is the release.  The "soversion" is the API version.  As long

@@ -1,0 +1,34 @@
+diff -ur game-music-emu-0.6.2.orig/CMakeLists.txt game-music-emu-0.6.2/CMakeLists.txt
+--- game-music-emu-0.6.2.orig/CMakeLists.txt	2017-12-07 04:19:39.000000000 +0100
++++ game-music-emu-0.6.2/CMakeLists.txt	2018-02-04 04:56:09.349570385 +0100
+@@ -9,7 +9,7 @@
+ # 2.6+ always assumes FATAL_ERROR, but 2.4 and below don't.
+ # Of course, 2.4 might work, in which case you're welcome to drop
+ # down the requirement, but I can't test that.
+-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
++cmake_minimum_required(VERSION 2.8.10 FATAL_ERROR)
+ 
+ # Default emulators to build (all of them! ;)
+ if (NOT DEFINED USE_GME_AY)
+@@ -64,19 +64,15 @@
+    check_cxx_compiler_flag (-fvisibility=hidden __LIBGME_TEST_VISIBILITY)
+    set (ENABLE_VISIBILITY OFF)
+    if (__LIBGME_TEST_VISIBILITY)
+-      # get the gcc version
+-      exec_program(${CMAKE_CXX_COMPILER} ARGS --version OUTPUT_VARIABLE _gcc_version_info)
+-      string (REGEX MATCH "[3-9]\\.[0-9]\\.[0-9]" _gcc_version "${_gcc_version_info}")
+-
+       # gcc <4.1 had poor support for symbol visibility
+-      if ((${_gcc_version} VERSION_GREATER "4.1") OR (${_gcc_version} VERSION_EQUAL "4.1"))
++      if ((CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.1") OR (CMAKE_CXX_COMPILER_VERSION VERSION_EQUAL "4.1"))
+          set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
+          set (ENABLE_VISIBILITY ON)
+          add_definitions (-DLIBGME_VISIBILITY)
+ 
+          # GCC >= 4.2 also correctly supports making inline members have hidden
+          # visibility by default.
+-         if ((${_gcc_version} VERSION_GREATER "4.2") OR (${_gcc_version} VERSION_EQUAL "4.2"))
++         if ((CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.2") OR (CMAKE_CXX_COMPILER_VERSION VERSION_EQUAL "4.2"))
+             set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility-inlines-hidden")
+          endif()
+       endif()

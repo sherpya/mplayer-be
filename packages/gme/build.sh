@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for game-music-emu
-# Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=game-music-emu
-VERSION=0.6.0
-EXT=tar.bz2
-BASEURL=https://${PACKAGE}.googlecode.com/files
+VERSION=0.6.2
+EXT=tar.xz
+BASEURL=https://bitbucket.org/mpyne/${PACKAGE}/downloads
 
 CMAKE=1
 

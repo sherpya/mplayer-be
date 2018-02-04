@@ -5,6 +5,7 @@ fontconfig	2.12.6
 freetype	2.9
 fribidi	0.19.7
 giflib	5.1.4
+gme 0.6.2
 gmp 6.1.2
 gnutls  3.5.17
 lame	3.99.5

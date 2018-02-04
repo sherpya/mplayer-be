@@ -1,7 +1,7 @@
-diff -ur game-music-emu-0.6.0.orig/CMakeLists.txt game-music-emu-0.6.0/CMakeLists.txt
---- game-music-emu-0.6.0.orig/CMakeLists.txt	2013-03-17 03:13:46.000000000 +0100
-+++ game-music-emu-0.6.0/CMakeLists.txt	2014-06-09 04:51:13.456937663 +0200
-@@ -88,5 +88,5 @@
+diff -ur game-music-emu-0.6.2.orig/CMakeLists.txt game-music-emu-0.6.2/CMakeLists.txt
+--- game-music-emu-0.6.2.orig/CMakeLists.txt	2017-12-07 04:19:39.000000000 +0100
++++ game-music-emu-0.6.2/CMakeLists.txt	2018-02-04 04:39:15.558513092 +0100
+@@ -90,5 +90,5 @@
  add_subdirectory(gme)
  
  # EXCLUDE_FROM_ALL adds build rules but keeps it out of default build
