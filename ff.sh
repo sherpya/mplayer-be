@@ -88,6 +88,7 @@ configure()
 
     enable gpl
     enable version3
+    enable hardcoded-tables
 
     enable cross-compile
     enable runtime-cpudetect
