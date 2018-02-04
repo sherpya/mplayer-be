@@ -4,6 +4,13 @@
 # See LICENSE for licensing informations
 
 . ../config.sh
+. ../nameterm.sh
+
+say()
+{
+    nameTerminal "$*"
+    echo $*
+}
 
 version=$(LC_ALL=C git svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
 ff_revision=$(( cd ../ffmpeg && LC_ALL=C git rev-parse --short upstream/master )2> /dev/null)
@@ -110,7 +117,7 @@ configure()
 
 make_dist()
 {
-    echo "Building dist..."
+    say "Building dist...${package}"
 
     TMPDIR=$(mktemp -d /tmp/mpbuild-XXXX)
     DISTDIR=${TMPDIR}/MPlayer-$cpu-$version
@@ -167,10 +174,10 @@ build_binary()
 
     distclean
 
-    echo "Configuring..."
+    say "Configuring MPlayer ${cpu}..."
     configure $opts || return 1
 
-    echo "Make..."
+    say "Make MPlayer ${cpu}..."
     make -j8 || return 1
 
     make_dist
@@ -183,7 +190,7 @@ build_source()
         return
     fi
 
-    echo "Generating $source"
+    say "Generating $source"
     distclean
 
     ( cd ffmpeg && git pull --rebase --ff-only )

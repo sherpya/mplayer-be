@@ -4,6 +4,13 @@
 # See LICENSE for licensing informations
 
 . ../config.sh
+. ../nameterm.sh
+
+say()
+{
+    nameTerminal "$*"
+    echo $*
+}
 
 product=$(basename $(pwd))
 version=$(./ffbuild/version.sh)
@@ -125,7 +132,7 @@ configure()
 make_dist()
 {
 
-    echo "Building dist..."
+    say "Building dist...${package}"
     TMPDIR=$(mktemp -d /tmp/$product-build-XXXX)
     DISTDIR=${TMPDIR}/${packagename}
     mkdir ${DISTDIR}
@@ -182,10 +189,10 @@ build_binary()
     make distclean >/dev/null 2>&1
     echo "done"
 
-    echo "Configuring..."
+    say "Configuring ${NAME} ${ARCH}..."
     configure || return 1
 
-    echo "Make..."
+    say "Make ${NAME} ${ARCH}..."
     make -j8 || return 1
 
     make_dist
@@ -198,7 +205,7 @@ build_source()
         return
     fi
 
-    echo "Generating $source"
+    say "Generating $source"
     srctemp=$(mktemp -u /tmp/$product-src-XXXX.tar.xz)
     git archive --prefix="$product-$version-src/" --format=tar HEAD | xz -c > ${srctemp}
     mv -f ${srctemp} "${source}"
