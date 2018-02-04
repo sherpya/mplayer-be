@@ -1,16 +1,16 @@
-diff -ur enca-1.15.orig/Makefile.in enca-1.15/Makefile.in
---- enca-1.15.orig/Makefile.in	2013-09-30 09:48:22.000000000 +0200
-+++ enca-1.15/Makefile.in	2013-10-07 02:21:36.564508559 +0200
-@@ -368,7 +368,7 @@
+diff -ur enca-1.19.orig/Makefile.in enca-1.19/Makefile.in
+--- enca-1.19.orig/Makefile.in	2016-09-05 16:19:29.000000000 +0200
++++ enca-1.19/Makefile.in	2018-02-04 05:15:01.374657094 +0100
+@@ -381,7 +381,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
 -@MAINTAINER_MODE_FALSE@SUBDIRS = tools script lib src devel-docs test
 +@MAINTAINER_MODE_FALSE@SUBDIRS = tools lib
- 
- # @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
  @MAINTAINER_MODE_TRUE@SUBDIRS = tools data script lib src devel-docs test
-@@ -896,9 +896,8 @@
+ man_MANS = man/enca.1
+ DISTCHECK_CONFIGURE_FLAGS = --enable-maintainer-mode
+@@ -908,9 +908,8 @@
  
  info-am:
  

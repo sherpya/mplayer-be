@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for ENCA - Extremely Naive Charset Analyser
-# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=enca
-VERSION=1.15
-EXT=tar.bz2
-BASEURL=http://dl.cihar.com/${PACKAGE}
+VERSION=1.19
+EXT=tar.xz
+BASEURL=https://dl.cihar.com/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
 
