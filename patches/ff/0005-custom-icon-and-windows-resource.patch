@@ -1,87 +1,37 @@
-From 0dc795c8675026f01b43f16012bcc7f3de0cf6ae Mon Sep 17 00:00:00 2001
+From 49910efe04fdc0a04bc07a67fb3aebebd4aec513 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 6/7] custom icon and windows resource
+Subject: [PATCH 5/6] custom icon and windows resource
 
 ---
- Makefile    |   5 +++++
- common.rc   |  36 ++++++++++++++++++++++++++++++++++++
- ffmpeg.ico  | Bin 0 -> 111290 bytes
- ffmpeg.rc   |   4 ++++
- ffprobe.ico | Bin 0 -> 104396 bytes
- ffprobe.rc  |   4 ++++
- 6 files changed, 49 insertions(+)
- create mode 100644 common.rc
+ Makefile           |   3 +++
+ ffmpeg.ico         | Bin 0 -> 111290 bytes
+ ffprobe.ico        | Bin 0 -> 104396 bytes
+ fftools/Makefile   |   2 ++
+ fftools/common.rc  |  36 ++++++++++++++++++++++++++++++++++++
+ fftools/ffmpeg.rc  |   4 ++++
+ fftools/ffprobe.rc |   4 ++++
+ 7 files changed, 49 insertions(+)
  create mode 100644 ffmpeg.ico
- create mode 100644 ffmpeg.rc
  create mode 100644 ffprobe.ico
- create mode 100644 ffprobe.rc
+ create mode 100644 fftools/common.rc
+ create mode 100644 fftools/ffmpeg.rc
+ create mode 100644 fftools/ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 559c5b8d5f..cc4812db25 100644
+index 9defddebfd..18fd2954e9 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -120,6 +120,8 @@ include $(SRC_PATH)/doc/Makefile
- 
- define DOPROG
- OBJS-$(1) += $(1).o $(OBJS-$(1)-yes)
-+# if EXESUF is exe (win32) and the corresponding .rc file does exist
-+$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard $(1).rc)),OBJS-$(1) += $(1)$(PROGSSUF)_rc.o)
- $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
- $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
- $(1)$(PROGSSUF)_g$(EXESUF): LDFLAGS += $(LDFLAGS-$(1))
-@@ -135,6 +137,9 @@ $(PROGS): %$(PROGSSUF)$(EXESUF): %$(PROGSSUF)_g$(EXESUF)
- 	$(CP) $< $@
+@@ -103,6 +103,9 @@ else
  	$(STRIP) $@
+ endif
  
 +%$(PROGSSUF)_rc.o: %$(PROGSSUF).rc
-+	$(CC:gcc=windres) -I$(SRC_PATH) -o $@ $<
++	$(CC:gcc=windres) -I$(SRC_PATH) -I$(SRC_PATH)/fftools -o $@ $<
 +
- %$(PROGSSUF)_g$(EXESUF): %.o $(FF_DEP_LIBS)
+ %$(PROGSSUF)_g$(EXESUF): $(FF_DEP_LIBS)
  	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $(OBJS-$*) $(FF_EXTRALIBS)
  
-diff --git a/common.rc b/common.rc
-new file mode 100644
-index 0000000000..6dcbe77b0b
---- /dev/null
-+++ b/common.rc
-@@ -0,0 +1,36 @@
-+#include <winver.h>
-+#include <libavutil/ffversion.h>
-+#include <libavutil/avutil.h>
-+#include <libavcodec/avcodec.h>
-+#include <libavformat/avformat.h>
-+
-+1 VERSIONINFO
-+FILEVERSION 1,0,0,0
-+PRODUCTVERSION 1,0,0,0
-+FILEOS VOS__WINDOWS32
-+FILETYPE VFT_APP
-+{
-+    BLOCK "StringFileInfo" 
-+    {  
-+        BLOCK "000004b0" // LANG_NEUTRAL,UNICODE_CP
-+        {
-+            VALUE "Comments", __DESCRIPTION__
-+            VALUE "FileDescription", __DESCRIPTION__
-+            VALUE "FileVersion", FFMPEG_VERSION
-+            VALUE "InternalName", __MODULE__
-+            VALUE "LegalCopyright", "FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project"
-+            VALUE "OriginalFilename", __MODULE__
-+            VALUE "ProductName", "FFmpeg"
-+            VALUE "libavutil",  AV_STRINGIFY(LIBAVUTIL_VERSION)
-+            VALUE "libavcodec", AV_STRINGIFY(LIBAVCODEC_VERSION)
-+            VALUE "libavformat", AV_STRINGIFY(LIBAVFORMAT_VERSION)
-+            VALUE "SpecialBuild", "http://oss.netfarm.it/mplayer-win32.php"
-+        }
-+    }
-+    BLOCK "VarFileInfo"  
-+    {
-+        VALUE "Translation",0,0x04b0
-+    }
-+}
-+
-+MAIN    ICON DISCARDABLE    __ICON__
 diff --git a/ffmpeg.ico b/ffmpeg.ico
 new file mode 100644
 index 0000000000000000000000000000000000000000..d297bd5c1cb6b4d09c68103f67acecbcf278c6c7
@@ -997,16 +947,6 @@ fh@a8-J1mVq@)Sx~2?xOKdLT_z9hDj-+pzxuli~C{
 literal 0
 HcmV?d00001
 
-diff --git a/ffmpeg.rc b/ffmpeg.rc
-new file mode 100644
-index 0000000000..53d07ec727
---- /dev/null
-+++ b/ffmpeg.rc
-@@ -0,0 +1,4 @@
-+#define __MODULE__	    "ffmpeg.exe"
-+#define __ICON__	    "ffmpeg.ico"
-+#define __DESCRIPTION__ "FFmpeg video converter"
-+#include <common.rc>
 diff --git a/ffprobe.ico b/ffprobe.ico
 new file mode 100644
 index 0000000000000000000000000000000000000000..dd1552d783e18464dceeb72b0fc53397bc32ee3f
@@ -1736,16 +1676,81 @@ XXs~yNgh&DXMnS62G!!f3EyMl~;=e0u
 literal 0
 HcmV?d00001
 
-diff --git a/ffprobe.rc b/ffprobe.rc
+diff --git a/fftools/Makefile b/fftools/Makefile
+index c3a0ff340b..bbe8b21964 100644
+--- a/fftools/Makefile
++++ b/fftools/Makefile
+@@ -19,6 +19,8 @@ OBJS-ffmpeg-$(CONFIG_VIDEOTOOLBOX) += fftools/ffmpeg_videotoolbox.o
+ 
+ define DOFFTOOL
+ OBJS-$(1) += fftools/cmdutils.o fftools/$(1).o $(OBJS-$(1)-yes)
++# if EXESUF is exe (win32) and the corresponding .rc file does exist
++$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard fftools/$(1).rc)),OBJS-$(1) += fftools/$(1)$(PROGSSUF)_rc.o)
+ $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
+ $$(OBJS-$(1)): | fftools
+ $$(OBJS-$(1)): CFLAGS  += $(CFLAGS-$(1))
+diff --git a/fftools/common.rc b/fftools/common.rc
+new file mode 100644
+index 0000000000..6dcbe77b0b
+--- /dev/null
++++ b/fftools/common.rc
+@@ -0,0 +1,36 @@
++#include <winver.h>
++#include <libavutil/ffversion.h>
++#include <libavutil/avutil.h>
++#include <libavcodec/avcodec.h>
++#include <libavformat/avformat.h>
++
++1 VERSIONINFO
++FILEVERSION 1,0,0,0
++PRODUCTVERSION 1,0,0,0
++FILEOS VOS__WINDOWS32
++FILETYPE VFT_APP
++{
++    BLOCK "StringFileInfo" 
++    {  
++        BLOCK "000004b0" // LANG_NEUTRAL,UNICODE_CP
++        {
++            VALUE "Comments", __DESCRIPTION__
++            VALUE "FileDescription", __DESCRIPTION__
++            VALUE "FileVersion", FFMPEG_VERSION
++            VALUE "InternalName", __MODULE__
++            VALUE "LegalCopyright", "FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project"
++            VALUE "OriginalFilename", __MODULE__
++            VALUE "ProductName", "FFmpeg"
++            VALUE "libavutil",  AV_STRINGIFY(LIBAVUTIL_VERSION)
++            VALUE "libavcodec", AV_STRINGIFY(LIBAVCODEC_VERSION)
++            VALUE "libavformat", AV_STRINGIFY(LIBAVFORMAT_VERSION)
++            VALUE "SpecialBuild", "http://oss.netfarm.it/mplayer-win32.php"
++        }
++    }
++    BLOCK "VarFileInfo"  
++    {
++        VALUE "Translation",0,0x04b0
++    }
++}
++
++MAIN    ICON DISCARDABLE    __ICON__
+diff --git a/fftools/ffmpeg.rc b/fftools/ffmpeg.rc
+new file mode 100644
+index 0000000000..53d07ec727
+--- /dev/null
++++ b/fftools/ffmpeg.rc
+@@ -0,0 +1,4 @@
++#define __MODULE__	    "ffmpeg.exe"
++#define __ICON__	    "ffmpeg.ico"
++#define __DESCRIPTION__ "FFmpeg video converter"
++#include <common.rc>
+diff --git a/fftools/ffprobe.rc b/fftools/ffprobe.rc
 new file mode 100644
 index 0000000000..0322991266
 --- /dev/null
-+++ b/ffprobe.rc
++++ b/fftools/ffprobe.rc
 @@ -0,0 +1,4 @@
 +#define __MODULE__	    "ffprobe.exe"
 +#define __ICON__	    "ffprobe.ico"
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.11.0
+2.15.1
 

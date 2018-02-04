@@ -1,16 +1,16 @@
-From 752f0abc3ada31385f8b3fc5cd6969341311706b Mon Sep 17 00:00:00 2001
+From 93878a4f28e82d34f81051af390fe3b9f54bad20 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
-Subject: [PATCH 7/7] use upstream version tag, my repo is always rebased
+Subject: [PATCH 6/6] use upstream version tag, my repo is always rebased
 
 ---
- version.sh | 4 ++--
+ ffbuild/version.sh | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/version.sh b/version.sh
+diff --git a/ffbuild/version.sh b/ffbuild/version.sh
 index edc4dd33c5..334051e8ba 100755
---- a/version.sh
-+++ b/version.sh
+--- a/ffbuild/version.sh
++++ b/ffbuild/version.sh
 @@ -5,9 +5,9 @@
  # check for git short hash
  if ! test "$revision"; then
@@ -24,5 +24,5 @@ index edc4dd33c5..334051e8ba 100755
  fi
  
 -- 
-2.11.0
+2.15.1
 

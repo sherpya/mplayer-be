@@ -1,7 +1,7 @@
-From c12b212c41afd3239c798aa5b7db63f606f87fc3 Mon Sep 17 00:00:00 2001
+From 3429a813b77a7658d2ee59be7c9228e306d86d14 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 4 Dec 2016 01:28:51 +0100
-Subject: [PATCH 1/7] dynamic loading of shared fdk-aac library
+Subject: [PATCH 1/6] dynamic loading of shared fdk-aac library
 
 ---
  configure                  |  6 ++--
@@ -10,30 +10,30 @@ Subject: [PATCH 1/7] dynamic loading of shared fdk-aac library
  3 files changed, 129 insertions(+), 9 deletions(-)
 
 diff --git a/configure b/configure
-index 758607b502..180d152720 100755
+index 0b01a221c7..9dae091033 100755
 --- a/configure
 +++ b/configure
-@@ -1498,7 +1498,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
- 
+@@ -1563,7 +1563,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
  EXTERNAL_LIBRARY_NONFREE_LIST="
      decklink
+     libndi_newtek
 -    libfdk_aac
      openssl
+     libtls
  "
- 
-@@ -1531,6 +1530,7 @@ EXTERNAL_LIBRARY_LIST="
+@@ -1597,6 +1596,7 @@ EXTERNAL_LIBRARY_LIST="
      libcaca
      libcelt
      libdc1394
 +    libfdk_aac
+     libdrm
      libflite
      libfontconfig
-     libfreetype
-@@ -5755,9 +5755,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
-                                die "ERROR: libcelt must be installed and version must be >= 0.11.0."; }
- enabled libcaca           && require_pkg_config caca caca.h caca_create_canvas
- enabled libdc1394         && require_pkg_config libdc1394-2 dc1394/dc1394.h dc1394_new
--enabled libfdk_aac        && { use_pkg_config fdk-aac "fdk-aac/aacenc_lib.h" aacEncOpen ||
+@@ -5841,9 +5841,7 @@ enabled libcelt           && require libcelt celt/celt.h celt_decode -lcelt0 &&
+ enabled libcaca           && require_pkg_config libcaca caca caca.h caca_create_canvas
+ enabled libdc1394         && require_pkg_config libdc1394 libdc1394-2 dc1394/dc1394.h dc1394_new
+ enabled libdrm            && require_pkg_config libdrm libdrm xf86drm.h drmGetVersion
+-enabled libfdk_aac        && { check_pkg_config libfdk_aac fdk-aac "fdk-aac/aacenc_lib.h" aacEncOpen ||
 -                               { require libfdk_aac fdk-aac/aacenc_lib.h aacEncOpen -lfdk-aac &&
 -                                 warn "using libfdk without pkg-config"; } }
 +enabled libfdk_aac        && { check_header fdk-aac/aacenc_lib.h || die "ERROR: aacenc_lib.h not found"; }
@@ -41,7 +41,7 @@ index 758607b502..180d152720 100755
  enabled libflite          && require libflite "flite/flite.h" flite_init $flite_extralibs
  enabled fontconfig        && enable libfontconfig
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index e5f7c4ebdc..0d95f2fd70 100644
+index 677b11088b..d191133ae0 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -17,6 +17,17 @@
@@ -109,7 +109,7 @@ index e5f7c4ebdc..0d95f2fd70 100644
      uint8_t *decoder_buffer;
      int decoder_buffer_size;
      uint8_t *anc_buffer;
-@@ -85,7 +129,7 @@ static const AVClass fdk_aac_dec_class = {
+@@ -88,7 +132,7 @@ static const AVClass fdk_aac_dec_class = {
  static int get_stream_info(AVCodecContext *avctx)
  {
      FDKAACDecContext *s   = avctx->priv_data;
@@ -118,7 +118,7 @@ index e5f7c4ebdc..0d95f2fd70 100644
      int channel_counts[0x24] = { 0 };
      int i, ch_error       = 0;
      uint64_t ch_layout    = 0;
-@@ -197,8 +241,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
+@@ -200,8 +244,10 @@ static av_cold int fdk_aac_decode_close(AVCodecContext *avctx)
  {
      FDKAACDecContext *s = avctx->priv_data;
  
@@ -131,7 +131,7 @@ index e5f7c4ebdc..0d95f2fd70 100644
      av_freep(&s->decoder_buffer);
      av_freep(&s->anc_buffer);
  
-@@ -210,6 +256,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
+@@ -213,6 +259,27 @@ static av_cold int fdk_aac_decode_init(AVCodecContext *avctx)
      FDKAACDecContext *s = avctx->priv_data;
      AAC_DECODER_ERROR err;
  
@@ -160,7 +160,7 @@ index e5f7c4ebdc..0d95f2fd70 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index 98a817b537..1b28a91969 100644
+index d47137b227..6295af3858 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -17,6 +17,17 @@
@@ -222,7 +222,7 @@ index 98a817b537..1b28a91969 100644
      AudioFrameQueue afq;
  } AACContext;
  
-@@ -93,8 +131,10 @@ static int aac_encode_close(AVCodecContext *avctx)
+@@ -96,8 +134,10 @@ static int aac_encode_close(AVCodecContext *avctx)
  {
      AACContext *s = avctx->priv_data;
  
@@ -235,7 +235,7 @@ index 98a817b537..1b28a91969 100644
      av_freep(&avctx->extradata);
      ff_af_queue_close(&s->afq);
  
-@@ -111,6 +151,21 @@ static av_cold int aac_encode_init(AVCodecContext *avctx)
+@@ -114,6 +154,21 @@ static av_cold int aac_encode_init(AVCodecContext *avctx)
      int aot = FF_PROFILE_AAC_LOW + 1;
      int sce = 0, cpe = 0;
  
@@ -258,5 +258,5 @@ index 98a817b537..1b28a91969 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.11.0
+2.15.1
 
