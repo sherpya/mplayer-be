@@ -13,6 +13,7 @@ topdir=$(cd .. && pwd)
 GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields \
     -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast \
     -Wno-maybe-uninitialized \
+    -Wno-implicit-fallthrough -Wno-misleading-indentation \
     -Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-parameter \
     -Wno-attributes -Wno-unknown-pragmas -Wno-switch"
 
