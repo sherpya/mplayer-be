@@ -1,7 +1,19 @@
 diff -ur libcaca-0.99.beta19.orig/caca/figfont.c libcaca-0.99.beta19/caca/figfont.c
 --- libcaca-0.99.beta19.orig/caca/figfont.c	2012-12-28 18:34:08.000000000 +0100
-+++ libcaca-0.99.beta19/caca/figfont.c	2014-05-18 04:00:40.019720725 +0200
-@@ -633,27 +633,6 @@
++++ libcaca-0.99.beta19/caca/figfont.c	2018-02-04 04:14:54.480083507 +0100
+@@ -29,11 +29,6 @@
+ #include "caca.h"
+ #include "caca_internals.h"
+ 
+-#if defined _WIN32 && defined __GNUC__ && __GNUC__ >= 3
+-int sprintf_s(char *s, size_t n, const char *fmt, ...) CACA_WEAK;
+-int vsnprintf(char *s, size_t n, const char *fmt, va_list ap) CACA_WEAK;
+-#endif
+-
+ struct caca_charfont
+ {
+     int term_width;
+@@ -633,27 +628,6 @@
  }
  
  /*
@@ -31,8 +43,21 @@ diff -ur libcaca-0.99.beta19.orig/caca/figfont.c libcaca-0.99.beta19/caca/figfon
  
 diff -ur libcaca-0.99.beta19.orig/caca/string.c libcaca-0.99.beta19/caca/string.c
 --- libcaca-0.99.beta19.orig/caca/string.c	2012-12-28 18:34:08.000000000 +0100
-+++ libcaca-0.99.beta19/caca/string.c	2014-05-18 04:00:19.375720235 +0200
-@@ -607,22 +607,6 @@
++++ libcaca-0.99.beta19/caca/string.c	2018-02-04 04:14:31.932223002 +0100
+@@ -36,12 +36,6 @@
+ #include "caca.h"
+ #include "caca_internals.h"
+ 
+-#if defined _WIN32 && defined __GNUC__ && __GNUC__ >= 3
+-int vsnprintf_s(char *s, size_t n, size_t c,
+-                const char *fmt, va_list ap) CACA_WEAK;
+-int vsnprintf(char *s, size_t n, const char *fmt, va_list ap) CACA_WEAK;
+-#endif
+-
+ /** \brief Set cursor position.
+  *
+  *  Put the cursor at the given coordinates. Functions making use of the
+@@ -607,22 +601,6 @@
  }
  
  /*
