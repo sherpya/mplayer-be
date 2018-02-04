@@ -29,3 +29,4 @@ twolame	0.3.13
 vo-aacenc	0.1.3
 vo-amrwbenc	0.1.3
 wavpack	5.1.0
+zlib    1.2.11
