@@ -16,7 +16,7 @@ LIVEDIST=${PREFIX}/live
 
 # too much of a hassle (invalid conversion from int* to socklen_t* and other)
 # also this version is outdated
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=int-to-pointer-cast -fpermissive"
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=int-to-pointer-cast"
 
 pkg_configure()
 {
@@ -25,12 +25,12 @@ pkg_configure()
 
 pkg_make_target()
 {
-    make                            \
-    LD=${CROSS_PREFIX}ld            \
-    CC=${CROSS_PREFIX}gcc           \
-    CXX=${CROSS_PREFIX}g++          \
-    CFLAGS="${GLOBAL_CFLAGS}"       \
-    CXXFLAGS="${GLOBAL_CFLAGS}"     \
+    make                                        \
+    LD=${CROSS_PREFIX}ld                        \
+    CC=${CROSS_PREFIX}gcc                       \
+    CXX=${CROSS_PREFIX}g++                      \
+    CFLAGS="${GLOBAL_CFLAGS}"                   \
+    CXXFLAGS="${GLOBAL_CFLAGS} -fpermissive"    \
     ${MAKEOPTS} || return 1
 
     rm -fr ${LIVEDIST}/*
