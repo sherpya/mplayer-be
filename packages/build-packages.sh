@@ -1,19 +1,26 @@
 #!/bin/bash
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013-2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 grep -q enabled /proc/sys/fs/binfmt_misc/status 2>/dev/null && \
  { echo 'binfmt support is enabled, aborting - disable with:' ; \
     echo 'echo 0 | sudo tee /proc/sys/fs/binfmt_misc/status'; exit 1; }
 
-LOG=/tmp/build-$$.log
-echo "Logging to $LOG"
+. ../nameterm.sh
+
+case ${HOST} in
+    i?86-*-mingw32) ARCH="x86" ;;
+    x86_64-*-mingw32) ARCH="x86_64" ;;
+    *) ARCH="x86" ;;
+esac
+
 while read package; do
-    pushd $package >> $LOG
+    pushd $package
+    nameTerminal "Building $package for ${ARCH}"
 
     echo -n "Building $package..."
-    ./build.sh >> $LOG 2>&1
+    ./build.sh
 
     if [ $? -gt 0 ]; then
          echo "failed"
