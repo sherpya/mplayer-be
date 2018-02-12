@@ -75,6 +75,7 @@ esac
 config bzlib
 config zlib
 config libcdio
+config dash_demuxer
 have cdio_paranoia_h
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
@@ -124,6 +125,7 @@ configure()
     enable libxavs
     enable libxvid
     enable libwebp
+    enable libxml2
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
