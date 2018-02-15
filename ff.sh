@@ -47,6 +47,7 @@ case "$product" in
         enable libkvazaar
         enable libilbc
         enable libmodplug
+        enable libopenmpt
         enable libtwolame
         enable libsoxr
         enable libvidstab

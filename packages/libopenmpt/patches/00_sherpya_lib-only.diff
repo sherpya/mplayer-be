@@ -1,0 +1,13 @@
+diff -ur libopenmpt-0.3.6+release.autotools.orig/Makefile.in libopenmpt-0.3.6+release.autotools/Makefile.in
+--- libopenmpt-0.3.6+release.autotools.orig/Makefile.in	2018-02-03 17:34:25.000000000 +0100
++++ libopenmpt-0.3.6+release.autotools/Makefile.in	2018-02-15 04:09:09.206168272 +0100
+@@ -6164,8 +6164,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-dist_docDATA install-man \
+-	install-nobase_dist_docDATA install-nobase_includeHEADERS \
++install-data-am: install-nobase_includeHEADERS \
+ 	install-pkgconfigDATA
+ 
+ install-dvi: install-dvi-am
