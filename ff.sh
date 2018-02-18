@@ -87,6 +87,7 @@ configure()
 
     disable outdevs
 
+    enable lto
     enable gpl
     enable version3
     enable hardcoded-tables
