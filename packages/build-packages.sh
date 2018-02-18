@@ -57,6 +57,7 @@ libcdio
 libcdio-paranoia
 libbs2b
 libmodplug
+libopenmpt
 libass
 libcaca
 libdca
