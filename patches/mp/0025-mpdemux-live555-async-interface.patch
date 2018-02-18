@@ -1,4 +1,4 @@
-From 8acf7ba84cda6aaee0f7624228c20410ada1e779 Mon Sep 17 00:00:00 2001
+From 9b70005cf3c7afa6233cca907477fa0e48f8b659 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 14 Jun 2013 05:25:38 +0200
 Subject: [PATCH 25/29] mpdemux: live555 async interface
@@ -137,5 +137,5 @@ index ad7a7f132..05d06e0c6 100644
      rtpState->sipClient->sendBYE();
    }
 -- 
-2.15.1
+2.16.1
 

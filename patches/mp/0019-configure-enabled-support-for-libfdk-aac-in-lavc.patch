@@ -1,4 +1,4 @@
-From 34c131cabb1fc70a854f09ff1211fc448bb3b373 Mon Sep 17 00:00:00 2001
+From c1da6b7c9bc613a591af81f7c6f1933c91b0218e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 8 Jun 2014 10:17:40 +0200
 Subject: [PATCH 19/29] configure: enabled support for libfdk-aac in lavc
@@ -67,5 +67,5 @@ index 1a778f0cf..0788f7c73 100755
  $def_libgsm
  $def_libopencore_amrnb
 -- 
-2.15.1
+2.16.1
 

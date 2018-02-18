@@ -1,4 +1,4 @@
-From f78572a4f353ac2de45772387a46be750080ced2 Mon Sep 17 00:00:00 2001
+From 1a9a6402f8af3b12017c7ea1314981db785ef01f Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
 Subject: [PATCH 17/29] configure: reduced some warnings on gcc flags
@@ -26,5 +26,5 @@ index 139eb42bc..fb7c484e1 100755
  
  # This provides significant size savings on gcc.
 -- 
-2.15.1
+2.16.1
 

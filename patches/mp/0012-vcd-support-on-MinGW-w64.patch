@@ -1,4 +1,4 @@
-From a061b96840b7c86ab6fc83deaa20cc053125f27e Mon Sep 17 00:00:00 2001
+From eae735908d31ca00e9493a70b80358c9e71136ea Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 05:05:55 +0100
 Subject: [PATCH 12/29] vcd support on MinGW-w64
@@ -35,5 +35,5 @@ index a0035add8..9b77cee01 100644
  
  typedef struct mp_vcd_priv_st mp_vcd_priv_t;
 -- 
-2.15.1
+2.16.1
 

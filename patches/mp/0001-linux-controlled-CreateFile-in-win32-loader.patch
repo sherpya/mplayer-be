@@ -1,4 +1,4 @@
-From 070f279cd89f48cada3089021a4fc54bf4beb3d2 Mon Sep 17 00:00:00 2001
+From 6c2032f0f8cf5db6ef4c81f532d37a626b89be03 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 13 Mar 2013 04:42:49 +0100
 Subject: [PATCH 01/29] linux: controlled CreateFile() in win32 loader
@@ -197,5 +197,5 @@ index bbd3fae42..c7ce88e33 100644
    char* lpBuffer,  // address of buffer for system directory
    UINT uSize        // size of directory buffer
 -- 
-2.15.1
+2.16.1
 

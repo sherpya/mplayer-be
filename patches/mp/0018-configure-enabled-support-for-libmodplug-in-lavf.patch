@@ -1,4 +1,4 @@
-From 9e432d3eb86e31edac859ce583ad5fafd5d36aed Mon Sep 17 00:00:00 2001
+From e5c0e4a737786d745843ae92321ae7d318fe0262 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 18/29] configure: enabled support for libmodplug in lavf
@@ -77,5 +77,5 @@ index fb7c484e1..1a778f0cf 100755
  #define CONFIG_MEMORY_POISONING 0
  #define CONFIG_POWERPC_PERF 0
 -- 
-2.15.1
+2.16.1
 
