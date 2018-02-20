@@ -1,0 +1,12 @@
+diff -ur libxml2-2.9.7.orig/include/libxml/xmlexports.h libxml2-2.9.7/include/libxml/xmlexports.h
+--- libxml2-2.9.7.orig/include/libxml/xmlexports.h	2016-06-07 12:04:14.000000000 +0200
++++ libxml2-2.9.7/include/libxml/xmlexports.h	2018-02-19 19:59:28.134541378 +0100
+@@ -50,6 +50,8 @@
+ 
+ /** DOC_DISABLE */
+ 
++#define LIBXML_STATIC
++
+ /* Windows platform with MS compiler */
+ #if defined(_WIN32) && defined(_MSC_VER)
+   #undef XMLPUBFUN
