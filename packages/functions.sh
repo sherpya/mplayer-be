@@ -93,7 +93,7 @@ pkg_unpack()
         *.tar.bz2)
             decomp=j
             ;;
-        *.tar.gz)
+        *.tar.gz|*.tgz)
             decomp=z
             ;;
     esac
