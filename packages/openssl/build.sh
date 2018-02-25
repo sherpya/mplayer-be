@@ -15,8 +15,6 @@ case ${ARCH} in
     x86_64) OS=mingw64 ;;
 esac
 
-#STATICLIBS="libpng libpng16"
-
 pkg_configure()
 {
     CROSS_COMPILE="${HOST}-" ./Configure ${OS} \
