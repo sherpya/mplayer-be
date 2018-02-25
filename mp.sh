@@ -102,9 +102,8 @@ configure()
 
     enable menu
     enable faac
-    disable faac-lavc
 
-    enable libfdk-aac
+    enable libfdk-aac-lavc
 
     add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
