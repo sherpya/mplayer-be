@@ -157,10 +157,27 @@ pkg_configure()
         ${CONFOPTS} || return 1
 }
 
+pre_make_hook()
+{
+    :
+}
+
+post_make_hook()
+{
+    :
+}
+
+post_install_hook()
+{
+    :
+}
+
 pkg_make_target()
 {
+    pre_make_hook
     is_cmake && cd cross_build
     make ${MAKEOPTS} || return 1
+    post_make_hook
     make install || return 1
 }
 

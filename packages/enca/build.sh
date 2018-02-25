@@ -20,11 +20,10 @@ export ac_cv_file__dev_srandom=false
 export ac_cv_file__dev_arandom=false
 export yeti_cv_file_locale_alias=
 
-pkg_make_target()
+pre_make_hook()
 {
     # host compiler
     gcc -DHAVE_MEMORY_H tools/make_hash.c -O2 -o tools/make_hash
-    make ${MAKEOPTS} install
 }
 
 pkg_build && pkg_clean
