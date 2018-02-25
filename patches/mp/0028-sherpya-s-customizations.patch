@@ -1,7 +1,7 @@
-From 15e0dc31825a85fb6f8b3b7c982d784eecf11904 Mon Sep 17 00:00:00 2001
+From 0650e0d75c49b30085fc5145c34d40fc4765699e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 29/29] sherpya's customizations
+Subject: [PATCH 28/28] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -41,10 +41,10 @@ index f67766c45..ebd61a0e0 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 47487972e..be6a8b5d3 100755
+index 62bc36035..da70ead17 100755
 --- a/configure
 +++ b/configure
-@@ -1542,13 +1542,13 @@ fi
+@@ -1530,13 +1530,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 47487972e..be6a8b5d3 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1843,6 +1843,7 @@ fi
+@@ -1831,6 +1831,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index 35e41a861..a98d0cd51 100755
  version=$svn_revision
  fi
 -- 
-2.16.1
+2.16.2
 

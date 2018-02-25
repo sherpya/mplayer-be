@@ -1,7 +1,7 @@
-From aee59a9d9221ff6027634aa9dc9b11266753f407 Mon Sep 17 00:00:00 2001
+From de467cf496b0f0b1ad39ede2e816efb1970e3cb4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
-Subject: [PATCH 15/29] input: map control keys using human readable strings
+Subject: [PATCH 15/28] input: map control keys using human readable strings
 
 ---
  input/input.c    | 27 +++++++++++++++++++++++++++
@@ -86,5 +86,5 @@ index 219e39aa9..bf2dca9a2 100644
 +
  #endif /* MPLAYER_KEYCODES_H */
 -- 
-2.16.1
+2.16.2
 
