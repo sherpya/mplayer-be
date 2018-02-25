@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for GSM speech compressor
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=gsm
@@ -10,16 +10,6 @@ BASEURL=local
 
 . $(dirname $0)/../functions.sh
 
-pkg_make_target()
-{
-    AR=${CROSS_PREFIX}ar            \
-    RANLIB=${CROSS_PREFIX}ranlib    \
-    CC=${CROSS_PREFIX}gcc           \
-    CFLAGS=${GLOBAL_CFLAGS}         \
-    make ${MAKEOPTS} lib/libgsm.a
-
-    install -m644 lib/libgsm.a ${PREFIX}/lib/libgsm.a
-    install -m644 -D inc/gsm.h ${PREFIX}/include/gsm/gsm.h
-}
+CMAKE=1
 
 pkg_build && pkg_clean
