@@ -1,9 +1,10 @@
-diff -ur libcdio-0.90.orig/Makefile.in libcdio-0.90/Makefile.in
---- libcdio-0.90.orig/Makefile.in	2012-10-28 00:23:29.000000000 +0200
-+++ libcdio-0.90/Makefile.in	2013-03-03 09:13:41.776915051 +0100
-@@ -384,7 +384,7 @@
+diff --git a/Makefile.am b/Makefile.am
+index 60cdba7c..4d4a955b 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -37,7 +37,7 @@ EXTRA_DIST = \
  	make-check-filter.rb \
- 	package/libcdio.spec.in 
+ 	package/libcdio.spec.in
  
 -SUBDIRS = doc include lib src test example
 +SUBDIRS = include lib

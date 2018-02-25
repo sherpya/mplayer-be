@@ -69,7 +69,7 @@ config bzlib
 config zlib
 config libcdio
 config dash_demuxer
-have cdio_paranoia_h
+have cdio_paranoia_paranoia_h
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
