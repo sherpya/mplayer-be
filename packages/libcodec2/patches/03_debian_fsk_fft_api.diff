@@ -1,0 +1,21 @@
+--- a/src/fsk.h
++++ b/src/fsk.h
+@@ -30,7 +30,7 @@
+ #define __C2FSK_H
+ #include <stdint.h>
+ #include "comp.h"
+-#include "kiss_fftr.h"
++#include "kiss_fft.h"
+ #include "modem_stats.h"
+ 
+ #define MODE_2FSK 2
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -196,6 +196,7 @@
+     codec2_fdmdv.h
+     codec2_cohpsk.h
+     codec2_fm.h
++    fmfsk.h
+     fsk.h
+     codec2_fifo.h
+     comp.h

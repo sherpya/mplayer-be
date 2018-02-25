@@ -1,0 +1,13 @@
+Description: avoid error: redefinition of ‘float quiskFilt120t480 [480]’
+Author: A. Maitland Bottoms <bottoms@debian.org>
+
+--- a/src/freedv_api_internal.h
++++ b/src/freedv_api_internal.h
+@@ -56,7 +56,6 @@
+ static int quisk_cfInterpDecim(COMP *, int, struct quisk_cfFilter *, int, int);
+ static void quisk_filt_cfInit(struct quisk_cfFilter *, float *, int);
+ static void quisk_filt_destroy(struct quisk_cfFilter *);
+-static float quiskFilt120t480[480];
+ 
+ struct freedv {
+     int                  mode;

@@ -120,6 +120,7 @@ configure()
     enable libxvid
     enable libwebp
     enable libxml2
+    enable libcodec2
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1

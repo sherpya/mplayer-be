@@ -1,0 +1,21 @@
+diff -ur codec2-0.7.orig/CMakeLists.txt codec2-0.7/CMakeLists.txt
+--- codec2-0.7.orig/CMakeLists.txt	2017-07-18 16:11:40.000000000 +0200
++++ codec2-0.7/CMakeLists.txt	2018-02-25 06:48:02.578856033 +0100
+@@ -200,7 +200,7 @@
+ # *nix systems should use "make install" and/or appropriate
+ # distribution packaging tools.
+ #
+-if(WIN32)
++if(0)
+     # Detect if we're doing a 32-bit or 64-bit windows build.
+     if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
+         set(CMAKE_CL_64 TRUE)
+@@ -226,7 +226,7 @@
+     set(CPACK_NSIS_URL_INFO_ABOUT "http://codec2.org")
+     set(CPACK_NSIS_MODIFY_PATH ON)
+     include(CPack)
+-endif(WIN32)
++endif(0)
+ 
+ ########################################################################
+ # Create Pkg Config File
