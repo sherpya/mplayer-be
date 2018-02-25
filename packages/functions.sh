@@ -13,6 +13,7 @@ topdir=$(cd .. && pwd)
 GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields \
     -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast -Werror=format \
     -Wno-maybe-uninitialized \
+    -Wno-error=nonnull \
     -Wno-implicit-fallthrough -Wno-misleading-indentation \
     -Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-parameter \
     -Wno-attributes -Wno-unknown-pragmas -Wno-switch"
@@ -110,8 +111,8 @@ is_cmake()
 
 pkg_configure_cmake()
 {
-    mkdir build_cross
-    ( cd build_cross &&                                 \
+    mkdir cross_build
+    ( cd cross_build &&                                 \
         CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"             \
         CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"           \
         cmake                                           \
@@ -158,7 +159,7 @@ pkg_configure()
 
 pkg_make_target()
 {
-    is_cmake && cd build_cross
+    is_cmake && cd cross_build
     make ${MAKEOPTS} || return 1
     make install || return 1
 }
@@ -290,7 +291,7 @@ svn_clean()
 cmake_clean()
 {
     test -d ${BUILDDIR} || return 0
-    ( cd ${BUILDDIR} && rm -fr build_cross )
+    ( cd ${BUILDDIR} && rm -fr cross_build )
 }
 
 distclean()
