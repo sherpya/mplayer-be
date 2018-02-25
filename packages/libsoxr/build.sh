@@ -1,16 +1,15 @@
 #!/bin/bash
 # Build script for SoX Resampler
-# Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=soxr
-VERSION=0.1.2-Source
+VERSION=0.1.3-Source
 EXT=tar.xz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
 CMAKE=1
 CMAKEOPTS=" \
-    -DHAVE_WORDS_BIGENDIAN=0            \
     -DWITH_OPENMP=0                     \
     -DBUILD_TESTS=0                     \
     -DBUILD_EXAMPLES=0"
