@@ -1,7 +1,10 @@
 #!/bin/bash
 # Build script for WavPack
-# Copyright (c) 2014-2017 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
+
+# includes patches for:
+# CVE-2018-6767 CVE-2018-7253 CVE-2018-7254
 
 PACKAGE=wavpack
 VERSION=5.1.0
