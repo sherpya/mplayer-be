@@ -1,7 +1,7 @@
-diff -ur libxml2-2.9.7.orig/Makefile.in libxml2-2.9.7/Makefile.in
---- libxml2-2.9.7.orig/Makefile.in	2017-11-02 21:16:49.000000000 +0100
-+++ libxml2-2.9.7/Makefile.in	2017-11-11 02:28:23.564194423 +0100
-@@ -690,7 +690,7 @@
+diff -ur libxml2-2.9.8.orig/Makefile.in libxml2-2.9.8/Makefile.in
+--- libxml2-2.9.8.orig/Makefile.in	2018-03-05 16:54:18.000000000 +0100
++++ libxml2-2.9.8/Makefile.in	2018-03-07 04:21:04.869162799 +0100
+@@ -691,7 +691,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
@@ -9,8 +9,8 @@ diff -ur libxml2-2.9.7.orig/Makefile.in libxml2-2.9.7/Makefile.in
 +SUBDIRS = include .
  DIST_SUBDIRS = include . doc example python xstc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
- AM_CFLAGS = $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
-@@ -1800,15 +1800,13 @@
+ AM_CFLAGS = $(EXTRA_CFLAGS) $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
+@@ -1801,15 +1801,13 @@
  
  info-am:
  
