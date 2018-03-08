@@ -33,6 +33,8 @@ done << EOF
 dlfcn-win32
 zlib
 bzip2
+zimg
+ffnvcodec
 libiconv
 enca
 expat
