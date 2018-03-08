@@ -121,6 +121,7 @@ configure()
     enable libwebp
     enable libxml2
     enable libcodec2
+    enable libzimg
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1

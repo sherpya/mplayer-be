@@ -1,0 +1,12 @@
+diff --git a/zimg.pc.in b/zimg.pc.in
+index c9ab827..6295a35 100644
+--- a/zimg.pc.in
++++ b/zimg.pc.in
+@@ -9,6 +9,5 @@ Version: @VERSION@
+ 
+ # If building a static library against a C++ runtime other than libstdc++,
+ # define STL_LIBS when running configure.
+-Libs: -L${libdir} -lzimg
+-Libs.private: @STL_LIBS@
++Libs: -L${libdir} -lzimg @STL_LIBS@
+ Cflags: -I${includedir}

@@ -1,0 +1,22 @@
+diff --git a/Makefile.am b/Makefile.am
+index ff67305..eea8f89 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -17,7 +17,7 @@ EXTRA_DIST = zimg.pc.in
+ exampledir = $(docdir)/example
+ examplemiscdir = $(exampledir)/misc
+ 
+-
++if FALSE
+ dist_doc_DATA = ChangeLog COPYING README.md
+ 
+ dist_example_DATA = \
+@@ -37,7 +37,7 @@ dist_examplemisc_DATA = \
+ 	src/testcommon/mmap.h \
+ 	src/testcommon/win32_bitmap.cpp \
+ 	src/testcommon/win32_bitmap.h
+-
++endif # FALSE
+ 
+ noinst_PROGRAMS =
+ lib_LTLIBRARIES = libzimg.la
