@@ -179,6 +179,7 @@ pkg_make_target()
     make ${MAKEOPTS} || return 1
     post_make_hook
     make install || return 1
+    post_install_hook
 }
 
 apply_patches()
