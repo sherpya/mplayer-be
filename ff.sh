@@ -122,6 +122,7 @@ configure()
     enable libxml2
     enable libcodec2
     enable libzimg
+    enable ffnvcodec
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
