@@ -133,7 +133,7 @@ pkg_configure()
 
     if [ ! -x configure ]; then
         if [ -e configure.ac -o -e configure.in ]; then
-            autoreconf -fi
+            autoreconf -fi || return 1
         else
             return 0
         fi
