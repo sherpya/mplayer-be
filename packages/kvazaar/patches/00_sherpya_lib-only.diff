@@ -1,15 +1,26 @@
 diff --git a/Makefile.am b/Makefile.am
-index 1f89ba85..79c9e33d 100644
+index 1f89ba85..5ac235e7 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -2,10 +2,6 @@ ACLOCAL_AMFLAGS = -I m4
+@@ -2,9 +2,9 @@ ACLOCAL_AMFLAGS = -I m4
  
  SUBDIRS = src tests
  
 -dist_man1_MANS = doc/kvazaar.1
--
++#dist_man1_MANS = doc/kvazaar.1
+ 
 -dist_doc_DATA = COPYING CREDITS README.md
--
++#dist_doc_DATA = COPYING CREDITS README.md
+ 
  EXTRA_DIST = \
  	build \
- 	doc \
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 5e884401..457a8433 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -1,4 +1,4 @@
+-bin_PROGRAMS = kvazaar
++#bin_PROGRAMS = kvazaar
+ lib_LTLIBRARIES = libkvazaar.la
+ 
+ 
