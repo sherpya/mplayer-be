@@ -21,6 +21,7 @@ libtheora       1.2.0alpha1
 libvorbis       1.3.5
 libxml2         2.9.8
 lzo             2.10
+mpg123          1.25.10
 nettle          3.4
 opencore-amr    0.1.5
 openjpeg        2.3.0

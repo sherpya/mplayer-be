@@ -54,6 +54,7 @@ config libopenjpeg
 config libxvid
 config libx264
 config mp3lame
+config mpg123
 config dvdnav
 config vcd
 

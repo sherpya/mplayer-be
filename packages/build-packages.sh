@@ -50,6 +50,7 @@ gavl
 giflib
 frei0r
 lame
+mpg123
 regex
 gmp
 nettle
