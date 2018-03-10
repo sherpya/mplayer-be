@@ -1,3 +1,3 @@
 version=3
-opts=filenamemangle=s/.+\/(\d\S*)\.tar\.gz/fribidi-$1\.tar\.gz/ \
-  https://github.com/fribidi/fribidi/tags .*/(\d\S*)\.tar\.gz
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/fribidi-$1\.tar\.gz/ \
+  https://github.com/fribidi/fribidi/tags .*/v?(\d\S+)\.tar\.gz
