@@ -9,6 +9,7 @@ GIT_REPO="https://github.com/libass/libass"
 
 depends lib/libfreetype.a
 depends lib/libfribidi.a
+depends lib/libharfbuzz.a
 depends lib/libfontconfig.a
 depends lib/libenca.a
 

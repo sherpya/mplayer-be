@@ -44,8 +44,9 @@ faac
 fdk-aac
 libpng
 freetype
-fontconfig
 fribidi
+fontconfig
+harfbuzz
 gavl
 giflib
 frei0r
