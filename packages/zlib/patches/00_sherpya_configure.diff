@@ -1,0 +1,22 @@
+diff -ur zlib-1.2.11.orig/configure zlib-1.2.11/configure
+--- zlib-1.2.11.orig/configure	2016-12-31 19:06:40.000000000 +0100
++++ zlib-1.2.11/configure	2018-03-08 19:10:37.912400831 +0100
+@@ -126,7 +126,7 @@
+     -l* | --libdir) libdir="$2"; shift; shift ;;
+     -i* | --includedir) includedir="$2"; shift; shift ;;
+     -s* | --shared | --enable-shared) shared=1; shift ;;
+-    -t | --static) shared=0; shift ;;
++    -t | --enable-static | --static) shared=0; shift ;;
+     --solo) solo=1; shift ;;
+     --cover) cover=1; shift ;;
+     -z* | --zprefix) zprefix=1; shift ;;
+@@ -139,8 +139,7 @@
+     -d* | --debug) debug=1; shift ;;
+     *)
+       echo "unknown option: $1" | tee -a configure.log
+-      echo "$0 --help for help" | tee -a configure.log
+-      leave 1;;
++      shift ;;
+     esac
+ done
+ 
