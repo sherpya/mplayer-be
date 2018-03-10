@@ -104,6 +104,7 @@ configure()
     enable faac
 
     enable libfdk-aac-lavc
+    disable ass-internal
 
     add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
