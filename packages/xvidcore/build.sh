@@ -1,25 +1,21 @@
 #!/bin/bash
 # Build script for XVID Video Codec
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=xvidcore
-VERSION=1.3.2
-EXT=tar.bz2
-BASEURL=http://downloads.xvid.org/downloads
+VERSION=1.3.5
+EXT=tar.gz
+BASEURL=https://downloads.xvid.com/downloads
 
 . $(dirname $0)/../functions.sh
 
 BUILDDIR=xvidcore
-CC=${CROSS_PREFIX}gcc
+BUILDSUBDIR=build/generic
 
-save_function pkg_configure do_pkg_configure
-pkg_configure()
-{
-    ( cd build/generic && do_pkg_configure $* )
-}
+export_toolchain
 
-pkg_make_target()
+_pkg_make_target()
 {
     pushd build/generic >/dev/null
     make ${MAKEOPTS} || { popd >/dev/null ; return 1; }
