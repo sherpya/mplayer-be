@@ -76,7 +76,7 @@ libdvdcss
 libdvdread
 libdvdnav
 libxml2
-libcodec2
+codec2
 openjpeg
 libwebp
 gme
