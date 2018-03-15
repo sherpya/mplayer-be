@@ -1,0 +1,4 @@
+version=3
+opts=uversionmangle=s/^(\S+-mac)/0.0.$1/;s/^(\S+-linux-x86-(?:64|32))/0.0.$1/;s/^(\S+-ios-framework)/0.0.$1/ \
+https://developers.google.com/speed/webp/download \
+(?:|.*/)libwebp(?:[_\-]v?|)(\d[^\s/]*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)
