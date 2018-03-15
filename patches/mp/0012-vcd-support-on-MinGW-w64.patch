@@ -1,7 +1,7 @@
 From aea8110706b01b9fdf4538f379b5ef731cbfc9b5 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 05:05:55 +0100
-Subject: [PATCH 12/28] vcd support on MinGW-w64
+Subject: [PATCH 12/27] vcd support on MinGW-w64
 
 ---
  configure               | 2 +-

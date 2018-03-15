@@ -1,7 +1,7 @@
-From 04cb6cd2a5a1b881391158c7ae9b02de6f77e655 Mon Sep 17 00:00:00 2001
+From 20cb1c2be22106fc60b8d40edea99c23c9c19308 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 14 Jun 2013 05:25:38 +0200
-Subject: [PATCH 25/28] mpdemux: live555 async interface
+Subject: [PATCH 24/27] mpdemux: live555 async interface
 
 ---
  configure                |  6 +-----

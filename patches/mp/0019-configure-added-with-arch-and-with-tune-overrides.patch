@@ -1,7 +1,7 @@
-From 9ed8acd6c8c3fdd044e1ab5925872107f4a87a24 Mon Sep 17 00:00:00 2001
+From 6eb4f17436b7fe3a481e0ddcd687e9e2f6a637e3 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 20/28] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 19/27] configure: added --with-arch and --with-tune overrides
 
 ---
  configure | 11 +++++++++++

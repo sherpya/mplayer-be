@@ -1,7 +1,7 @@
-From 0650e0d75c49b30085fc5145c34d40fc4765699e Mon Sep 17 00:00:00 2001
+From b39ac02ab0c0c0681463ab354882b741b389c5e4 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 28/28] sherpya's customizations
+Subject: [PATCH 27/27] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
