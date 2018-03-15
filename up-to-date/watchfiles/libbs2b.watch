@@ -1,0 +1,4 @@
+version=3
+
+opts=dversionmangle=s/\+dfsg$// \
+http://sf.net/bs2b/libbs2b-(.*)\.tar\.bz2
