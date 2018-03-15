@@ -102,7 +102,6 @@ configure()
     disable bluray
 
     enable menu
-    enable faac
 
     enable libfdk-aac-lavc
     disable ass-internal
