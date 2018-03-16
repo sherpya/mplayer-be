@@ -13,15 +13,4 @@ BASEURL=https://downloads.xvid.com/downloads
 BUILDDIR=xvidcore
 BUILDSUBDIR=build/generic
 
-export_toolchain
-
-_pkg_make_target()
-{
-    pushd build/generic >/dev/null
-    make ${MAKEOPTS} || { popd >/dev/null ; return 1; }
-    install -m644 =build/xvidcore.a ${PREFIX}/lib/libxvidcore.a
-    install -m644 ../../src/xvid.h ${PREFIX}/include/xvid.h
-    popd > /dev/null
-}
-
 pkg_build && pkg_clean
