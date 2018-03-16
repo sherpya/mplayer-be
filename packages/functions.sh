@@ -194,6 +194,15 @@ apply_patches()
     done
 }
 
+apply_install()
+{
+    test -d ${BUILDDIR} || return 0
+    for f in $(pwd)/install/*; do
+        echo "- Installing $(basename $f)"
+        install -m0644 $f ${BUILDDIR}/
+    done
+}
+
 print_file_name()
 {
     ${CROSS_PREFIX}gcc -print-file-name=$1
@@ -275,6 +284,7 @@ pkg_build()
 {
     pkg_unpack || return 1
     apply_patches || return 1
+    apply_install || return 1
 
     ( cd ${BUILDDIR}/${BUILDSUBDIR} && pkg_configure ) || return 1
     ( cd ${BUILDDIR}/${BUILDSUBDIR} && ln_to_cp )
