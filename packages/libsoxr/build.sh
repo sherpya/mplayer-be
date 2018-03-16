@@ -9,10 +9,11 @@ EXT=tar.xz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
 CMAKE=1
-CMAKEOPTS=" \
-    -DWITH_OPENMP=0                     \
-    -DBUILD_TESTS=0                     \
-    -DBUILD_EXAMPLES=0"
+CMAKEOPTS="\
+    -DBUILD_SHARED_LIBS=OFF \
+    -DWITH_OPENMP=OFF \
+    -DBUILD_TESTS=OFF \
+    -DBUILD_EXAMPLES=OFF"
 
 . $(dirname $0)/../functions.sh
 

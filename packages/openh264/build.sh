@@ -3,7 +3,7 @@
 # Copyright (c) 2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://github.com/cisco/openh264.git"
+GIT_REPO=https://github.com/cisco/openh264.git
 MARCH=i686
 
 . $(dirname $0)/../functions.sh

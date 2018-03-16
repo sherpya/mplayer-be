@@ -3,11 +3,11 @@
 # Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="git://github.com/Konstanty/libmodplug.git"
+GIT_REPO=https://github.com/Konstanty/libmodplug.git
 
 . $(dirname $0)/../functions.sh
 
-BUILDDIR=libmodplug
+BUILDDIR="libmodplug"
 STATICLIBS="libmodplug"
 
 git_clean && pkg_build && git_clean

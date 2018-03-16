@@ -1,6 +1,7 @@
 # vim: set ft=sh:
 
 # compiler and flags
+export ac_cv_header_stdc=yes
 export ac_cv_builtin_expect=yes
 export ac_cv_always_inline=yes
 
@@ -59,19 +60,13 @@ export gl_cv_func_stat_dir_slash=yes
 export gl_cv_func_stat_file_slash=no
 export ac_cv_func_stat_empty_string_bug=no
 
+
 # iconv
 export am_cv_func_iconv=yes
 export am_cv_func_iconv_works=yes
 export am_cv_lib_iconv=yes
 export am_cv_proto_iconv_arg1=const
 export am_cv_proto_iconv='extern size_t iconv (iconv_t cd, const char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);'
-
-# checked by gavl
-# 32bit Linux / 32-64 Bit Windows 1/0
-# 64bit Linux 0/0
-export ac_cv_c_clip_negative=1
-export ac_cv_c_clip_positive=0
-export ac_cv_c_clip_type=negative
 
 # types
 export ac_cv_c_bigendian=no

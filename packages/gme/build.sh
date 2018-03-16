@@ -8,8 +8,8 @@ VERSION=0.6.2
 EXT=tar.xz
 BASEURL=https://bitbucket.org/mpyne/${PACKAGE}/downloads
 
-CMAKE=1
-
 . $(dirname $0)/../functions.sh
+
+CMAKE=1
 
 pkg_build && pkg_clean

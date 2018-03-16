@@ -3,14 +3,13 @@
 # Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="git://github.com/georgmartius/vid.stab.git"
+GIT_REPO=https://github.com/georgmartius/vid.stab.git
 
 . $(dirname $0)/../functions.sh
 
-BUILDDIR=vid.stab
+BUILDDIR="vid.stab"
 
 CMAKE=1
-CMAKEOPTS=" \
-    -DBUILD_SHARED_LIBS=0"
+CMAKEOPTS="-DBUILD_SHARED_LIBS=OFF"
 
 git_clean && pkg_build && git_clean

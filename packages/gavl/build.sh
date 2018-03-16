@@ -14,4 +14,10 @@ MARCH=i686
 STATICLIBS="libgavl"
 CONFOPTS="--with-cpuflags=none --without-doxygen"
 
+# 32bit Linux / 32-64 Bit Windows 1/0
+# 64bit Linux 0/0
+export ac_cv_c_clip_negative=1
+export ac_cv_c_clip_positive=0
+export ac_cv_c_clip_type=negative
+
 pkg_build && pkg_clean

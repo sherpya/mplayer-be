@@ -3,7 +3,7 @@
 # Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://chromium.googlesource.com/webm/libvpx.git"
+GIT_REPO=https://chromium.googlesource.com/webm/libvpx.git
 MARCH=i686
 
 . $(dirname $0)/../functions.sh
@@ -13,8 +13,9 @@ case ${ARCH} in
     x86_64) VPX_TARGET=x86_64-win64-gcc ;;
 esac
 
-BUILDDIR=libvpx
+BUILDDIR="libvpx"
 
+# package configure fails on unknown options
 pkg_configure()
 {
     CFLAGS="${GLOBAL_CFLAGS}"       \
@@ -27,4 +28,9 @@ pkg_configure()
         --disable-examples
 }
 
-git_clean && pkg_build && ( gen_ld_script libvpx.a -lpthread ) && git_clean
+post_install_hook()
+{
+    gen_ld_script libvpx.a "-lpthread"
+}
+
+git_clean && pkg_build && git_clean

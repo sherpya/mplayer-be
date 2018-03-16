@@ -10,7 +10,7 @@ BASEURL=http://ftp.debian.org/debian/pool/main/c/codec2
 
 . $(dirname $0)/../functions.sh
 
-FILENAME=${PACKAGE}_${VERSION}.orig.${EXT}
+FILENAME="${PACKAGE}_${VERSION}.orig.${EXT}"
 
 CMAKE=1
 CMAKEOPTS="-DBUILD_SHARED_LIBS=OFF -DUNITTEST=OFF"

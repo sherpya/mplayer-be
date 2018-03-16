@@ -3,7 +3,7 @@
 # Copyright (c) 2013-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://github.com/libass/libass"
+GIT_REPO=https://github.com/libass/libass.git
 
 . $(dirname $0)/../functions.sh
 
@@ -13,7 +13,7 @@ depends lib/libharfbuzz.a
 depends lib/libfontconfig.a
 depends lib/libenca.a
 
-BUILDDIR=libass
+BUILDDIR="libass"
 STATICLIBS="libass"
 
 git_clean && pkg_build && git_clean

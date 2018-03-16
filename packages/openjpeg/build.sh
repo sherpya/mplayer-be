@@ -17,6 +17,6 @@ CMAKEOPTS=" \
 
 . $(dirname $0)/../functions.sh
 
-FILENAME=v${VERSION}.${EXT}
+FILENAME="v${VERSION}.${EXT}"
 
 pkg_build && pkg_clean

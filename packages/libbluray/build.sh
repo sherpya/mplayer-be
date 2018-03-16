@@ -3,14 +3,14 @@
 # Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="git://git.videolan.org/libbluray.git"
+GIT_REPO=git://git.videolan.org/libbluray.git
 
 . $(dirname $0)/../functions.sh
 
 depends lib/libxml2.a
 depends lib/libfreetype.a
 
-BUILDDIR=libbluray
+BUILDDIR="libbluray"
 STATICLIBS="libbluray"
 CONFOPTS="--enable-examples=no --disable-bdjava-jar"
 

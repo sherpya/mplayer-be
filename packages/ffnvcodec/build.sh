@@ -3,11 +3,11 @@
 # Copyright (c) 2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://git.videolan.org/git/ffmpeg/nv-codec-headers.git"
+GIT_REPO=https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
 
 . $(dirname $0)/../functions.sh
 
-BUILDDIR=nv-codec-headers
+BUILDDIR="nv-codec-headers"
 
 pkg_make_target()
 {

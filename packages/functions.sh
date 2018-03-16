@@ -199,7 +199,7 @@ apply_install()
     test -d ${BUILDDIR} || return 0
     for f in $(pwd)/install/*; do
         echo "- Installing $(basename $f)"
-        install -m0644 $f ${BUILDDIR}/
+        install -m644 $f ${BUILDDIR}/
     done
 }
 
@@ -210,7 +210,7 @@ print_file_name()
 
 cmd()
 {
-    echo $*
+    echo "- $*"
     $*
 }
 

@@ -10,9 +10,9 @@ BASEURL=http://www.live555.com/liveMedia/public/
 
 . $(dirname $0)/../functions.sh
 
-BUILDDIR=live
-FILENAME=live.2013.02.11.tar.gz
-LIVEDIST=${PREFIX}/live
+BUILDDIR="live"
+FILENAME="live.2013.02.11.tar.gz"
+LIVEDIST="${PREFIX}/live"
 
 # too much of a hassle (invalid conversion from int* to socklen_t* and other)
 # also this version is outdated

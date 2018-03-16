@@ -3,13 +3,13 @@
 # Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO="https://code.videolan.org/videolan/libdvdread.git"
+GIT_REPO=https://code.videolan.org/videolan/libdvdread.git
 
 . $(dirname $0)/../functions.sh
 
 depends lib/libdvdcss.a
 
-BUILDDIR=libdvdread
+BUILDDIR="libdvdread"
 STATICLIBS="libdvdread"
 CONFOPTS="--with-libdvdcss --disable-apidoc"
 
