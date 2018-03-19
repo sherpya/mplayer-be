@@ -1,12 +1,12 @@
-diff -ur fribidi-1.0.1.orig/Makefile.in fribidi-1.0.1/Makefile.in
---- fribidi-1.0.1.orig/Makefile.in	2018-02-04 19:52:18.000000000 +0100
-+++ fribidi-1.0.1/Makefile.in	2018-03-10 03:11:33.774669887 +0100
-@@ -378,7 +378,7 @@
+diff -ur fribidi-1.0.2.orig/Makefile.in fribidi-1.0.2/Makefile.in
+--- fribidi-1.0.2.orig/Makefile.in	2018-03-18 20:10:43.000000000 +0100
++++ fribidi-1.0.2/Makefile.in	2018-03-19 23:54:23.089338719 +0100
+@@ -376,7 +376,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
--SUBDIRS = gen.tab charset lib bin doc test fribidi-vs-unicode
-+SUBDIRS = gen.tab charset lib
- EXTRA_DIST = bootstrap ChangeLog.old
- pkgconfigdir = $(libdir)/pkgconfig
- pkgconfig_DATA = @PACKAGE@.pc
+-SUBDIRS = gen.tab lib bin doc test
++SUBDIRS = gen.tab lib
+ EXTRA_DIST = autogen.sh ChangeLog.old \
+ 	meson.build meson_options.txt bin/meson.build doc/meson.build \
+ 	gen.tab/meson.build lib/meson.build test/meson.build \
