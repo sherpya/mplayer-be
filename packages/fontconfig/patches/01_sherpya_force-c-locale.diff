@@ -1,0 +1,12 @@
+diff -ur fontconfig-2.13.0.orig/src/fccfg.c fontconfig-2.13.0/src/fccfg.c
+--- fontconfig-2.13.0.orig/src/fccfg.c	2018-02-04 12:01:46.000000000 +0100
++++ fontconfig-2.13.0/src/fccfg.c	2018-03-19 23:35:18.485727093 +0100
+@@ -49,7 +49,7 @@
+ 	if (!fc_atomic_ptr_cmpexch (&static_is_locale_initialized, NULL,
+ 				    (void *)(intptr_t) is_locale_initialized))
+ 	    goto retry_locale;
+-	setlocale (LC_ALL, "");
++	setlocale (LC_ALL, "C");
+     }
+ retry_config:
+     config = fc_atomic_ptr_get (&_fcConfig);
