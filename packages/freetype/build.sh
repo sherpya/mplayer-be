@@ -22,7 +22,7 @@
 # CVE-2014-9672 CVE-2014-9673 CVE-2014-9674 CVE-2014-9675
 
 PACKAGE=freetype
-VERSION=2.9
+VERSION=2.9.1
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 
