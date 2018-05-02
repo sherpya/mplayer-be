@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libwebp
-VERSION=0.6.1
+VERSION=1.0.0
 EXT=tar.gz
 BASEURL=https://storage.googleapis.com/downloads.webmproject.org/releases/webp
 
