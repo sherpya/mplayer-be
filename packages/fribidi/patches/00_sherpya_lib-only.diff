@@ -1,7 +1,7 @@
-diff -ur fribidi-1.0.2.orig/Makefile.in fribidi-1.0.2/Makefile.in
---- fribidi-1.0.2.orig/Makefile.in	2018-03-18 20:10:43.000000000 +0100
-+++ fribidi-1.0.2/Makefile.in	2018-03-19 23:54:23.089338719 +0100
-@@ -376,7 +376,7 @@
+diff -ur fribidi-1.0.3.orig/Makefile.in fribidi-1.0.3/Makefile.in
+--- fribidi-1.0.3.orig/Makefile.in	2018-05-16 19:43:42.000000000 +0200
++++ fribidi-1.0.3/Makefile.in	2018-05-17 00:18:03.618479204 +0200
+@@ -375,7 +375,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
