@@ -1,12 +1,12 @@
-diff -ur libdca-0.0.5.orig/Makefile.in libdca-0.0.5/Makefile.in
---- libdca-0.0.5.orig/Makefile.in	2007-04-10 14:31:22.000000000 +0200
-+++ libdca-0.0.5/Makefile.in	2013-02-17 07:55:37.759751148 +0100
-@@ -175,7 +175,7 @@
- target_alias = @target_alias@
+diff -ur libdca-0.0.6.orig/Makefile.in libdca-0.0.6/Makefile.in
+--- libdca-0.0.6.orig/Makefile.in	2018-05-15 15:59:49.000000000 +0200
++++ libdca-0.0.6/Makefile.in	2018-05-17 00:21:40.412491448 +0200
+@@ -333,7 +333,7 @@
+ top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
 -SUBDIRS = libdca libao src test include
 +SUBDIRS = libdca libao include
- DIST_SUBDIRS = $(SUBDIRS) autotools vc++
- EXTRA_DIST = bootstrap doc/libdca.txt
- all: config.h
+ DIST_SUBDIRS = $(SUBDIRS) vc++
+ EXTRA_DIST = bootstrap doc/libdca.txt \
+ 	m4/cflags.m4 m4/inttypes.m4 m4/keywords.m4 m4/nonpic.m4
