@@ -190,7 +190,11 @@ apply_patches()
 
     for p in $(pwd)/patches/*; do
         echo "- Appling $(basename $p)"
-         patch -d ${BUILDDIR} -p1 < $p || return 1
+        if ! patch -d ${BUILDDIR} -p1 -N --dry-run -f --silent < $p; then
+            echo "patch $p already applied, skip."
+            continue
+        fi
+        patch -d ${BUILDDIR} -p1 < $p || return 1
     done
 }
 

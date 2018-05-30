@@ -20,6 +20,8 @@ export_toolchain
 get_package_filename()
 {
     version=$(cd ${BUILDDIR} && git describe --tags)
+    if [ -e dist ]; then rm -rf dist; fi
+    mkdir dist
     echo "$(cd dist && pwd)/frei0r-plugins-${ARCH}-${version}.7z"
 }
 

@@ -8,19 +8,23 @@ It may or may not work on your Linux distribution, perhaps it may work on cygwin
 ### Distribution
 On my Debian sid I've installed following packages:
 
-    binutils-mingw-w64-i686
-    binutils-mingw-w64-x86-64
+    binutils-mingw-w64
     g++-mingw-w64
-    g++-mingw-w64-i686
-    g++-mingw-w64-x86-64
     gcc-mingw-w64
-    gcc-mingw-w64-base
-    gcc-mingw-w64-i686
-    gcc-mingw-w64-x86-64
     mingw-w64
-    mingw-w64-i686-dev
     mingw-w64-tools
-    mingw-w64-x86-64-dev
+    build-essential
+    cmake
+    autoconf
+    automake
+    nasm
+    yasm
+    gperf
+    dos2unix
+    p7zip-full
+    git
+    subversion
+    mercurial
 
 ### Environment
 You may adapt some of config variables in `config.sh` (at the toplevel)
@@ -46,6 +50,7 @@ and causing misleading detections.
 * sudo (for setup.sh script)
 * git (for packages from git repositories)
 * svn (for packages from svn repositories)
+* mercurial (for packages from hg repositories)
 * cmake (to build cmake based packages)
 * nasm and yasm
 
