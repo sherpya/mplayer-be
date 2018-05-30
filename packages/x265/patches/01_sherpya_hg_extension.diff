@@ -1,0 +1,11 @@
+diff -Nrau a/.hg/hgrc b/.hg/hgrc
+--- a/.hg/hgrc	2018-05-29 23:41:09.227418511 +0800
++++ b/.hg/hgrc	2018-05-29 23:48:30.139399622 +0800
+@@ -12,3 +12,7 @@
+ [ui]
+ # name and email (local to this repository, optional), e.g.
+ # username = Jane Doe <jdoe@example.com>
++
++[extensions]
++purge =
++
