@@ -1,13 +1,12 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index d02fe2a..88ed3b6 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -25,7 +25,7 @@ else()
-     set(LIBSUFFIX "")
- endif()
+diff -Naur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2018-05-29 21:48:59.575706804 +0800
++++ b/CMakeLists.txt	2018-05-29 21:51:31.179700310 +0800
+@@ -21,7 +21,7 @@
  
--add_definitions( -Wall -O3 -g -Wno-pointer-sign -fPIC -std=gnu99)
-+add_definitions( -Wall -O3 -g -Wno-pointer-sign -std=gnu99)
- # add_definitions(  -Wall -O0 -g -Wno-pointer-sign )
+ option(USE_OMP "use parallelization use OMP" ON)
+ 
+-add_definitions(-Wall -Wno-pointer-sign -fPIC -std=gnu99)
++add_definitions(-Wall -Wno-pointer-sign -std=gnu99)
  
  ### ORC is not used in any active code at the moment  ###
+ # I tried it with 0.4.14
