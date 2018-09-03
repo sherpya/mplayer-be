@@ -1,0 +1,28 @@
+diff -ur fontconfig-2.13.1.orig/src/fccache.c fontconfig-2.13.1/src/fccache.c
+--- fontconfig-2.13.1.orig/src/fccache.c	2018-07-19 09:05:17.000000000 +0200
++++ fontconfig-2.13.1/src/fccache.c	2018-09-03 03:24:08.276082643 +0200
+@@ -28,6 +28,7 @@
+ #include <dirent.h>
+ #include <string.h>
+ #include <limits.h>
++#include <inttypes.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+@@ -1087,14 +1088,14 @@
+ 	else if ((errno == ERANGE && (epoch == ULLONG_MAX || epoch == 0))
+ 		|| (errno != 0 && epoch == 0))
+ 	    fprintf (stderr,
+-		     "Fontconfig: SOURCE_DATE_EPOCH: strtoull: %s: %llu\n",
++		     "Fontconfig: SOURCE_DATE_EPOCH: strtoull: %s: %" PRIu64 "\n",
+ 		     strerror(errno), epoch);
+ 	else if (*endptr != '\0')
+ 	    fprintf (stderr,
+ 		     "Fontconfig: SOURCE_DATE_EPOCH has trailing garbage\n");
+ 	else if (epoch > ULONG_MAX)
+ 	    fprintf (stderr,
+-		     "Fontconfig: SOURCE_DATE_EPOCH must be <= %lu but saw: %llu\n",
++		     "Fontconfig: SOURCE_DATE_EPOCH must be <= %lu but saw: %" PRIu64 "\n",
+ 		     ULONG_MAX, epoch);
+ 	else if (epoch < ret)
+ 	    /* Only override if directory is newer */
