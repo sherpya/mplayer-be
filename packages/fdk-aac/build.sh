@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for The Fraunhofer FDK AAC Codec Library for Android
-# Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 GIT_REPO=https://github.com/mstorsjo/fdk-aac.git
@@ -51,8 +51,8 @@ make_binary_dist()
 
     rm -fr ../dist/${ARCH}
     install -d ../dist/${ARCH}
-    ${STRIP} .libs/libfdk-aac-1.dll
-    install -m644 .libs/libfdk-aac-1.dll ../dist/${ARCH}
+    ${STRIP} .libs/libfdk-aac-2.dll
+    install -m644 .libs/libfdk-aac-2.dll ../dist/${ARCH}
     unix2dos -n NOTICE ../dist/${ARCH}/NOTICE.txt
 
     ( cd ../dist && 7z a -mx=9 ${PACKAGE} ${ARCH} && rm -fr ${ARCH} )
