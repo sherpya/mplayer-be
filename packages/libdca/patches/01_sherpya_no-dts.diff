@@ -1,0 +1,11 @@
+diff -ur libdca-0.0.6.orig/libdca/Makefile.in libdca-0.0.6/libdca/Makefile.in
+--- libdca-0.0.6.orig/libdca/Makefile.in	2018-05-15 15:59:49.000000000 +0200
++++ libdca-0.0.6/libdca/Makefile.in	2018-05-17 00:28:39.337252930 +0200
+@@ -625,7 +625,6 @@
+ 
+ install-exec-am: install-libLTLIBRARIES
+ 	@$(NORMAL_INSTALL)
+-	$(MAKE) $(AM_MAKEFLAGS) install-exec-hook
+ install-html: install-html-am
+ 
+ install-html-am:
