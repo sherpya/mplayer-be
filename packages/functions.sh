@@ -118,7 +118,7 @@ pkg_configure_cmake()
         CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"           \
         cmake                                           \
         -DCMAKE_BUILD_TYPE=Release                      \
-        -DBUILD_SHARED_LIBS=0                           \
+        -DBUILD_SHARED_LIBS=OFF                         \
         -DCMAKE_INSTALL_PREFIX=${PREFIX}                \
         -DCMAKE_TOOLCHAIN_FILE=$topdir/toolchain.cmake  \
         ${CMAKEOPTS} ..
