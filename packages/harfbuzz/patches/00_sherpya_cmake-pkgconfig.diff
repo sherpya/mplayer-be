@@ -1,6 +1,6 @@
-diff -Nur harfbuzz-1.7.6.orig/CMakeLists.txt harfbuzz-1.7.6/CMakeLists.txt
---- harfbuzz-1.7.6.orig/CMakeLists.txt	2018-02-28 22:59:53.000000000 +0100
-+++ harfbuzz-1.7.6/CMakeLists.txt	2018-03-10 03:57:03.369222292 +0100
+diff -Nur harfbuzz-1.8.8.orig/CMakeLists.txt harfbuzz-1.8.8/CMakeLists.txt
+--- harfbuzz-1.8.8.orig/CMakeLists.txt	2018-07-17 17:06:41.000000000 +0200
++++ harfbuzz-1.8.8/CMakeLists.txt	2018-09-03 03:31:16.109281762 +0200
 @@ -16,6 +16,7 @@
    set (BUILD_SHARED_LIBS ON)
  endif ()
@@ -9,7 +9,7 @@ diff -Nur harfbuzz-1.7.6.orig/CMakeLists.txt harfbuzz-1.7.6/CMakeLists.txt
  
  ## Disallow in-source builds, as CMake generated make files can collide with autotools ones
  if (NOT MSVC AND "${PROJECT_BINARY_DIR}" STREQUAL "${PROJECT_SOURCE_DIR}")
-@@ -738,6 +739,13 @@
+@@ -759,6 +760,13 @@
    endif ()
  endif ()
  
@@ -23,9 +23,9 @@ diff -Nur harfbuzz-1.7.6.orig/CMakeLists.txt harfbuzz-1.7.6/CMakeLists.txt
  if (NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
    install(TARGETS harfbuzz
      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-diff -Nur harfbuzz-1.7.6.orig/src/harfbuzz.pc.cmakein harfbuzz-1.7.6/src/harfbuzz.pc.cmakein
---- harfbuzz-1.7.6.orig/src/harfbuzz.pc.cmakein	1970-01-01 01:00:00.000000000 +0100
-+++ harfbuzz-1.7.6/src/harfbuzz.pc.cmakein	2018-03-10 03:57:03.369222292 +0100
+diff -Nur harfbuzz-1.8.8.orig/src/harfbuzz.pc.cmakein harfbuzz-1.8.8/src/harfbuzz.pc.cmakein
+--- harfbuzz-1.8.8.orig/src/harfbuzz.pc.cmakein	1970-01-01 01:00:00.000000000 +0100
++++ harfbuzz-1.8.8/src/harfbuzz.pc.cmakein	2018-09-03 03:31:16.109281762 +0200
 @@ -0,0 +1,10 @@
 +prefix=@CMAKE_INSTALL_PREFIX@
 +libdir=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_LIBDIR@

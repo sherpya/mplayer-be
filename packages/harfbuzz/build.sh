@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=harfbuzz
-VERSION=1.7.6
+VERSION=1.8.8
 EXT=tar.bz2
 BASEURL=https://www.freedesktop.org/software/harfbuzz/release
 

@@ -1,7 +1,7 @@
-diff -ur harfbuzz-1.7.6.orig/util/options.cc harfbuzz-1.7.6/util/options.cc
---- harfbuzz-1.7.6.orig/util/options.cc	2018-02-27 19:50:36.000000000 +0100
-+++ harfbuzz-1.7.6/util/options.cc	2018-03-19 23:36:58.918104245 +0100
-@@ -152,7 +152,7 @@
+diff -ur harfbuzz-1.8.8.orig/util/options.cc harfbuzz-1.8.8/util/options.cc
+--- harfbuzz-1.8.8.orig/util/options.cc	2018-07-17 16:29:54.000000000 +0200
++++ harfbuzz-1.8.8/util/options.cc	2018-09-03 03:29:23.246005302 +0200
+@@ -149,7 +149,7 @@
  void
  option_parser_t::parse (int *argc, char ***argv)
  {
