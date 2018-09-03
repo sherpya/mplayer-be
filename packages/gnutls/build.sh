@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=gnutls
-VERSION=3.5.18
+VERSION=3.5.19
 EXT=tar.xz
 BASEURL=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5
 

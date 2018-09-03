@@ -7,7 +7,7 @@ fribidi         1.0.5
 giflib          5.1.4
 gme             0.6.2
 gmp             6.1.2
-gnutls          3.5.18
+gnutls          3.5.19
 harfbuzz        1.8.8
 lame            3.99.5
 libbs2b         3.1.0
