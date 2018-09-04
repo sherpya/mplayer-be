@@ -15,7 +15,8 @@ HEADERS="
     libAACenc/include/aacenc_lib.h \
     libSYS/include/FDK_audio.h \
     libSYS/include/genericStds.h \
-    libSYS/include/machine_type.h"
+    libSYS/include/machine_type.h \
+    libSYS/include/syslib_channelMapDescr.h"
 
 export_toolchain
 
@@ -65,7 +66,7 @@ pkg_make_target()
     echo "Installing headers"
     install -d -m755 ${PREFIX}/include/fdk-aac
     for header in $HEADERS; do
-        cmd install -m644 $header ${PREFIX}/include/fdk-aac
+        cmd install -m644 $header ${PREFIX}/include/fdk-aac || return 1
     done
 }
 
