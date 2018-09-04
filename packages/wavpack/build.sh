@@ -3,17 +3,12 @@
 # Copyright (c) 2014-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-# includes patches for:
-# CVE-2018-6767 CVE-2018-7253 CVE-2018-7254
-
-PACKAGE=wavpack
-VERSION=5.1.0
-EXT=tar.bz2
-BASEURL=http://wavpack.com
+GIT_REPO=https://github.com/dbry/WavPack.git
 
 . $(dirname $0)/../functions.sh
 
+BUILDDIR=WavPack
 STATICLIBS="libwavpack"
 CONFOPTS="--disable-apps"
 
-pkg_build && pkg_clean
+git_clean && pkg_build && git_clean

@@ -1,12 +1,13 @@
-diff -ur wavpack-5.1.0.orig/Makefile.in wavpack-5.1.0/Makefile.in
---- wavpack-5.1.0.orig/Makefile.in	2017-01-17 05:32:29.000000000 +0100
-+++ wavpack-5.1.0/Makefile.in	2017-04-18 18:16:06.576422010 +0200
-@@ -351,7 +351,7 @@
- top_srcdir = @top_srcdir@
- AUTOMAKE_OPTIONS = foreign
- @ENABLE_APPS_TRUE@MAYBE_APPS = cli
+diff --git a/Makefile.am b/Makefile.am
+index 2bdb735..91cac64 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -4,7 +4,7 @@ if ENABLE_APPS
+   MAYBE_APPS = cli
+ endif
+ 
 -SUBDIRS = src include $(MAYBE_APPS) man
 +SUBDIRS = src include $(MAYBE_APPS)
+ 
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = wavpack.pc
- MAINTAINERCLEANFILES = \
