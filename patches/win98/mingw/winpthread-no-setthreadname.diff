@@ -1,0 +1,30 @@
+diff -ur mingw-w64-5.0.4.orig/mingw-w64-libraries/winpthreads/src/thread.c mingw-w64-5.0.4/mingw-w64-libraries/winpthreads/src/thread.c
+--- mingw-w64-5.0.4.orig/mingw-w64-libraries/winpthreads/src/thread.c	2018-05-06 14:57:17.000000000 +0200
++++ mingw-w64-5.0.4/mingw-w64-libraries/winpthreads/src/thread.c	2018-09-03 02:55:00.112240674 +0200
+@@ -419,7 +419,7 @@
+ #if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+       if (lpreserved == NULL && SetThreadName_VEH_handle != NULL)
+         {
+-          RemoveVectoredExceptionHandler (SetThreadName_VEH_handle);
++//          RemoveVectoredExceptionHandler (SetThreadName_VEH_handle);
+           SetThreadName_VEH_handle = NULL;
+         }
+ #endif
+@@ -428,7 +428,7 @@
+   else if (dwReason == DLL_PROCESS_ATTACH)
+     {
+ #if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+-      SetThreadName_VEH_handle = AddVectoredExceptionHandler (1, &SetThreadName_VEH);
++//      SetThreadName_VEH_handle = AddVectoredExceptionHandler (1, &SetThreadName_VEH);
+       /* Can't do anything on error anyway, check for NULL later */
+ #endif
+     }
+@@ -1802,7 +1802,7 @@
+     free (tv->thread_name);
+ 
+   tv->thread_name = stored_name;
+-  SetThreadName (tv->tid, name);
++  //SetThreadName (tv->tid, name);
+   return 0;
+ }
+ 

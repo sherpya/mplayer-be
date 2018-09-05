@@ -1,0 +1,12 @@
+diff -r 88ee12651e30 source/common/common.cpp
+--- a/source/common/common.cpp	Thu Aug 16 18:27:01 2018 +0530
++++ b/source/common/common.cpp	Wed Sep 05 00:50:15 2018 +0200
+@@ -57,7 +57,7 @@
+ #define X265_ALIGNBYTES 64
+ 
+ #if _WIN32
+-#if defined(__MINGW32__) && !defined(__MINGW64_VERSION_MAJOR)
++#if defined(__MINGW32__)
+ #define _aligned_malloc __mingw_aligned_malloc
+ #define _aligned_free   __mingw_aligned_free
+ #include "malloc.h"

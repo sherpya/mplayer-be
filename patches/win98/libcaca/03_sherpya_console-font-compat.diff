@@ -1,0 +1,38 @@
+diff -ur libcaca-0.99.beta19.orig/caca/driver/win32.c libcaca-0.99.beta19/caca/driver/win32.c
+--- libcaca-0.99.beta19.orig/caca/driver/win32.c	2012-12-28 18:34:08.000000000 +0100
++++ libcaca-0.99.beta19/caca/driver/win32.c	2018-09-03 06:29:24.507470164 +0200
+@@ -94,6 +94,8 @@
+     BOOL new_console;
+ };
+ 
++static FARPROC pGetCurrentConsoleFont = NULL;
++
+ static int win32_init_graphics(caca_display_t *dp)
+ {
+     int width = caca_get_canvas_width(dp->cv);
+@@ -102,6 +104,7 @@
+     CONSOLE_CURSOR_INFO cci_screen;
+     SMALL_RECT rect;
+     COORD size;
++    pGetCurrentConsoleFont = GetProcAddress(GetModuleHandle("kernel32.dll"), "GetCurrentConsoleFont");
+ 
+     dp->drv.p = malloc(sizeof(struct driver_private));
+ 
+@@ -206,7 +209,7 @@
+ 
+ #if (_WIN32_WINNT >= 0x500)
+     CONSOLE_FONT_INFO info;
+-    if (GetCurrentConsoleFont(dp->drv.p->screen, FALSE, &info) != 0)
++    if (pGetCurrentConsoleFont && pGetCurrentConsoleFont(dp->drv.p->screen, FALSE, &info) != 0)
+         font_width = info.dwFontSize.X;
+ #endif
+     return font_width * caca_get_canvas_width(dp->cv);
+@@ -219,7 +222,7 @@
+ 
+ #if (_WIN32_WINNT >= 0x500)
+     CONSOLE_FONT_INFO info;
+-    if (GetCurrentConsoleFont(dp->drv.p->screen, FALSE, &info) != 0)
++    if (pGetCurrentConsoleFont && pGetCurrentConsoleFont(dp->drv.p->screen, FALSE, &info) != 0)
+         font_height = info.dwFontSize.Y;
+ #endif
+     return font_height * caca_get_canvas_height(dp->cv);

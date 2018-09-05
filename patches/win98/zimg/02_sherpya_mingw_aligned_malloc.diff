@@ -1,0 +1,15 @@
+diff --git a/src/zimg/common/alloc.h b/src/zimg/common/alloc.h
+index df485a7..30ec507 100644
+--- a/src/zimg/common/alloc.h
++++ b/src/zimg/common/alloc.h
+@@ -12,8 +12,8 @@
+ 
+ #ifdef _WIN32
+   #include <malloc.h>
+-  inline void *zimg_x_aligned_malloc(size_t size, size_t alignment) { return _aligned_malloc(size, alignment); }
+-  inline void zimg_x_aligned_free(void *ptr) { _aligned_free(ptr); }
++  inline void *zimg_x_aligned_malloc(size_t size, size_t alignment) { return __mingw_aligned_malloc(size, alignment); }
++  inline void zimg_x_aligned_free(void *ptr) { __mingw_aligned_free(ptr); }
+ #else
+   #include <stdlib.h>
+   inline void *zimg_x_aligned_malloc(size_t size, size_t alignment) { void *p; if (posix_memalign(&p, alignment, size)) return nullptr; else return p; }

@@ -1,0 +1,28 @@
+diff --git a/src/libdvdcss.c b/src/libdvdcss.c
+index 8f4c421..7a1e5af 100644
+--- a/src/libdvdcss.c
++++ b/src/libdvdcss.c
+@@ -215,16 +215,22 @@ static int set_cache_directory( dvdcss_t dvdcss )
+     {
+ #ifdef _WIN32
+         char psz_home[PATH_MAX];
++        FARPROC pSHGetFolderPathA;
++        HMODULE shfolder = LoadLibraryA("shfolder.dll");
+ 
+         /* Cache our keys in
+          * C:\Documents and Settings\$USER\Application Data\dvdcss\ */
+-        if (SHGetFolderPathA (NULL, CSIDL_APPDATA | CSIDL_FLAG_CREATE,
++        if(shfolder && (pSHGetFolderPathA = GetProcAddress(shfolder, "SHGetFolderPathA")) &&
++           pSHGetFolderPathA (NULL, CSIDL_APPDATA | CSIDL_FLAG_CREATE,
+                               NULL, SHGFP_TYPE_CURRENT, psz_home ) == S_OK)
+         {
+             snprintf( dvdcss->psz_cachefile, PATH_MAX, "%s\\dvdcss", psz_home );
+             dvdcss->psz_cachefile[PATH_MAX - 1] = '\0';
+             psz_cache = dvdcss->psz_cachefile;
+         }
++
++        if(shfolder)
++            FreeLibrary(shfolder);
+ #else
+ #ifdef __ANDROID__
+         /* $HOME is not writable on __ANDROID__ so we have to create a custom

@@ -1,0 +1,42 @@
+diff -ur openjpeg-2.3.0.orig/CMakeLists.txt openjpeg-2.3.0/CMakeLists.txt
+--- openjpeg-2.3.0.orig/CMakeLists.txt	2017-10-05 00:23:14.000000000 +0200
++++ openjpeg-2.3.0/CMakeLists.txt	2018-09-05 00:35:24.307818946 +0200
+@@ -236,7 +236,7 @@
+ check_include_files(malloc.h OPJ_HAVE_MALLOC_H)
+ include(CheckSymbolExists)
+ # _aligned_alloc https://msdn.microsoft.com/en-us/library/8z34s9c6.aspx
+-check_symbol_exists(_aligned_malloc malloc.h OPJ_HAVE__ALIGNED_MALLOC)
++check_symbol_exists(__mingw_aligned_malloc malloc.h OPJ_HAVE__ALIGNED_MALLOC)
+ # posix_memalign (needs _POSIX_C_SOURCE >= 200112L on Linux)
+ set(CMAKE_REQUIRED_DEFINITIONS -D_POSIX_C_SOURCE=200112L)
+ check_symbol_exists(posix_memalign stdlib.h OPJ_HAVE_POSIX_MEMALIGN)
+diff -ur openjpeg-2.3.0.orig/src/lib/openjp2/opj_malloc.c openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c
+--- openjpeg-2.3.0.orig/src/lib/openjp2/opj_malloc.c	2017-10-05 00:23:14.000000000 +0200
++++ openjpeg-2.3.0/src/lib/openjp2/opj_malloc.c	2018-09-05 00:38:02.750629352 +0200
+@@ -66,7 +66,7 @@
+     ptr = memalign(alignment, size);
+     /* _MSC_VER */
+ #elif defined(OPJ_HAVE__ALIGNED_MALLOC)
+-    ptr = _aligned_malloc(size, alignment);
++    ptr = __mingw_aligned_malloc(size, alignment);
+ #else
+     /*
+      * Generic aligned malloc implementation.
+@@ -138,7 +138,7 @@
+     }
+     /* _MSC_VER */
+ #elif defined(OPJ_HAVE__ALIGNED_MALLOC)
+-    r_ptr = _aligned_realloc(ptr, new_size, alignment);
++    r_ptr = __mingw_aligned_realloc(ptr, new_size, alignment);
+ #else
+     if (ptr == NULL) {
+         return opj_aligned_alloc_n(alignment, new_size);
+@@ -227,7 +227,7 @@
+ #if defined(OPJ_HAVE_POSIX_MEMALIGN) || defined(OPJ_HAVE_MEMALIGN)
+     free(ptr);
+ #elif defined(OPJ_HAVE__ALIGNED_MALLOC)
+-    _aligned_free(ptr);
++    __mingw_aligned_free(ptr);
+ #else
+     /* Generic implementation has malloced pointer stored in front of used area */
+     if (ptr != NULL) {
