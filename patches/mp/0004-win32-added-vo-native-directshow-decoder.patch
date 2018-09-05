@@ -1,18 +1,18 @@
-From 064d17ed89b56d0ce817c37d4103c7870eaacd9b Mon Sep 17 00:00:00 2001
+From 9ac485ae743bfd3337222393e72b9679eb12af6b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
-Subject: [PATCH 04/27] win32: added vo native directshow decoder
+Subject: [PATCH 04/28] win32: added vo native directshow decoder
 
 ---
  Makefile                  |   1 +
- etc/codecs.conf           |  87 +++++++++++++++++++++++++
+ etc/codecs.conf           |  87 ++++++++++++++++++++
  libmpcodecs/vd.c          |   2 +
- libmpcodecs/vd_dsnative.c | 161 ++++++++++++++++++++++++++++++++++++++++++++++
+ libmpcodecs/vd_dsnative.c | 161 ++++++++++++++++++++++++++++++++++++++
  4 files changed, 251 insertions(+)
  create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
-index 12bc4abe8..f67766c45 100644
+index 6fc955795..ef698d7f6 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -218,6 +218,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
@@ -24,10 +24,10 @@ index 12bc4abe8..f67766c45 100644
                                          libmpcodecs/vd_vfwex.c          \
                                          libmpdemux/demux_avs.c          \
 diff --git a/etc/codecs.conf b/etc/codecs.conf
-index d2e05e157..2c08c481c 100644
+index 80393301e..d456fa300 100644
 --- a/etc/codecs.conf
 +++ b/etc/codecs.conf
-@@ -4688,6 +4688,93 @@ videocodec ffrawabgr
+@@ -4696,6 +4696,93 @@ videocodec ffrawabgr
    dll rawvideo
    out ABGR
  
@@ -309,5 +309,5 @@ index 000000000..a1f1db46a
 +    return mpi;
 +}
 -- 
-2.16.2
+2.19.0.rc1
 

@@ -1,11 +1,11 @@
-From 1626fe5dd31de8b39c14114ba8ad06609d1b6c50 Mon Sep 17 00:00:00 2001
+From 32ce9602f1e4a3def7c646f30b382b03726a5fd9 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 21 Mar 2013 10:29:04 +0100
-Subject: [PATCH 10/27] win32: filename glob() + unicode
+Subject: [PATCH 10/28] win32: filename glob() + unicode
 
 ---
- osdep/glob-win.c | 69 ++++++++++++++++++++++++++++++++++++++++++++++++++++----
- parser-mpcmd.c   | 30 ++++++++++++++++++++++++
+ osdep/glob-win.c | 69 ++++++++++++++++++++++++++++++++++++++++++++----
+ parser-mpcmd.c   | 30 +++++++++++++++++++++
  2 files changed, 94 insertions(+), 5 deletions(-)
 
 diff --git a/osdep/glob-win.c b/osdep/glob-win.c
@@ -163,5 +163,5 @@ index 4d298857b..057318463 100644
  	}
  
 -- 
-2.16.2
+2.19.0.rc1
 

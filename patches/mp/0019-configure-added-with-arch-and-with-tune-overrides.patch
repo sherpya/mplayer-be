@@ -1,14 +1,14 @@
-From 6eb4f17436b7fe3a481e0ddcd687e9e2f6a637e3 Mon Sep 17 00:00:00 2001
+From 3e631bc22aae06770cddd91e3becb36dc25a75da Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:05:32 +0100
-Subject: [PATCH 19/27] configure: added --with-arch and --with-tune overrides
+Subject: [PATCH 19/28] configure: added --with-arch and --with-tune overrides
 
 ---
  configure | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
 diff --git a/configure b/configure
-index 04eb21981..601d88c11 100755
+index f721dcfab..f34b3deda 100755
 --- a/configure
 +++ b/configure
 @@ -547,6 +547,8 @@ Available values are: all $msg_lang_all
@@ -20,7 +20,7 @@ index 04eb21981..601d88c11 100755
    --cc=COMPILER          C compiler to build MPlayer [gcc]
    --host-cc=COMPILER     C compiler for tools needed while building [gcc]
    --as=ASSEMBLER         assembler to build MPlayer [as]
-@@ -945,6 +947,12 @@ for ac_option do
+@@ -949,6 +951,12 @@ for ac_option do
    --target=*)
      _target=$(option_value $ac_option)
      ;;
@@ -33,7 +33,7 @@ index 04eb21981..601d88c11 100755
    --cc=*)
      _cc=$(option_value $ac_option)
      ;;
-@@ -2739,6 +2747,9 @@ EOF
+@@ -2742,6 +2750,9 @@ EOF
      ;;
  esac # case "$host_arch" in
  
@@ -44,5 +44,5 @@ index 04eb21981..601d88c11 100755
    if x86 ; then
      test "$_cmov"     != no && _cmov=yes
 -- 
-2.16.2
+2.19.0.rc1
 

@@ -1,14 +1,14 @@
-From 1655a0f448efbad4f400be8ac6492819ea929914 Mon Sep 17 00:00:00 2001
+From 2222d6d8d7f97e6acbf32e526c3c0ff9bfd6e3a0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 17/27] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
 
 ---
  configure | 23 ++++++++++++++++++++++-
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 6b13f753d..39e8c12d5 100755
+index 6b3800c4b..10f9aa77b 100755
 --- a/configure
 +++ b/configure
 @@ -439,6 +439,7 @@ Codecs:
@@ -19,7 +19,7 @@ index 6b13f753d..39e8c12d5 100755
    --disable-libopenjpeg     disable OpenJPEG (JPEG 2000) input/output support [autodetect]
    --disable-crystalhd       disable CrystalHD support [autodetect]
    --disable-decoder=DECODER disable specified FFmpeg decoder
-@@ -666,6 +667,7 @@ _vf_lavfi=no
+@@ -669,6 +670,7 @@ _vf_lavfi=no
  _libavcodec_mpegaudio_hp=yes
  _libopencore_amrnb=auto
  _libopencore_amrwb=auto
@@ -27,7 +27,7 @@ index 6b13f753d..39e8c12d5 100755
  libopenjpeg=auto
  _mencoder=yes
  _mplayer=yes
-@@ -1256,6 +1258,8 @@ for ac_option do
+@@ -1260,6 +1262,8 @@ for ac_option do
    --disable-libopencore_amrnb)  _libopencore_amrnb=no   ;;
    --enable-libopencore_amrwb)   _libopencore_amrwb=yes  ;;
    --disable-libopencore_amrwb)  _libopencore_amrwb=no   ;;
@@ -36,7 +36,7 @@ index 6b13f753d..39e8c12d5 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7317,6 +7321,23 @@ else
+@@ -7322,6 +7326,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +60,7 @@ index 6b13f753d..39e8c12d5 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9186,6 +9207,7 @@ $def_crystalhd
+@@ -9191,6 +9212,7 @@ $def_crystalhd
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,14 +68,14 @@ index 6b13f753d..39e8c12d5 100755
  $def_libopenjpeg
  $def_librtmp
  $def_mp3lame_lavc
-@@ -9271,7 +9293,6 @@ $def_gnutls
+@@ -9274,7 +9296,6 @@ $def_gnutls
  $def_openssl
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
 -#define CONFIG_LIBMODPLUG 0
  #define CONFIG_LIBVORBIS 0
+ #define CONFIG_LINUX_PERF 0
  #define CONFIG_MEMORY_POISONING 0
- #define CONFIG_POWERPC_PERF 0
 -- 
-2.16.2
+2.19.0.rc1
 
