@@ -32,44 +32,9 @@ disable()
     add_opt --disable-$1
 }
 
-case "$product" in 
-    ffmpeg)
-        NAME="FFmpeg"
-        PROGRAM="ffmpeg"
-        PROGRAMS="ffprobe"
-        disable ffplay
-        disable w32threads
-        enable avisynth
-        enable postproc
-        enable fontconfig
-        enable libfdk-aac
-        enable libass
-        enable libkvazaar
-        enable libilbc
-        enable libmodplug
-        enable libopenmpt
-        enable libtwolame
-        enable libsoxr
-        enable libvidstab
-        disable libbluray
-        enable libgme
-        enable libx265
-        enable frei0r
-        config frei0r_filter
-        ;;
-    libav)
-        NAME="Libav"
-        PROGRAM="avconv"
-        PROGRAMS="avprobe"
-        disable avplay
-        ;;
-esac
-
-config bzlib
-config zlib
-config libcdio
-config dash_demuxer
-have cdio_paranoia_paranoia_h
+NAME="FFmpeg"
+PROGRAM="ffmpeg"
+PROGRAMS="ffprobe"
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
@@ -86,6 +51,8 @@ configure()
     add_opt --extra-version=sherpya
 
     disable outdevs
+    disable ffplay
+    disable w32threads
 
     enable lto
     enable gpl
@@ -95,34 +62,61 @@ configure()
     enable cross-compile
     enable runtime-cpudetect
     enable hardcoded-tables
-
-    enable gnutls
     enable pthreads
-    enable avfilter
 
+    enable avfilter
+    enable postproc
+
+    enable avisynth
+    config bzlib
+    enable frei0r
+    config frei0r_filter
+    enable gnutls
+    config iconv
+    enable libass
+    disable libbluray
+    enable libbs2b
+    disable libcaca
     enable libcdio
+    config libcdio
+    have cdio_paranoia_paranoia_h
+    enable libcodec2
+    enable libfdk-aac
+    enable fontconfig
     enable libfreetype
+    enable libfribidi
+    enable libgme
     enable libgsm
+    enable libilbc
+    enable libkvazaar
+    enable libmodplug
     enable libmp3lame
-    enable libopenh264
     enable libopencore-amrnb
     enable libopencore-amrwb
-    enable libopus
+    enable libopenh264
     enable libopenjpeg
+    enable libopenmpt
+    # The CELT codec has been merged into the IETF Opus codec
+    enable libopus
+    enable libsoxr
     enable libspeex
     enable libtheora
+    enable libtwolame
+    enable libvidstab
     enable libvo-amrwbenc
     enable libvorbis
     enable libvpx
     enable libwavpack
+    enable libwebp
     enable libx264
+    enable libx265
     enable libxavs
     enable libxvid
-    enable libwebp
     enable libxml2
-    enable libcodec2
+    config dash_demuxer
     enable libzimg
     enable ffnvcodec
+    config zlib
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
