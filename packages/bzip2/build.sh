@@ -6,7 +6,7 @@
 PACKAGE=bzip2
 VERSION=1.0.6
 EXT=tar.gz
-BASEURL=http://www.bzip.org/${VERSION}
+BASEURL=http://downloads.yoctoproject.org/mirror/sources
 
 . $(dirname $0)/../functions.sh
 
