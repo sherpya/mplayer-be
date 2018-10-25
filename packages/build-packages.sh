@@ -84,7 +84,6 @@ speex
 opus
 flac
 libvpx
-live555
 vidstab
 lzo
 opencore-amr

@@ -4,9 +4,9 @@
 
 owner="$(id -u):$(id -g)"
 
-sudo mkdir -p ${PREFIX}/bin ${PREFIX}/live
+sudo mkdir -p ${PREFIX}/bin
 
-for dir in bin lib include live; do
+for dir in bin lib include; do
     sudo chown $owner ${PREFIX}/$dir
 done
 

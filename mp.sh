@@ -46,7 +46,6 @@ config libdca
 config libilbc
 config libopus
 config libbs2b
-config live555
 config libopencore_amrnb
 config libopencore_amrwb
 config libmodplug
@@ -105,8 +104,6 @@ configure()
 
     enable libfdk-aac-lavc
     disable ass-internal
-
-    add_opt --extra-cflags="-I${CROSS_ROOT}/live"
 
 	echo configure ${CONFIGURE_OPTS} $*
     ./configure ${CONFIGURE_OPTS} $* || return 1
