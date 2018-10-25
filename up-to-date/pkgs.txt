@@ -21,7 +21,6 @@ libopenmpt      0.3.13
 libpng          1.6.35
 libsdl          1.2.15
 libsoxr         0.1.3
-libtheora       1.2.0alpha1
 libvorbis       1.3.6
 libwebp         1.0.0
 libxml2         2.9.8
