@@ -1,6 +1,6 @@
-diff -ur harfbuzz-2.0.2.orig/CMakeLists.txt harfbuzz-2.0.2/CMakeLists.txt
---- harfbuzz-2.0.2.orig/CMakeLists.txt	2018-10-19 19:17:02.000000000 +0200
-+++ harfbuzz-2.0.2/CMakeLists.txt	2018-10-25 04:40:47.391390087 +0200
+diff -ur harfbuzz-2.2.0.orig/CMakeLists.txt harfbuzz-2.2.0/CMakeLists.txt
+--- harfbuzz-2.2.0.orig/CMakeLists.txt	2018-10-30 08:52:22.000000000 +0100
++++ harfbuzz-2.2.0/CMakeLists.txt	2018-12-03 03:12:44.352566609 +0100
 @@ -16,6 +16,7 @@
    set (BUILD_SHARED_LIBS ON)
  endif ()
@@ -9,7 +9,7 @@ diff -ur harfbuzz-2.0.2.orig/CMakeLists.txt harfbuzz-2.0.2/CMakeLists.txt
  
  ## Disallow in-source builds, as CMake generated make files can collide with autotools ones
  if (NOT MSVC AND "${PROJECT_BINARY_DIR}" STREQUAL "${PROJECT_SOURCE_DIR}")
-@@ -792,6 +793,13 @@
+@@ -785,6 +786,13 @@
    endif ()
  endif ()
  
