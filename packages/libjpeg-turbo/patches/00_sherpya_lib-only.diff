@@ -1,7 +1,7 @@
-diff -ur libjpeg-turbo-2.0.0.orig/CMakeLists.txt libjpeg-turbo-2.0.0/CMakeLists.txt
---- libjpeg-turbo-2.0.0.orig/CMakeLists.txt	2018-07-27 18:47:48.000000000 +0200
-+++ libjpeg-turbo-2.0.0/CMakeLists.txt	2018-09-03 04:02:20.648948490 +0200
-@@ -1332,7 +1332,7 @@
+diff -ur libjpeg-turbo-2.0.1.orig/CMakeLists.txt libjpeg-turbo-2.0.1/CMakeLists.txt
+--- libjpeg-turbo-2.0.1.orig/CMakeLists.txt	2018-11-12 20:20:28.000000000 +0100
++++ libjpeg-turbo-2.0.1/CMakeLists.txt	2018-12-03 03:18:16.130345767 +0100
+@@ -1334,7 +1334,7 @@
    if(ENABLE_STATIC)
      install(TARGETS turbojpeg-static ARCHIVE
        DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -10,7 +10,7 @@ diff -ur libjpeg-turbo-2.0.0.orig/CMakeLists.txt libjpeg-turbo-2.0.0/CMakeLists.
        install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/tjbench-static${EXE}
          DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME tjbench${EXE})
      endif()
-@@ -1343,7 +1343,7 @@
+@@ -1345,7 +1345,7 @@
  
  if(ENABLE_STATIC)
    install(TARGETS jpeg-static ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -19,7 +19,7 @@ diff -ur libjpeg-turbo-2.0.0.orig/CMakeLists.txt libjpeg-turbo-2.0.0/CMakeLists.
      install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/cjpeg-static${EXE}
        DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME cjpeg${EXE})
      install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/djpeg-static${EXE}
-@@ -1353,6 +1353,7 @@
+@@ -1355,6 +1355,7 @@
    endif()
  endif()
  
@@ -27,20 +27,14 @@ diff -ur libjpeg-turbo-2.0.0.orig/CMakeLists.txt libjpeg-turbo-2.0.0/CMakeLists.
  install(TARGETS rdjpgcom wrjpgcom RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
  
  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README.ijg
-@@ -1366,13 +1367,16 @@
+@@ -1368,8 +1369,9 @@
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/java/TJExample.java
      DESTINATION ${CMAKE_INSTALL_DOCDIR})
  endif()
 +endif()
  
- if(UNIX OR MINGW)
+-if(UNIX OR MINGW)
 +if(FALSE)
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cjpeg.1
      ${CMAKE_CURRENT_SOURCE_DIR}/djpeg.1 ${CMAKE_CURRENT_SOURCE_DIR}/jpegtran.1
      ${CMAKE_CURRENT_SOURCE_DIR}/rdjpgcom.1
-     ${CMAKE_CURRENT_SOURCE_DIR}/wrjpgcom.1
-     DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
-+endif()
-   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/pkgscripts/libjpeg.pc
-     ${CMAKE_CURRENT_BINARY_DIR}/pkgscripts/libturbojpeg.pc
-     DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)

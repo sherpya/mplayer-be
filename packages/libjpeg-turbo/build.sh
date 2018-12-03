@@ -6,7 +6,7 @@
 # 1.5.1 includes fixes for: CVE-2013-6629, CVE-2013-6630
 
 PACKAGE=libjpeg-turbo
-VERSION=2.0.0
+VERSION=2.0.1
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 
