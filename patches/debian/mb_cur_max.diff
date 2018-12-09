@@ -1,0 +1,50 @@
+diff -ur mingw-w64-6.0.0.orig/mingw-w64-headers/crt/ctype.h mingw-w64-6.0.0/mingw-w64-headers/crt/ctype.h
+--- mingw-w64-6.0.0.orig/mingw-w64-headers/crt/ctype.h	2018-09-14 16:16:43.000000000 +0200
++++ mingw-w64-6.0.0/mingw-w64-headers/crt/ctype.h	2018-12-09 03:23:04.613212397 +0100
+@@ -193,19 +193,8 @@
+ #ifndef _CTYPE_DISABLE_MACROS
+ 
+ #ifndef MB_CUR_MAX
+-#define MB_CUR_MAX ___mb_cur_max_func()
+-#ifndef __mb_cur_max
+-#ifdef _MSVCRT_
+-  extern int __mb_cur_max;
+-#define __mb_cur_max	__mb_cur_max
+-#else
+-#if __MSVCRT_VERSION__ < 0x1400
+-  extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
+-#endif
+-#define __mb_cur_max	(___mb_cur_max_func())
+-#endif
+-#endif
+-_CRTIMP int __cdecl ___mb_cur_max_func(void);
++extern int __mb_cur_max;
++#define MB_CUR_MAX (__mb_cur_max)
+ #endif
+ 
+ #define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
+diff -ur mingw-w64-6.0.0.orig/mingw-w64-headers/crt/stdlib.h mingw-w64-6.0.0/mingw-w64-headers/crt/stdlib.h
+--- mingw-w64-6.0.0.orig/mingw-w64-headers/crt/stdlib.h	2018-09-14 16:16:43.000000000 +0200
++++ mingw-w64-6.0.0/mingw-w64-headers/crt/stdlib.h	2018-12-09 03:23:12.825151326 +0100
+@@ -105,19 +105,8 @@
+ #define RAND_MAX 0x7fff
+ 
+ #ifndef MB_CUR_MAX
+-#define MB_CUR_MAX ___mb_cur_max_func()
+-#ifndef __mb_cur_max
+-#ifdef _MSVCRT_
+-  extern int __mb_cur_max;
+-#define __mb_cur_max	__mb_cur_max
+-#else
+-#if __MSVCRT_VERSION__ < 0x1400
+-  extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
+-#endif
+-#define __mb_cur_max	(___mb_cur_max_func())
+-#endif
+-#endif
+-_CRTIMP int __cdecl ___mb_cur_max_func(void);
++extern int __mb_cur_max;
++#define MB_CUR_MAX (__mb_cur_max)
+ #endif
+ 
+ #define __max(a,b) (((a) > (b)) ? (a) : (b))
