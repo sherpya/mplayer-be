@@ -6,6 +6,8 @@
 . ../config.sh
 . ../nameterm.sh
 
+export PATH=${CROSS_ROOT}/bin:${PATH}
+
 say()
 {
     nameTerminal "$*"
