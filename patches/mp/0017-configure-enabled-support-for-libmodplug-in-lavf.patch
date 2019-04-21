@@ -1,7 +1,7 @@
 From 9dcab130bcd12f54bda1ce5ff176b65d86545ef0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 17/29] configure: enabled support for libmodplug in lavf
 
 ---
  configure | 23 ++++++++++++++++++++++-

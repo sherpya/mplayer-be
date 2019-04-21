@@ -1,7 +1,7 @@
 From 62c20adc9e58d7851661edbb7bae427540f68a55 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 25 Feb 2018 06:53:50 +0100
-Subject: [PATCH 18/28] configure: enabled support for libfdk-aac in lavc
+Subject: [PATCH 18/29] configure: enabled support for libfdk-aac in lavc
 
 ---
  configure | 18 ++++++++++++++++++

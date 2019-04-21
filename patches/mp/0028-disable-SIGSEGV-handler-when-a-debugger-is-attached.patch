@@ -1,7 +1,7 @@
-From 8f5c6bd5c4b20169897d7ca4b83ff121c267c502 Mon Sep 17 00:00:00 2001
+From 6133036bc52114f2fc46caf842a2cbd0192551ea Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 5 Sep 2018 01:43:05 +0200
-Subject: [PATCH 27/28] disable SIGSEGV handler when a debugger is attached
+Subject: [PATCH 28/29] disable SIGSEGV handler when a debugger is attached
 
 ---
  mplayer.c | 3 ++-

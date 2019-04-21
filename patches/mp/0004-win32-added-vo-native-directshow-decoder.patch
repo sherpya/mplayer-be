@@ -1,7 +1,7 @@
 From 7661e1bdb696cd3a7d1e84de75da07d9f0d5d31e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
-Subject: [PATCH 04/28] win32: added vo native directshow decoder
+Subject: [PATCH 04/29] win32: added vo native directshow decoder
 
 ---
  Makefile                  |   1 +

@@ -1,7 +1,7 @@
-From 9ba2236ebc77d50f78f760a5ab19e4f7df77af57 Mon Sep 17 00:00:00 2001
+From fe5cca654344978add28dfc7268c8c86557ce764 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 22 Aug 2015 03:32:39 +0200
-Subject: [PATCH 26/28] avformat: call avformat_network_init() as needed
+Subject: [PATCH 27/29] avformat: call avformat_network_init() as needed
 
 ---
  av_helpers.c | 1 +
