@@ -1,7 +1,7 @@
-diff -ur libwebp-1.0.0.orig/Makefile.in libwebp-1.0.0/Makefile.in
---- libwebp-1.0.0.orig/Makefile.in	2018-04-21 05:08:12.000000000 +0200
-+++ libwebp-1.0.0/Makefile.in	2018-05-03 01:23:32.327594316 +0200
-@@ -349,7 +349,7 @@
+diff -ur libwebp-1.0.2.orig/Makefile.in libwebp-1.0.2/Makefile.in
+--- libwebp-1.0.2.orig/Makefile.in	2019-01-15 05:47:26.000000000 +0100
++++ libwebp-1.0.2/Makefile.in	2019-04-21 16:15:05.677837409 +0200
+@@ -348,7 +348,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
