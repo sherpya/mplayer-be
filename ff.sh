@@ -67,6 +67,7 @@ configure()
     enable avfilter
     enable postproc
 
+    enable libaribb24
     enable avisynth
     config bzlib
     enable frei0r

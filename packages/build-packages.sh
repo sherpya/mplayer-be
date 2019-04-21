@@ -43,6 +43,7 @@ kvazaar
 openh264
 fdk-aac
 libpng
+libaribb24
 freetype
 fribidi
 fontconfig

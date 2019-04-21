@@ -1,0 +1,10 @@
+diff --git a/Makefile.am b/Makefile.am
+index 7e7e203..fa46e20 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -14,5 +14,3 @@ pkginclude_HEADERS = src/aribb24/decoder.h src/aribb24/parser.h	\
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = src/aribb24.pc
+-
+-dist_doc_DATA = README.md COPYING
