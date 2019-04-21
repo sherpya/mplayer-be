@@ -23,7 +23,7 @@ export yeti_cv_file_locale_alias=
 pre_make_hook()
 {
     # host compiler
-    gcc -DHAVE_MEMORY_H tools/make_hash.c -O2 -o tools/make_hash
+    gcc -DHAVE_MEMORY_H tools/make_hash.c -O2 -o tools/make_hash || exit 1
 }
 
 pkg_build && pkg_clean
