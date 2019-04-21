@@ -1,5 +1,5 @@
 diff --git a/src/dvd_reader.c b/src/dvd_reader.c
-index 4e112d3..c7f6a73 100644
+index 794427d..5398938 100644
 --- a/src/dvd_reader.c
 +++ b/src/dvd_reader.c
 @@ -33,6 +33,7 @@
@@ -10,7 +10,7 @@ index 4e112d3..c7f6a73 100644
  
  /* misc win32 helpers */
  #ifdef WIN32
-@@ -1442,8 +1443,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
+@@ -1444,8 +1445,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
  
        bytes_read = DVDReadBytes( dvd_file, buffer, file_size );
        if( bytes_read != file_size ) {
@@ -22,7 +22,7 @@ index 4e112d3..c7f6a73 100644
            free( buffer_base );
            return -1;
 diff --git a/src/ifo_read.c b/src/ifo_read.c
-index 8bcb355..48e3514 100644
+index 778b2b5..75baad0 100644
 --- a/src/ifo_read.c
 +++ b/src/ifo_read.c
 @@ -1068,7 +1068,7 @@ int ifoRead_TT_SRPT(ifo_handle_t *ifofile) {
