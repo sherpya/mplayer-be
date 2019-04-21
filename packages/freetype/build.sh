@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for FreeType library
-# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 # 2.8 includes fixes for:
@@ -22,7 +22,7 @@
 # CVE-2014-9672 CVE-2014-9673 CVE-2014-9674 CVE-2014-9675
 
 PACKAGE=freetype
-VERSION=2.9.1
+VERSION=2.10.0
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 

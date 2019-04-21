@@ -1,12 +1,12 @@
-diff -ur freetype-2.9.1.orig/builds/unix/ftconfig.in freetype-2.9.1/builds/unix/ftconfig.in
---- freetype-2.9.1.orig/builds/unix/ftconfig.in	2018-04-22 11:41:36.000000000 +0200
-+++ freetype-2.9.1/builds/unix/ftconfig.in	2018-09-06 05:28:53.377449418 +0200
-@@ -489,7 +489,7 @@
+diff -ur freetype-2.10.0.orig/builds/unix/ftconfig.in freetype-2.10.0/builds/unix/ftconfig.in
+--- freetype-2.10.0.orig/builds/unix/ftconfig.in	2019-02-23 10:06:06.000000000 +0100
++++ freetype-2.10.0/builds/unix/ftconfig.in	2019-04-21 15:29:21.165146226 +0200
+@@ -487,7 +487,7 @@
  
  #ifdef FT2_BUILD_LIBRARY
  
--#if defined( _WIN32 ) && ( defined( _DLL ) || defined( DLL_EXPORT ) )
-+#if 0
+-#if defined( _WIN32 ) && defined( DLL_EXPORT )
++#if 0 // defined( _WIN32 ) && defined( DLL_EXPORT )
  #define FT_EXPORT( x )  __declspec( dllexport )  x
  #elif defined( __GNUC__ ) && __GNUC__ >= 4
  #define FT_EXPORT( x )  __attribute__(( visibility( "default" ) ))  x
