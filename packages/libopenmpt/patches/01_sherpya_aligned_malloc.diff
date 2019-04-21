@@ -1,0 +1,21 @@
+diff -ur libopenmpt-0.4.4+release.autotools.orig/common/mptAlloc.cpp libopenmpt-0.4.4+release.autotools/common/mptAlloc.cpp
+--- libopenmpt-0.4.4+release.autotools.orig/common/mptAlloc.cpp	2019-02-02 22:11:45.000000000 +0100
++++ libopenmpt-0.4.4+release.autotools/common/mptAlloc.cpp	2019-04-21 16:22:03.235149349 +0200
+@@ -56,7 +56,7 @@
+ 
+ aligned_raw_memory aligned_alloc_impl(std::size_t size, std::size_t count, std::size_t alignment)
+ {
+-	#if MPT_CXX_AT_LEAST(17) && (!MPT_COMPILER_MSVC && !MPT_GCC_BEFORE(8,1,0) && !MPT_CLANG_BEFORE(5,0,0)) && !(MPT_COMPILER_CLANG && defined(__GLIBCXX__)) && !(MPT_COMPILER_CLANG && MPT_OS_MACOSX_OR_IOS) && !MPT_OS_EMSCRIPTEN
++	#if 0 // MPT_CXX_AT_LEAST(17) && (!MPT_COMPILER_MSVC && !MPT_GCC_BEFORE(8,1,0) && !MPT_CLANG_BEFORE(5,0,0)) && !(MPT_COMPILER_CLANG && defined(__GLIBCXX__)) && !(MPT_COMPILER_CLANG && MPT_OS_MACOSX_OR_IOS) && !MPT_OS_EMSCRIPTEN
+ 		std::size_t space = count * size;
+ 		void* mem = std::aligned_alloc(alignment, space);
+ 		if(!mem)
+@@ -103,7 +103,7 @@
+ 
+ void aligned_free(aligned_raw_memory raw)
+ {
+-	#if MPT_CXX_AT_LEAST(17) && (!MPT_COMPILER_MSVC && !MPT_GCC_BEFORE(8,1,0) && !MPT_CLANG_BEFORE(5,0,0)) && !(MPT_COMPILER_CLANG && defined(__GLIBCXX__)) && !(MPT_COMPILER_CLANG && MPT_OS_MACOSX_OR_IOS) && !MPT_OS_EMSCRIPTEN
++	#if 0 //MPT_CXX_AT_LEAST(17) && (!MPT_COMPILER_MSVC && !MPT_GCC_BEFORE(8,1,0) && !MPT_CLANG_BEFORE(5,0,0)) && !(MPT_COMPILER_CLANG && defined(__GLIBCXX__)) && !(MPT_COMPILER_CLANG && MPT_OS_MACOSX_OR_IOS) && !MPT_OS_EMSCRIPTEN
+ 		std::free(raw.mem);
+ 	#elif MPT_COMPILER_MSVC
+ 		_aligned_free(raw.mem);
