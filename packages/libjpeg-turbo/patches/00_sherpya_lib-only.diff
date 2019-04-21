@@ -1,25 +1,24 @@
-diff -ur libjpeg-turbo-2.0.1.orig/CMakeLists.txt libjpeg-turbo-2.0.1/CMakeLists.txt
---- libjpeg-turbo-2.0.1.orig/CMakeLists.txt	2018-11-12 20:20:28.000000000 +0100
-+++ libjpeg-turbo-2.0.1/CMakeLists.txt	2018-12-03 03:18:16.130345767 +0100
-@@ -1334,7 +1334,7 @@
+--- libjpeg-turbo-2.0.2.orig/CMakeLists.txt	2019-02-14 05:03:31.000000000 +0100
++++ libjpeg-turbo-2.0.2/CMakeLists.txt	2019-04-21 16:13:01.982741006 +0200
+@@ -1341,7 +1341,7 @@
    if(ENABLE_STATIC)
      install(TARGETS turbojpeg-static ARCHIVE
        DESTINATION ${CMAKE_INSTALL_LIBDIR})
 -    if(NOT ENABLE_SHARED)
 +    if(FALSE)
-       install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/tjbench-static${EXE}
-         DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME tjbench${EXE})
-     endif()
-@@ -1345,7 +1345,7 @@
+       if(MSVC_IDE)
+         set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
+       else()
+@@ -1357,7 +1357,7 @@
  
  if(ENABLE_STATIC)
    install(TARGETS jpeg-static ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 -  if(NOT ENABLE_SHARED)
 +  if(FALSE)
-     install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/cjpeg-static${EXE}
-       DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME cjpeg${EXE})
-     install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/djpeg-static${EXE}
-@@ -1355,6 +1355,7 @@
+     if(MSVC_IDE)
+       set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
+     else()
+@@ -1372,6 +1372,7 @@
    endif()
  endif()
  
@@ -27,7 +26,7 @@ diff -ur libjpeg-turbo-2.0.1.orig/CMakeLists.txt libjpeg-turbo-2.0.1/CMakeLists.
  install(TARGETS rdjpgcom wrjpgcom RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
  
  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README.ijg
-@@ -1368,8 +1369,9 @@
+@@ -1385,8 +1386,9 @@
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/java/TJExample.java
      DESTINATION ${CMAKE_INSTALL_DOCDIR})
  endif()
