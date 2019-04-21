@@ -1,7 +1,8 @@
-diff -ur gnutls-3.5.17.orig/lib/record.c gnutls-3.5.17/lib/record.c
---- gnutls-3.5.17.orig/lib/record.c	2017-12-31 13:37:48.000000000 +0100
-+++ gnutls-3.5.17/lib/record.c	2018-02-04 04:00:25.949534814 +0100
-@@ -144,9 +144,9 @@
+Only in gnutls-3.6.7.orig/doc/doxygen: Doxyfile.orig
+diff -ur gnutls-3.6.7.orig/lib/record.c gnutls-3.6.7/lib/record.c
+--- gnutls-3.6.7.orig/lib/record.c	2019-03-15 10:10:27.000000000 +0100
++++ gnutls-3.6.7/lib/record.c	2019-04-21 17:15:13.544253607 +0200
+@@ -146,9 +146,9 @@
  			  int recv_fd, int send_fd)
  {
  	session->internals.transport_send_ptr =
@@ -13,7 +14,7 @@ diff -ur gnutls-3.5.17.orig/lib/record.c gnutls-3.5.17/lib/record.c
  }
  
  #if 0
-@@ -227,8 +227,8 @@
+@@ -229,8 +229,8 @@
  			  int *recv_int, int *send_int)
  {
  
@@ -24,7 +25,7 @@ diff -ur gnutls-3.5.17.orig/lib/record.c gnutls-3.5.17/lib/record.c
  }
  
  /**
-@@ -245,7 +245,7 @@
+@@ -247,7 +247,7 @@
   **/
  int gnutls_transport_get_int(gnutls_session_t session)
  {
@@ -33,10 +34,10 @@ diff -ur gnutls-3.5.17.orig/lib/record.c gnutls-3.5.17/lib/record.c
  }
  
  /**
-diff -ur gnutls-3.5.17.orig/lib/system/fastopen.c gnutls-3.5.17/lib/system/fastopen.c
---- gnutls-3.5.17.orig/lib/system/fastopen.c	2017-12-31 13:37:48.000000000 +0100
-+++ gnutls-3.5.17/lib/system/fastopen.c	2018-02-04 04:01:36.549031106 +0100
-@@ -156,7 +156,7 @@
+diff -ur gnutls-3.6.7.orig/lib/system/fastopen.c gnutls-3.6.7/lib/system/fastopen.c
+--- gnutls-3.6.7.orig/lib/system/fastopen.c	2019-03-15 10:10:27.000000000 +0100
++++ gnutls-3.6.7/lib/system/fastopen.c	2019-04-21 17:15:13.544253607 +0200
+@@ -159,7 +159,7 @@
  {
  	tfo_st *p = ptr;
  

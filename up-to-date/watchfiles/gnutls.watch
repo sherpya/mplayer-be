@@ -1,2 +1,2 @@
 version=3
-https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-(.+)\.tar\.xz
+https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-(.+)\.tar\.xz

@@ -1,14 +1,16 @@
 #!/bin/bash
 # Build script for gnutls library
-# Copyright (c) 2015-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2015-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=gnutls
-VERSION=3.5.19
+VERSION=3.6.7.1
 EXT=tar.xz
-BASEURL=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5
+BASEURL=ftp://ftp.gnutls.org/gcrypt/gnutls/v3.6
 
 . $(dirname $0)/../functions.sh
+
+BUILDDIR="gnutls-3.6.7"
 
 depends lib/libz.a
 depends lib/libregex.a
@@ -30,7 +32,7 @@ CONFOPTS=" \
     --without-p11-kit"
 
 # please someone decide how to print time_t
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=format"
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=format -Wno-error=format-extra-args"
 
 export libopts_cv_with_libregex=yes
 export libopts_cv_with_libregex_libs=-lregex
