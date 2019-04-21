@@ -1,4 +1,4 @@
-From 2222d6d8d7f97e6acbf32e526c3c0ff9bfd6e3a0 Mon Sep 17 00:00:00 2001
+From 9dcab130bcd12f54bda1ce5ff176b65d86545ef0 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
 Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
@@ -8,7 +8,7 @@ Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 6b3800c4b..10f9aa77b 100755
+index ebcd87195..ab592307e 100755
 --- a/configure
 +++ b/configure
 @@ -439,6 +439,7 @@ Codecs:
@@ -27,7 +27,7 @@ index 6b3800c4b..10f9aa77b 100755
  libopenjpeg=auto
  _mencoder=yes
  _mplayer=yes
-@@ -1260,6 +1262,8 @@ for ac_option do
+@@ -1261,6 +1263,8 @@ for ac_option do
    --disable-libopencore_amrnb)  _libopencore_amrnb=no   ;;
    --enable-libopencore_amrwb)   _libopencore_amrwb=yes  ;;
    --disable-libopencore_amrwb)  _libopencore_amrwb=no   ;;
@@ -36,7 +36,7 @@ index 6b3800c4b..10f9aa77b 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7322,6 +7326,23 @@ else
+@@ -7343,6 +7347,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +60,7 @@ index 6b3800c4b..10f9aa77b 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9191,6 +9212,7 @@ $def_crystalhd
+@@ -9219,6 +9240,7 @@ $def_crystalhd
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +68,7 @@ index 6b3800c4b..10f9aa77b 100755
  $def_libopenjpeg
  $def_librtmp
  $def_mp3lame_lavc
-@@ -9274,7 +9296,6 @@ $def_gnutls
+@@ -9302,7 +9324,6 @@ $def_gnutls
  $def_openssl
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +77,5 @@ index 6b3800c4b..10f9aa77b 100755
  #define CONFIG_LINUX_PERF 0
  #define CONFIG_MEMORY_POISONING 0
 -- 
-2.19.0.rc1
+2.20.1
 

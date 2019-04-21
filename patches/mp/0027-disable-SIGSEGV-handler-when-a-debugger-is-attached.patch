@@ -1,4 +1,4 @@
-From 9b1d190b640676c1dc526de4b846a92f56fd1658 Mon Sep 17 00:00:00 2001
+From 8f5c6bd5c4b20169897d7ca4b83ff121c267c502 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 5 Sep 2018 01:43:05 +0200
 Subject: [PATCH 27/28] disable SIGSEGV handler when a debugger is attached
@@ -22,5 +22,5 @@ index 5be268757..aaedf6ec8 100644
      signal(SIGILL, exit_sighandler); // illegal instruction
      signal(SIGFPE, exit_sighandler); // floating point exc.
 -- 
-2.19.0.rc1
+2.20.1
 

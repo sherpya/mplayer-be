@@ -1,4 +1,4 @@
-From 9ac485ae743bfd3337222393e72b9679eb12af6b Mon Sep 17 00:00:00 2001
+From 7661e1bdb696cd3a7d1e84de75da07d9f0d5d31e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
 Subject: [PATCH 04/28] win32: added vo native directshow decoder
@@ -24,10 +24,10 @@ index 6fc955795..ef698d7f6 100644
                                          libmpcodecs/vd_vfwex.c          \
                                          libmpdemux/demux_avs.c          \
 diff --git a/etc/codecs.conf b/etc/codecs.conf
-index 80393301e..d456fa300 100644
+index 8b3db9797..ad1c152d6 100644
 --- a/etc/codecs.conf
 +++ b/etc/codecs.conf
-@@ -4696,6 +4696,93 @@ videocodec ffrawabgr
+@@ -4699,6 +4699,93 @@ videocodec ffrawabgr
    dll rawvideo
    out ABGR
  
@@ -309,5 +309,5 @@ index 000000000..a1f1db46a
 +    return mpi;
 +}
 -- 
-2.19.0.rc1
+2.20.1
 

@@ -1,4 +1,4 @@
-From bd879321efba6d362ea3d789d40c3a8f269ae121 Mon Sep 17 00:00:00 2001
+From 91c284afa713b569b4070166962913099ecbd24a Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Mon, 17 Jun 2013 19:06:27 +0200
 Subject: [PATCH 22/28] subs: fix oom on huge number overlapping lines
@@ -24,5 +24,5 @@ index 73863b797..b3d43d2a3 100644
  	// used by the subs, a 'placeholder'
  	counter = 2 * sub_to_add + 1;  // the maximum number of subs derived
 -- 
-2.19.0.rc1
+2.20.1
 

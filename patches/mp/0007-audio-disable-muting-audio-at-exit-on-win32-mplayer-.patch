@@ -1,4 +1,4 @@
-From e52ee0d0661a5560ceafcd58bb8af5e12f626c23 Mon Sep 17 00:00:00 2001
+From 2a71fe95d065ccfa7b2e0a4237b26d1fd3bf9abd Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:45:25 +0100
 Subject: [PATCH 07/28] audio: disable muting audio at exit on win32, mplayer
@@ -24,5 +24,5 @@ index c5df18505..84ef875e0 100644
  #if defined(__MINGW32__) || defined(__CYGWIN__)
      timeEndPeriod(1);
 -- 
-2.19.0.rc1
+2.20.1
 

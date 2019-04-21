@@ -1,4 +1,4 @@
-From c9066ccb2cad8ca0aa35ac1b2fba81fc4e11b576 Mon Sep 17 00:00:00 2001
+From cddfdd8d26ef5d457d44385b29c49ca0c9004bfa Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
 Subject: [PATCH 28/28] sherpya's customizations
@@ -41,10 +41,10 @@ index ef698d7f6..119570107 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 2dd4ddbc4..d9a91eb1e 100755
+index aef8b0d5f..336e55b38 100755
 --- a/configure
 +++ b/configure
-@@ -1534,13 +1534,13 @@ fi
+@@ -1535,13 +1535,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 2dd4ddbc4..d9a91eb1e 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1842,6 +1842,7 @@ fi
+@@ -1843,6 +1843,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4624,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index 224db1020..d0d312a12 100644
+index f3c88cf58..42635f965 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4652,7 @@ index 224db1020..d0d312a12 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2018 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2019 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4680,7 @@ index 224db1020..d0d312a12 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 35e41a861..a98d0cd51 100755
+index 44f02a552..4aa580102 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4699,5 @@ index 35e41a861..a98d0cd51 100755
  version=$svn_revision
  fi
 -- 
-2.19.0.rc1
+2.20.1
 
