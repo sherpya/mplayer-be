@@ -10,6 +10,8 @@ BASEURL=https://ftp.gnu.org/gnu/nettle
 
 . $(dirname $0)/../functions.sh
 
+depends lib/libgmp.a
+
 STATICLIBS="libnettle libhogweed"
 CONFOPTS="--disable-documentation --disable-openssl"
 
