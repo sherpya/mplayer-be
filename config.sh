@@ -9,7 +9,6 @@ export PREFIX=/usr/${HOST}
 export CROSS_PREFIX=${HOST}-
 
 export CROSS_ROOT=/usr/${HOST}
-export PATH=${CROSS_ROOT}/bin:${PATH}
 export PKG_CONFIG_LIBDIR=${CROSS_ROOT}/lib/pkgconfig
 
 export PKGDIR=$(test -d ../binaries && cd ../binaries && pwd)
