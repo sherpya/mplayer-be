@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Nettle library
-# Copyright (c) 2015-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2015-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=nettle
-VERSION=3.4
+VERSION=3.4.1
 EXT=tar.gz
 BASEURL=https://ftp.gnu.org/gnu/nettle
 
