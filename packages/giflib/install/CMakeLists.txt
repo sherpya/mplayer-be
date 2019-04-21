@@ -12,7 +12,7 @@ set(giflib_SRCS dgif_lib.c
 add_definitions(-Wall -Wno-format-truncation)
 
 set(EXPORTED_HEADERS gif_lib.h)
-add_library(gif STATIC ${giflib_SRCS})
+add_library(gif STATIC ${giflib_SRCS} quantize.c)
 
 install(TARGETS gif ARCHIVE DESTINATION lib${LIB_SUFFIX})
 install(FILES ${EXPORTED_HEADERS} DESTINATION include)
