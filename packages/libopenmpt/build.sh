@@ -11,6 +11,7 @@ BASEURL=https://lib.openmpt.org/files/libopenmpt/src
 . $(dirname $0)/../functions.sh
 
 depends lib/libz.a
+depends include/mingw.thread.h
 
 STATICLIBS="libopenmpt"
 CONFOPTS="--disable-openmpt123 --disable-examples --disable-tests \

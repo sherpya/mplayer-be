@@ -30,6 +30,7 @@ while read package; do
 
     popd > /dev/null
 done << EOF
+mingw-std-threads
 dlfcn-win32
 zlib
 bzip2
