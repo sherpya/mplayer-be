@@ -8,6 +8,6 @@ grep -q enabled /proc/sys/fs/binfmt_misc/status 2>/dev/null && \
 
 tool=$(dirname $0)/ff.sh
 
-HOST=x86_64-w64-mingw32 $tool build_binary
-$tool build_binary
-$tool build_source
+HOST=x86_64-w64-mingw32 $tool build_binary || exit 1
+$tool build_binary || exit 1
+$tool build_source || exit 1
