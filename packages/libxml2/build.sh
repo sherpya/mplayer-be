@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for libxml2
-# Copyright (c) 2014-2017 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 # patches for:
@@ -14,7 +14,7 @@
 # CVE-2014-3660
 
 PACKAGE=libxml2
-VERSION=2.9.8
+VERSION=2.9.9
 EXT=tar.gz
 BASEURL=ftp://xmlsoft.org/libxml2/
 
