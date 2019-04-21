@@ -1,0 +1,12 @@
+diff --git a/configure b/configure
+index 2174544c3..59974c181 100755
+--- a/configure
++++ b/configure
+@@ -240,7 +240,6 @@ ARCH_EXT_LIST_X86="
+     sse4_1
+     avx
+     avx2
+-    avx512
+ "
+ 
+ ARCH_EXT_LIST_LOONGSON="
