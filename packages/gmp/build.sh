@@ -14,5 +14,6 @@ BASEURL=https://gmplib.org/download/${PACKAGE}
 [ "${ARCH}" = "x86" ] && export MPN_PATH="x86/i486 x86 generic"
 
 STATICLIBS="libgmp"
+FORCE_AUTOGEN=1
 
 pkg_build && pkg_clean

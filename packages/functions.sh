@@ -132,6 +132,8 @@ pkg_configure()
         return $?
     fi
 
+    test -n "${FORCE_AUTOGEN}" && rm -f configure
+
     if [ ! -x configure ]; then
         if [ -e configure.ac -o -e configure.in ]; then
             autoreconf -fi || return 1
