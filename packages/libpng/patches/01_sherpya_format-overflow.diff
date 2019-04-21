@@ -1,0 +1,12 @@
+diff -ur libpng-1.6.37.orig/contrib/libtests/pngstest.c libpng-1.6.37/contrib/libtests/pngstest.c
+--- libpng-1.6.37.orig/contrib/libtests/pngstest.c	2019-04-14 20:10:32.000000000 +0200
++++ libpng-1.6.37/contrib/libtests/pngstest.c	2019-04-21 15:25:48.525725299 +0200
+@@ -3210,7 +3210,7 @@
+    {
+ #ifdef PNG_SIMPLIFIED_WRITE_STDIO_SUPPORTED
+       static int counter = 0;
+-      char name[32];
++      char name[64];
+ 
+       sprintf(name, "%s%d.png", tmpf, ++counter);
+ 
