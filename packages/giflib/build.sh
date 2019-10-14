@@ -6,8 +6,8 @@
 # 5.1.1 includes fixes for: CVE-2005-2974, CVE-2005-3350
 
 PACKAGE=giflib
-VERSION=5.1.9
-EXT=tar.bz2
+VERSION=5.2.1
+EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}
 
 . $(dirname $0)/../functions.sh
