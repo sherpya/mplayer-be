@@ -1,12 +1,21 @@
-diff -ur twolame-0.3.13.orig/Makefile.in twolame-0.3.13/Makefile.in
---- twolame-0.3.13.orig/Makefile.in	2011-01-21 19:16:44.000000000 +0100
-+++ twolame-0.3.13/Makefile.in	2013-02-17 08:37:49.171811311 +0100
-@@ -212,7 +212,7 @@
+diff -ur twolame-0.4.0.orig/Makefile.in twolame-0.4.0/Makefile.in
+--- twolame-0.4.0.orig/Makefile.in	2019-10-11 18:26:49.000000000 +0200
++++ twolame-0.4.0/Makefile.in	2019-10-14 19:19:05.999665919 +0200
+@@ -376,7 +376,7 @@
+ top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
- AUTOMAKE_OPTIONS = foreign
  ACLOCAL_AMFLAGS = -I build-scripts
--SUBDIRS = libtwolame frontend simplefrontend doc tests
-+SUBDIRS = libtwolame
+-SUBDIRS = . libtwolame frontend simplefrontend doc tests
++SUBDIRS = . libtwolame
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = twolame.pc
  INDENT = indent -npro -kr -nsob -fca -blf -ip1 -hnl -l100 -lc100 -nut -ts4 -v
+@@ -847,7 +847,7 @@
+ 
+ info-am:
+ 
+-install-data-am: install-pkgconfigDATA install-pkgdocDATA
++install-data-am: install-pkgconfigDATA
+ 
+ install-dvi: install-dvi-recursive
+ 
