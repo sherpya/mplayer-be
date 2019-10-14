@@ -54,7 +54,7 @@ configure()
     disable ffplay
     disable w32threads
 
-    enable lto
+    #enable lto
     enable gpl
     enable version3
     enable hardcoded-tables
