@@ -1,7 +1,7 @@
-From dd665e10690f59866651207c542339642e456f8c Mon Sep 17 00:00:00 2001
+From 358249ccae0abcbeff87aa09e2bab209255e8461 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 22/29] replaced some signed char with unsigned char
+Subject: [PATCH 23/30] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -251,5 +251,5 @@ index f03dfc001..e13a6be9a 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.20.1
+2.23.0
 

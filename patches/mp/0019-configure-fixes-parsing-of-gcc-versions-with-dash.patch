@@ -1,17 +1,17 @@
-From 75ab8c079763bd5427a5e54a3d2dacbcf5d6500b Mon Sep 17 00:00:00 2001
+From 880e89d4bfdfd26c171e47b77eb69173f84df17b Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 21 Apr 2019 20:55:21 +0200
-Subject: [PATCH 19/29] configure: fixes parsing of gcc versions with dash
+Subject: [PATCH 19/30] configure: fixes parsing of gcc versions with dash
 
 ---
  configure | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/configure b/configure
-index 4891bd108..fddc82eb9 100755
+index db0dedf4b..b726a2040 100755
 --- a/configure
 +++ b/configure
-@@ -1690,9 +1690,9 @@ else
+@@ -1693,9 +1693,9 @@ else
            cc_fail=yes
            ;;
          *)
@@ -25,5 +25,5 @@ index 4891bd108..fddc82eb9 100755
        esac
        echores "$cc_version"
 -- 
-2.20.1
+2.23.0
 

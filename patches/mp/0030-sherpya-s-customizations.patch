@@ -1,7 +1,7 @@
-From f2282366cccf4076f9d2702c098196a9e702246c Mon Sep 17 00:00:00 2001
+From a40e1ad5c5f9a35ec35d6008e03f7cead97ff10b Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 29/29] sherpya's customizations
+Subject: [PATCH 30/30] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -18,10 +18,10 @@ Subject: [PATCH 29/29] sherpya's customizations
  create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index ef698d7f6..119570107 100644
+index 4c54c48b0..15a52a421 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -660,6 +660,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -659,6 +659,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,7 +30,7 @@ index ef698d7f6..119570107 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -829,6 +831,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -828,6 +830,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
@@ -41,10 +41,10 @@ index ef698d7f6..119570107 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 520c548ca..ac4be2785 100755
+index 824cd268c..615e57a3f 100755
 --- a/configure
 +++ b/configure
-@@ -1535,13 +1535,13 @@ fi
+@@ -1541,13 +1541,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 520c548ca..ac4be2785 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1843,6 +1843,7 @@ fi
+@@ -1849,6 +1849,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4699,5 +4699,5 @@ index 44f02a552..4aa580102 100755
  version=$svn_revision
  fi
 -- 
-2.20.1
+2.23.0
 

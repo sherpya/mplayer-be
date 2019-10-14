@@ -1,7 +1,7 @@
-From 171fca8bc43c4e08950d35b0b74def0a8b663da7 Mon Sep 17 00:00:00 2001
+From f24223b742adab9838618e04db3b523cfaec4579 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 21/29] configure: honor disable_system_conf
+Subject: [PATCH 21/30] configure: honor disable_system_conf
 
 except stream_dvb
 ---
@@ -82,5 +82,5 @@ index 15a912178..a0b9f6442 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.20.1
+2.23.0
 

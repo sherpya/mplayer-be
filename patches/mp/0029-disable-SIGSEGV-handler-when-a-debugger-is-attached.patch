@@ -1,7 +1,7 @@
-From 6133036bc52114f2fc46caf842a2cbd0192551ea Mon Sep 17 00:00:00 2001
+From f86b1878fe4372a1bd1e7e2c9fc16361e2f12c5e Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Wed, 5 Sep 2018 01:43:05 +0200
-Subject: [PATCH 28/29] disable SIGSEGV handler when a debugger is attached
+Subject: [PATCH 29/30] disable SIGSEGV handler when a debugger is attached
 
 ---
  mplayer.c | 3 ++-
@@ -22,5 +22,5 @@ index 5be268757..aaedf6ec8 100644
      signal(SIGILL, exit_sighandler); // illegal instruction
      signal(SIGFPE, exit_sighandler); // floating point exc.
 -- 
-2.20.1
+2.23.0
 

@@ -1,7 +1,7 @@
-From 7661e1bdb696cd3a7d1e84de75da07d9f0d5d31e Mon Sep 17 00:00:00 2001
+From 7b8aee9a6647a58fda76340635e8d021e28b0133 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
-Subject: [PATCH 04/29] win32: added vo native directshow decoder
+Subject: [PATCH 04/30] win32: added vo native directshow decoder
 
 ---
  Makefile                  |   1 +
@@ -12,7 +12,7 @@ Subject: [PATCH 04/29] win32: added vo native directshow decoder
  create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
-index 6fc955795..ef698d7f6 100644
+index 426ec884c..4c54c48b0 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -218,6 +218,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
@@ -309,5 +309,5 @@ index 000000000..a1f1db46a
 +    return mpi;
 +}
 -- 
-2.20.1
+2.23.0
 

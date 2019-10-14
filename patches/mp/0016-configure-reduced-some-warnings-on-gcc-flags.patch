@@ -1,17 +1,17 @@
-From 48da08eaa900e41c1968bdcff0790a2872b3be6b Mon Sep 17 00:00:00 2001
+From f52f430c6aa2b5c484d69a65c53a6201f03a123c Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 16/29] configure: reduced some warnings on gcc flags
+Subject: [PATCH 16/30] configure: reduced some warnings on gcc flags
 
 ---
  configure | 3 ---
  1 file changed, 3 deletions(-)
 
 diff --git a/configure b/configure
-index 1ecd97700..ebcd87195 100755
+index b18bf89f9..ba7ea82d5 100755
 --- a/configure
 +++ b/configure
-@@ -2874,13 +2874,10 @@ fi
+@@ -2880,13 +2880,10 @@ fi
  
  if test "$cc_vendor" = "gnu" ; then
    cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
@@ -26,5 +26,5 @@ index 1ecd97700..ebcd87195 100755
  
  # This provides significant size savings on gcc.
 -- 
-2.20.1
+2.23.0
 

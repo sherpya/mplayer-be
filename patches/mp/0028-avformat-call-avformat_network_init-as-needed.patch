@@ -1,7 +1,7 @@
-From fe5cca654344978add28dfc7268c8c86557ce764 Mon Sep 17 00:00:00 2001
+From fe21c6e95bfa7cb25325f3ef9518f717f471bdd8 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 22 Aug 2015 03:32:39 +0200
-Subject: [PATCH 27/29] avformat: call avformat_network_init() as needed
+Subject: [PATCH 28/30] avformat: call avformat_network_init() as needed
 
 ---
  av_helpers.c | 1 +
@@ -20,5 +20,5 @@ index 56dc71cf3..05f84351a 100644
          av_log_set_callback(mp_msp_av_log_callback);
      }
 -- 
-2.20.1
+2.23.0
 
