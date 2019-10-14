@@ -1,9 +1,0 @@
-diff -Nur gnutls-3.5.17.orig/lib/unistring/unictype/categ_byname.gperf gnutls-3.5.17/lib/unistring/unictype/categ_byname.gperf
---- gnutls-3.5.17.orig/lib/unistring/unictype/categ_byname.gperf	2016-12-19 15:10:59.000000000 +0100
-+++ gnutls-3.5.17/lib/unistring/unictype/categ_byname.gperf	2018-02-04 04:08:50.094254393 +0100
-@@ -1,4 +1,4 @@
--/* Categories of Unicode characters.  */
-+/* Categories of Unicode characters. - */
- struct named_category { int name; unsigned int category_index; };
- %struct-type
- %ignore-case
