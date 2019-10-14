@@ -72,7 +72,7 @@ configure()
     config bzlib
     enable frei0r
     config frei0r_filter
-    enable gnutls
+    enable mbedtls
     config iconv
     enable libass
     disable libbluray

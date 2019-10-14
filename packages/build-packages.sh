@@ -53,10 +53,8 @@ giflib
 frei0r
 lame
 mpg123
+mbedtls
 regex
-gmp
-nettle
-gnutls
 libcddb
 libcdio
 libcdio-paranoia

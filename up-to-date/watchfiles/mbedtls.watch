@@ -1,0 +1,3 @@
+version=3
+opts=downloadurlmangle=s|start/|| \
+  https://tls.mbed.org/download-archive .*/mbedtls-(\d\S*)-apache\.tgz
