@@ -1,4 +1,4 @@
-From e047d66990bc4940bea527e1e244ed6159ecf69e Mon Sep 17 00:00:00 2001
+From cecdbd1a7ef672c4d9b5c45442773be4a49ee391 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sun, 4 Dec 2016 01:28:51 +0100
 Subject: [PATCH 1/6] dynamic loading of shared fdk-aac library
@@ -12,10 +12,10 @@ Subject: [PATCH 1/6] dynamic loading of shared fdk-aac library
  create mode 100644 libavcodec/libfdk-aac_internal.h
 
 diff --git a/configure b/configure
-index 3b11ffefc3..bfb25007f1 100755
+index 8413826f9e..1eb8d6cb92 100755
 --- a/configure
 +++ b/configure
-@@ -1712,7 +1712,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
+@@ -1723,7 +1723,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
  
  EXTERNAL_LIBRARY_NONFREE_LIST="
      decklink
@@ -23,15 +23,15 @@ index 3b11ffefc3..bfb25007f1 100755
      openssl
      libtls
  "
-@@ -1800,6 +1799,7 @@ EXTERNAL_LIBRARY_LIST="
-     openal
+@@ -1812,6 +1811,7 @@ EXTERNAL_LIBRARY_LIST="
      opengl
+     pocketsphinx
      vapoursynth
 +    libfdk_aac
  "
  
  HWACCEL_AUTODETECT_LIBRARY_LIST="
-@@ -6136,9 +6136,7 @@ enabled libdav1d          && require_pkg_config libdav1d "dav1d >= 0.2.1" "dav1d
+@@ -6213,9 +6213,7 @@ enabled libdav1d          && require_pkg_config libdav1d "dav1d >= 0.4.0" "dav1d
  enabled libdavs2          && require_pkg_config libdavs2 "davs2 >= 1.6.0" davs2.h davs2_decoder_open
  enabled libdc1394         && require_pkg_config libdc1394 libdc1394-2 dc1394/dc1394.h dc1394_new
  enabled libdrm            && require_pkg_config libdrm libdrm xf86drm.h drmGetVersion
@@ -261,5 +261,5 @@ index 5620bb5951..c4519b6b74 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.20.1
+2.23.0
 

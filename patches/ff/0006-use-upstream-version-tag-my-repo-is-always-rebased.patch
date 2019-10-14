@@ -1,4 +1,4 @@
-From 61022b855ee6b820e7820f8032d302d8eb7edc4e Mon Sep 17 00:00:00 2001
+From 4a317ba0a9dbad750b232e9f3d6de239e457f9bd Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
 Subject: [PATCH 6/6] use upstream version tag, my repo is always rebased
@@ -24,5 +24,5 @@ index edc4dd33c5..334051e8ba 100755
  fi
  
 -- 
-2.20.1
+2.23.0
 

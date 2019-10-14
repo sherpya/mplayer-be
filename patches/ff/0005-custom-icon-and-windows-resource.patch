@@ -1,4 +1,4 @@
-From fd95e39ff33d3b59e533921cc07cf14c6e74e9c0 Mon Sep 17 00:00:00 2001
+From d002850ebdad5e9131f50c4cba015a2bae764ce3 Mon Sep 17 00:00:00 2001
 From: sherpya <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 5/6] custom icon and windows resource
@@ -19,10 +19,10 @@ Subject: [PATCH 5/6] custom icon and windows resource
  create mode 100644 fftools/ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 48c59733b8..763f3caa90 100644
+index 532372c9c4..9edc2934ba 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -104,6 +104,9 @@ else
+@@ -107,6 +107,9 @@ else
  	$(STRIP) $@
  endif
  
@@ -1752,5 +1752,5 @@ index 0000000000..0322991266
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.20.1
+2.23.0
 
