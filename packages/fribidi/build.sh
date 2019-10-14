@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for GNU FriBidi
-# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=fribidi
-VERSION=1.0.5
+VERSION=1.0.7
 EXT=tar.bz2
 BASEURL=https://github.com/fribidi/fribidi/releases/download/v${VERSION}
 
