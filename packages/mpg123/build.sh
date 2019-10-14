@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for libmpg123
-# Copyright (c) 2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2018-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=mpg123
-VERSION=1.25.10
+VERSION=1.25.12
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION}
 

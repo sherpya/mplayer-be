@@ -26,7 +26,7 @@ libvorbis       1.3.6
 libwebp         1.0.3
 libxml2         2.9.9
 lzo             2.10
-mpg123          1.25.10
+mpg123          1.25.12
 nettle          3.4.1
 opencore-amr    0.1.5
 openjpeg        2.3.1

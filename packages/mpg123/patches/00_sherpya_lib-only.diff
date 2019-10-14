@@ -1,6 +1,6 @@
-diff -ur mpg123-1.25.10.orig/Makefile.in mpg123-1.25.10/Makefile.in
---- mpg123-1.25.10.orig/Makefile.in	2018-02-27 11:34:52.000000000 +0100
-+++ mpg123-1.25.10/Makefile.in	2018-09-03 04:41:50.389236120 +0200
+diff -ur mpg123-1.25.12.orig/Makefile.in mpg123-1.25.12/Makefile.in
+--- mpg123-1.25.12.orig/Makefile.in	2019-08-22 07:49:30.000000000 +0200
++++ mpg123-1.25.12/Makefile.in	2019-10-14 19:53:24.954364404 +0200
 @@ -110,8 +110,8 @@
  POST_UNINSTALL = :
  build_triplet = @build@
@@ -12,7 +12,7 @@ diff -ur mpg123-1.25.10.orig/Makefile.in mpg123-1.25.10/Makefile.in
  EXTRA_PROGRAMS = src/libmpg123/testcpu$(EXEEXT) \
  	src/tests/seek_whence$(EXEEXT) src/tests/noise$(EXEEXT) \
  	src/tests/text$(EXEEXT) src/tests/plain_id3$(EXEEXT)
-@@ -3975,14 +3975,14 @@
+@@ -3976,14 +3976,14 @@
  
  info-am:
  
