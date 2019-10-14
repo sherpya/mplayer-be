@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for bzip2 data compressor
-# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2019 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=bzip2
-VERSION=1.0.6
+VERSION=1.0.8
 EXT=tar.gz
-BASEURL=http://downloads.yoctoproject.org/mirror/sources
+BASEURL=https://sourceware.org/pub/bzip2
 
 . $(dirname $0)/../functions.sh
 
