@@ -53,6 +53,7 @@ configure()
     disable outdevs
     disable ffplay
     disable w32threads
+    disable bcrypt
 
     #enable lto
     enable gpl
