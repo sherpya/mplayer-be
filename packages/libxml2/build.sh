@@ -14,7 +14,7 @@
 # CVE-2014-3660
 
 PACKAGE=libxml2
-VERSION=2.9.9
+VERSION=2.9.10
 EXT=tar.gz
 BASEURL=ftp://xmlsoft.org/libxml2/
 
