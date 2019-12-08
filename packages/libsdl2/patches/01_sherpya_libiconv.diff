@@ -1,0 +1,26 @@
+diff -ur SDL2-2.0.10.orig/configure SDL2-2.0.10/configure
+--- SDL2-2.0.10.orig/configure	2019-07-25 06:32:36.000000000 +0200
++++ SDL2-2.0.10/configure	2019-12-09 00:19:30.373772601 +0100
+@@ -17054,11 +17054,11 @@
+ #ifdef __cplusplus
+ extern "C"
+ #endif
+-char iconv_open ();
++char libiconv_open ();
+ int
+ main ()
+ {
+-return iconv_open ();
++return libiconv_open ();
+   ;
+   return 0;
+ }
+@@ -17080,7 +17080,7 @@
+ 
+     for ac_func in iconv
+ do :
+-  ac_fn_c_check_func "$LINENO" "iconv" "ac_cv_func_iconv"
++  ac_fn_c_check_func "$LINENO" "libiconv" "ac_cv_func_iconv"
+ if test "x$ac_cv_func_iconv" = xyes; then :
+   cat >>confdefs.h <<_ACEOF
+ #define HAVE_ICONV 1

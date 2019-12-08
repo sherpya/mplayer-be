@@ -34,7 +34,7 @@ disable()
 
 NAME="FFmpeg"
 PROGRAM="ffmpeg"
-PROGRAMS="ffprobe"
+PROGRAMS="ffprobe ffplay"
 
 packagedir="${PKGDIR}/${NAME}/git-$version"
 packagename="${NAME}-${ARCH}-$version"
@@ -51,7 +51,6 @@ configure()
     add_opt --extra-version=sherpya
 
     disable outdevs
-    disable ffplay
     disable w32threads
     disable bcrypt
 
