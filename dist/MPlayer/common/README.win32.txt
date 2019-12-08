@@ -10,7 +10,7 @@ For information about included patches please look at:
 http://oss.netfarm.it/mplayer-win32.php
 
 Modified windows icons are made by using Lila SVG Icon and Theme Artwork:
-http://www.lila-center.info/doku.php
+https://sourceforge.net/projects/lila-theme/
 Copyright 2004-2006 Lila Community
 available under the GNU General Public License
 
