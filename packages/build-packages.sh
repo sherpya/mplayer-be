@@ -88,6 +88,7 @@ vidstab
 lzo
 opencore-amr
 libsdl
+libsdl2
 twolame
 vo-aacenc
 vo-amrwbenc
