@@ -84,6 +84,7 @@ configure()
     enable libcodec2
     enable libfdk-aac
     enable fontconfig
+    enable libaom
     enable libfreetype
     enable libfribidi
     enable libgme
