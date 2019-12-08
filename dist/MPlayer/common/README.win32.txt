@@ -7,7 +7,7 @@ DejaVu changes are in public domain.
 
 Additionally were added some patches from me, and other picked around internet.
 For information about included patches please look at:
-http://oss.netfarm.it/mplayer-win32.php
+https://oss.netfarm.it/mplayer/
 
 Modified windows icons are made by using Lila SVG Icon and Theme Artwork:
 https://sourceforge.net/projects/lila-theme/
