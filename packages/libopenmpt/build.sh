@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libopenmpt
-VERSION=0.4.9+release.autotools
+VERSION=0.4.10+release.autotools
 EXT=tar.gz
 BASEURL=https://lib.openmpt.org/files/libopenmpt/src
 
