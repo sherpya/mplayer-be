@@ -26,6 +26,11 @@ toupper()
     echo "$@" | tr abcdefghijklmnopqrstuvwxyz- ABCDEFGHIJKLMNOPQRSTUVWXYZ_
 }
 
+x86_64()
+{
+    eval test "${ARCH}" = "x86_64"
+}
+
 CONFIGLIST=""
 HAVELIST=""
 
