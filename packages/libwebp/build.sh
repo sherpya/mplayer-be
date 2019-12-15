@@ -10,7 +10,7 @@ BASEURL=https://storage.googleapis.com/downloads.webmproject.org/releases/webp
 
 . $(dirname $0)/../functions.sh
 
-STATICLIBS="libwebp"
+STATICLIBS="libwebp libwebpdemux"
 CONFOPTS="\
     --disable-gl \
     --disable-sdl \
