@@ -140,14 +140,11 @@ make_dist()
         ${CROSS_PREFIX}strip ${DISTDIR}/${program}.exe
     done
 
-    while read file; do
-        install -m644 -D $file ${DISTDIR}/$file
-    done << EOF
-COPYING.GPLv3
-doc/${PROGRAM}.html
-doc/faq.html
-doc/general.html
-EOF
+    mkdir ${DISTDIR}/doc
+    install -m644 COPYING.GPLv3 ${DISTDIR}/doc/
+    for doc in COPYING.GPLv3 doc/faq.html doc/general.html doc/*-all.html; do
+        install -m644 $doc ${DISTDIR}/doc/
+    done
 
     unix2dos > ${DISTDIR}/README-win32.txt << EOF
 ${NAME} Win32 binary Builds by Gianluigi Tiesi <sherpya@netfarm.it>
@@ -161,9 +158,6 @@ available under the GNU General Public License
 
 -- Report bugs to sherpya@netfarm.it
 EOF
-
-#    mkdir ${DISTDIR}/frei0r-1
-#    copy_data ${PREFIX}/lib/frei0r-1 ${DISTDIR}/frei0r-1
 
     mkdir -p "${packagedir}"
     pkgtemp=$(mktemp -u /tmp/$product-dist-XXXX.7z)
