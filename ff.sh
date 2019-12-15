@@ -99,6 +99,7 @@ configure()
     enable libopenmpt
     # The CELT codec has been merged into the IETF Opus codec
     enable libopus
+    enable libshine
     enable libsoxr
     enable libspeex
     enable libtheora

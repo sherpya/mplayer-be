@@ -51,6 +51,7 @@ harfbuzz
 gavl
 giflib
 frei0r
+libshine
 lame
 mpg123
 mbedtls
