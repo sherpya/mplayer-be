@@ -1,7 +1,7 @@
-From 4a317ba0a9dbad750b232e9f3d6de239e457f9bd Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From 35c4f602e29f6d7144a118ba3c6c912ae176a338 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
-Subject: [PATCH 6/6] use upstream version tag, my repo is always rebased
+Subject: [PATCH 8/8] use upstream version tag, my repo is always rebased
 
 ---
  ffbuild/version.sh | 4 ++--
@@ -24,5 +24,5 @@ index edc4dd33c5..334051e8ba 100755
  fi
  
 -- 
-2.23.0
+2.24.0
 

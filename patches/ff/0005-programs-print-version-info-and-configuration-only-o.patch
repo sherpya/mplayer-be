@@ -1,7 +1,7 @@
-From b6a370c0ef4a05434364c52116dd2ca396c2f2a3 Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From f07f1ce8277b6c812d8cbb17deed22bdb12f7467 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
-Subject: [PATCH 3/6] programs: print version info and configuration only on
+Subject: [PATCH 5/8] programs: print version info and configuration only on
  -version
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 3/6] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/fftools/cmdutils.c b/fftools/cmdutils.c
-index 84f98b7c04..275ed483c6 100644
+index fe903fa4da..a58169b2ab 100644
 --- a/fftools/cmdutils.c
 +++ b/fftools/cmdutils.c
 @@ -1155,7 +1155,7 @@ static void print_program_info(int flags, int level)
@@ -33,5 +33,5 @@ index 84f98b7c04..275ed483c6 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-2.23.0
+2.24.0
 

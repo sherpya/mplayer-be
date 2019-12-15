@@ -1,7 +1,7 @@
-From b1308d5ad667cbb9c61eb3bba5fec818e7ad50e1 Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From d1ded555817d1486bea3ab528da5c40a29dc2b52 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
-Subject: [PATCH 2/6] avfilters: better behavior of frei0r on win32
+Subject: [PATCH 4/8] avfilters: better behavior of frei0r on win32
 
 ---
  libavfilter/vf_frei0r.c | 24 ++++++++++++++++++++++++
@@ -55,5 +55,5 @@ index 5d38405999..a09e28b0bc 100644
          av_log(ctx, AV_LOG_ERROR, "Could not find module '%s'.\n", dl_name);
          return AVERROR(EINVAL);
 -- 
-2.23.0
+2.24.0
 

@@ -1,0 +1,104 @@
+From f37297bc255f44f529b999af087dd3089b0b6c52 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sat, 7 Dec 2019 21:24:25 +0100
+Subject: [PATCH 1/8] make bcrypt optional on win32
+
+configure with --disable-bcrypt to use wincrypt functions
+---
+ configure               |  4 +++-
+ libavutil/random_seed.c | 18 +++++++++++++++++-
+ 2 files changed, 20 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 10c494e2a0..69fc11fcba 100755
+--- a/configure
++++ b/configure
+@@ -318,6 +318,7 @@ External library support:
+   --enable-vapoursynth     enable VapourSynth demuxer [no]
+   --disable-xlib           disable xlib [autodetect]
+   --disable-zlib           disable zlib [autodetect]
++  --disable-bcrypt         disable bcrypt usage on win32, use wincrypt functions [no]
+ 
+   The following libraries provide various hardware acceleration features:
+   --disable-amf            disable AMF video encoding code [autodetect]
+@@ -1706,6 +1707,7 @@ EXTERNAL_AUTODETECT_LIBRARY_LIST="
+     sndio
+     xlib
+     zlib
++    bcrypt
+ "
+ 
+ EXTERNAL_LIBRARY_GPL_LIST="
+@@ -6080,7 +6082,7 @@ check_headers asm/types.h
+ check_builtin stdatomic stdatomic.h "atomic_int foo, bar = ATOMIC_VAR_INIT(-1); atomic_store(&foo, 0); foo += bar"
+ 
+ check_lib advapi32 "windows.h"            RegCloseKey          -ladvapi32
+-check_lib bcrypt   "windows.h bcrypt.h"   BCryptGenRandom      -lbcrypt &&
++enabled bcrypt && check_lib bcrypt   "windows.h bcrypt.h"   BCryptGenRandom      -lbcrypt &&
+     check_cpp_condition bcrypt bcrypt.h "defined BCRYPT_RNG_ALGORITHM"
+ check_lib ole32    "windows.h"            CoTaskMemFree        -lole32
+ check_lib shell32  "windows.h shellapi.h" CommandLineToArgvW   -lshell32
+diff --git a/libavutil/random_seed.c b/libavutil/random_seed.c
+index 70dc509d2f..1f66b4def1 100644
+--- a/libavutil/random_seed.c
++++ b/libavutil/random_seed.c
+@@ -26,9 +26,13 @@
+ #if HAVE_IO_H
+ #include <io.h>
+ #endif
+-#if HAVE_BCRYPT
++#ifdef _WIN32
+ #include <windows.h>
++#if HAVE_BCRYPT
+ #include <bcrypt.h>
++#else
++#include <wincrypt.h>
++#endif
+ #endif
+ #include <fcntl.h>
+ #include <math.h>
+@@ -45,6 +49,7 @@
+ #define TEST 0
+ #endif
+ 
++#ifndef _WIN32
+ static int read_random(uint32_t *dst, const char *file)
+ {
+ #if HAVE_UNISTD_H
+@@ -61,6 +66,7 @@ static int read_random(uint32_t *dst, const char *file)
+     return -1;
+ #endif
+ }
++#endif
+ 
+ static uint32_t get_generic_seed(void)
+ {
+@@ -131,15 +137,25 @@ uint32_t av_get_random_seed(void)
+         if (BCRYPT_SUCCESS(ret))
+             return seed;
+     }
++#elif defined(_WIN32)
++    HCRYPTPROV hProvider;
++    if (CryptAcquireContext(&hProvider, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT | CRYPT_SILENT)) {
++        BOOL ret = CryptGenRandom(hProvider, sizeof(seed), (BYTE*)&seed);
++        CryptReleaseContext(hProvider, 0);
++        if (ret)
++            return seed;
++    }
+ #endif
+ 
+ #if HAVE_ARC4RANDOM
+     return arc4random();
+ #endif
+ 
++#ifndef _WIN32
+     if (read_random(&seed, "/dev/urandom") == sizeof(seed))
+         return seed;
+     if (read_random(&seed, "/dev/random")  == sizeof(seed))
+         return seed;
++#endif
+     return get_generic_seed();
+ }
+-- 
+2.24.0
+
