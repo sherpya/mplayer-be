@@ -1,7 +1,7 @@
-diff -ur SDL2-2.0.10.orig/configure SDL2-2.0.10/configure
---- SDL2-2.0.10.orig/configure	2019-07-25 06:32:36.000000000 +0200
-+++ SDL2-2.0.10/configure	2019-12-09 00:19:30.373772601 +0100
-@@ -17054,11 +17054,11 @@
+diff -ur SDL2-2.0.12.orig/configure SDL2-2.0.12/configure
+--- SDL2-2.0.12.orig/configure	2020-03-11 02:36:18.000000000 +0100
++++ SDL2-2.0.12/configure	2020-04-19 16:31:06.730769992 +0200
+@@ -17060,11 +17060,11 @@
  #ifdef __cplusplus
  extern "C"
  #endif
@@ -15,7 +15,7 @@ diff -ur SDL2-2.0.10.orig/configure SDL2-2.0.10/configure
    ;
    return 0;
  }
-@@ -17080,7 +17080,7 @@
+@@ -17086,7 +17086,7 @@
  
      for ac_func in iconv
  do :
