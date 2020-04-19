@@ -1,5 +1,5 @@
 diff --git a/Makefile.am b/Makefile.am
-index ff67305..eea8f89 100644
+index b5d38ba..3eb0bcb 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -17,7 +17,7 @@ EXTRA_DIST = zimg.pc.in
@@ -11,7 +11,7 @@ index ff67305..eea8f89 100644
  dist_doc_DATA = ChangeLog COPYING README.md
  
  dist_example_DATA = \
-@@ -37,7 +37,7 @@ dist_examplemisc_DATA = \
+@@ -36,7 +36,7 @@ dist_examplemisc_DATA = \
  	src/testcommon/mmap.h \
  	src/testcommon/win32_bitmap.cpp \
  	src/testcommon/win32_bitmap.h
