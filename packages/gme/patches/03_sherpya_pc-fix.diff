@@ -1,0 +1,10 @@
+diff -ur game-music-emu-0.6.3.orig/gme/libgme.pc.in game-music-emu-0.6.3/gme/libgme.pc.in
+--- game-music-emu-0.6.3.orig/gme/libgme.pc.in	2020-02-25 02:28:10.000000000 +0100
++++ game-music-emu-0.6.3/gme/libgme.pc.in	2020-04-19 16:59:22.792614098 +0200
+@@ -12,5 +12,4 @@
+ URL: https://bitbucket.org/mpyne/game-music-emu/wiki/Home
+ Version: @GME_VERSION@
+ Cflags: -I${includedir}
+-Libs: -L${libdir} -lgme
+-Libs.private: -lstdc++ @PKG_CONFIG_ZLIB@
++Libs: -L${libdir} -lgme -lstdc++ @PKG_CONFIG_ZLIB@

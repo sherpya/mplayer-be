@@ -11,5 +11,6 @@ BASEURL=https://bitbucket.org/mpyne/${PACKAGE}/downloads
 . $(dirname $0)/../functions.sh
 
 CMAKE=1
+CMAKEOPTS="-DENABLE_UBSAN:bool=off"
 
 pkg_build && pkg_clean
