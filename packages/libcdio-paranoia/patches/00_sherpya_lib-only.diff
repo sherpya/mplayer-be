@@ -1,8 +1,8 @@
 diff --git a/Makefile.am b/Makefile.am
-index aceade0..6daa137 100644
+index ce5fc6b..3505f1f 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -15,7 +15,7 @@ EXTRA_DIST = \
+@@ -16,7 +16,7 @@ EXTRA_DIST = \
  	example/README \
  	COPYING
  
