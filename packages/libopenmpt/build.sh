@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for OpenMPT library
-# Copyright (c) 2018-2019 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2018-2020 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libopenmpt
-VERSION=0.4.10+release.autotools
+VERSION=0.4.12+release.autotools
 EXT=tar.gz
 BASEURL=https://lib.openmpt.org/files/libopenmpt/src
 
