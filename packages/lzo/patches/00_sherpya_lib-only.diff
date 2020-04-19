@@ -1,6 +1,15 @@
 diff -ur lzo-2.10.orig/Makefile.in lzo-2.10/Makefile.in
 --- lzo-2.10.orig/Makefile.in	2017-03-01 20:54:14.000000000 +0100
-+++ lzo-2.10/Makefile.in	2017-04-18 18:07:12.501798440 +0200
++++ lzo-2.10/Makefile.in	2020-04-19 18:02:04.247338890 +0200
+@@ -189,7 +189,7 @@
+ 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+ 	$(AM_CFLAGS) $(CFLAGS) $(src_liblzo2_la_LDFLAGS) $(LDFLAGS) -o \
+ 	$@
+-PROGRAMS = $(noinst_PROGRAMS)
++PROGRAMS =
+ am_examples_dict_OBJECTS = examples/dict.$(OBJEXT)
+ examples_dict_OBJECTS = $(am_examples_dict_OBJECTS)
+ examples_dict_LDADD = $(LDADD)
 @@ -1409,7 +1409,7 @@
  
  info-am:
