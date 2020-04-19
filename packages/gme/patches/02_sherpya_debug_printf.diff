@@ -1,0 +1,12 @@
+diff -ur game-music-emu-0.6.3.orig/gme/blargg_source.h game-music-emu-0.6.3/gme/blargg_source.h
+--- game-music-emu-0.6.3.orig/gme/blargg_source.h	2020-02-25 02:28:10.000000000 +0100
++++ game-music-emu-0.6.3/gme/blargg_source.h	2020-04-19 16:15:40.247897494 +0200
+@@ -38,6 +38,8 @@
+     static inline void blargg_dprintf_( const char* fmt_str, ... ) { (void) fmt_str; }
+     #undef debug_printf
+     #define debug_printf (1) ? (void) 0 : blargg_dprintf_
++#else
++    #define debug_printf(...)
+ #endif
+ 
+ /* If enabled, evaluate expr and if false, make debug log entry with source file

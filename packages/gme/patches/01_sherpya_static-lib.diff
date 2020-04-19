@@ -1,7 +1,7 @@
-diff -ur game-music-emu-0.6.2.orig/gme/CMakeLists.txt game-music-emu-0.6.2/gme/CMakeLists.txt
---- game-music-emu-0.6.2.orig/gme/CMakeLists.txt	2017-12-07 04:19:39.000000000 +0100
-+++ game-music-emu-0.6.2/gme/CMakeLists.txt	2018-02-04 04:40:41.886087194 +0100
-@@ -137,13 +137,13 @@
+diff -ur game-music-emu-0.6.3.orig/gme/CMakeLists.txt game-music-emu-0.6.3/gme/CMakeLists.txt
+--- game-music-emu-0.6.3.orig/gme/CMakeLists.txt	2020-02-25 02:28:10.000000000 +0100
++++ game-music-emu-0.6.3/gme/CMakeLists.txt	2020-04-19 16:08:41.314220545 +0200
+@@ -164,13 +164,13 @@
  # On some platforms we may need to change headers or whatnot based on whether
  # we're building the library or merely using the library. The following is
  # only defined when building the library to allow us to tell which is which.
@@ -15,5 +15,5 @@ diff -ur game-music-emu-0.6.2.orig/gme/CMakeLists.txt game-music-emu-0.6.2/gme/C
 -add_library(gme ${libgme_SRCS})
 +add_library(gme STATIC ${libgme_SRCS})
  
- # The version is the release.  The "soversion" is the API version.  As long
- # as only build fixes are performed (i.e. no backwards-incompatible changes
+ if(ZLIB_FOUND)
+     message(" ** ZLib library located, compressed file formats will be supported")
