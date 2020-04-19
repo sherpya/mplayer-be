@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for libdca free DTS Decoder
-# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2020 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libdca
-VERSION=0.0.6
+VERSION=0.0.7
 EXT=tar.bz2
 BASEURL=http://download.videolan.org/pub/videolan/${PACKAGE}/${VERSION}
 

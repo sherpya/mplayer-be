@@ -1,12 +1,9 @@
-diff -ur libdca-0.0.6.orig/Makefile.in libdca-0.0.6/Makefile.in
---- libdca-0.0.6.orig/Makefile.in	2018-05-15 15:59:49.000000000 +0200
-+++ libdca-0.0.6/Makefile.in	2018-05-17 00:21:40.412491448 +0200
-@@ -333,7 +333,7 @@
- top_build_prefix = @top_build_prefix@
- top_builddir = @top_builddir@
- top_srcdir = @top_srcdir@
+diff -ur libdca-0.0.7.orig/Makefile.am libdca-0.0.7/Makefile.am
+--- libdca-0.0.7.orig/Makefile.am	2020-03-26 15:08:37.000000000 +0100
++++ libdca-0.0.7/Makefile.am	2020-04-19 16:19:33.266607104 +0200
+@@ -1,4 +1,4 @@
 -SUBDIRS = libdca libao src test include
 +SUBDIRS = libdca libao include
  DIST_SUBDIRS = $(SUBDIRS) vc++
+ 
  EXTRA_DIST = bootstrap doc/libdca.txt \
- 	m4/cflags.m4 m4/inttypes.m4 m4/keywords.m4 m4/nonpic.m4
