@@ -1,5 +1,5 @@
 diff --git a/src/dvd_reader.c b/src/dvd_reader.c
-index 794427d..5398938 100644
+index 8093450..798a36f 100644
 --- a/src/dvd_reader.c
 +++ b/src/dvd_reader.c
 @@ -33,6 +33,7 @@
@@ -9,28 +9,28 @@ index 794427d..5398938 100644
 +#include <inttypes.h>       /* PRIdPTR */
  
  /* misc win32 helpers */
- #ifdef WIN32
-@@ -1444,8 +1445,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
+ #ifdef _WIN32
+@@ -1483,8 +1484,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
  
        bytes_read = DVDReadBytes( dvd_file, buffer, file_size );
        if( bytes_read != file_size ) {
--          fprintf( stderr, "libdvdread: DVDDiscId read returned %zd bytes"
--                   ", wanted %zd\n", bytes_read, file_size );
-+          fprintf( stderr, "libdvdread: DVDDiscId read returned %" PRIdPTR " bytes"
-+                   ", wanted %" PRIdPTR "\n", bytes_read, file_size );
+-          Log1(dvd, "DVDDiscId read returned %zd bytes"
+-                   ", wanted %zd", bytes_read, file_size );
++          Log1(dvd, "DVDDiscId read returned %" PRIdPTR " bytes"
++                   ", wanted %" PRIdPTR, bytes_read, file_size );
            DVDCloseFile( dvd_file );
            free( buffer_base );
            return -1;
 diff --git a/src/ifo_read.c b/src/ifo_read.c
-index 778b2b5..75baad0 100644
+index 3772856..fb1d7c0 100644
 --- a/src/ifo_read.c
 +++ b/src/ifo_read.c
-@@ -1068,7 +1068,7 @@ int ifoRead_TT_SRPT(ifo_handle_t *ifofile) {
+@@ -1077,7 +1077,7 @@ int ifoRead_TT_SRPT(ifo_handle_t *ifofile) {
    }
  
    if(tt_srpt->nr_of_srpts>info_length/sizeof(title_info_t)){
--    fprintf(stderr,"libdvdread: data mismatch: info_length (%zd)!= nr_of_srpts (%d). Truncating.\n",
-+    fprintf(stderr,"libdvdread: data mismatch: info_length (%" PRIdPTR ")!= nr_of_srpts (%d). Truncating.\n",
+-    Log1(ifop->ctx, "data mismatch: info_length (%zd)!= nr_of_srpts (%d). Truncating.",
++    Log1(ifop->ctx, "data mismatch: info_length (%" PRIdPTR ")!= nr_of_srpts (%d). Truncating.",
              info_length/sizeof(title_info_t),tt_srpt->nr_of_srpts);
      tt_srpt->nr_of_srpts=info_length/sizeof(title_info_t);
    }
