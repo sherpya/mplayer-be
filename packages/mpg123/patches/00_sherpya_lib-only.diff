@@ -1,7 +1,7 @@
-diff -ur mpg123-1.25.12.orig/Makefile.in mpg123-1.25.12/Makefile.in
---- mpg123-1.25.12.orig/Makefile.in	2019-08-22 07:49:30.000000000 +0200
-+++ mpg123-1.25.12/Makefile.in	2019-10-14 19:53:24.954364404 +0200
-@@ -110,8 +110,8 @@
+diff -ur mpg123-1.26.1.orig/Makefile.in mpg123-1.26.1/Makefile.in
+--- mpg123-1.26.1.orig/Makefile.in	2020-05-30 14:04:15.000000000 +0200
++++ mpg123-1.26.1/Makefile.in	2020-06-02 21:24:23.140552922 +0200
+@@ -117,8 +117,8 @@
  POST_UNINSTALL = :
  build_triplet = @build@
  host_triplet = @host@
@@ -9,10 +9,10 @@ diff -ur mpg123-1.25.12.orig/Makefile.in mpg123-1.25.12/Makefile.in
 -	src/mpg123-id3dump$(EXEEXT) src/mpg123-strip$(EXEEXT)
 +#bin_PROGRAMS = src/mpg123$(EXEEXT) src/out123$(EXEEXT) \
 +#	src/mpg123-id3dump$(EXEEXT) src/mpg123-strip$(EXEEXT)
- EXTRA_PROGRAMS = src/libmpg123/testcpu$(EXEEXT) \
- 	src/tests/seek_whence$(EXEEXT) src/tests/noise$(EXEEXT) \
- 	src/tests/text$(EXEEXT) src/tests/plain_id3$(EXEEXT)
-@@ -3976,14 +3976,14 @@
+ EXTRA_PROGRAMS = src/tests/volume$(EXEEXT) \
+ 	src/tests/decode_fixed$(EXEEXT) src/tests/seek_whence$(EXEEXT) \
+ 	src/tests/seek_accuracy$(EXEEXT) src/tests/noise$(EXEEXT) \
+@@ -4619,14 +4619,14 @@
  
  info-am:
  
