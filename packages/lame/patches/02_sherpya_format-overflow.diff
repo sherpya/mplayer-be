@@ -1,0 +1,15 @@
+--- lame-3.99.5.orig/libmp3lame/id3tag.c	2012-01-10 20:55:55.000000000 +0100
++++ lame-3.99.5/libmp3lame/id3tag.c	2020-06-02 22:29:10.714822543 +0200
+@@ -227,10 +227,10 @@
+     const size_t lenb = strlen(b);
+ 
+     if (lenb > 0) {
+-        sprintf(buffer, "LAME %s version %s (%s)", b, v, u);
++        snprintf(buffer, sizeof(buffer), "LAME %s version %s (%s)", b, v, u);
+     }
+     else {
+-        sprintf(buffer, "LAME version %s (%s)", v, u);
++        snprintf(buffer, sizeof(buffer), "LAME version %s (%s)", v, u);
+     }
+     copyV1ToV2(gfp, ID_ENCODER, buffer);
+ }
