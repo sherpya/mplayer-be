@@ -1,9 +1,9 @@
 #!/bin/bash
 # Build script for libbluray
-# Copyright (c) 2014 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2020 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-GIT_REPO=git://git.videolan.org/libbluray.git
+GIT_REPO=https://code.videolan.org/videolan/libbluray.git
 
 . $(dirname $0)/../functions.sh
 
