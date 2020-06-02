@@ -11,6 +11,6 @@ BASEURL=https://downloads.xvid.com/downloads
 . $(dirname $0)/../functions.sh
 
 BUILDDIR="xvidcore"
-BUILDSUBDIR="build/generic"
+CMAKE=1
 
 pkg_build && pkg_clean
