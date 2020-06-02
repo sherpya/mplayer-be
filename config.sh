@@ -15,7 +15,7 @@ export PKGDIR=$(test -d ../binaries && cd ../binaries && pwd)
 
 export MAKEOPTS=-j$(cat /proc/cpuinfo | grep "^processor" | wc -l)
 case ${HOST} in
-    i?86-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=${MARCH:-i486}" ARCH="x86";;
+    i?86-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=${MARCH:-i486} -DWINVER=_WIN32_WINNT_WINXP" ARCH="x86";;
     x86_64-*-mingw32) GLOBAL_CFLAGS="-O2 -mtune=generic -march=x86-64" ARCH="x86_64" ;;
     *) GLOBAL_CFLAGS="-O2 -mtune=generic" ARCH="x86";;
 esac
