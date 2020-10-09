@@ -57,7 +57,6 @@ configure()
     #enable lto
     enable gpl
     enable version3
-    enable hardcoded-tables
 
     enable cross-compile
     enable runtime-cpudetect
