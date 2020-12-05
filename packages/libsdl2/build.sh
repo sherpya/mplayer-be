@@ -14,4 +14,6 @@ depends lib/libiconv.a
 
 STATICLIBS="libSDL2 libSDL2main libSDL2_test"
 
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -D__USE_MINGW_ANSI_STDIO=0"
+
 pkg_build && pkg_clean
