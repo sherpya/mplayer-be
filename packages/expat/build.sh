@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=expat
-VERSION=2.2.9
+VERSION=2.2.10
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION}
 
