@@ -94,7 +94,6 @@ libsdl2
 twolame
 vo-aacenc
 vo-amrwbenc
-wavpack
 x264
 x265
 xavs
