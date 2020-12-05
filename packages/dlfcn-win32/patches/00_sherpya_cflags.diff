@@ -1,13 +1,13 @@
 diff --git a/Makefile b/Makefile
-index 89c5d68..181418b 100644
+index ab7279b..a3a5bb0 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2,7 +2,7 @@
  # dlfcn-win32 Makefile
  #
  include config.mak
--CFLAGS = -Wall -O3 -fomit-frame-pointer
-+CFLAGS += -Wall -O3 -fomit-frame-pointer
+-CFLAGS = -Wall -O3 -fomit-frame-pointer -Isrc
++CFLAGS += -Wall -O3 -fomit-frame-pointer -Isrc
  
  ifeq ($(BUILD_SHARED),yes)
  	TARGETS += libdl.dll
