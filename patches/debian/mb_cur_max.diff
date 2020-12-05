@@ -1,7 +1,7 @@
-diff -ur mingw-w64-7.0.0.orig/mingw-w64-headers/crt/ctype.h mingw-w64-7.0.0/mingw-w64-headers/crt/ctype.h
---- mingw-w64-7.0.0.orig/mingw-w64-headers/crt/ctype.h	2019-11-09 06:33:24.000000000 +0100
-+++ mingw-w64-7.0.0/mingw-w64-headers/crt/ctype.h	2019-11-13 00:08:22.953526303 +0100
-@@ -205,7 +205,7 @@
+diff -ur mingw-w64-8.0.0.orig/mingw-w64-headers/crt/ctype.h mingw-w64-8.0.0/mingw-w64-headers/crt/ctype.h
+--- mingw-w64-8.0.0.orig/mingw-w64-headers/crt/ctype.h	2020-09-17 04:20:15.000000000 +0200
++++ mingw-w64-8.0.0/mingw-w64-headers/crt/ctype.h	2020-11-24 13:22:40.291072612 +0100
+@@ -209,7 +209,7 @@
  #define __mb_cur_max	(___mb_cur_max_func())
  #endif
  #endif
@@ -10,9 +10,9 @@ diff -ur mingw-w64-7.0.0.orig/mingw-w64-headers/crt/ctype.h mingw-w64-7.0.0/ming
  #endif
  
  #define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
-diff -ur mingw-w64-7.0.0.orig/mingw-w64-headers/crt/stdlib.h mingw-w64-7.0.0/mingw-w64-headers/crt/stdlib.h
---- mingw-w64-7.0.0.orig/mingw-w64-headers/crt/stdlib.h	2019-11-09 06:33:24.000000000 +0100
-+++ mingw-w64-7.0.0/mingw-w64-headers/crt/stdlib.h	2019-11-13 00:10:01.539144137 +0100
+diff -ur mingw-w64-8.0.0.orig/mingw-w64-headers/crt/stdlib.h mingw-w64-8.0.0/mingw-w64-headers/crt/stdlib.h
+--- mingw-w64-8.0.0.orig/mingw-w64-headers/crt/stdlib.h	2020-09-17 04:20:15.000000000 +0200
++++ mingw-w64-8.0.0/mingw-w64-headers/crt/stdlib.h	2020-11-24 13:22:40.291072612 +0100
 @@ -118,7 +118,7 @@
  #define __mb_cur_max	(___mb_cur_max_func())
  #endif
