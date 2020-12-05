@@ -1,7 +1,7 @@
-diff -ur libopenmpt-0.5.0+release.autotools.orig/Makefile.in libopenmpt-0.5.0+release.autotools/Makefile.in
---- libopenmpt-0.5.0+release.autotools.orig/Makefile.in	2020-05-24 17:16:41.000000000 +0200
-+++ libopenmpt-0.5.0+release.autotools/Makefile.in	2020-06-02 20:44:03.958427612 +0200
-@@ -6723,8 +6723,7 @@
+diff -ur libopenmpt-0.5.4+release.autotools.orig/Makefile.in libopenmpt-0.5.4+release.autotools/Makefile.in
+--- libopenmpt-0.5.4+release.autotools.orig/Makefile.in	2020-11-29 16:07:24.000000000 +0100
++++ libopenmpt-0.5.4+release.autotools/Makefile.in	2020-12-05 19:29:38.472343621 +0100
+@@ -6758,8 +6758,7 @@
  
  info-am:
  
