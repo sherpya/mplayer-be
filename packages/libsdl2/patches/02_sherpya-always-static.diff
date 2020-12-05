@@ -1,0 +1,36 @@
+diff -ur SDL2-2.0.12.orig/include/begin_code.h SDL2-2.0.12/include/begin_code.h
+--- SDL2-2.0.12.orig/include/begin_code.h	2020-03-11 02:36:18.000000000 +0100
++++ SDL2-2.0.12/include/begin_code.h	2020-12-05 23:19:20.529848345 +0100
+@@ -50,31 +50,7 @@
+ #endif
+ 
+ /* Some compilers use a special export keyword */
+-#ifndef DECLSPEC
+-# if defined(__WIN32__) || defined(__WINRT__)
+-#  ifdef __BORLANDC__
+-#   ifdef BUILD_SDL
+-#    define DECLSPEC
+-#   else
+-#    define DECLSPEC    __declspec(dllimport)
+-#   endif
+-#  else
+-#   define DECLSPEC __declspec(dllexport)
+-#  endif
+-# elif defined(__OS2__)
+-#   ifdef BUILD_SDL
+-#    define DECLSPEC    __declspec(dllexport)
+-#   else
+-#    define DECLSPEC
+-#   endif
+-# else
+-#  if defined(__GNUC__) && __GNUC__ >= 4
+-#   define DECLSPEC __attribute__ ((visibility("default")))
+-#  else
+-#   define DECLSPEC
+-#  endif
+-# endif
+-#endif
++#define DECLSPEC
+ 
+ /* By default SDL uses the C calling convention */
+ #ifndef SDLCALL
