@@ -28,7 +28,7 @@ make_binary_dist()
     # LIBDIR becames the binary package
     LIBDIR="${PREFIX}/lib/frei0r-1"
 
-    for sharedlib in libstdc++-6.dll libgcc_s_sjlj-1.dll libgcc_s_seh-1.dll; do
+    for sharedlib in libstdc++-6.dll libgcc_s_dw2-1.dll libgcc_s_sjlj-1.dll libgcc_s_seh-1.dll; do
         dll=$(print_file_name $sharedlib)
         test -e ${dll} || continue
         install -v -m644 ${dll} "${LIBDIR}/${sharedlib}"
