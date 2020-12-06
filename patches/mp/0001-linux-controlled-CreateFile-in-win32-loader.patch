@@ -1,7 +1,7 @@
-From dfcef7a93daac8ad1f1ebf9e49827d01f0bc7dac Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From 9d8fa7315c9f0133b73ac51350ee7252f4ed730a Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Wed, 13 Mar 2013 04:42:49 +0100
-Subject: [PATCH 01/30] linux: controlled CreateFile() in win32 loader
+Subject: [PATCH 01/31] linux: controlled CreateFile() in win32 loader
 
 it allows e.g. two pass encoding using vp6vfw.dll
 ---
@@ -9,7 +9,7 @@ it allows e.g. two pass encoding using vp6vfw.dll
  1 file changed, 69 insertions(+), 88 deletions(-)
 
 diff --git a/loader/win32.c b/loader/win32.c
-index bbd3fae42..c7ce88e33 100644
+index 4e7db1572..030ed79c8 100644
 --- a/loader/win32.c
 +++ b/loader/win32.c
 @@ -65,6 +65,7 @@ for DLL to know too much about its environment.
@@ -20,7 +20,7 @@ index bbd3fae42..c7ce88e33 100644
  #include <sys/types.h>
  #include <dirent.h>
  #include <sys/time.h>
-@@ -3705,107 +3706,87 @@ static UINT WINAPI expGetTempFileNameA(LPCSTR cs1,LPCSTR cs2,UINT i,LPSTR ps)
+@@ -3706,107 +3707,87 @@ static UINT WINAPI expGetTempFileNameA(LPCSTR cs1,LPCSTR cs2,UINT i,LPSTR ps)
      dbgprintf(" => %d\n", strlen(ps));
      return strlen(ps);
  }
@@ -197,5 +197,5 @@ index bbd3fae42..c7ce88e33 100644
    char* lpBuffer,  // address of buffer for system directory
    UINT uSize        // size of directory buffer
 -- 
-2.23.0
+2.29.2
 

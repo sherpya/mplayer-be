@@ -1,7 +1,7 @@
-From 358249ccae0abcbeff87aa09e2bab209255e8461 Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From c3fb855d2b2e8152e7ffbe5df3159ee7f4e771ad Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 23/30] replaced some signed char with unsigned char
+Subject: [PATCH 24/31] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
 ---
@@ -78,10 +78,10 @@ index 6cb7e79b1..3dfa38c81 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index db8c0530f..c35a49c9c 100644
+index b7c7abd03..2c2714e2b 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
-@@ -402,7 +402,7 @@ typedef struct {
+@@ -403,7 +403,7 @@ typedef struct {
  
  int bluray_id_from_lang(stream_t *s, enum stream_ctrl_type type, const char *lang);
  
@@ -251,5 +251,5 @@ index f03dfc001..e13a6be9a 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.23.0
+2.29.2
 

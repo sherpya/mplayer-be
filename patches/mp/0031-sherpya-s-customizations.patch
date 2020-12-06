@@ -1,7 +1,7 @@
-From a40e1ad5c5f9a35ec35d6008e03f7cead97ff10b Mon Sep 17 00:00:00 2001
-From: sherpya <sherpya@netfarm.it>
+From 70872be9b3d416c8b71eab07e4e4ad7d4f02aa33 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 30/30] sherpya's customizations
+Subject: [PATCH 31/31] sherpya's customizations
 
 ---
  Makefile         |   5 +++++
@@ -41,10 +41,10 @@ index 4c54c48b0..15a52a421 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 824cd268c..615e57a3f 100755
+index 962dffc3d..4db7a36a0 100755
 --- a/configure
 +++ b/configure
-@@ -1541,13 +1541,13 @@ fi
+@@ -1554,13 +1554,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +60,7 @@ index 824cd268c..615e57a3f 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1849,6 +1849,7 @@ fi
+@@ -1862,6 +1862,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4624,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index f3c88cf58..42635f965 100644
+index 0634b92e7..ddddfce2c 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4652,7 @@ index f3c88cf58..42635f965 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2019 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2020 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4680,7 @@ index f3c88cf58..42635f965 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 44f02a552..4aa580102 100755
+index 031c2c802..a533cd6bc 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4699,5 @@ index 44f02a552..4aa580102 100755
  version=$svn_revision
  fi
 -- 
-2.23.0
+2.29.2
 

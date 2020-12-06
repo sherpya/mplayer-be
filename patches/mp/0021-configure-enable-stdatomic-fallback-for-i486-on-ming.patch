@@ -1,0 +1,37 @@
+From 866ddce69bfff27ac30f4003c351321a8a4a0240 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sun, 6 Dec 2020 02:12:11 +0100
+Subject: [PATCH 21/31] configure: enable stdatomic fallback for i486 on mingw
+
+---
+ configure | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/configure b/configure
+index fb0572eb8..88741c01a 100755
+--- a/configure
++++ b/configure
+@@ -3979,9 +3979,17 @@ stdatomic_h=no
+ # need to use statement_check because some implementations (Rasbian) create a dependency
+ # on libatomic, in which case we rather want to use the fallback
+ statement_check stdatomic.h "atomic_int_least64_t a; atomic_fetch_add_explicit(&a, 5, memory_order_relaxed)" && stdatomic_h=yes
+-echores "$stdatomic_h"
+-if test "$stdatomic_h" = no ; then
+-  CFLAGS="-Icompat/atomics/gcc $CFLAGS"
++if test "$stdatomic_h" = yes ; then
++  echores "$stdatomic_h (native)"
++else
++  # at least i586 is required for atomic builtins, but ffmpeg has a win32 fallback
++  if mingw32; then
++    CFLAGS="-Icompat/atomics/win32 $CFLAGS"
++    echores "yes (compat win32)"
++  else
++    CFLAGS="-Icompat/atomics/gcc $CFLAGS"
++    echores "yes (compat gcc)"
++  fi
+ fi
+ 
+ echocheck "malloc.h"
+-- 
+2.29.2
+

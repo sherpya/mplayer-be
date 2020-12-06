@@ -1,17 +1,17 @@
-From afb00a34676b91a763e665641f502d66541bc538 Mon Sep 17 00:00:00 2001
+From 12374e1d090192915202f8ac930258fdc9d0a80b Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Tue, 15 Oct 2019 00:42:27 +0200
-Subject: [PATCH 22/30] configure: enable support for mbedtls
+Subject: [PATCH 23/31] configure: enable support for mbedtls
 
 ---
  configure | 22 +++++++++++++++++++++-
  1 file changed, 21 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index d8e269c7d..1d5556b51 100755
+index 88741c01a..38eafd6a3 100755
 --- a/configure
 +++ b/configure
-@@ -863,6 +863,7 @@ _sctp=auto
+@@ -869,6 +869,7 @@ _sctp=auto
  _gethostbyname2=auto
  _gnutls=auto
  _openssl=no
@@ -19,7 +19,7 @@ index d8e269c7d..1d5556b51 100755
  _ftp=auto
  _musepack=no
  _vstream=auto
-@@ -1364,6 +1365,8 @@ for ac_option do
+@@ -1377,6 +1378,8 @@ for ac_option do
    --enable-gnutls)       _gnutls=yes    ;;
    --disable-gnutls)      _gnutls=no     ;;
    --enable-openssl-nondistributable) _openssl=yes ;;
@@ -28,7 +28,7 @@ index d8e269c7d..1d5556b51 100755
  
    --enable-fribidi)     _fribidi=yes    ;;
    --disable-fribidi)    _fribidi=no     ;;
-@@ -1639,7 +1642,7 @@ libavencoders=$(filter_out_component encoder 'LIB[A-Z0-9_]* [A-Z0-9]*_QSV [A-Z0-
+@@ -1652,7 +1655,7 @@ libavencoders=$(filter_out_component encoder 'LIB[A-Z0-9_]* [A-Z0-9]*_QSV [A-Z0-
  libavbsfs=$(filter_out_component bsf 'TRACE_HEADERS [A-Z0-9_]*_METADATA H264_REDUNDANT_PPS FILTER_UNITS')
  libavdemuxers=$(filter_out_component demuxer 'AVISYNTH DASH LIB[A-Z0-9_]* REDIR VAPOURSYNTH')
  libavmuxers=$(filter_out_component muxer 'CHROMAPRINT LIB[A-Z0-9_]* RTP RTSP SAP')
@@ -37,7 +37,7 @@ index d8e269c7d..1d5556b51 100755
  libavfilters=$(filter_out_component filter 'VF_FREI0R[A-Z0-9_]* LIB[A-Z0-9_]* MP VF_OCV')
  
  # second pass command line parsing for options needing local FFmpeg checkout
-@@ -4568,6 +4571,21 @@ else
+@@ -4601,6 +4604,21 @@ else
  fi
  echores "$_openssl"
  
@@ -59,7 +59,7 @@ index d8e269c7d..1d5556b51 100755
  echocheck "Samba support (libsmbclient)"
  if test "$_smb" = yes; then
    extra_ldflags="$extra_ldflags -lsmbclient"
-@@ -8821,6 +8839,7 @@ CONFIG_CRYSTALHD= $crystalhd
+@@ -8914,6 +8932,7 @@ CONFIG_CRYSTALHD= $crystalhd
  CONFIG_ENCODERS = yes
  CONFIG_GNUTLS   = $_gnutls
  CONFIG_OPENSSL  = $_openssl
@@ -67,7 +67,7 @@ index d8e269c7d..1d5556b51 100755
  CONFIG_GPL      = yes
  CONFIG_ICONV    = $_iconv
  CONFIG_MLIB     = $_mlib
-@@ -9370,6 +9389,7 @@ $def_erf
+@@ -9463,6 +9482,7 @@ $def_erf
  #define CONFIG_FTRAPV 0
  $def_gnutls
  $def_openssl
@@ -76,5 +76,5 @@ index d8e269c7d..1d5556b51 100755
  #define CONFIG_GRAY 0
  #define CONFIG_LIBVORBIS 0
 -- 
-2.23.0
+2.29.2
 
