@@ -1,5 +1,5 @@
 diff --git a/src/dvd_reader.c b/src/dvd_reader.c
-index 8093450..798a36f 100644
+index 6a56b12..159dea7 100644
 --- a/src/dvd_reader.c
 +++ b/src/dvd_reader.c
 @@ -33,6 +33,7 @@
@@ -8,9 +8,9 @@ index 8093450..798a36f 100644
  #include <ctype.h>          /* isalpha */
 +#include <inttypes.h>       /* PRIdPTR */
  
- /* misc win32 helpers */
- #ifdef _WIN32
-@@ -1483,8 +1484,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
+ #if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__) || defined(__bsdi__) || defined(__APPLE__)
+ # define SYS_BSD 1
+@@ -1589,8 +1590,8 @@ int DVDDiscID( dvd_reader_t *dvd, unsigned char *discid )
  
        bytes_read = DVDReadBytes( dvd_file, buffer, file_size );
        if( bytes_read != file_size ) {

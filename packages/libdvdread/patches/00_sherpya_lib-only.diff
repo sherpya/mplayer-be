@@ -1,12 +1,12 @@
 diff --git a/Makefile.am b/Makefile.am
-index edab5bb..5210913 100644
+index f2849b8..982affc 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -2,7 +2,6 @@ ACLOCAL_AMFLAGS = -Im4
  
  AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_builddir)/src/dvdread $(CSS_CFLAGS)
  
--dist_doc_DATA = AUTHORS ChangeLog COPYING NEWS README TODO
+-dist_doc_DATA = AUTHORS ChangeLog COPYING NEWS README.md TODO
  
  MAINTAINERCLEANFILES = ChangeLog
  
