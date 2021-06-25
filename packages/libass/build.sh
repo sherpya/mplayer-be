@@ -16,4 +16,6 @@ depends lib/libenca.a
 BUILDDIR="libass"
 STATICLIBS="libass"
 
+GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -D__USE_MINGW_ANSI_STDIO=0"
+
 git_clean && pkg_build && git_clean
