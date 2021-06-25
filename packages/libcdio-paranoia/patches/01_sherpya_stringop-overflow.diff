@@ -1,0 +1,13 @@
+diff --git a/lib/cdda_interface/utils.c b/lib/cdda_interface/utils.c
+index 9aed89d..4f4cc49 100644
+--- a/lib/cdda_interface/utils.c
++++ b/lib/cdda_interface/utils.c
+@@ -131,7 +131,7 @@ idmessage(int messagedest,char **messages,const char *f,
+       const unsigned int i_buffer=strlen(f)+strlen(s)+2;
+       buffer=malloc(i_buffer);
+       sprintf(buffer,f,s);
+-      strncat(buffer,"\n",1);
++      strncat(buffer,"\n",sizeof(buffer)-strlen(buffer)-1);
+       malloced=1;
+     }
+ 
