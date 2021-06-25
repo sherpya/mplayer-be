@@ -1,8 +1,8 @@
 diff --git a/src/device.c b/src/device.c
-index baa4bc5..bff8cf8 100644
+index 34b610b..e53c126 100644
 --- a/src/device.c
 +++ b/src/device.c
-@@ -468,14 +468,14 @@ static int win2k_open ( dvdcss_t dvdcss, const char *psz_device )
+@@ -487,14 +487,14 @@ static int win2k_open ( dvdcss_t dvdcss, const char *psz_device )
       * won't send back the right result).
       * (See Microsoft Q241374: Read and Write Access Required for SCSI
       * Pass Through Requests) */
