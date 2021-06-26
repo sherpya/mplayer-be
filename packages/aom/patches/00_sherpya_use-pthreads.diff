@@ -1,0 +1,34 @@
+diff --git a/aom_ports/aom_once.h b/aom_ports/aom_once.h
+index d1a031bf1..5010862db 100644
+--- a/aom_ports/aom_once.h
++++ b/aom_ports/aom_once.h
+@@ -38,7 +38,14 @@
+  * by the call to foo().
+  */
+ 
+-#if CONFIG_MULTITHREAD && defined(_WIN32)
++#if CONFIG_MULTITHREAD && HAVE_PTHREAD_H
++#include <pthread.h>
++static void aom_once(void (*func)(void)) {
++  static pthread_once_t lock = PTHREAD_ONCE_INIT;
++  pthread_once(&lock, func);
++}
++
++#elif CONFIG_MULTITHREAD && defined(_WIN32)
+ #include <windows.h>
+ /* Declare a per-compilation-unit state variable to track the progress
+  * of calling func() only once. This must be at global scope because
+@@ -81,13 +88,6 @@ static void aom_once(void (*func)(void)) {
+   DosExitCritSec();
+ }
+ 
+-#elif CONFIG_MULTITHREAD && HAVE_PTHREAD_H
+-#include <pthread.h>
+-static void aom_once(void (*func)(void)) {
+-  static pthread_once_t lock = PTHREAD_ONCE_INIT;
+-  pthread_once(&lock, func);
+-}
+-
+ #else
+ /* Default version that performs no synchronization. */
+ 
