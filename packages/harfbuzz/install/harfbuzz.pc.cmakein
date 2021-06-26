@@ -1,6 +1,6 @@
 prefix=@CMAKE_INSTALL_PREFIX@
 libdir=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_LIBDIR@
-includedir=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@
+includedir=${prefix}/include
 
 Name: harfbuzz
 Description: HarfBuzz text shaping library
