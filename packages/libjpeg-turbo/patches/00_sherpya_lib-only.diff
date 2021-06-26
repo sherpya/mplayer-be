@@ -1,40 +1,41 @@
-diff -ur libjpeg-turbo-2.0.6.orig/CMakeLists.txt libjpeg-turbo-2.0.6/CMakeLists.txt
---- libjpeg-turbo-2.0.6.orig/CMakeLists.txt	2020-11-17 00:38:06.000000000 +0100
-+++ libjpeg-turbo-2.0.6/CMakeLists.txt	2020-12-05 19:27:23.405191890 +0100
-@@ -1430,7 +1430,7 @@
-   if(ENABLE_STATIC)
-     install(TARGETS turbojpeg-static ARCHIVE
-       DESTINATION ${CMAKE_INSTALL_LIBDIR})
+diff -ur libjpeg-turbo-2.1.0.orig/CMakeLists.txt libjpeg-turbo-2.1.0/CMakeLists.txt
+--- libjpeg-turbo-2.1.0.orig/CMakeLists.txt	2021-04-23 18:42:40.000000000 +0200
++++ libjpeg-turbo-2.1.0/CMakeLists.txt	2021-06-26 04:50:45.241868743 +0200
+@@ -1446,7 +1446,7 @@
+     install(TARGETS turbojpeg-static EXPORT ${CMAKE_PROJECT_NAME}Targets
+       INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+       ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 -    if(NOT ENABLE_SHARED)
 +    if(FALSE)
        if(MSVC_IDE OR XCODE)
          set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
        else()
-@@ -1446,7 +1446,7 @@
- 
- if(ENABLE_STATIC)
-   install(TARGETS jpeg-static ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+@@ -1464,7 +1464,7 @@
+   install(TARGETS jpeg-static EXPORT ${CMAKE_PROJECT_NAME}Targets
+     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 -  if(NOT ENABLE_SHARED)
 +  if(FALSE)
      if(MSVC_IDE OR XCODE)
        set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
      else()
-@@ -1461,6 +1461,7 @@
+@@ -1478,7 +1478,7 @@
+       DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME jpegtran${EXE})
    endif()
  endif()
- 
+-
 +if(FALSE)
  install(TARGETS rdjpgcom wrjpgcom RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
  
  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README.ijg
-@@ -1474,8 +1475,9 @@
+@@ -1492,8 +1492,9 @@
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/java/TJExample.java
      DESTINATION ${CMAKE_INSTALL_DOCDIR})
  endif()
 +endif()
  
 -if(UNIX OR MINGW)
-+if(FALSE)
++if(UNIX)
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cjpeg.1
      ${CMAKE_CURRENT_SOURCE_DIR}/djpeg.1 ${CMAKE_CURRENT_SOURCE_DIR}/jpegtran.1
      ${CMAKE_CURRENT_SOURCE_DIR}/rdjpgcom.1
