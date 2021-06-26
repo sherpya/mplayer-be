@@ -21,7 +21,8 @@ elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
     add_definitions(-DX86_32_ASM)
 endif()
 
-add_definitions(-DX86_ASM -DGENERATED_VERSION_HEADER -DHAVE_AVX2)
+# -DHAVE_AVX2 does not work o windows?
+add_definitions(-DX86_ASM -DGENERATED_VERSION_HEADER)
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${SRC_PATH}/api/svc
