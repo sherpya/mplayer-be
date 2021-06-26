@@ -1,4 +1,3 @@
-Only in bzip2-1.0.8: bzip2.c.rej
 diff -ur bzip2-1.0.8.orig/bzlib.h bzip2-1.0.8/bzlib.h
 --- bzip2-1.0.8.orig/bzlib.h	2019-07-13 19:50:05.000000000 +0200
 +++ bzip2-1.0.8/bzlib.h	2019-10-14 19:27:08.400026596 +0200
