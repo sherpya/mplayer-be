@@ -1,14 +1,12 @@
-diff -ur libxml2-2.9.7.orig/include/libxml/xmlexports.h libxml2-2.9.7/include/libxml/xmlexports.h
---- libxml2-2.9.7.orig/include/libxml/xmlexports.h	2016-06-07 12:04:14.000000000 +0200
-+++ libxml2-2.9.7/include/libxml/xmlexports.h	2018-02-24 03:46:01.273785913 +0100
-@@ -50,6 +50,10 @@
+diff -ur libxml2-2.9.12.orig/include/libxml/xmlexports.h libxml2-2.9.12/include/libxml/xmlexports.h
+--- libxml2-2.9.12.orig/include/libxml/xmlexports.h	2021-05-13 14:53:51.000000000 +0200
++++ libxml2-2.9.12/include/libxml/xmlexports.h	2021-06-26 05:03:27.148239388 +0200
+@@ -8,7 +8,7 @@
+ #ifndef __XML_EXPORTS_H__
+ #define __XML_EXPORTS_H__
  
+-#if defined(_WIN32) || defined(__CYGWIN__)
++#if 0
  /** DOC_DISABLE */
  
-+#ifndef LIBXML_STATIC
-+#define LIBXML_STATIC
-+#endif
-+
- /* Windows platform with MS compiler */
- #if defined(_WIN32) && defined(_MSC_VER)
-   #undef XMLPUBFUN
+ #ifdef LIBXML_STATIC

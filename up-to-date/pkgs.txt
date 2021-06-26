@@ -23,7 +23,7 @@ libsdl2         2.0.12
 libsoxr         0.1.3
 libvorbis       1.3.7
 libwebp         1.1.0
-libxml2         2.9.10
+libxml2         2.9.12
 lzo             2.10
 mbedtls         2.16.6
 mpg123          1.26.3

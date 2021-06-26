@@ -1,22 +1,22 @@
-diff -ur libxml2-2.9.10.orig/Makefile.in libxml2-2.9.10/Makefile.in
---- libxml2-2.9.10.orig/Makefile.in	2019-10-30 20:14:23.000000000 +0100
-+++ libxml2-2.9.10/Makefile.in	2019-12-08 04:03:03.662789361 +0100
+diff -ur libxml2-2.9.12.orig/Makefile.in libxml2-2.9.12/Makefile.in
+--- libxml2-2.9.12.orig/Makefile.in	2021-05-13 20:54:56.000000000 +0200
++++ libxml2-2.9.12/Makefile.in	2021-06-26 05:00:58.296533603 +0200
 @@ -724,7 +724,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
--SUBDIRS = include . doc example xstc $(PYTHON_SUBDIR)
+-SUBDIRS = include . doc example fuzz xstc $(PYTHON_SUBDIR)
 +SUBDIRS = include .
- DIST_SUBDIRS = include . doc example python xstc
+ DIST_SUBDIRS = include . doc example fuzz python xstc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
  AM_CFLAGS = $(EXTRA_CFLAGS) $(THREAD_CFLAGS) $(Z_CFLAGS) $(LZMA_CFLAGS)
-@@ -1910,15 +1910,13 @@
+@@ -1911,15 +1911,13 @@
  
  info-am:
  
 -install-data-am: install-cmakeDATA install-data-local \
 -	install-m4dataDATA install-man install-pkgconfigDATA
-+install-data-am: install-pkgconfigDATA
++install-data-am: install-cmakeDATA install-pkgconfigDATA
  
  install-dvi: install-dvi-recursive
  

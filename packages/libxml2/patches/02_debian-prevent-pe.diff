@@ -1,7 +1,7 @@
-diff -ur libxml2-2.9.10.orig/parser.c libxml2-2.9.10/parser.c
---- libxml2-2.9.10.orig/parser.c	2019-10-30 19:52:27.000000000 +0100
-+++ libxml2-2.9.10/parser.c	2019-12-08 04:03:39.866988549 +0100
-@@ -8160,6 +8160,15 @@
+diff -ur libxml2-2.9.12.orig/parser.c libxml2-2.9.12/parser.c
+--- libxml2-2.9.12.orig/parser.c	2021-05-13 14:54:16.000000000 +0200
++++ libxml2-2.9.12/parser.c	2021-06-26 05:04:06.676178721 +0200
+@@ -8225,6 +8225,15 @@
  	    xmlFatalErrMsgStr(ctxt, XML_ERR_UNDECLARED_ENTITY,
  		 "PEReference: %%%s; not found\n", name);
  	} else {

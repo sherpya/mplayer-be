@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for libxml2
-# Copyright (c) 2014-2019 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 # patches for:
@@ -13,10 +13,12 @@
 # 2.9.3 includes fixes for:
 # CVE-2014-3660
 
+# TODO: use cmake
+
 PACKAGE=libxml2
-VERSION=2.9.10
+VERSION=2.9.12
 EXT=tar.gz
-BASEURL=ftp://xmlsoft.org/libxml2/
+BASEURL=ftp://xmlsoft.org/libxml2
 
 . $(dirname $0)/../functions.sh
 
