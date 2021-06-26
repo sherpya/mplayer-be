@@ -37,6 +37,7 @@ config fribidi
 config enca
 config zlib
 config bzlib
+config libaom
 config liblzo
 config libmad
 config twolame

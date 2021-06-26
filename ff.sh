@@ -117,9 +117,7 @@ configure()
     enable libzimg
     enable ffnvcodec
     config zlib
-
-# x64 build only
-#    x86_64 && enable libaom
+    enable libaom
 
     ./configure ${CONFIGURE_OPTS} $* || return 1
     check_components || return 1
