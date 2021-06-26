@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Simple DirectMedia Layer 2 (SDL)
-# Copyright (c) 2019-2020 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2019-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=SDL2
-VERSION=2.0.12
+VERSION=2.0.14
 EXT=tar.gz
 BASEURL=http://www.libsdl.org/release
 
@@ -13,7 +13,5 @@ BASEURL=http://www.libsdl.org/release
 depends lib/libiconv.a
 
 STATICLIBS="libSDL2 libSDL2main libSDL2_test"
-
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -D__USE_MINGW_ANSI_STDIO=0"
 
 pkg_build && pkg_clean
