@@ -1,6 +1,6 @@
-diff -ur mpg123-1.26.3.orig/Makefile.in mpg123-1.26.3/Makefile.in
---- mpg123-1.26.3.orig/Makefile.in	2020-07-15 09:42:50.000000000 +0200
-+++ mpg123-1.26.3/Makefile.in	2020-12-05 19:40:17.723949093 +0100
+diff -ur mpg123-1.28.0.orig/Makefile.in mpg123-1.28.0/Makefile.in
+--- mpg123-1.28.0.orig/Makefile.in	2021-06-05 10:00:45.000000000 +0200
++++ mpg123-1.28.0/Makefile.in	2021-06-26 05:07:47.543809645 +0200
 @@ -117,8 +117,8 @@
  POST_UNINSTALL = :
  build_triplet = @build@
@@ -12,7 +12,7 @@ diff -ur mpg123-1.26.3.orig/Makefile.in mpg123-1.26.3/Makefile.in
  EXTRA_PROGRAMS = src/tests/volume$(EXEEXT) \
  	src/tests/decode_fixed$(EXEEXT) src/tests/seek_whence$(EXEEXT) \
  	src/tests/seek_accuracy$(EXEEXT) src/tests/noise$(EXEEXT) \
-@@ -4647,14 +4647,14 @@
+@@ -5530,14 +5530,14 @@
  
  info-am:
  
