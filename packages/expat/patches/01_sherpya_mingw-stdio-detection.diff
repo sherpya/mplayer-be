@@ -1,0 +1,11 @@
+--- expat-2.4.1.orig/lib/internal.h	2021-05-14 22:10:07.000000000 +0200
++++ expat-2.4.1/lib/internal.h	2021-06-26 04:42:54.766832689 +0200
+@@ -107,7 +107,7 @@
+ 
+ #include <limits.h> // ULONG_MAX
+ 
+-#if defined(_WIN32) && ! defined(__USE_MINGW_ANSI_STDIO)
++#if defined(_WIN32) && __USE_MINGW_ANSI_STDIO != 1
+ #  define EXPAT_FMT_ULL(midpart) "%" midpart "I64u"
+ #  if defined(_WIN64) // Note: modifiers "td" and "zu" do not work for MinGW
+ #    define EXPAT_FMT_PTRDIFF_T(midpart) "%" midpart "I64d"
