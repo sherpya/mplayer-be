@@ -26,6 +26,22 @@ shopt -s nullglob
 FILENAME=${PACKAGE}-${VERSION}.${EXT}
 BUILDDIR=${PACKAGE}-${VERSION}
 
+add_to_cflags()
+{
+    MBE_CFLAGS="${MBE_CFLAGS} $1"
+}
+
+add_to_cxxflags()
+{
+    MBE_CXXFLAGS="${MBE_CXXFLAGS} $1"
+}
+
+add_to_flags()
+{
+    add_to_cflags $1
+    add_to_cxxflags $1
+}
+
 sanity_check()
 {
     for dir in bin include lib; do
