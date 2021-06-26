@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for libwebp
-# Copyright (c) 2014-2020 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2014-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libwebp
-VERSION=1.1.0
+VERSION=1.2.0
 EXT=tar.gz
 BASEURL=https://storage.googleapis.com/downloads.webmproject.org/releases/webp
 
