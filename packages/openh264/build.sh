@@ -10,22 +10,26 @@ MARCH=i686
 
 BUILDDIR=openh264
 
-export_toolchain
+CMAKE=1
+
+#export_toolchain
 
 # TODO: to be fixed?
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -Wno-error=format -Wno-error=format-extra-args"
+#MBE_COMMON_FLAGS="${MBE_COMMON_FLAGS} -Wno-error=format -Wno-error=format-extra-args"
+MBE_CFLAGS="${MBE_CFLAGS} -Wno-error=format -Wno-error=format-extra-args"
+MBE_CXXFLAGS="${MBE_CXXFLAGS} -Wno-error=format -Wno-error=format-extra-args"
 
-pkg_make_target()
-{
-    make ${MAKEOPTS}                \
-    PREFIX=${PREFIX}                \
-    AR=${CROSS_PREFIX}ar            \
-    RANLIB=${CROSS_PREFIX}ranlib    \
-    CC=${CROSS_PREFIX}gcc           \
-    CFLAGS="${GLOBAL_CFLAGS}"       \
-    CXXFLAGS="${GLOBAL_CFLAGS}"     \
-    OS=mingw_nt ARCH=${ARCH}        \
-    install-static
-}
+#pkg_make_target()
+#{
+#    make ${MAKEOPTS}                \
+#    PREFIX=${PREFIX}                \
+#    AR=${CROSS_PREFIX}ar            \
+#    RANLIB=${CROSS_PREFIX}ranlib    \
+#    CC=${CROSS_PREFIX}gcc           \
+#    CFLAGS="${MBE_CFLAGS}"          \
+#    CXXFLAGS="${MBE_CXXFLAGS}"      \
+#    OS=mingw_nt ARCH=${ARCH}        \
+#    install-static
+#}
 
 git_clean && pkg_build && git_clean
