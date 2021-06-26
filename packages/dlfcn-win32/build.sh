@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for dlfcn wrapper for win32
-# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 GIT_REPO=https://github.com/dlfcn-win32/dlfcn-win32.git
@@ -19,7 +19,7 @@ pkg_configure()
 
 pkg_make_target()
 {
-    CFLAGS="${GLOBAL_CFLAGS}" make V=1 ${MAKEOPTS}
+    CFLAGS="${MBE_CFLAGS}" make V=1 ${MAKEOPTS}
     make ${MAKEOPTS} install
     gen_ld_script libdl.a "-lpsapi"
 }

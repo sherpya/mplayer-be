@@ -10,6 +10,8 @@ VERSION=1.3.3
 EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
+__USE_MINGW_ANSI_STDIO=1
+
 . $(dirname $0)/../functions.sh
 
 depends lib/libogg.a

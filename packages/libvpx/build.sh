@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for Google VP8/9 Video Codec
-# Copyright (c) 2013-2019 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 GIT_REPO=https://chromium.googlesource.com/webm/libvpx.git
@@ -15,17 +15,20 @@ esac
 
 BUILDDIR="libvpx"
 
+# -fno-asynchronous-unwind-tables ??
+
 # package configure fails on unknown options
 pkg_configure()
 {
-    CFLAGS="${GLOBAL_CFLAGS} -fno-asynchronous-unwind-tables" \
-    CROSS=${HOST}- ./configure      \
-        --prefix=${PREFIX}          \
-        --target=${VPX_TARGET}      \
-        --enable-static             \
-        --disable-shared            \
-        --disable-unit-tests        \
-        --disable-examples
+    CROSS=${HOST}- ./configure          \
+        --prefix=${PREFIX}              \
+        --target=${VPX_TARGET}          \
+        --enable-static                 \
+        --disable-shared                \
+        --disable-unit-tests            \
+        --disable-examples              \
+        --extra-cflags="${MBE_CFLAGS}"  \
+        --extra-cxxflags="${MBE_CXXFLAGS}"
 }
 
 post_install_hook()

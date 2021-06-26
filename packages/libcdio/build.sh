@@ -5,6 +5,8 @@
 
 GIT_REPO=https://git.savannah.gnu.org/git/libcdio.git
 
+__USE_MINGW_ANSI_STDIO=1
+
 . $(dirname $0)/../functions.sh
 
 depends lib/libiconv.a

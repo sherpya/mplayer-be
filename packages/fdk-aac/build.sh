@@ -35,10 +35,12 @@ pkg_configure()
     . ${topdir}/ac_cache.sh
 
     CC="${HOST}-gcc -static-libgcc" \
-    ./configure             \
-        --host=${HOST}      \
-        --prefix=${PREFIX}  \
-        --enable-shared     \
+    CFLAGS="${MBE_CFLAGS}"          \
+    CXXFLAGS="${MBE_CXXFLAGS}"      \
+    ./configure                     \
+        --host=${HOST}              \
+        --prefix=${PREFIX}          \
+        --enable-shared             \
         --disable-static  || return 1
 }
 

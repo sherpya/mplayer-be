@@ -8,6 +8,8 @@ VERSION=0.7
 EXT=tar.xz
 BASEURL=http://ftp.debian.org/debian/pool/main/c/codec2
 
+__USE_MINGW_ANSI_STDIO=1
+
 . $(dirname $0)/../functions.sh
 
 FILENAME="${PACKAGE}_${VERSION}.orig.${EXT}"

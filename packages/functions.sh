@@ -1,6 +1,5 @@
-# vim: ft=sh:
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 topdir=$(cd .. && pwd)
@@ -10,13 +9,17 @@ topdir=$(cd .. && pwd)
 # -Werror=implicit-function-declaration
 # dangerous because of configure scripts
 
-GLOBAL_CFLAGS="${GLOBAL_CFLAGS} -mno-ms-bitfields \
-    -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast -Werror=format \
+MBE_COMMON_FLAGS="-D__USE_MINGW_ANSI_STDIO=${__USE_MINGW_ANSI_STDIO:-0} \
+    -mno-ms-bitfields \
+    -Werror=format \
     -Wno-maybe-uninitialized \
     -Wno-error=nonnull \
     -Wno-implicit-fallthrough -Wno-misleading-indentation \
     -Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-parameter \
     -Wno-attributes -Wno-unknown-pragmas -Wno-switch"
+
+MBE_CFLAGS="${MBE_COMMON_FLAGS} ${MBE_CFLAGS} -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast"
+MBE_CXXFLAGS="${MBE_COMMON_FLAGS} ${MBE_CXXFLAGS}"
 
 shopt -s nullglob
 
@@ -114,8 +117,8 @@ pkg_configure_cmake()
 {
     mkdir cross_build
     ( cd cross_build &&                                 \
-        CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"             \
-        CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"           \
+        CFLAGS="${MBE_CFLAGS} ${CFLAGS}"                \
+        CXXFLAGS="${MBE_CXXFLAGS} ${CXXFLAGS}"          \
         cmake                                           \
         -DCMAKE_BUILD_TYPE=Release                      \
         -DBUILD_SHARED_LIBS=OFF                         \
@@ -150,13 +153,13 @@ pkg_configure()
 
     test -n "${C}" && CONFOPTS="-C ${CONFOPTS}"
 
-    CFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"     \
-    CXXFLAGS="${GLOBAL_CFLAGS} ${CFLAGS}"   \
-    ./configure             \
-        --host=${HOST}      \
-        --prefix=${PREFIX}  \
-        --enable-static     \
-        --disable-shared    \
+    CFLAGS="${MBE_CFLAGS} ${CFLAGS}"        \
+    CXXFLAGS="${MBE_CXXFLAGS} ${CXXFLAGS}"  \
+    ./configure                             \
+        --host=${HOST}                      \
+        --prefix=${PREFIX}                  \
+        --enable-static                     \
+        --disable-shared                    \
         ${CONFOPTS} || return 1
 }
 
@@ -237,7 +240,7 @@ make_ld_script()
             -L*) ;;
             -lm) ;;
             -lc) ;;
-            *.la) 
+            *.la)
                 lib=$(basename $lib .la)
                 LIBS="${LIBS} -l${lib:3}"
                 ;;

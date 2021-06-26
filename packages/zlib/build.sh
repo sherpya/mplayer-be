@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build script for zlib data compression library
-# Copyright (c) 2013-2018 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=zlib
@@ -12,7 +12,7 @@ BASEURL=http://zlib.net
 
 pkg_configure()
 {
-    CFLAGS="${GLOBAL_CFLAGS}" prefix=${PREFIX} ./configure --static || return 1
+    CFLAGS="${MBE_CFLAGS}" prefix=${PREFIX} ./configure --static || return 1
 }
 
 pkg_build && pkg_clean
