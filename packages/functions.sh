@@ -83,7 +83,7 @@ depends()
 
 pkg_download()
 {
-    test -f ${FILENAME} || wget -c -O ${FILENAME} ${BASEURL}/${FILENAME} || ( rm -f ${FILENAME} ; return 1 )
+    test -s ${FILENAME} || wget -c -O ${FILENAME} ${BASEURL}/${FILENAME} || ( rm -f ${FILENAME} ; return 1 )
 }
 
 pkg_unpack()
