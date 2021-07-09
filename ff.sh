@@ -49,6 +49,7 @@ configure()
     add_opt --arch=${ARCH}
     add_opt --target-os=mingw32
     add_opt --extra-version=sherpya
+    add_opt --pkg-config-flags="--static"
 
     disable outdevs
     disable w32threads
