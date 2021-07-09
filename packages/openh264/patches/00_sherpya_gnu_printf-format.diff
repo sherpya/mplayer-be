@@ -1,0 +1,13 @@
+diff --git a/codec/common/inc/utils.h b/codec/common/inc/utils.h
+index f70bd93e..e525c7cc 100644
+--- a/codec/common/inc/utils.h
++++ b/codec/common/inc/utils.h
+@@ -58,7 +58,7 @@ typedef struct TagLogContext {
+ 
+ 
+ #ifdef __GNUC__
+-extern void WelsLog (SLogContext* pCtx, int32_t iLevel, const char* kpFmt, ...) __attribute__ ((__format__ (__printf__,
++extern void WelsLog (SLogContext* pCtx, int32_t iLevel, const char* kpFmt, ...) __attribute__ ((__format__ (gnu_printf,
+     3,
+     4)));
+ #else
