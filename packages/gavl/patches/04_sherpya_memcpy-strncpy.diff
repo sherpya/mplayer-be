@@ -1,0 +1,13 @@
+diff -ur gavl-1.4.0.orig/gavl/metadata.c gavl-1.4.0/gavl/metadata.c
+--- gavl-1.4.0.orig/gavl/metadata.c	2012-06-08 13:49:47.000000000 +0200
++++ gavl-1.4.0/gavl/metadata.c	2021-07-09 17:01:12.298980451 +0200
+@@ -32,7 +32,7 @@
+   int len = strlen(str) + 1;
+ 
+   ret = malloc(len);
+-  strncpy(ret, str, len);
++  memcpy(ret, str, len);
+   return ret;
+   }
+ 
+Only in gavl-1.4.0.orig/include/gavl: gavl_version.h
