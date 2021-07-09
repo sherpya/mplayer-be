@@ -1,0 +1,31 @@
+diff --git a/rtc_base/checks.cc b/rtc_base/checks.cc
+index 239ea9f0da..c09c092e45 100644
+--- a/rtc_base/checks.cc
++++ b/rtc_base/checks.cc
+@@ -52,7 +52,7 @@ RTC_NORETURN void WriteFatalLogAndAbort(const std::string& output) {
+ }
+ 
+ #if defined(__GNUC__)
+-__attribute__((__format__(__printf__, 2, 3)))
++__attribute__((__format__(gnu_printf, 2, 3)))
+ #endif
+ void AppendFormat(std::string* s, const char* fmt, ...) {
+   va_list args, copy;
+@@ -141,7 +141,7 @@ RTC_NORETURN void FatalLog(const char* file,
+                "\n\n"
+                "#\n"
+                "# Fatal error in: %s, line %d\n"
+-               "# last system error: %u\n"
++               "# last system error: %lu\n"
+                "# Check failed: %s",
+                file, line, LAST_SYSTEM_ERROR, message);
+ 
+@@ -189,7 +189,7 @@ RTC_NORETURN void UnreachableCodeReached(const char* file, int line) {
+                "\n\n"
+                "#\n"
+                "# Unreachable code reached: %s, line %d\n"
+-               "# last system error: %u\n"
++               "# last system error: %lu\n"
+                "# ",
+                file, line, LAST_SYSTEM_ERROR);
+   WriteFatalLogAndAbort(s);
