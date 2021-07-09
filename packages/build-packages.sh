@@ -32,6 +32,7 @@ while read package; do
 done << EOF
 mingw-std-threads
 dlfcn-win32
+aom
 AviSynthPlus
 zlib
 bzip2
