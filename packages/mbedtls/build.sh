@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=mbedtls
-VERSION=3.0.0
+VERSION=2.27.0
 EXT=tar.gz
 BASEURL=https://github.com/ARMmbed/mbedtls/archive/refs/tags
 
