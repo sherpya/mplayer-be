@@ -1,8 +1,8 @@
 diff --git a/src/kvazaar.h b/src/kvazaar.h
-index aab9c621..238a8a5b 100644
+index 856ea6e8..46080284 100644
 --- a/src/kvazaar.h
 +++ b/src/kvazaar.h
-@@ -34,6 +34,10 @@
+@@ -46,6 +46,10 @@
  extern "C" {
  #endif
  
