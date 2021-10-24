@@ -1,6 +1,6 @@
-diff -ur freetype-2.9.1.orig/builds/unix/install.mk freetype-2.9.1/builds/unix/install.mk
---- freetype-2.9.1.orig/builds/unix/install.mk	2018-04-22 11:41:36.000000000 +0200
-+++ freetype-2.9.1/builds/unix/install.mk	2018-05-03 01:19:30.997698145 +0200
+diff -ur freetype-2.11.0.orig/builds/unix/install.mk freetype-2.11.0/builds/unix/install.mk
+--- freetype-2.11.0.orig/builds/unix/install.mk	2021-02-13 09:16:54.000000000 +0100
++++ freetype-2.11.0/builds/unix/install.mk	2021-10-24 12:20:39.745138366 +0200
 @@ -38,8 +38,7 @@
  	-$(DELETE) $(DESTDIR)$(includedir)/ft2build.h
  	$(MKINSTALLDIRS) $(DESTDIR)$(libdir)                               \
@@ -15,7 +15,7 @@ diff -ur freetype-2.9.1.orig/builds/unix/install.mk freetype-2.9.1/builds/unix/i
            $(DESTDIR)$(includedir)/freetype2/freetype/config/ftmodule.h
  	$(INSTALL_DATA) $(OBJ_BUILD)/ftoption.h                        \
            $(DESTDIR)$(includedir)/freetype2/freetype/config/ftoption.h
--	$(INSTALL_SCRIPT) -m 644 $(BUILD_DIR)/freetype2.m4             \
+-	$(INSTALL_SCRIPT) -m 644 $(PLATFORM_DIR)/freetype2.m4          \
 -          $(DESTDIR)$(datadir)/aclocal/freetype2.m4
  	$(INSTALL_SCRIPT) -m 644 $(OBJ_BUILD)/freetype2.pc             \
            $(DESTDIR)$(libdir)/pkgconfig/freetype2.pc

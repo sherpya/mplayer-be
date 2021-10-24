@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for FreeType library
-# Copyright (c) 2013-2020 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2021 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=freetype
-VERSION=2.10.4
+VERSION=2.11.0
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/freetype2/${VERSION}
 
