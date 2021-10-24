@@ -8,6 +8,8 @@ VERSION=2.27.0
 EXT=tar.gz
 BASEURL=https://github.com/ARMmbed/mbedtls/archive/refs/tags
 
+__USE_MINGW_ANSI_STDIO=1
+
 . $(dirname $0)/../functions.sh
 
 FILENAME="v${VERSION}.${EXT}"

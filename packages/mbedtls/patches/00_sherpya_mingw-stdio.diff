@@ -1,0 +1,12 @@
+diff -ur mbedtls-2.27.0.orig/include/mbedtls/platform.h mbedtls-2.27.0/include/mbedtls/platform.h
+--- mbedtls-2.27.0.orig/include/mbedtls/platform.h	2021-07-06 13:59:58.000000000 +0200
++++ mbedtls-2.27.0/include/mbedtls/platform.h	2021-07-16 18:12:46.592254970 +0200
+@@ -60,7 +60,7 @@
+  * implementations of some standard library functions, including snprintf
+  * and vsnprintf. This affects MSVC and MinGW builds.
+  */
+-#if defined(__MINGW32__) || (defined(_MSC_VER) && _MSC_VER <= 1900)
++#if !__USE_MINGW_ANSI_STDIO && (defined(__MINGW32__) || (defined(_MSC_VER) && _MSC_VER <= 1900))
+ #define MBEDTLS_PLATFORM_HAS_NON_CONFORMING_SNPRINTF
+ #define MBEDTLS_PLATFORM_HAS_NON_CONFORMING_VSNPRINTF
+ #endif
