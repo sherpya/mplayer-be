@@ -1,21 +1,14 @@
-From 9186ece34903d1ba1e23013303095347cbb9b18d Mon Sep 17 00:00:00 2001
+From a43f0e4a025826ec36d552731a36611d11a91c98 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:36:09 +0100
-Subject: [PATCH 04/31] win32: added vo native directshow decoder
+Subject: [PATCH 04/28] win32: added vo native directshow decoder
 
----
- Makefile                  |   1 +
- etc/codecs.conf           |  87 ++++++++++++++++++++
- libmpcodecs/vd.c          |   2 +
- libmpcodecs/vd_dsnative.c | 161 ++++++++++++++++++++++++++++++++++++++
- 4 files changed, 251 insertions(+)
- create mode 100644 libmpcodecs/vd_dsnative.c
 
 diff --git a/Makefile b/Makefile
-index 426ec884c..4c54c48b0 100644
+index 101dac3b0..1c3e2bea5 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -218,6 +218,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
+@@ -221,6 +221,7 @@ SRCS_COMMON-$(WIN32DLL)              += libmpcodecs/ad_acm.c            \
                                          libmpcodecs/ad_twin.c           \
                                          libmpcodecs/vd_dmo.c            \
                                          libmpcodecs/vd_dshow.c          \
@@ -309,5 +302,5 @@ index 000000000..a1f1db46a
 +    return mpi;
 +}
 -- 
-2.29.2
+2.33.0
 

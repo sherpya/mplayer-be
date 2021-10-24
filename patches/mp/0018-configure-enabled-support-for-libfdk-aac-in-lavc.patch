@@ -1,17 +1,14 @@
-From c9fef9869c693b5fb5d94fd8e47eef5745a990f1 Mon Sep 17 00:00:00 2001
+From 2798bddd263f6156a8ae57789876ef9bbd9c00c9 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 25 Feb 2018 06:53:50 +0100
-Subject: [PATCH 18/31] configure: enabled support for libfdk-aac in lavc
+Subject: [PATCH 18/28] configure: enabled support for libfdk-aac in lavc
 
----
- configure | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
 
 diff --git a/configure b/configure
-index 356156a4f..66d61b45e 100755
+index 8881baffc..6d767ea8f 100755
 --- a/configure
 +++ b/configure
-@@ -429,6 +429,7 @@ Codecs:
+@@ -435,6 +435,7 @@ Codecs:
    --enable-faad             enable FAAD2 (AAC) [autodetect]
    --disable-faac            disable support for FAAC (AAC encoder) [autodetect]
    --disable-faac-lavc       disable support for FAAC in libavcodec [autodetect]
@@ -19,7 +16,7 @@ index 356156a4f..66d61b45e 100755
    --disable-ladspa          disable LADSPA plugin support [autodetect]
    --disable-libbs2b         disable libbs2b audio filter support [autodetect]
    --disable-libdv           disable libdv 0.9.5 en/decoding support [autodetect]
-@@ -749,6 +750,7 @@ _libmpeg2=auto
+@@ -759,6 +760,7 @@ _libmpeg2=auto
  _libmpeg2_internal=no
  _faad=auto
  _faac=auto
@@ -27,7 +24,7 @@ index 356156a4f..66d61b45e 100755
  _ladspa=auto
  _libbs2b=auto
  _libilbc=auto
-@@ -1165,6 +1167,8 @@ for ac_option do
+@@ -1176,6 +1178,8 @@ for ac_option do
    --disable-faad)       _faad=no        ;;
    --enable-faac)        _faac=yes       ;;
    --disable-faac)       _faac=no        ;;
@@ -36,7 +33,7 @@ index 356156a4f..66d61b45e 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -6955,6 +6959,19 @@ else
+@@ -7127,6 +7131,19 @@ else
  fi
  echores "$_faac"
  
@@ -56,7 +53,7 @@ index 356156a4f..66d61b45e 100755
  
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
-@@ -9341,6 +9358,7 @@ $def_bzlib
+@@ -9550,6 +9567,7 @@ $def_bzlib
  $def_crystalhd
  $def_libaom_lavc
  $def_libdav1d_lavc
@@ -65,5 +62,5 @@ index 356156a4f..66d61b45e 100755
  $def_libopencore_amrnb
  $def_libopencore_amrwb
 -- 
-2.29.2
+2.33.0
 

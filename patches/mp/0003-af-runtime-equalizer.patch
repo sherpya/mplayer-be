@@ -1,15 +1,8 @@
-From 5696c6f27bf5ed0adafa45064421c9b41336f31a Mon Sep 17 00:00:00 2001
+From b4bfa36d48bfa5fb56e531e5ef1686a53ef46879 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 03/31] af: runtime equalizer
+Subject: [PATCH 03/28] af: runtime equalizer
 
----
- DOCS/tech/slave.txt  |  5 +++++
- command.c            |  9 +++++++++
- input/input.c        |  1 +
- input/input.h        |  1 +
- libaf/af_equalizer.c | 12 ++++++++++++
- 5 files changed, 28 insertions(+)
 
 diff --git a/DOCS/tech/slave.txt b/DOCS/tech/slave.txt
 index 6413adc9f..028f7b6a4 100644
@@ -28,7 +21,7 @@ index 6413adc9f..028f7b6a4 100644
  Available properties:
  
 diff --git a/command.c b/command.c
-index 0e5c11f7c..f8226b048 100644
+index c15a860da..721a60ec1 100644
 --- a/command.c
 +++ b/command.c
 @@ -3218,6 +3218,15 @@ int run_command(MPContext *mpctx, mp_cmd_t *cmd)
@@ -48,10 +41,10 @@ index 0e5c11f7c..f8226b048 100644
                  mp_msg(MSGT_GLOBAL, MSGL_INFO, "ANS_LENGTH=%.2f\n",
                         demuxer_get_time_length(mpctx->demuxer));
 diff --git a/input/input.c b/input/input.c
-index 206c820bb..8f18b68a4 100644
+index b6e1c6101..56089874d 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -204,6 +204,7 @@ static const mp_cmd_t mp_cmds[] = {
+@@ -205,6 +205,7 @@ static const mp_cmd_t mp_cmds[] = {
    { MP_CMD_SEEK_CHAPTER, "seek_chapter", 1, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
    { MP_CMD_SET_MOUSE_POS, "set_mouse_pos", 2, { {MP_CMD_ARG_INT,{0}}, {MP_CMD_ARG_INT,{0}}, {-1,{0}} } },
  
@@ -102,5 +95,5 @@ index 8a8f272e0..7ba6568bd 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-2.29.2
+2.33.0
 

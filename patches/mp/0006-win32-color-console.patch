@@ -1,14 +1,11 @@
-From d8d483044565db3e104b109ebc1136c0ee095bff Mon Sep 17 00:00:00 2001
+From e022b15aa2e949a6d4a3c1bb1925c43f0b5734f3 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:02 +0100
-Subject: [PATCH 06/31] win32: color console
+Subject: [PATCH 06/28] win32: color console
 
----
- mp_msg.c | 45 +++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
 
 diff --git a/mp_msg.c b/mp_msg.c
-index c23550312..549201b87 100644
+index 67bcc067d..3df8bd658 100644
 --- a/mp_msg.c
 +++ b/mp_msg.c
 @@ -35,6 +35,26 @@
@@ -98,5 +95,5 @@ index c23550312..549201b87 100644
      fflush(stream);
  }
 -- 
-2.29.2
+2.33.0
 

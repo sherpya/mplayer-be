@@ -1,18 +1,14 @@
-From 69e4d7079c08da945707b81b2d2a5b8030053add Mon Sep 17 00:00:00 2001
+From f94bda8478b139b9e3c88d5bc9d2bf30371384bc Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
-Subject: [PATCH 14/31] input: map control keys using human readable strings
+Subject: [PATCH 14/28] input: map control keys using human readable strings
 
----
- input/input.c    | 27 +++++++++++++++++++++++++++
- osdep/keycodes.h | 30 ++++++++++++++++++++++++++++++
- 2 files changed, 57 insertions(+)
 
 diff --git a/input/input.c b/input/input.c
-index 8f18b68a4..e3530ec64 100644
+index 56089874d..0323b59cb 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -220,6 +220,33 @@ static const mp_cmd_t mp_cmds[] = {
+@@ -221,6 +221,33 @@ static const mp_cmd_t mp_cmds[] = {
  /// If you add some new keys, you also need to add them here
  
  static const mp_key_name_t key_names[] = {
@@ -86,5 +82,5 @@ index 219e39aa9..bf2dca9a2 100644
 +
  #endif /* MPLAYER_KEYCODES_H */
 -- 
-2.29.2
+2.33.0
 

@@ -1,17 +1,14 @@
-From 3ac8d4b51aeaff3971b0380be7fb2243ad2372ff Mon Sep 17 00:00:00 2001
+From e61c68f70dd09fa7cb0b54348342f66ff54af8c8 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 17/31] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
 
----
- configure | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 1f9df9e19..356156a4f 100755
+index eddb7ac1a..8881baffc 100755
 --- a/configure
 +++ b/configure
-@@ -448,6 +448,7 @@ Codecs:
+@@ -454,6 +454,7 @@ Codecs:
    --enable-musepack         enable libmpcdec support (deprecated in favour of libavcodec) [disabled]
    --disable-libopencore_amrnb disable libopencore_amr narrowband [autodetect]
    --disable-libopencore_amrwb disable libopencore_amr wideband [autodetect]
@@ -19,7 +16,7 @@ index 1f9df9e19..356156a4f 100755
    --disable-libopenjpeg     disable OpenJPEG (JPEG 2000) input/output support [autodetect]
    --disable-crystalhd       disable CrystalHD support [autodetect]
    --disable-decoder=DECODER disable specified FFmpeg decoder
-@@ -679,6 +680,7 @@ _vf_lavfi=no
+@@ -689,6 +690,7 @@ _vf_lavfi=no
  _libavcodec_mpegaudio_hp=yes
  _libopencore_amrnb=auto
  _libopencore_amrwb=auto
@@ -27,7 +24,7 @@ index 1f9df9e19..356156a4f 100755
  libopenjpeg=auto
  _mencoder=yes
  _mplayer=yes
-@@ -1277,6 +1279,8 @@ for ac_option do
+@@ -1288,6 +1290,8 @@ for ac_option do
    --disable-libopencore_amrnb)  _libopencore_amrnb=no   ;;
    --enable-libopencore_amrwb)   _libopencore_amrwb=yes  ;;
    --disable-libopencore_amrwb)  _libopencore_amrwb=no   ;;
@@ -36,7 +33,7 @@ index 1f9df9e19..356156a4f 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7383,6 +7387,23 @@ else
+@@ -7583,6 +7587,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -60,7 +57,7 @@ index 1f9df9e19..356156a4f 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9323,6 +9344,7 @@ $def_libdav1d_lavc
+@@ -9532,6 +9553,7 @@ $def_libdav1d_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -68,7 +65,7 @@ index 1f9df9e19..356156a4f 100755
  $def_libopenjpeg
  $def_librtmp
  $def_mp3lame_lavc
-@@ -9406,7 +9428,6 @@ $def_gnutls
+@@ -9617,7 +9639,6 @@ $def_gnutls
  $def_openssl
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -77,5 +74,5 @@ index 1f9df9e19..356156a4f 100755
  #define CONFIG_LINUX_PERF 0
  #define CONFIG_MEMORY_POISONING 0
 -- 
-2.29.2
+2.33.0
 

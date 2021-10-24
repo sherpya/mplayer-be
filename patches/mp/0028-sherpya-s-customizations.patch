@@ -1,27 +1,14 @@
-From 70872be9b3d416c8b71eab07e4e4ad7d4f02aa33 Mon Sep 17 00:00:00 2001
+From 697e7d3fd0928aae0d9ac24c6a348b324dfc37cb Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 31/31] sherpya's customizations
+Subject: [PATCH 28/28] sherpya's customizations
 
----
- Makefile         |   5 +++++
- configure        |   5 +++--
- etc/audio.ico    | Bin 0 -> 112906 bytes
- etc/mencoder.ico | Bin 0 -> 109548 bytes
- etc/mplayer.ico  | Bin 290014 -> 111626 bytes
- etc/video.ico    | Bin 0 -> 113680 bytes
- osdep/mplayer.rc |  26 ++++++++++++++++++++------
- version.sh       |   6 ++++--
- 8 files changed, 32 insertions(+), 10 deletions(-)
- create mode 100644 etc/audio.ico
- create mode 100644 etc/mencoder.ico
- create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
-index 4c54c48b0..15a52a421 100644
+index 1c3e2bea5..c727b5525 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -659,6 +659,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
+@@ -662,6 +662,8 @@ OBJS_MENCODER                 += $(addsuffix .o, $(basename $(SRCS_MENCODER)))
  OBJS_MPLAYER                  += $(addsuffix .o, $(basename $(SRCS_MPLAYER)))
  OBJS_MPLAYER-$(PE_EXECUTABLE) += osdep/mplayer-rc.o
  OBJS_MPLAYER                  += $(OBJS_MPLAYER-yes)
@@ -30,21 +17,21 @@ index 4c54c48b0..15a52a421 100644
  
  MENCODER_DEPS = $(OBJS_MENCODER) $(OBJS_COMMON) $(COMMON_LIBS)
  MPLAYER_DEPS  = $(OBJS_MPLAYER)  $(OBJS_COMMON) $(COMMON_LIBS)
-@@ -828,6 +830,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
+@@ -842,6 +844,9 @@ mpcommon.o osdep/mplayer-rc.o gui/dialog/about.o gui/win32/gui.o: version.h
  
  osdep/mplayer-rc.o: osdep/mplayer.exe.manifest
  
 +osdep/mencoder-rc.o: osdep/mplayer.rc version.h
 +	$(WINDRES) -D IN_MENCODER -o $@ $<
 +
- gui/%: CFLAGS += -Wno-strict-prototypes
+ gui/%: CFLAGS += -DLOCALEDIR=\"$(prefix)/share/locale\" -Wno-strict-prototypes
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 962dffc3d..4db7a36a0 100755
+index 0139c1d4a..569fa609e 100755
 --- a/configure
 +++ b/configure
-@@ -1554,13 +1554,13 @@ fi
+@@ -1569,13 +1569,13 @@ fi
  if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
      echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
      read tmp
@@ -60,7 +47,7 @@ index 962dffc3d..4db7a36a0 100755
          exit 1
      fi
      touch ffmpeg/mp_auto_pull
-@@ -1862,6 +1862,7 @@ fi
+@@ -1938,6 +1938,7 @@ fi
  if mingw32 ; then
    _getch=getch2-win.c
    shmem=yes
@@ -4624,7 +4611,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index 0634b92e7..ddddfce2c 100644
+index 8b7a50132..1c053add2 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4652,7 +4639,7 @@ index 0634b92e7..ddddfce2c 100644
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
              VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2020 MPlayer Team\000"
+             VALUE "LegalCopyright", " (C) 2000-2021 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4680,7 +4667,7 @@ index 0634b92e7..ddddfce2c 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index 031c2c802..a533cd6bc 100755
+index e28319be6..a1849578c 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4699,5 +4686,5 @@ index 031c2c802..a533cd6bc 100755
  version=$svn_revision
  fi
 -- 
-2.29.2
+2.33.0
 

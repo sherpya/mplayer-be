@@ -1,19 +1,9 @@
-From c3fb855d2b2e8152e7ffbe5df3159ee7f4e771ad Mon Sep 17 00:00:00 2001
+From d961a8e2bcd284f27cdc105dae513da5ef697e1f Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 24/31] replaced some signed char with unsigned char
+Subject: [PATCH 22/28] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
----
- libmpdemux/mf.c  |  2 +-
- libvo/vo_fbdev.c |  4 ++--
- parser-cfg.c     |  8 ++++----
- stream/stream.c  |  4 ++--
- stream/stream.h  |  2 +-
- stream/tv.c      |  2 +-
- sub/subreader.c  | 16 ++++++++--------
- sub/vobsub.c     | 18 +++++++++---------
- 8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
 index 7cdd533d7..e013937d9 100644
@@ -63,10 +53,10 @@ index 5c9d18ab5..92a3ed50e 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index 6cb7e79b1..3dfa38c81 100644
+index dd4a22553..4fbcd27c6 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
-@@ -711,8 +711,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
+@@ -713,8 +713,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
    return mem;
  }
  
@@ -78,10 +68,10 @@ index 6cb7e79b1..3dfa38c81 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index b7c7abd03..2c2714e2b 100644
+index e41d44008..420661f61 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
-@@ -403,7 +403,7 @@ typedef struct {
+@@ -404,7 +404,7 @@ typedef struct {
  
  int bluray_id_from_lang(stream_t *s, enum stream_ctrl_type type, const char *lang);
  
@@ -91,10 +81,10 @@ index b7c7abd03..2c2714e2b 100644
  #if defined(__MINGW32__) || defined(__CYGWIN__)
  wchar_t *utf8_to_wide_char(const char *utf8);
 diff --git a/stream/tv.c b/stream/tv.c
-index d360c555c..0bf10e5ec 100644
+index 6dce1a9b3..12377e36e 100644
 --- a/stream/tv.c
 +++ b/stream/tv.c
-@@ -577,7 +577,7 @@ static int open_tv(tvi_handle_t *tvh)
+@@ -575,7 +575,7 @@ static int open_tv(tvi_handle_t *tvh)
  	int channel = 0;
  	if (tvh->tv_param->channel)
  	 {
@@ -104,10 +94,10 @@ index d360c555c..0bf10e5ec 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index d57856b0f..73863b797 100644
+index c862be7bc..bd923303f 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
-@@ -90,12 +90,12 @@ int sub_format=SUB_INVALID;
+@@ -91,12 +91,12 @@ int sub_format=SUB_INVALID;
  unsigned long previous_sub_end;
  #endif
  
@@ -122,7 +112,7 @@ index d57856b0f..73863b797 100644
  	int i = 0;
  	while (isspace(s[i])) ++i;
  	if (i) strcpy(s, s + i);
-@@ -780,8 +780,8 @@ static void sub_pp_ssa(subtitle *sub) {
+@@ -781,8 +781,8 @@ static void sub_pp_ssa(subtitle *sub) {
   * by set, based on code by szabi (dunnowhat sub format ;-)
   */
  static subtitle *sub_read_line_pjs(stream_t *st,subtitle *current, int utf16) {
@@ -133,7 +123,7 @@ index d57856b0f..73863b797 100644
  
      if (!stream_read_line (st, line, LINE_LEN, utf16))
  	return NULL;
-@@ -821,7 +821,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
+@@ -822,7 +822,7 @@ static subtitle *sub_read_line_mpsub(stream_t *st, subtitle *current, int utf16)
  	char line[LINE_LEN+1];
  	float a,b;
  	int num=0;
@@ -142,7 +132,7 @@ index d57856b0f..73863b797 100644
  
  	do
  	{
-@@ -959,7 +959,7 @@ retry:
+@@ -960,7 +960,7 @@ retry:
  
  static subtitle *sub_read_line_jacosub(stream_t* st, subtitle * current, int utf16)
  {
@@ -151,7 +141,7 @@ index d57856b0f..73863b797 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1880,7 +1880,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1881,7 +1881,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -160,7 +150,7 @@ index d57856b0f..73863b797 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1935,7 +1935,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1936,7 +1936,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -170,7 +160,7 @@ index d57856b0f..73863b797 100644
      while (*s) {
  	if (!isspace(*s)) return 0;
 diff --git a/sub/vobsub.c b/sub/vobsub.c
-index f03dfc001..e13a6be9a 100644
+index 28c748ce6..01a298fdf 100644
 --- a/sub/vobsub.c
 +++ b/sub/vobsub.c
 @@ -235,7 +235,7 @@ typedef FILE rar_stream_t;
@@ -251,5 +241,5 @@ index f03dfc001..e13a6be9a 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.29.2
+2.33.0
 

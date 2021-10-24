@@ -1,21 +1,15 @@
-From 67adc548f13a3736163a001667043b93ab843882 Mon Sep 17 00:00:00 2001
+From 567955e18990afb86a922fd3f7625222a26431d7 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 22/31] configure: honor disable_system_conf
+Subject: [PATCH 20/28] configure: honor disable_system_conf
 
 except stream_dvb
----
- input/input.c      | 3 ++-
- mpcommon.c         | 4 ++--
- mplayer.c          | 2 +-
- sub/font_load_ft.c | 3 ++-
- 4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
-index 4d7d9283e..4014e6c99 100644
+index 30636e219..aee14d183 100644
 --- a/input/input.c
 +++ b/input/input.c
-@@ -35,6 +35,7 @@
+@@ -36,6 +36,7 @@
  #ifdef MP_DEBUG
  #include <assert.h>
  #endif
@@ -23,7 +17,7 @@ index 4d7d9283e..4014e6c99 100644
  #include "mp_fifo.h"
  #include "osdep/getch2.h"
  #include "osdep/keycodes.h"
-@@ -1778,7 +1779,7 @@ mp_input_init(void) {
+@@ -1779,7 +1780,7 @@ mp_input_init(void) {
      }
      // Try global conf dir
      file = MPLAYER_CONFDIR "/input.conf";
@@ -33,10 +27,10 @@ index 4d7d9283e..4014e6c99 100644
    }
    else
 diff --git a/mpcommon.c b/mpcommon.c
-index 3200e2555..af37ca741 100644
+index d2e944d1a..3e937118e 100644
 --- a/mpcommon.c
 +++ b/mpcommon.c
-@@ -596,7 +596,7 @@ int common_init(void)
+@@ -597,7 +597,7 @@ int common_init(void)
      if (!codecs_file || !parse_codec_cfg(codecs_file)) {
          char *conf_path = get_path("codecs.conf");
          if (!parse_codec_cfg(conf_path)) {
@@ -45,7 +39,7 @@ index 3200e2555..af37ca741 100644
                  if (!parse_codec_cfg(NULL)) {
                      free(conf_path);
                      return 0;
-@@ -626,7 +626,7 @@ int common_init(void)
+@@ -627,7 +627,7 @@ int common_init(void)
              char *desc_path = get_path("font/font.desc");
              vo_font = read_font_desc(desc_path, font_factor, verbose>1);
              free(desc_path);
@@ -55,10 +49,10 @@ index 3200e2555..af37ca741 100644
          }
          if (sub_font_name)
 diff --git a/mplayer.c b/mplayer.c
-index a4eafaa50..5be268757 100644
+index 0d8172607..94dc6ac16 100644
 --- a/mplayer.c
 +++ b/mplayer.c
-@@ -3057,7 +3057,7 @@ int main(int argc, char *argv[])
+@@ -3053,7 +3053,7 @@ int main(int argc, char *argv[])
              if (menu_init(mpctx, menu_cfg))
                  mp_msg(MSGT_CPLAYER, MSGL_V, "Menu initialized: %s\n", menu_cfg);
              else {
@@ -68,7 +62,7 @@ index a4eafaa50..5be268757 100644
                  else {
                      mp_msg(MSGT_CPLAYER, MSGL_ERR, MSGTR_MenuInitFailed);
 diff --git a/sub/font_load_ft.c b/sub/font_load_ft.c
-index b49de3a43..beb5d3154 100644
+index bd3e1c1de..d4d02e2cb 100644
 --- a/sub/font_load_ft.c
 +++ b/sub/font_load_ft.c
 @@ -902,7 +902,8 @@ static int load_sub_face(const char *name, int face_index, FT_Face *face)
@@ -82,5 +76,5 @@ index b49de3a43..beb5d3154 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.29.2
+2.33.0
 

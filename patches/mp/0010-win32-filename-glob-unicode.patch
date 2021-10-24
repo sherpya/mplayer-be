@@ -1,12 +1,8 @@
-From 700a697387f367183287990d80324aa87c76390f Mon Sep 17 00:00:00 2001
+From ba893a2ea4e581e9f249b9bfd3a4402ab68fcd48 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Thu, 21 Mar 2013 10:29:04 +0100
-Subject: [PATCH 10/31] win32: filename glob() + unicode
+Subject: [PATCH 10/28] win32: filename glob() + unicode
 
----
- osdep/glob-win.c | 69 ++++++++++++++++++++++++++++++++++++++++++++----
- parser-mpcmd.c   | 30 +++++++++++++++++++++
- 2 files changed, 94 insertions(+), 5 deletions(-)
 
 diff --git a/osdep/glob-win.c b/osdep/glob-win.c
 index d67d6ddf6..966edf2fc 100644
@@ -115,10 +111,17 @@ index d67d6ddf6..966edf2fc 100644
      }
      FindClose(searchhndl);
 diff --git a/parser-mpcmd.c b/parser-mpcmd.c
-index 4d298857b..057318463 100644
+index a97a5b910..4c627a27b 100644
 --- a/parser-mpcmd.c
 +++ b/parser-mpcmd.c
-@@ -31,6 +31,10 @@
+@@ -24,12 +24,17 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <strings.h>
+ #include <errno.h>
+ 
+ #ifdef MP_DEBUG
  #include <assert.h>
  #endif
  
@@ -126,10 +129,10 @@ index 4d298857b..057318463 100644
 +#include "osdep/glob.h"
 +#endif
 +
+ #include "libavutil/avstring.h"
+ 
  #include "mp_msg.h"
- #include "help_mp.h"
- #include "m_option.h"
-@@ -265,6 +269,32 @@ m_config_parse_mp_command_line(m_config_t *config, int argc, char **argv)
+@@ -266,6 +271,32 @@ m_config_parse_mp_command_line(m_config_t *config, int argc, char **argv)
                  play_tree_add_file(entry,argv[i]);
               }
          } else {
@@ -163,5 +166,5 @@ index 4d298857b..057318463 100644
  	}
  
 -- 
-2.29.2
+2.33.0
 
