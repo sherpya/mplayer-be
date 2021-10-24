@@ -5,6 +5,8 @@
 
 GIT_REPO=https://github.com/libass/libass.git
 
+__USE_MINGW_ANSI_STDIO=1
+
 . $(dirname $0)/../functions.sh
 
 depends lib/libfreetype.a
