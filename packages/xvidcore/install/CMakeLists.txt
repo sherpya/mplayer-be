@@ -1,6 +1,5 @@
 project(xvidcore)
 cmake_minimum_required(VERSION 3.6)
-enable_language(ASM_NASM)
 
 find_program (YASM_EXECUTABLE yasm)
 
@@ -9,6 +8,7 @@ if(NOT YASM_EXECUTABLE)
 endif()
 
 set(CMAKE_ASM_NASM_COMPILER ${YASM_EXECUTABLE})
+enable_language(ASM_NASM)
 
 set(xvidcore_generic_sources
     src/decoder.c
