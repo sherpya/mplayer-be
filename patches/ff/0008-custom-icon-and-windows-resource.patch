@@ -1,32 +1,14 @@
-From b5608369815708c165163f017c24fc9d3f1a1acd Mon Sep 17 00:00:00 2001
+From d41104620cc4fd50913dc02cb05726fb8c425e85 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 7/8] custom icon and windows resource
+Subject: [PATCH 8/9] custom icon and windows resource
 
----
- Makefile           |   3 +++
- ffmpeg.ico         | Bin 0 -> 111290 bytes
- ffplay.ico         | Bin 0 -> 117138 bytes
- ffprobe.ico        | Bin 0 -> 104396 bytes
- fftools/Makefile   |   2 ++
- fftools/common.rc  |  36 ++++++++++++++++++++++++++++++++++++
- fftools/ffmpeg.rc  |   4 ++++
- fftools/ffplay.rc  |   4 ++++
- fftools/ffprobe.rc |   4 ++++
- 9 files changed, 53 insertions(+)
- create mode 100644 ffmpeg.ico
- create mode 100644 ffplay.ico
- create mode 100644 ffprobe.ico
- create mode 100644 fftools/common.rc
- create mode 100644 fftools/ffmpeg.rc
- create mode 100644 fftools/ffplay.rc
- create mode 100644 fftools/ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index b7ecea855d..3a36c6f6b0 100644
+index 26c9107237..4b49c01514 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -110,6 +110,9 @@ else
+@@ -121,6 +121,9 @@ else
  	$(STRIP) $@
  endif
  
@@ -2868,10 +2850,10 @@ literal 0
 HcmV?d00001
 
 diff --git a/fftools/Makefile b/fftools/Makefile
-index 6cec666dd9..89328d94bd 100644
+index 5234932ab0..191a9b379d 100644
 --- a/fftools/Makefile
 +++ b/fftools/Makefile
-@@ -19,6 +19,8 @@ OBJS-ffmpeg-$(CONFIG_VIDEOTOOLBOX) += fftools/ffmpeg_videotoolbox.o
+@@ -17,6 +17,8 @@ OBJS-ffmpeg-$(CONFIG_VIDEOTOOLBOX) += fftools/ffmpeg_videotoolbox.o
  
  define DOFFTOOL
  OBJS-$(1) += fftools/cmdutils.o fftools/$(1).o $(OBJS-$(1)-yes)
@@ -2953,5 +2935,5 @@ index 0000000000..0322991266
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.24.0
+2.33.0
 

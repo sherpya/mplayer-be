@@ -1,0 +1,38 @@
+From 14a3b081c41079508bfbe5e64c3c6fe42f5106c2 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sun, 19 Apr 2020 20:32:24 +0200
+Subject: [PATCH 2/9] windows xp compatible CancelIoEx()
+
+
+diff --git a/libavformat/udp.c b/libavformat/udp.c
+index bbe5aecc46..d3d3e023a0 100644
+--- a/libavformat/udp.c
++++ b/libavformat/udp.c
+@@ -1066,6 +1066,15 @@ static int udp_write(URLContext *h, const uint8_t *buf, int size)
+     return ret < 0 ? ff_neterrno() : ret;
+ }
+ 
++#ifdef _WIN32
++void CALLBACK pthread_cancel_winsock(ULONG_PTR fd);
++void CALLBACK pthread_cancel_winsock(ULONG_PTR fd)
++{
++    CancelIo((HANDLE) fd);
++}
++#endif
++
++
+ static int udp_close(URLContext *h)
+ {
+     UDPContext *s = h->priv_data;
+@@ -1092,7 +1101,7 @@ static int udp_close(URLContext *h)
+              * the socket and abort pending IO, subsequent recvfrom() calls
+              * will fail with WSAESHUTDOWN causing the thread to exit. */
+             shutdown(s->udp_fd, SD_RECEIVE);
+-            CancelIoEx((HANDLE)(SOCKET)s->udp_fd, NULL);
++            QueueUserAPC(pthread_cancel_winsock, pthread_gethandle(s->circular_buffer_thread), s->udp_fd);
+ #else
+             pthread_cancel(s->circular_buffer_thread);
+ #endif
+-- 
+2.33.0
+
