@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=mpg123
-VERSION=1.28.1
+VERSION=1.29.2
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION}
 
