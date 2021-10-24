@@ -41,7 +41,7 @@ make_binary_dist()
 
     PACKAGE="$(get_package_filename)"
     rm -f "${PACKAGE}"
-    ( cd "${PREFIX}/lib" && 7z a -mx=9 "${PACKAGE}" frei0r-1 )
+    ( cd "${PREFIX}/lib" && ${SEVENZIP} a -mx=9 "${PACKAGE}" frei0r-1 )
 }
 
 git_clean && pkg_build && make_binary_dist && git_clean

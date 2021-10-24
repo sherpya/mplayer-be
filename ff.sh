@@ -158,7 +158,7 @@ EOF
 
     mkdir -p "${packagedir}"
     pkgtemp=$(mktemp -u /tmp/$product-dist-XXXX.7z)
-    ( cd ${TMPDIR} && 7z a -mx=9 ${pkgtemp} ${packagename} )
+    ( cd ${TMPDIR} && ${SEVENZIP} a -mx=9 ${pkgtemp} ${packagename} )
     mv -f ${pkgtemp} "${package}"
     rm -fr ${TMPDIR}
 

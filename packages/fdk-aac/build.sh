@@ -58,7 +58,7 @@ make_binary_dist()
     install -m644 .libs/libfdk-aac-2.dll ../dist/${ARCH}
     unix2dos -n NOTICE ../dist/${ARCH}/NOTICE.txt
 
-    ( cd ../dist && 7z a -mx=9 ${PACKAGE} ${ARCH} && rm -fr ${ARCH} )
+    ( cd ../dist && ${SEVENZIP} a -mx=9 ${PACKAGE} ${ARCH} && rm -fr ${ARCH} )
 }
 
 pkg_make_target()

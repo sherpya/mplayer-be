@@ -136,7 +136,7 @@ make_dist()
     
     mkdir -p "${packagedir}"
     pkgtemp=$(mktemp -u /tmp/mp-dist-XXXX.7z)
-    ( cd ${TMPDIR} && 7z a -mx=9 ${pkgtemp} MPlayer-$cpu-$version )
+    ( cd ${TMPDIR} && ${SEVENZIP} a -mx=9 ${pkgtemp} MPlayer-$cpu-$version )
     mv -f ${pkgtemp} "${package}"
     rm -fr ${TMPDIR}
 
