@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=libopenmpt
-VERSION=0.5.12+release.autotools
+VERSION=0.6.0+release.autotools
 EXT=tar.gz
 BASEURL=https://lib.openmpt.org/files/libopenmpt/src
 
@@ -18,6 +18,6 @@ CONFOPTS="--disable-openmpt123 --disable-examples --disable-tests \
           --without-mpg123 --without-ogg --without-vorbis --without-vorbisfile \
           --without-portaudio --without-portaudiocpp --without-sndfile --without-flac"
 
-[ "${ARCH}" = "x86" ] && add_to_flags "-DWINVER=_WIN32_WINNT_WIN6"
+[ "${ARCH}" = "x86" ] && add_to_flags "-DWINVER=_WIN32_WINNT_WINXP"
 
 pkg_build && pkg_clean
