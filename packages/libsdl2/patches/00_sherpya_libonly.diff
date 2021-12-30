@@ -1,7 +1,7 @@
-diff -ur SDL2-2.0.16.orig/Makefile.in SDL2-2.0.16/Makefile.in
---- SDL2-2.0.16.orig/Makefile.in	2021-08-06 21:36:54.000000000 +0200
-+++ SDL2-2.0.16/Makefile.in	2021-10-24 12:31:27.157549502 +0200
-@@ -187,8 +187,6 @@
+diff -ur SDL2-2.0.18.orig/Makefile.in SDL2-2.0.18/Makefile.in
+--- SDL2-2.0.18.orig/Makefile.in	2021-11-26 17:03:45.000000000 +0100
++++ SDL2-2.0.18/Makefile.in	2021-12-30 09:02:52.385302839 +0100
+@@ -188,8 +188,6 @@
  	$(LIBTOOL) --mode=install $(INSTALL) $(objects)/$(SDLMAIN_TARGET) $(DESTDIR)$(libdir)/$(SDLMAIN_TARGET)
  	$(LIBTOOL) --mode=install $(INSTALL) $(objects)/$(SDLTEST_TARGET) $(DESTDIR)$(libdir)/$(SDLTEST_TARGET)
  install-data:
