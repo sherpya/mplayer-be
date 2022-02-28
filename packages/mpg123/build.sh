@@ -10,7 +10,7 @@ BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION
 
 . $(dirname $0)/../functions.sh
 
-STATICLIBS="libmpg123 libout123"
+STATICLIBS="libmpg123 libout123 libsyn123"
 
 # configure: error: Yasm for AVX is currently broken and might go away.
 # CONFOPTS="--enable-yasm"
