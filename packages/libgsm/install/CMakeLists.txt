@@ -1,5 +1,5 @@
 project(libgsm)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 set(libgsm_SRCS src/add.c
                 src/code.c
@@ -22,6 +22,7 @@ set(libgsm_SRCS src/add.c
 
 add_definitions(-DNeedFunctionPrototypes=1)
 add_definitions(-DSASR -DWAV49)
+add_compile_options(-Wall -Wno-comment)
 
 set(EXPORTED_HEADERS inc/gsm.h)
 add_library(gsm STATIC ${libgsm_SRCS})
