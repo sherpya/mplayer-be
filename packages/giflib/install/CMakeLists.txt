@@ -1,5 +1,5 @@
 project(giflib)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 set(giflib_SRCS dgif_lib.c
                 egif_lib.c
