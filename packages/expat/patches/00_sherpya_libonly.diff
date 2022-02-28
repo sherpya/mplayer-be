@@ -1,7 +1,7 @@
-diff -ur expat-2.4.1.orig/lib/Makefile.in expat-2.4.1/lib/Makefile.in
---- expat-2.4.1.orig/lib/Makefile.in	2021-05-23 18:28:44.000000000 +0200
-+++ expat-2.4.1/lib/Makefile.in	2021-06-26 04:29:18.900052729 +0200
-@@ -763,9 +763,8 @@
+diff -ur expat-2.4.6.orig/lib/Makefile.in expat-2.4.6/lib/Makefile.in
+--- expat-2.4.6.orig/lib/Makefile.in	2022-02-20 18:04:17.000000000 +0100
++++ expat-2.4.6/lib/Makefile.in	2022-02-28 02:38:28.756693681 +0100
+@@ -764,9 +764,8 @@
  
  info-am:
  
