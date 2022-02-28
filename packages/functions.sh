@@ -200,7 +200,7 @@ pkg_make_target()
     is_cmake && cd cross_build
     make ${MAKEOPTS} || return 1
     post_make_hook
-    make install || return 1
+    make ${INSTALL_TARGET:-install} || return 1
     post_install_hook
 }
 
