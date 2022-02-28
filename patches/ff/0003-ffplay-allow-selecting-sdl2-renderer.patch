@@ -1,15 +1,18 @@
-From 07ed028e17c6ea2a6841f94b30395792c108bfa0 Mon Sep 17 00:00:00 2001
+From 5ada34d40bab7ecede23e09cde670e27e4b44ef2 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 15 Dec 2019 17:18:25 +0100
 Subject: [PATCH 3/9] ffplay: allow selecting sdl2 renderer
 
 by setting SDL_VIDEO_RENDER environment variable
+---
+ fftools/ffplay.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/fftools/ffplay.c b/fftools/ffplay.c
-index ccea0e4578..665ee2f048 100644
+index ac48d8765d..e6aa378a28 100644
 --- a/fftools/ffplay.c
 +++ b/fftools/ffplay.c
-@@ -3736,6 +3736,7 @@ int main(int argc, char **argv)
+@@ -3732,6 +3732,7 @@ int main(int argc, char **argv)
  
      if (!display_disable) {
          int flags = SDL_WINDOW_HIDDEN;
@@ -18,7 +21,7 @@ index ccea0e4578..665ee2f048 100644
  #if SDL_VERSION_ATLEAST(2,0,5)
              flags |= SDL_WINDOW_ALWAYS_ON_TOP;
 @@ -3748,6 +3749,8 @@ int main(int argc, char **argv)
-             flags |= SDL_WINDOW_RESIZABLE;
+ #endif
          window = SDL_CreateWindow(program_name, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, default_width, default_height, flags);
          SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 +        if (video_renderer)
@@ -27,5 +30,5 @@ index ccea0e4578..665ee2f048 100644
              renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
              if (!renderer) {
 -- 
-2.33.0
+2.35.1
 
