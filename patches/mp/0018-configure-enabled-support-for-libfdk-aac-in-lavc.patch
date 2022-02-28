@@ -1,11 +1,14 @@
-From 2798bddd263f6156a8ae57789876ef9bbd9c00c9 Mon Sep 17 00:00:00 2001
+From ae866731667fda2cb6099e41c20d6b36280dc3d5 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 25 Feb 2018 06:53:50 +0100
-Subject: [PATCH 18/28] configure: enabled support for libfdk-aac in lavc
+Subject: [PATCH 18/27] configure: enabled support for libfdk-aac in lavc
 
+---
+ configure | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
 diff --git a/configure b/configure
-index 8881baffc..6d767ea8f 100755
+index 5b7e804cd..fedd5f815 100755
 --- a/configure
 +++ b/configure
 @@ -435,6 +435,7 @@ Codecs:
@@ -33,7 +36,7 @@ index 8881baffc..6d767ea8f 100755
    --enable-ladspa)      _ladspa=yes     ;;
    --disable-ladspa)     _ladspa=no      ;;
    --enable-libbs2b)     _libbs2b=yes    ;;
-@@ -7127,6 +7131,19 @@ else
+@@ -7126,6 +7130,19 @@ else
  fi
  echores "$_faac"
  
@@ -53,7 +56,7 @@ index 8881baffc..6d767ea8f 100755
  
  echocheck "FAAD2 support"
  if test "$_faad" = auto ; then
-@@ -9550,6 +9567,7 @@ $def_bzlib
+@@ -9505,6 +9522,7 @@ $def_bzlib
  $def_crystalhd
  $def_libaom_lavc
  $def_libdav1d_lavc
@@ -62,5 +65,5 @@ index 8881baffc..6d767ea8f 100755
  $def_libopencore_amrnb
  $def_libopencore_amrwb
 -- 
-2.33.0
+2.35.1
 

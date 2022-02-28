@@ -1,8 +1,12 @@
-From f94bda8478b139b9e3c88d5bc9d2bf30371384bc Mon Sep 17 00:00:00 2001
+From b1e48b8145b2e4f601e9e8bf4db8011aa6fa9688 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:18:14 +0100
-Subject: [PATCH 14/28] input: map control keys using human readable strings
+Subject: [PATCH 14/27] input: map control keys using human readable strings
 
+---
+ input/input.c    | 27 +++++++++++++++++++++++++++
+ osdep/keycodes.h | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
 
 diff --git a/input/input.c b/input/input.c
 index 56089874d..0323b59cb 100644
@@ -82,5 +86,5 @@ index 219e39aa9..bf2dca9a2 100644
 +
  #endif /* MPLAYER_KEYCODES_H */
 -- 
-2.33.0
+2.35.1
 

@@ -1,11 +1,14 @@
-From 53ad6e2318cf1fb00c36e0952e6c1499fb0441f1 Mon Sep 17 00:00:00 2001
+From 7fbd4eb9f4936a05990d0b458566fd404dd69fe8 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:53:47 +0100
-Subject: [PATCH 16/28] configure: reduced some warnings on gcc flags
+Subject: [PATCH 16/27] configure: reduced some warnings on gcc flags
 
+---
+ configure | 3 ---
+ 1 file changed, 3 deletions(-)
 
 diff --git a/configure b/configure
-index 54e8d76d2..eddb7ac1a 100755
+index 02e6fecb5..6a1bcc739 100755
 --- a/configure
 +++ b/configure
 @@ -2987,13 +2987,10 @@ fi
@@ -23,5 +26,5 @@ index 54e8d76d2..eddb7ac1a 100755
  
  # This provides significant size savings on gcc.
 -- 
-2.33.0
+2.35.1
 

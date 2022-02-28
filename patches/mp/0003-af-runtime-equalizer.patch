@@ -1,8 +1,15 @@
-From b4bfa36d48bfa5fb56e531e5ef1686a53ef46879 Mon Sep 17 00:00:00 2001
+From b42081f75fbc5c5f89b0ff0f7cb4dbb4c4f5fb77 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:17:48 +0100
-Subject: [PATCH 03/28] af: runtime equalizer
+Subject: [PATCH 03/27] af: runtime equalizer
 
+---
+ DOCS/tech/slave.txt  |  5 +++++
+ command.c            |  9 +++++++++
+ input/input.c        |  1 +
+ input/input.h        |  1 +
+ libaf/af_equalizer.c | 12 ++++++++++++
+ 5 files changed, 28 insertions(+)
 
 diff --git a/DOCS/tech/slave.txt b/DOCS/tech/slave.txt
 index 6413adc9f..028f7b6a4 100644
@@ -95,5 +102,5 @@ index 8a8f272e0..7ba6568bd 100644
    }
    case AF_CONTROL_EQUALIZER_GAIN | AF_CONTROL_SET:{
 -- 
-2.33.0
+2.35.1
 

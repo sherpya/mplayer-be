@@ -1,11 +1,14 @@
-From f624d21781cb8c0173b18c7b53547310dfe87743 Mon Sep 17 00:00:00 2001
+From 6b42c176e7831fd4c2c4d1b2cb236a6c386eaffa Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Tue, 15 Oct 2019 00:42:27 +0200
-Subject: [PATCH 21/28] configure: enable support for mbedtls
+Subject: [PATCH 21/27] configure: enable support for mbedtls
 
+---
+ configure | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 11e790083..a20f5a3c0 100755
+index 6ca778625..df54cc6cb 100755
 --- a/configure
 +++ b/configure
 @@ -880,6 +880,7 @@ _sctp=auto
@@ -34,7 +37,7 @@ index 11e790083..a20f5a3c0 100755
  libavfilters=$(filter_out_component filter 'VF_FREI0R[A-Z0-9_]* LIB[A-Z0-9_]* MP VF_OCV')
  
  # second pass command line parsing for options needing local FFmpeg checkout
-@@ -4756,6 +4759,21 @@ else
+@@ -4755,6 +4758,21 @@ else
  fi
  echores "$_openssl"
  
@@ -56,7 +59,7 @@ index 11e790083..a20f5a3c0 100755
  echocheck "Samba support (libsmbclient)"
  if test "$_smb" = yes; then
    extra_ldflags="$extra_ldflags -lsmbclient"
-@@ -9113,6 +9131,7 @@ CONFIG_CRYSTALHD= $crystalhd
+@@ -9070,6 +9088,7 @@ CONFIG_CRYSTALHD= $crystalhd
  CONFIG_ENCODERS = yes
  CONFIG_GNUTLS   = $_gnutls
  CONFIG_OPENSSL  = $_openssl
@@ -64,7 +67,7 @@ index 11e790083..a20f5a3c0 100755
  CONFIG_GPL      = yes
  CONFIG_ICONV    = $_iconv
  CONFIG_MLIB     = $_mlib
-@@ -9666,6 +9685,7 @@ $def_erf
+@@ -9621,6 +9640,7 @@ $def_erf
  #define CONFIG_FTRAPV 0
  $def_gnutls
  $def_openssl
@@ -73,5 +76,5 @@ index 11e790083..a20f5a3c0 100755
  #define CONFIG_GRAY 0
  #define CONFIG_LIBVORBIS 0
 -- 
-2.33.0
+2.35.1
 

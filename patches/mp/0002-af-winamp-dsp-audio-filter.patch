@@ -1,8 +1,17 @@
-From 211ca8c0f26974e452baae8c4ea5f468fc42759e Mon Sep 17 00:00:00 2001
+From 5a1e590a3d46a5b6bf8a31c919ecc094d7ce6610 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 25 Jan 2013 01:29:16 +0100
-Subject: [PATCH 02/28] af: winamp dsp audio filter
+Subject: [PATCH 02/27] af: winamp dsp audio filter
 
+---
+ Makefile         |   1 +
+ libaf/af.c       |   6 +
+ libaf/af_wadsp.c | 323 +++++++++++++++++++++++++++++++++++++++++++++++
+ libaf/af_wadsp.h |  76 +++++++++++
+ libaf/control.h  |   6 +
+ 5 files changed, 412 insertions(+)
+ create mode 100644 libaf/af_wadsp.c
+ create mode 100644 libaf/af_wadsp.h
 
 diff --git a/Makefile b/Makefile
 index 94ef50367..101dac3b0 100644
@@ -467,5 +476,5 @@ index 91e18b55e..9fcdcc8f0 100644
 +
  #endif /* MPLAYER_CONTROL_H */
 -- 
-2.33.0
+2.35.1
 

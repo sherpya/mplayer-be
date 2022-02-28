@@ -1,9 +1,15 @@
-From 567955e18990afb86a922fd3f7625222a26431d7 Mon Sep 17 00:00:00 2001
+From 7268756833a6195bccd8253b5a651aa37540b95b Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Thu, 14 Feb 2013 04:52:06 +0100
-Subject: [PATCH 20/28] configure: honor disable_system_conf
+Subject: [PATCH 20/27] configure: honor disable_system_conf
 
 except stream_dvb
+---
+ input/input.c      | 3 ++-
+ mpcommon.c         | 4 ++--
+ mplayer.c          | 2 +-
+ sub/font_load_ft.c | 3 ++-
+ 4 files changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/input/input.c b/input/input.c
 index 30636e219..aee14d183 100644
@@ -76,5 +82,5 @@ index bd3e1c1de..d4d02e2cb 100644
  	        mp_msg(MSGT_OSD, MSGL_ERR, MSGTR_LIBVO_FONT_LOAD_FT_NewFaceFailed);
  		return -1;
 -- 
-2.33.0
+2.35.1
 

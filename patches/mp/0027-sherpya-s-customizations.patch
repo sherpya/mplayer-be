@@ -1,8 +1,21 @@
-From 697e7d3fd0928aae0d9ac24c6a348b324dfc37cb Mon Sep 17 00:00:00 2001
+From 3a25235d157b978bd5f11a0e9fc10e7cd23b59b1 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 2 Feb 2013 12:59:00 +0100
-Subject: [PATCH 28/28] sherpya's customizations
+Subject: [PATCH 27/27] sherpya's customizations
 
+---
+ Makefile         |   5 +++++
+ configure        |   5 +++--
+ etc/audio.ico    | Bin 0 -> 112906 bytes
+ etc/mencoder.ico | Bin 0 -> 109548 bytes
+ etc/mplayer.ico  | Bin 290014 -> 111626 bytes
+ etc/video.ico    | Bin 0 -> 113680 bytes
+ osdep/mplayer.rc |  26 ++++++++++++++++++++------
+ version.sh       |   6 ++++--
+ 8 files changed, 32 insertions(+), 10 deletions(-)
+ create mode 100644 etc/audio.ico
+ create mode 100644 etc/mencoder.ico
+ create mode 100644 etc/video.ico
 
 diff --git a/Makefile b/Makefile
 index 1c3e2bea5..c727b5525 100644
@@ -28,7 +41,7 @@ index 1c3e2bea5..c727b5525 100644
  
  loader/%: CFLAGS += -fno-omit-frame-pointer $(CFLAGS_NO_OMIT_LEAF_FRAME_POINTER)
 diff --git a/configure b/configure
-index 0139c1d4a..569fa609e 100755
+index df54cc6cb..fbcfb07df 100755
 --- a/configure
 +++ b/configure
 @@ -1569,13 +1569,13 @@ fi
@@ -4611,7 +4624,7 @@ literal 0
 HcmV?d00001
 
 diff --git a/osdep/mplayer.rc b/osdep/mplayer.rc
-index 8b7a50132..1c053add2 100644
+index 984b8a3f2..28d3f8546 100644
 --- a/osdep/mplayer.rc
 +++ b/osdep/mplayer.rc
 @@ -19,7 +19,15 @@
@@ -4638,8 +4651,8 @@ index 8b7a50132..1c053add2 100644
 -            VALUE "FileDescription", "MPlayer - Movie Player\000"
 +            VALUE "FileDescription",DESCRIPTION
              VALUE "FileVersion",VERSION
-             VALUE "InternalName", "Counter Counter\000"
-             VALUE "LegalCopyright", " (C) 2000-2021 MPlayer Team\000"
+             VALUE "InternalName", "Hope\000"
+             VALUE "LegalCopyright", " (C) 2000-2022 MPlayer Team\000"
              //VALUE "LegalTrademarks"," \000";
 -            VALUE "OriginalFilename", "mplayer.exe\000"
 -            VALUE "ProductName", "MPlayer - The Movie Player\000"
@@ -4667,7 +4680,7 @@ index 8b7a50132..1c053add2 100644
  // for some reason RT_MANIFEST does not work
  1 24 "mplayer.exe.manifest"
 diff --git a/version.sh b/version.sh
-index e28319be6..a1849578c 100755
+index f7a4cc4c1..2364d785d 100755
 --- a/version.sh
 +++ b/version.sh
 @@ -9,10 +9,12 @@ if test -z $version ; then
@@ -4686,5 +4699,5 @@ index e28319be6..a1849578c 100755
  version=$svn_revision
  fi
 -- 
-2.33.0
+2.35.1
 

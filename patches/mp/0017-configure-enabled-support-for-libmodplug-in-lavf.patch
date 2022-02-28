@@ -1,11 +1,14 @@
-From e61c68f70dd09fa7cb0b54348342f66ff54af8c8 Mon Sep 17 00:00:00 2001
+From 2527a1fb88e6899e6a99bfdb458349e5428d991a Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 10 Mar 2013 23:04:44 +0100
-Subject: [PATCH 17/28] configure: enabled support for libmodplug in lavf
+Subject: [PATCH 17/27] configure: enabled support for libmodplug in lavf
 
+---
+ configure | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index eddb7ac1a..8881baffc 100755
+index 6a1bcc739..5b7e804cd 100755
 --- a/configure
 +++ b/configure
 @@ -454,6 +454,7 @@ Codecs:
@@ -33,7 +36,7 @@ index eddb7ac1a..8881baffc 100755
    --enable-ffmpeg_a)    ffmpeg_a=yes    ;;
    --disable-ffmpeg_a)   ffmpeg_a=no     ;;
    --enable-ffmpeg_so)   ffmpeg_so=yes   ;;
-@@ -7583,6 +7587,23 @@ else
+@@ -7538,6 +7542,23 @@ else
  fi
  echores "$_libopencore_amrwb"
  
@@ -57,7 +60,7 @@ index eddb7ac1a..8881baffc 100755
  
  echocheck "libdv-0.9.5+"
  if test "$_libdv" = auto ; then
-@@ -9532,6 +9553,7 @@ $def_libdav1d_lavc
+@@ -9487,6 +9508,7 @@ $def_libdav1d_lavc
  $def_libgsm
  $def_libopencore_amrnb
  $def_libopencore_amrwb
@@ -65,7 +68,7 @@ index eddb7ac1a..8881baffc 100755
  $def_libopenjpeg
  $def_librtmp
  $def_mp3lame_lavc
-@@ -9617,7 +9639,6 @@ $def_gnutls
+@@ -9572,7 +9594,6 @@ $def_gnutls
  $def_openssl
  #define CONFIG_GPL 1
  #define CONFIG_GRAY 0
@@ -74,5 +77,5 @@ index eddb7ac1a..8881baffc 100755
  #define CONFIG_LINUX_PERF 0
  #define CONFIG_MEMORY_POISONING 0
 -- 
-2.33.0
+2.35.1
 

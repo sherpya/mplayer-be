@@ -1,17 +1,27 @@
-From d961a8e2bcd284f27cdc105dae513da5ef697e1f Mon Sep 17 00:00:00 2001
+From 3e03ef0a57a8ad668f212750798bdac246e4ead2 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 27 Apr 2013 05:04:13 +0200
-Subject: [PATCH 22/28] replaced some signed char with unsigned char
+Subject: [PATCH 22/27] replaced some signed char with unsigned char
 
 this fixes some subtitle/charset related problems
+---
+ libmpdemux/mf.c  |  2 +-
+ libvo/vo_fbdev.c |  4 ++--
+ parser-cfg.c     |  8 ++++----
+ stream/stream.c  |  4 ++--
+ stream/stream.h  |  2 +-
+ stream/tv.c      |  2 +-
+ sub/subreader.c  | 16 ++++++++--------
+ sub/vobsub.c     | 18 +++++++++---------
+ 8 files changed, 28 insertions(+), 28 deletions(-)
 
 diff --git a/libmpdemux/mf.c b/libmpdemux/mf.c
-index 7cdd533d7..e013937d9 100644
+index 851932403..86e095bbc 100644
 --- a/libmpdemux/mf.c
 +++ b/libmpdemux/mf.c
-@@ -66,7 +66,7 @@ mf_t* open_mf(char * filename){
-      while ( fgets( fname,PATH_MAX,lst_f ) )
+@@ -56,7 +56,7 @@ static int init_mf_from_list_file(mf_t* mf, const char * filename){
        {
+        struct stat fs;
         /* remove spaces from end of fname */
 -       char *t=fname + strlen( fname ) - 1;
 +       unsigned char *t=fname + strlen( fname ) - 1;
@@ -53,7 +63,7 @@ index 5c9d18ab5..92a3ed50e 100644
  	int line_num = 0;
  	int line_pos;	/* line pos */
 diff --git a/stream/stream.c b/stream/stream.c
-index dd4a22553..4fbcd27c6 100644
+index ca43f72bc..1085dbb47 100644
 --- a/stream/stream.c
 +++ b/stream/stream.c
 @@ -713,8 +713,8 @@ uint8_t *stream_read_until(stream_t *s, uint8_t *mem, int max,
@@ -68,7 +78,7 @@ index dd4a22553..4fbcd27c6 100644
    if (!range)
      return M_OPT_MISSING_PARAM;
 diff --git a/stream/stream.h b/stream/stream.h
-index e41d44008..420661f61 100644
+index 2d3ba1023..84db17c20 100644
 --- a/stream/stream.h
 +++ b/stream/stream.h
 @@ -404,7 +404,7 @@ typedef struct {
@@ -78,7 +88,7 @@ index e41d44008..420661f61 100644
 -int parse_chapter_range(const m_option_t *conf, const char *range);
 +int parse_chapter_range(const m_option_t *conf, const unsigned char *range);
  
- #if defined(__MINGW32__) || defined(__CYGWIN__)
+ #ifdef __MINGW32__
  wchar_t *utf8_to_wide_char(const char *utf8);
 diff --git a/stream/tv.c b/stream/tv.c
 index 6dce1a9b3..12377e36e 100644
@@ -94,7 +104,7 @@ index 6dce1a9b3..12377e36e 100644
  		channel = atoi(tvh->tv_param->channel);
  	   else
 diff --git a/sub/subreader.c b/sub/subreader.c
-index c862be7bc..bd923303f 100644
+index 3c815d132..2b5fbe175 100644
 --- a/sub/subreader.c
 +++ b/sub/subreader.c
 @@ -91,12 +91,12 @@ int sub_format=SUB_INVALID;
@@ -141,7 +151,7 @@ index c862be7bc..bd923303f 100644
      unsigned a1, a2, a3, a4, b1, b2, b3, b4, comment = 0;
      static unsigned jacoTimeres = 30;
      static int jacoShift = 0;
-@@ -1881,7 +1881,7 @@ char * strreplace( char * in,char * what,char * whereof )
+@@ -1885,7 +1885,7 @@ char * strreplace( char * in,char * what,char * whereof )
  #endif
  
  
@@ -150,7 +160,7 @@ index c862be7bc..bd923303f 100644
  {
      // skip leading whitespace
      while (*s && isspace(*s)) {
-@@ -1936,7 +1936,7 @@ static void strcpy_get_ext(char *d, const char *s)
+@@ -1940,7 +1940,7 @@ static void strcpy_get_ext(char *d, const char *s)
     }
  }
  
@@ -241,5 +251,5 @@ index 28c748ce6..01a298fdf 100644
          line_size = vobsub_getline(&line, &line_reserve, fd);
          if (line_size < 0 || line_size > 1000000 ||
 -- 
-2.33.0
+2.35.1
 
