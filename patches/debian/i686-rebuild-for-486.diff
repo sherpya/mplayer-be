@@ -1,20 +1,19 @@
-diff -ur mingw-w64-8.0.0.orig/debian/changelog mingw-w64-8.0.0/debian/changelog
---- mingw-w64-8.0.0.orig/debian/changelog	2020-09-18 18:18:53.000000000 +0200
-+++ mingw-w64-8.0.0/debian/changelog	2020-11-24 13:21:51.891215209 +0100
+diff -ur mingw-w64-9.0.0.orig/debian/changelog mingw-w64-9.0.0/debian/changelog
+--- mingw-w64-9.0.0.orig/debian/changelog	2022-02-27 16:55:34.000000000 +0100
++++ mingw-w64-9.0.0/debian/changelog	2022-02-27 21:41:26.189574115 +0100
 @@ -1,3 +1,9 @@
-+mingw-w64 (8.0.0-1.1~sherpya) unstable; urgency=medium
++mingw-w64 (9.0.0-1.1~sherpya) unstable; urgency=medium
 +
 +  * Rebuild with -march=i486
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Tue, 24 Nov 2020 13:21:38 +0100
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Sun, 27 Feb 2022 21:41:16 +0100
 +
- mingw-w64 (8.0.0-1) unstable; urgency=medium
+ mingw-w64 (9.0.0-1) unstable; urgency=medium
  
-   * New upstream release, merging comutil-checkerror.patch and
-Only in mingw-w64-8.0.0/debian: changelog.orig
-diff -ur mingw-w64-8.0.0.orig/debian/rules mingw-w64-8.0.0/debian/rules
---- mingw-w64-8.0.0.orig/debian/rules	2020-09-12 21:22:02.000000000 +0200
-+++ mingw-w64-8.0.0/debian/rules	2020-11-24 13:21:35.447263744 +0100
+   * New upstream release, merging widl-windef-aarch64.patch.
+diff -ur mingw-w64-9.0.0.orig/debian/rules mingw-w64-9.0.0/debian/rules
+--- mingw-w64-9.0.0.orig/debian/rules	2020-09-12 21:22:02.000000000 +0200
++++ mingw-w64-9.0.0/debian/rules	2022-02-27 21:40:59.101553312 +0100
 @@ -102,7 +102,7 @@
  $(target32crt)-configure-stamp: $(target32)~$(target32)~headers-install-stamp autoreconf-stamp
  	mkdir -p $(call buildfolder,$(target32crt)) && \
