@@ -133,7 +133,7 @@ make_dist()
     DATADIR=../dist/MPlayer
     copy_data ${DATADIR}/common ${DISTDIR}
     copy_data ${DATADIR}/${ARCH} ${DISTDIR}
-    
+
     mkdir -p "${packagedir}"
     pkgtemp=$(mktemp -u /tmp/mp-dist-XXXX.7z)
     ( cd ${TMPDIR} && ${SEVENZIP} a -mx=9 ${pkgtemp} MPlayer-$cpu-$version )
