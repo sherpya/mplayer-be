@@ -1,6 +1,6 @@
 #!/bin/bash
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013-2016 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 . ../config.sh
@@ -59,6 +59,8 @@ config mp3lame
 config mpg123
 config dvdnav
 config vcd
+config dash_muxer
+config dash_demuxer
 
 CONFIGURE_OPTS=""
 
