@@ -1,6 +1,6 @@
 #!/bin/bash
 # MPlayer/FFmpeg MinGW-w64 Cross Build Environment
-# Copyright (c) 2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 . ../config.sh
@@ -55,6 +55,7 @@ configure()
     disable w32threads
     disable bcrypt
 
+    # maybe with mold, someday
     #enable lto
     enable gpl
     enable version3
@@ -71,7 +72,7 @@ configure()
     enable avisynth
     config bzlib
     enable frei0r
-    config frei0r_filter
+    config frei0r
     enable mbedtls
     config iconv
     enable libass
@@ -113,8 +114,8 @@ configure()
     enable libx265
     enable libxavs
     enable libxvid
+    # enables dash muxer/demuxer
     enable libxml2
-    config dash_demuxer
     enable libzimg
     enable ffnvcodec
     config zlib
