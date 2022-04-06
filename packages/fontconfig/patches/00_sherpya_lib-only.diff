@@ -1,7 +1,7 @@
-diff -ur fontconfig-2.13.1.orig/Makefile.in fontconfig-2.13.1/Makefile.in
---- fontconfig-2.13.1.orig/Makefile.in	2018-08-30 10:24:27.000000000 +0200
-+++ fontconfig-2.13.1/Makefile.in	2018-09-03 03:16:25.811213555 +0200
-@@ -454,9 +454,7 @@
+diff -ur fontconfig-2.14.0.orig/Makefile.in fontconfig-2.14.0/Makefile.in
+--- fontconfig-2.14.0.orig/Makefile.in	2022-03-31 09:41:24.000000000 +0200
++++ fontconfig-2.14.0/Makefile.in	2022-04-07 00:49:07.064428186 +0200
+@@ -464,9 +464,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
@@ -10,9 +10,9 @@ diff -ur fontconfig-2.13.1.orig/Makefile.in fontconfig-2.13.1/Makefile.in
 -	conf.d its po po-conf test $(am__append_1)
 +SUBDIRS = fontconfig src
  ACLOCAL_AMFLAGS = -I m4
- EXTRA_DIST = config.rpath fontconfig.pc.in fonts.conf.in fonts.dtd \
- 	fontconfig.spec.in fontconfig.spec fontconfig-zip.in \
-@@ -950,8 +948,7 @@
+ MESON_FILES = \
+ 	conf.d/link_confs.py \
+@@ -981,8 +979,7 @@
  
  info-am:
  
