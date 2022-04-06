@@ -1,18 +1,18 @@
-From 8752cca257aaa1e6dc88ef77fe348fad9be7c863 Mon Sep 17 00:00:00 2001
+From ac1ae82375133f370965ba326bb4178c1e2bd039 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 6/9] programs: print version info and configuration only on
  -version
 
 ---
- fftools/cmdutils.c | 6 +++---
+ fftools/opt_common.c | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/fftools/cmdutils.c b/fftools/cmdutils.c
-index 4b50e15eef..916d36ee1f 100644
---- a/fftools/cmdutils.c
-+++ b/fftools/cmdutils.c
-@@ -1153,7 +1153,7 @@ static void print_program_info(int flags, int level)
+diff --git a/fftools/opt_common.c b/fftools/opt_common.c
+index c303db4d09..570b7eee53 100644
+--- a/fftools/opt_common.c
++++ b/fftools/opt_common.c
+@@ -202,7 +202,7 @@ static void print_program_info(int flags, int level)
      av_log(NULL, level, "\n");
      av_log(NULL, level, "%sbuilt with %s\n", indent, CC_IDENT);
  
@@ -21,7 +21,7 @@ index 4b50e15eef..916d36ee1f 100644
  }
  
  static void print_buildconf(int flags, int level)
-@@ -1189,8 +1189,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
+@@ -238,8 +238,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
          return;
  
      print_program_info (INDENT|SHOW_COPYRIGHT, AV_LOG_INFO);

@@ -1,4 +1,4 @@
-From 02e1705aad177a5d88ccbe5057431918e6cd94b0 Mon Sep 17 00:00:00 2001
+From c41d28f0f48bce41f64add301524b6961a47cc33 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 7 Dec 2019 21:24:25 +0100
 Subject: [PATCH 1/9] make bcrypt optional on win32
@@ -10,7 +10,7 @@ configure with --disable-bcrypt to use wincrypt functions
  2 files changed, 20 insertions(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index 8c69ab0c86..030fe41121 100755
+index e4d36aa639..cd75133b4b 100755
 --- a/configure
 +++ b/configure
 @@ -327,6 +327,7 @@ External library support:
@@ -21,7 +21,7 @@ index 8c69ab0c86..030fe41121 100755
  
    The following libraries provide various hardware acceleration features:
    --disable-amf            disable AMF video encoding code [autodetect]
-@@ -1765,6 +1766,7 @@ EXTERNAL_AUTODETECT_LIBRARY_LIST="
+@@ -1766,6 +1767,7 @@ EXTERNAL_AUTODETECT_LIBRARY_LIST="
      sndio
      xlib
      zlib
@@ -29,7 +29,7 @@ index 8c69ab0c86..030fe41121 100755
  "
  
  EXTERNAL_LIBRARY_GPL_LIST="
-@@ -6310,7 +6312,7 @@ for LATOMIC in "-latomic" ""; do
+@@ -6317,7 +6319,7 @@ for LATOMIC in "-latomic" ""; do
  done
  
  check_lib advapi32 "windows.h"            RegCloseKey          -ladvapi32

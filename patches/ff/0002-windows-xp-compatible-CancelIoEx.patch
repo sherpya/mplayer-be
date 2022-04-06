@@ -1,4 +1,4 @@
-From 55fb4f4b2868840d613468fad5fea5610e777c0a Mon Sep 17 00:00:00 2001
+From 114d215a9a6e80611296288e1f528e112562486a Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 19 Apr 2020 20:32:24 +0200
 Subject: [PATCH 2/9] windows xp compatible CancelIoEx()
