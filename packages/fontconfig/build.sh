@@ -7,7 +7,7 @@
 # CVE-2016-5384
 
 PACKAGE=fontconfig
-VERSION=2.14.0
+VERSION=2.14.1
 EXT=tar.gz
 BASEURL=http://fontconfig.org/release
 

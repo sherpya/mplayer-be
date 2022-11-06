@@ -1,7 +1,7 @@
-diff -ur fontconfig-2.14.0.orig/Makefile.in fontconfig-2.14.0/Makefile.in
---- fontconfig-2.14.0.orig/Makefile.in	2022-03-31 09:41:24.000000000 +0200
-+++ fontconfig-2.14.0/Makefile.in	2022-04-07 00:49:07.064428186 +0200
-@@ -464,9 +464,7 @@
+diff -ur fontconfig-2.14.1.orig/Makefile.in fontconfig-2.14.1/Makefile.in
+--- fontconfig-2.14.1.orig/Makefile.in	2022-10-21 09:33:38.000000000 +0200
++++ fontconfig-2.14.1/Makefile.in	2022-11-06 02:01:09.879136156 +0100
+@@ -465,9 +465,7 @@
  top_build_prefix = @top_build_prefix@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
@@ -12,7 +12,7 @@ diff -ur fontconfig-2.14.0.orig/Makefile.in fontconfig-2.14.0/Makefile.in
  ACLOCAL_AMFLAGS = -I m4
  MESON_FILES = \
  	conf.d/link_confs.py \
-@@ -981,8 +979,7 @@
+@@ -982,8 +980,7 @@
  
  info-am:
  

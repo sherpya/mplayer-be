@@ -2,7 +2,7 @@ bzip2           1.0.8
 enca            1.19
 expat           2.5.0
 flac            1.4.2
-fontconfig      2.14.0
+fontconfig      2.14.1
 freetype        2.12.0
 fribidi         1.0.11
 giflib          5.2.1
