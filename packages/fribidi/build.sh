@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=fribidi
-VERSION=1.0.11
+VERSION=1.0.12
 EXT=tar.xz
 BASEURL=https://github.com/fribidi/fribidi/releases/download/v${VERSION}
 

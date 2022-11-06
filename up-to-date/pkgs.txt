@@ -4,7 +4,7 @@ expat           2.5.0
 flac            1.4.2
 fontconfig      2.14.1
 freetype        2.12.1
-fribidi         1.0.11
+fribidi         1.0.12
 giflib          5.2.1
 gme             0.6.3
 harfbuzz        2.4.0
