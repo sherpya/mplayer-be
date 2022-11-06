@@ -1,11 +1,14 @@
-diff -ur SDL2-2.0.14.orig/include/begin_code.h SDL2-2.0.14/include/begin_code.h
---- SDL2-2.0.14.orig/include/begin_code.h	2020-12-21 18:44:36.000000000 +0100
-+++ SDL2-2.0.14/include/begin_code.h	2021-06-26 05:17:17.330713236 +0200
+Only in SDL2-2.24.2: configure.orig
+Only in SDL2-2.24.2: configure.rej
+Only in SDL2-2.24.2: .configure.rej.swp
+diff -ur SDL2-2.24.2.orig/include/begin_code.h SDL2-2.24.2/include/begin_code.h
+--- SDL2-2.24.2.orig/include/begin_code.h	2022-08-13 05:48:10.000000000 +0200
++++ SDL2-2.24.2/include/begin_code.h	2022-11-06 02:35:07.590932983 +0100
 @@ -50,6 +50,7 @@
  #endif
  
  /* Some compilers use a special export keyword */
 +#define DECLSPEC
  #ifndef DECLSPEC
- # if defined(__WIN32__) || defined(__WINRT__) || defined(__CYGWIN__)
+ # if defined(__WIN32__) || defined(__WINRT__) || defined(__CYGWIN__) || defined(__GDK__)
  #  ifdef DLL_EXPORT
