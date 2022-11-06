@@ -1,5 +1,5 @@
 diff --git a/src/vm/vmget.c b/src/vm/vmget.c
-index 2bda91f..45858d4 100644
+index 5816f2c..869d1a6 100644
 --- a/src/vm/vmget.c
 +++ b/src/vm/vmget.c
 @@ -25,7 +25,6 @@
@@ -10,7 +10,7 @@ index 2bda91f..45858d4 100644
  #include <inttypes.h>
  #include <stdio.h>
  #include <string.h>
-@@ -321,7 +320,7 @@ video_attr_t vm_get_video_attr(vm_t *vm) {
+@@ -320,7 +319,7 @@ video_attr_t vm_get_video_attr(vm_t *vm) {
    case DVD_DOMAIN_FirstPlay:
      return vm->vmgi->vmgi_mat->vmgm_video_attr;
    default:
@@ -19,7 +19,7 @@ index 2bda91f..45858d4 100644
    }
  }
  
-@@ -335,7 +334,7 @@ audio_attr_t vm_get_audio_attr(vm_t *vm, int streamN) {
+@@ -334,7 +333,7 @@ audio_attr_t vm_get_audio_attr(vm_t *vm, int streamN) {
    case DVD_DOMAIN_FirstPlay:
      return vm->vmgi->vmgi_mat->vmgm_audio_attr;
    default:
@@ -28,7 +28,7 @@ index 2bda91f..45858d4 100644
    }
  }
  
-@@ -349,6 +348,6 @@ subp_attr_t vm_get_subp_attr(vm_t *vm, int streamN) {
+@@ -348,6 +347,6 @@ subp_attr_t vm_get_subp_attr(vm_t *vm, int streamN) {
    case DVD_DOMAIN_FirstPlay:
      return vm->vmgi->vmgi_mat->vmgm_subp_attr;
    default:
