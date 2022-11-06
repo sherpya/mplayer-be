@@ -25,7 +25,7 @@ endif()
 add_definitions(-DX86_ASM -DGENERATED_VERSION_HEADER)
 include_directories(
     ${CMAKE_BINARY_DIR}
-    ${SRC_PATH}/api/svc
+    ${SRC_PATH}/api/wels
     ${SRC_PATH}/common/inc
     ${SRC_PATH}/common/x86
     ${SRC_PATH}/processing/interface
@@ -64,7 +64,7 @@ set_source_files_properties(${processing_srcs}
     INCLUDE_DIRECTORIES "${SRC_PATH}/processing/src/common"
 )
 
-file(GLOB dist_headers ${SRC_PATH}/api/svc/*.h)
+file(GLOB dist_headers ${SRC_PATH}/api/wels/*.h)
 add_library(openh264 STATIC ${common_srcs} ${decoder_srcs} ${encoder_srcs} ${processing_srcs})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/openh264.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/openh264.pc @ONLY)
