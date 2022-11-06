@@ -1,12 +1,12 @@
-diff -ur libwebp-1.2.2.orig/Makefile.in libwebp-1.2.2/Makefile.in
---- libwebp-1.2.2.orig/Makefile.in	2022-01-20 00:36:18.000000000 +0100
-+++ libwebp-1.2.2/Makefile.in	2022-02-28 02:55:33.790858256 +0100
-@@ -349,7 +349,7 @@
+diff -ur libwebp-1.2.4.orig/Makefile.in libwebp-1.2.4/Makefile.in
+--- libwebp-1.2.4.orig/Makefile.in	2022-08-06 01:55:14.000000000 +0200
++++ libwebp-1.2.4/Makefile.in	2022-11-06 02:38:48.854821788 +0100
+@@ -350,7 +350,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
--SUBDIRS = src imageio man $(am__append_1) examples
-+SUBDIRS = src
+-SUBDIRS = sharpyuv src imageio man $(am__append_1) examples
++SUBDIRS = sharpyuv src
  EXTRA_DIST = COPYING autogen.sh
  all: all-recursive
  
