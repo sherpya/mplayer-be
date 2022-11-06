@@ -1,7 +1,7 @@
-diff -ur libjpeg-turbo-2.1.3.orig/CMakeLists.txt libjpeg-turbo-2.1.3/CMakeLists.txt
---- libjpeg-turbo-2.1.3.orig/CMakeLists.txt	2022-02-25 19:53:05.000000000 +0100
-+++ libjpeg-turbo-2.1.3/CMakeLists.txt	2022-02-28 02:48:30.499616429 +0100
-@@ -1448,7 +1448,7 @@
+diff -ur libjpeg-turbo-2.1.4.orig/CMakeLists.txt libjpeg-turbo-2.1.4/CMakeLists.txt
+--- libjpeg-turbo-2.1.4.orig/CMakeLists.txt	2022-08-08 23:03:55.000000000 +0200
++++ libjpeg-turbo-2.1.4/CMakeLists.txt	2022-11-06 02:24:13.799049632 +0100
+@@ -1446,7 +1446,7 @@
      install(TARGETS turbojpeg-static EXPORT ${CMAKE_PROJECT_NAME}Targets
        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -10,7 +10,7 @@ diff -ur libjpeg-turbo-2.1.3.orig/CMakeLists.txt libjpeg-turbo-2.1.3/CMakeLists.
        if(MSVC_IDE OR XCODE)
          set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
        else()
-@@ -1466,7 +1466,7 @@
+@@ -1464,7 +1464,7 @@
    install(TARGETS jpeg-static EXPORT ${CMAKE_PROJECT_NAME}Targets
      INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -19,7 +19,7 @@ diff -ur libjpeg-turbo-2.1.3.orig/CMakeLists.txt libjpeg-turbo-2.1.3/CMakeLists.
      if(MSVC_IDE OR XCODE)
        set(DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CMAKE_INSTALL_CONFIG_NAME}")
      else()
-@@ -1480,7 +1480,7 @@
+@@ -1478,7 +1478,7 @@
        DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME jpegtran${EXE})
    endif()
  endif()
@@ -28,7 +28,7 @@ diff -ur libjpeg-turbo-2.1.3.orig/CMakeLists.txt libjpeg-turbo-2.1.3/CMakeLists.
  install(TARGETS rdjpgcom wrjpgcom RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
  
  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README.ijg
-@@ -1494,8 +1494,9 @@
+@@ -1492,8 +1492,9 @@
    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/java/TJExample.java
      DESTINATION ${CMAKE_INSTALL_DOCDIR})
  endif()
