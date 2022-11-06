@@ -6,7 +6,7 @@
 # includes fixes for: CVE-2014-8962, CVE-2014-9028
 
 PACKAGE=flac
-VERSION=1.3.4
+VERSION=1.4.2
 EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
@@ -17,6 +17,6 @@ __USE_MINGW_ANSI_STDIO=1
 depends lib/libogg.a
 
 STATICLIBS="libFLAC libFLAC++"
-CONFOPTS="--disable-oggtest --disable-xmms-plugin"
+CONFOPTS="--disable-oggtest --disable-xmms-plugin --disable-programs"
 
 pkg_build && pkg_clean
