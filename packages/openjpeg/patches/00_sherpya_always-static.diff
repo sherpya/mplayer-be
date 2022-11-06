@@ -1,12 +1,12 @@
-diff -ur openjpeg-2.3.0.orig/src/lib/openjp2/openjpeg.h openjpeg-2.3.0/src/lib/openjp2/openjpeg.h
---- openjpeg-2.3.0.orig/src/lib/openjp2/openjpeg.h	2017-10-05 00:23:14.000000000 +0200
-+++ openjpeg-2.3.0/src/lib/openjp2/openjpeg.h	2017-11-11 04:32:58.716441104 +0100
-@@ -76,7 +76,7 @@
- #define OPJ_DEPRECATED(func) func
+diff -ur openjpeg-2.5.0.orig/src/lib/openjp2/openjpeg.h openjpeg-2.5.0/src/lib/openjp2/openjpeg.h
+--- openjpeg-2.5.0.orig/src/lib/openjp2/openjpeg.h	2022-05-13 18:54:29.000000000 +0200
++++ openjpeg-2.5.0/src/lib/openjp2/openjpeg.h	2022-11-06 02:45:34.554578664 +0100
+@@ -82,7 +82,7 @@
+ #define OPJ_DEPRECATED_STRUCT_MEMBER(memb, msg) memb
  #endif
  
 -#if defined(OPJ_STATIC) || !defined(_WIN32)
 +#if 1 //defined(OPJ_STATIC) || !defined(_WIN32)
  /* http://gcc.gnu.org/wiki/Visibility */
- #   if __GNUC__ >= 4
+ #   if !defined(_WIN32) && __GNUC__ >= 4
  #       if defined(OPJ_STATIC) /* static library uses "hidden" */
