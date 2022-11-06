@@ -1,7 +1,7 @@
-diff -ur zlib-1.2.11.orig/Makefile.in zlib-1.2.11/Makefile.in
---- zlib-1.2.11.orig/Makefile.in	2017-01-15 18:29:40.000000000 +0100
-+++ zlib-1.2.11/Makefile.in	2018-02-15 04:02:54.286936756 +0100
-@@ -307,7 +307,6 @@
+diff -ur zlib-1.2.13.orig/Makefile.in zlib-1.2.13/Makefile.in
+--- zlib-1.2.13.orig/Makefile.in	2022-10-13 07:06:55.000000000 +0200
++++ zlib-1.2.13/Makefile.in	2022-11-06 01:16:35.635212415 +0100
+@@ -303,7 +303,6 @@
  	-@if [ ! -d $(DESTDIR)$(exec_prefix)  ]; then mkdir -p $(DESTDIR)$(exec_prefix); fi
  	-@if [ ! -d $(DESTDIR)$(libdir)       ]; then mkdir -p $(DESTDIR)$(libdir); fi
  	-@if [ ! -d $(DESTDIR)$(sharedlibdir) ]; then mkdir -p $(DESTDIR)$(sharedlibdir); fi
@@ -9,7 +9,7 @@ diff -ur zlib-1.2.11.orig/Makefile.in zlib-1.2.11/Makefile.in
  	-@if [ ! -d $(DESTDIR)$(pkgconfigdir) ]; then mkdir -p $(DESTDIR)$(pkgconfigdir); fi
  	rm -f $(DESTDIR)$(libdir)/$(STATICLIB)
  	cp $(STATICLIB) $(DESTDIR)$(libdir)
-@@ -324,9 +323,6 @@
+@@ -320,9 +319,6 @@
  	  ln -s $(SHAREDLIBV) $(DESTDIR)$(sharedlibdir)/$(SHAREDLIBM); \
  	  ($(LDCONFIG) || true)  >/dev/null 2>&1; \
  	fi

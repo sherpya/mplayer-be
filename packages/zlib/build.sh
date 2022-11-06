@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=zlib
-VERSION=1.2.12
+VERSION=1.2.13
 EXT=tar.xz
 BASEURL=http://zlib.net
 

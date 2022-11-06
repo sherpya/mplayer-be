@@ -1,7 +1,7 @@
-diff -ur zlib-1.2.12.orig/configure zlib-1.2.12/configure
---- zlib-1.2.12.orig/configure	2022-03-28 01:39:42.000000000 +0200
-+++ zlib-1.2.12/configure	2022-04-07 00:58:16.952687348 +0200
-@@ -127,7 +127,7 @@
+diff -ur zlib-1.2.13.orig/configure zlib-1.2.13/configure
+--- zlib-1.2.13.orig/configure	2022-10-10 20:11:12.000000000 +0200
++++ zlib-1.2.13/configure	2022-11-06 01:17:07.371159605 +0100
+@@ -130,7 +130,7 @@
      -l* | --libdir) libdir="$2"; shift; shift ;;
      -i* | --includedir) includedir="$2"; shift; shift ;;
      -s* | --shared | --enable-shared) shared=1; shift ;;
@@ -10,7 +10,7 @@ diff -ur zlib-1.2.12.orig/configure zlib-1.2.12/configure
      --solo) solo=1; shift ;;
      --cover) cover=1; shift ;;
      -z* | --zprefix) zprefix=1; shift ;;
-@@ -141,8 +141,7 @@
+@@ -144,8 +144,7 @@
      --sanitize) sanitize=1; shift ;;
      *)
        echo "unknown option: $1" | tee -a configure.log
