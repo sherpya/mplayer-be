@@ -1,16 +1,18 @@
-diff -ur SDL2-2.24.2.orig/configure SDL2-2.24.2/configure
---- SDL2-2.24.2.orig/configure	2022-11-01 13:47:52.000000000 +0100
-+++ SDL2-2.24.2/configure	2022-11-06 02:34:54.126939023 +0100
-@@ -19884,7 +19884,7 @@
- fi
+diff -ur SDL2-2.26.1.orig/configure SDL2-2.26.1/configure
+--- SDL2-2.26.1.orig/configure	2022-12-01 20:56:31.000000000 +0100
++++ SDL2-2.26.1/configure	2022-12-16 23:43:02.022489693 +0100
+@@ -19923,8 +19923,8 @@
  
  
--    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for iconv_open in -liconv" >&5
-+    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libiconv_open in -liconv" >&5
- printf %s "checking for iconv_open in -liconv... " >&6; }
+     if test x$enable_system_iconv = xyes; then
+-        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for iconv_open in -liconv" >&5
+-printf %s "checking for iconv_open in -liconv... " >&6; }
++        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libiconv_open in -liconv" >&5
++printf %s "checking for libiconv_open in -liconv... " >&6; }
  if test ${ac_cv_lib_iconv_iconv_open+y}
  then :
-@@ -19898,11 +19898,11 @@
+   printf %s "(cached) " >&6
+@@ -19937,11 +19937,11 @@
  /* Override any GCC internal prototype to avoid an error.
     Use char because int might match the return type of a GCC
     builtin and then its argument prototype would still apply.  */
@@ -24,6 +26,3 @@ diff -ur SDL2-2.24.2.orig/configure SDL2-2.24.2/configure
    ;
    return 0;
  }
-Only in SDL2-2.24.2: configure.orig
-Only in SDL2-2.24.2: configure.rej
-Only in SDL2-2.24.2: .configure.rej.swp

@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=SDL2
-VERSION=2.24.2
+VERSION=2.26.1
 EXT=tar.gz
 BASEURL=http://www.libsdl.org/release
 
