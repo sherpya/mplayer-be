@@ -1,0 +1,17 @@
+diff -ur libiconv-1.17.orig/srclib/rawmemchr.c libiconv-1.17/srclib/rawmemchr.c
+--- libiconv-1.17.orig/srclib/rawmemchr.c	2022-01-04 09:33:30.000000000 +0100
++++ libiconv-1.17/srclib/rawmemchr.c	2022-12-17 00:32:21.049816852 +0100
+@@ -28,6 +28,13 @@
+ 
+ # include "verify.h"
+ 
++#ifndef UINTPTR_WIDTH
++# define UINTPTR_WIDTH _GL_INTEGER_WIDTH (0, UINTPTR_MAX)
++#endif
++#ifndef UCHAR_WIDTH
++# define UCHAR_WIDTH _GL_INTEGER_WIDTH (0, UCHAR_MAX)
++#endif
++
+ /* Find the first occurrence of C in S.  */
+ void *
+ rawmemchr (const void *s, int c_in)

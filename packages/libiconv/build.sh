@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for GNU libiconv
-# Copyright (c) 2013-2019 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libiconv
-VERSION=1.16
+VERSION=1.17
 EXT=tar.gz
 BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
@@ -12,6 +12,7 @@ BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
 STATICLIBS="libiconv"
 CONFOPTS="--disable-nls"
+[ "${ARCH}" = "x86" ] && CONFOPTS+=" --disable-year2038"
 
 CFLAGS="-include stdint.h"
 
