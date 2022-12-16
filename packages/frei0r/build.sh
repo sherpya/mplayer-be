@@ -8,8 +8,6 @@ MARCH=i686
 
 . $(dirname $0)/../functions.sh
 
-depends lib/libgavl.a
-
 CMAKE=1
 CMAKEOPTS="-DCMAKE_MODULE_LINKER_FLAGS=-s"
 

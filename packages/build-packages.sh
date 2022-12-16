@@ -50,7 +50,6 @@ freetype
 fribidi
 fontconfig
 harfbuzz
-gavl
 giflib
 frei0r
 libshine
