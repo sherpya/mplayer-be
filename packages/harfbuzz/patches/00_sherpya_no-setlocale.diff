@@ -1,0 +1,12 @@
+diff -ur harfbuzz-6.0.0.orig/util/options.hh harfbuzz-6.0.0/util/options.hh
+--- harfbuzz-6.0.0.orig/util/options.hh	2022-12-16 22:36:15.000000000 +0100
++++ harfbuzz-6.0.0/util/options.hh	2022-12-17 01:00:12.698428356 +0100
+@@ -201,7 +201,7 @@
+ inline bool
+ option_parser_t::parse (int *argc, char ***argv, bool ignore_error)
+ {
+-  setlocale (LC_ALL, "");
++  //setlocale (LC_ALL, "");
+ 
+   GError *parse_error = nullptr;
+   if (!g_option_context_parse (context, argc, argv, &parse_error))

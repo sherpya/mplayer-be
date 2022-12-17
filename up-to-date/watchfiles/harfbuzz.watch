@@ -1,2 +1,4 @@
-version=3
-https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-([\d\.]+)\.tar\.bz2
+version=4
+opts=searchmode=plain \
+https://api.github.com/repos/@PACKAGE@/@PACKAGE@/releases \
+https://github.com/@PACKAGE@/@PACKAGE@/releases/download/v?[\d.]+/@PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@

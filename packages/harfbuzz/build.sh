@@ -4,9 +4,9 @@
 # See LICENSE for licensing informations
 
 PACKAGE=harfbuzz
-VERSION=2.4.0
-EXT=tar.bz2
-BASEURL=https://www.freedesktop.org/software/harfbuzz/release
+VERSION=6.0.0
+EXT=tar.xz
+BASEURL=https://github.com/harfbuzz/harfbuzz/releases/download/${VERSION}
 
 . $(dirname $0)/../functions.sh
 
