@@ -4,7 +4,6 @@
 # See LICENSE for licensing informations
 
 GIT_REPO=https://chromium.googlesource.com/webm/libvpx.git
-MARCH=i686
 
 . $(dirname $0)/../functions.sh
 

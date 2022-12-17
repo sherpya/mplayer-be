@@ -4,7 +4,6 @@
 # See LICENSE for licensing informations
 
 GIT_REPO=https://github.com/cisco/openh264.git
-MARCH=i686
 
 __USE_MINGW_ANSI_STDIO=1
 

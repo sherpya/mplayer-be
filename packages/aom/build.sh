@@ -4,7 +4,6 @@
 # See LICENSE for licensing informations
 
 GIT_REPO=https://aomedia.googlesource.com/aom
-MARCH=i686
 
 . $(dirname $0)/../functions.sh
 

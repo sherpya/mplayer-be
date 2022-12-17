@@ -4,7 +4,6 @@
 # See LICENSE for licensing informations
 
 GIT_REPO=https://code.videolan.org/videolan/x264.git
-MARCH=i686
 
 . $(dirname $0)/../functions.sh
 
