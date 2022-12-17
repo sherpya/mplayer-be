@@ -1,4 +1,4 @@
-From e9d7c419d1f3b606b5d89526f91e956bb38e6b46 Mon Sep 17 00:00:00 2001
+From 1a6d2616eb59226379be9a381316e89a74919e2e Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 8/9] custom icon and windows resource
@@ -23,10 +23,10 @@ Subject: [PATCH 8/9] custom icon and windows resource
  create mode 100644 fftools/ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index 48cfb6e240..5d432b8087 100644
+index 1fb742f390..62c67f0600 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -123,6 +123,9 @@ else
+@@ -127,6 +127,9 @@ else
  	$(STRIP) $@
  endif
  
@@ -2868,13 +2868,13 @@ literal 0
 HcmV?d00001
 
 diff --git a/fftools/Makefile b/fftools/Makefile
-index 5ebf50d42e..8ddbd23ead 100644
+index 8ac38e75d2..132985348a 100644
 --- a/fftools/Makefile
 +++ b/fftools/Makefile
-@@ -13,6 +13,8 @@ OBJS-ffmpeg                        += fftools/ffmpeg_opt.o fftools/ffmpeg_filter
- 
- define DOFFTOOL
- OBJS-$(1) += fftools/cmdutils.o fftools/opt_common.o fftools/$(1).o $(OBJS-$(1)-yes)
+@@ -25,6 +25,8 @@ OBJS-$(1) += fftools/cmdutils.o fftools/opt_common.o fftools/$(1).o $(OBJS-$(1)-
+ ifdef HAVE_GNU_WINDRES
+ OBJS-$(1) += fftools/fftoolsres.o
+ endif
 +# if EXESUF is exe (win32) and the corresponding .rc file does exist
 +$(if $(and $(findstring .exe,$(EXESUF)),$(wildcard fftools/$(1).rc)),OBJS-$(1) += fftools/$(1)$(PROGSSUF)_rc.o)
  $(1)$(PROGSSUF)_g$(EXESUF): $$(OBJS-$(1))
@@ -2953,5 +2953,5 @@ index 0000000000..0322991266
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.35.1
+2.39.0
 

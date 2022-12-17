@@ -1,4 +1,4 @@
-From 721ca70f6f8492e7ef6e60c86859a2b5dc12b33b Mon Sep 17 00:00:00 2001
+From 6248d5d1e80295229959460fca36ab2607dbf47d Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 4 Dec 2016 01:28:51 +0100
 Subject: [PATCH 4/9] dynamic loading of shared fdk-aac library
@@ -12,10 +12,10 @@ Subject: [PATCH 4/9] dynamic loading of shared fdk-aac library
  create mode 100644 libavcodec/libfdk-aac_internal.h
 
 diff --git a/configure b/configure
-index cd75133b4b..40da1efce4 100755
+index c386dcc5c5..5a1fb923f0 100755
 --- a/configure
 +++ b/configure
-@@ -1786,7 +1786,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
+@@ -1776,7 +1776,6 @@ EXTERNAL_LIBRARY_GPL_LIST="
  
  EXTERNAL_LIBRARY_NONFREE_LIST="
      decklink
@@ -23,7 +23,7 @@ index cd75133b4b..40da1efce4 100755
      libtls
  "
  
-@@ -1883,6 +1882,7 @@ EXTERNAL_LIBRARY_LIST="
+@@ -1875,6 +1874,7 @@ EXTERNAL_LIBRARY_LIST="
      openssl
      pocketsphinx
      vapoursynth
@@ -31,7 +31,7 @@ index cd75133b4b..40da1efce4 100755
  "
  
  HWACCEL_AUTODETECT_LIBRARY_LIST="
-@@ -6522,9 +6522,7 @@ enabled libdav1d          && require_pkg_config libdav1d "dav1d >= 0.5.0" "dav1d
+@@ -6563,9 +6563,7 @@ enabled libdav1d          && require_pkg_config libdav1d "dav1d >= 0.5.0" "dav1d
  enabled libdavs2          && require_pkg_config libdavs2 "davs2 >= 1.6.0" davs2.h davs2_decoder_open
  enabled libdc1394         && require_pkg_config libdc1394 libdc1394-2 dc1394/dc1394.h dc1394_new
  enabled libdrm            && require_pkg_config libdrm libdrm xf86drm.h drmGetVersion
@@ -133,13 +133,13 @@ index 0000000000..cd1e6e3340
 +
 +#endif /* AVCODEC_LIBFDK_AAC_INTERNAL_H */
 diff --git a/libavcodec/libfdk-aacdec.c b/libavcodec/libfdk-aacdec.c
-index 11eee51a98..771163b7ec 100644
+index 8c1586e25e..4d6822d140 100644
 --- a/libavcodec/libfdk-aacdec.c
 +++ b/libavcodec/libfdk-aacdec.c
 @@ -25,6 +25,7 @@
  #include "avcodec.h"
  #include "codec_internal.h"
- #include "internal.h"
+ #include "decode.h"
 +#include "libfdk-aac_internal.h"
  
  #ifdef AACDECODER_LIB_VL0
@@ -204,7 +204,7 @@ index 11eee51a98..771163b7ec 100644
      if (!s->handle) {
          av_log(avctx, AV_LOG_ERROR, "Error opening decoder\n");
 diff --git a/libavcodec/libfdk-aacenc.c b/libavcodec/libfdk-aacenc.c
-index a5697bde51..481f3e743a 100644
+index 54549de473..c36615bcdd 100644
 --- a/libavcodec/libfdk-aacenc.c
 +++ b/libavcodec/libfdk-aacenc.c
 @@ -28,6 +28,8 @@
@@ -262,5 +262,5 @@ index a5697bde51..481f3e743a 100644
          av_log(avctx, AV_LOG_ERROR, "Unable to open the encoder: %s\n",
                 aac_get_error(err));
 -- 
-2.35.1
+2.39.0
 

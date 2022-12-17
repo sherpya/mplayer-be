@@ -1,4 +1,4 @@
-From ac1ae82375133f370965ba326bb4178c1e2bd039 Mon Sep 17 00:00:00 2001
+From 80ad05281495437012fbe82a928095b052efda29 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 6/9] programs: print version info and configuration only on
@@ -9,10 +9,10 @@ Subject: [PATCH 6/9] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/fftools/opt_common.c b/fftools/opt_common.c
-index c303db4d09..570b7eee53 100644
+index 8a06df82df..5516efde21 100644
 --- a/fftools/opt_common.c
 +++ b/fftools/opt_common.c
-@@ -202,7 +202,7 @@ static void print_program_info(int flags, int level)
+@@ -205,7 +205,7 @@ static void print_program_info(int flags, int level)
      av_log(NULL, level, "\n");
      av_log(NULL, level, "%sbuilt with %s\n", indent, CC_IDENT);
  
@@ -21,7 +21,7 @@ index c303db4d09..570b7eee53 100644
  }
  
  static void print_buildconf(int flags, int level)
-@@ -238,8 +238,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
+@@ -241,8 +241,8 @@ void show_banner(int argc, char **argv, const OptionDef *options)
          return;
  
      print_program_info (INDENT|SHOW_COPYRIGHT, AV_LOG_INFO);
@@ -33,5 +33,5 @@ index c303db4d09..570b7eee53 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-2.35.1
+2.39.0
 
