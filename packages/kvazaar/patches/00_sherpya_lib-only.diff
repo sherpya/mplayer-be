@@ -1,5 +1,5 @@
 diff --git a/Makefile.am b/Makefile.am
-index 48963a44..2e308bf4 100644
+index 8ead0f9f..2e308bf4 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -1,10 +1,6 @@
@@ -9,13 +9,13 @@ index 48963a44..2e308bf4 100644
 -
 -dist_man1_MANS = doc/kvazaar.1
 -
--dist_doc_DATA = LICENSE LICENSE.EXT.greatest LICENSE.EXT.x264asm CREDITS README.md
+-dist_doc_DATA = LICENSE LICENSE.EXT.greatest CREDITS README.md
 +SUBDIRS = src
  
  EXTRA_DIST = \
  	build \
 diff --git a/src/Makefile.am b/src/Makefile.am
-index 0490c81a..4b1678f7 100644
+index abc5ffe0..9e9d4707 100644
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
 @@ -1,4 +1,3 @@
