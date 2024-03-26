@@ -3,7 +3,7 @@
 # Copyright (c) 2014-2016 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
-HG_REPO=http://hg.videolan.org/x265
+GIT_REPO=https://bitbucket.org/multicoreware/x265_git.git
 
 . $(dirname $0)/../functions.sh
 
@@ -16,4 +16,4 @@ CMAKEOPTS="-DENABLE_SHARED=OFF -DENABLE_CLI=OFF"
 # enable windows xp/vista compatibility in x86 build
 [ "${ARCH}" = "x86" ] && CMAKEOPTS+=" -DWINXP_SUPPORT=1"
 
-hg_clean && pkg_build && hg_clean
+git_clean && pkg_build && git_clean

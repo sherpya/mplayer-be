@@ -1,7 +1,8 @@
-diff -r 65b6d13ab22a source/CMakeLists.txt
---- a/source/CMakeLists.txt	Wed Oct 28 01:00:40 2020 +0530
-+++ b/source/CMakeLists.txt	Sat Jul 10 02:08:05 2021 +0200
-@@ -704,7 +704,7 @@
+diff --git a/source/CMakeLists.txt b/source/CMakeLists.txt
+index ab5ddfeb7..c069fa48d 100755
+--- a/source/CMakeLists.txt
++++ b/source/CMakeLists.txt
+@@ -784,7 +784,7 @@ if(X265_LATEST_TAG)
          # blacklist of libraries that should not be in Libs.private
          list(REMOVE_ITEM PLIBLIST "-lc" "-lpthread" "-lmingwex" "-lmingwthrd"
              "-lmingw32" "-lmoldname" "-lmsvcrt" "-ladvapi32" "-lshell32"
