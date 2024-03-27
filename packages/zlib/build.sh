@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for zlib data compression library
-# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2024 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=zlib
-VERSION=1.2.13
+VERSION=1.3.1
 EXT=tar.xz
 BASEURL=http://zlib.net
 

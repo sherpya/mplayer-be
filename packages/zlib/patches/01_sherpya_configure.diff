@@ -1,6 +1,6 @@
-diff -ur zlib-1.2.13.orig/configure zlib-1.2.13/configure
---- zlib-1.2.13.orig/configure	2022-10-10 20:11:12.000000000 +0200
-+++ zlib-1.2.13/configure	2022-11-06 01:17:07.371159605 +0100
+diff -ur zlib-1.3.1.orig/configure zlib-1.3.1/configure
+--- zlib-1.3.1.orig/configure	2024-01-21 03:29:31.000000000 +0100
++++ zlib-1.3.1/configure	2024-03-27 03:23:56.775190297 +0100
 @@ -130,7 +130,7 @@
      -l* | --libdir) libdir="$2"; shift; shift ;;
      -i* | --includedir) includedir="$2"; shift; shift ;;
@@ -10,8 +10,8 @@ diff -ur zlib-1.2.13.orig/configure zlib-1.2.13/configure
      --solo) solo=1; shift ;;
      --cover) cover=1; shift ;;
      -z* | --zprefix) zprefix=1; shift ;;
-@@ -144,8 +144,7 @@
-     --sanitize) sanitize=1; shift ;;
+@@ -146,8 +146,7 @@
+     --memory) memory=1; shift ;;
      *)
        echo "unknown option: $1" | tee -a configure.log
 -      echo "$0 --help for help" | tee -a configure.log
