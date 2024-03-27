@@ -94,7 +94,8 @@ export ac_cv_sizeof_intmax_t=8
 export ac_cv_sizeof_long=4
 export ac_cv_sizeof_long_long=8
 export ac_cv_sizeof_mode_t=2
-export ac_cv_sizeof_off_t=8
+# sherpya: win32 32bit -> 4
+# export ac_cv_sizeof_off_t=8
 export ac_cv_sizeof_short=2
 export ac_cv_sizeof_u_int16_t=2
 export ac_cv_sizeof_uint16_t=2
