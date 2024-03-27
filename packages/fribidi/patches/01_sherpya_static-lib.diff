@@ -1,12 +1,14 @@
-diff -ur fribidi-1.0.11.orig/lib/fribidi-common.h fribidi-1.0.11/lib/fribidi-common.h
---- fribidi-1.0.11.orig/lib/fribidi-common.h	2021-09-23 23:01:24.000000000 +0200
-+++ fribidi-1.0.11/lib/fribidi-common.h	2021-10-24 12:25:17.109237561 +0200
-@@ -42,7 +42,7 @@
+diff -ur fribidi-1.0.13.orig/lib/fribidi-common.h fribidi-1.0.13/lib/fribidi-common.h
+--- fribidi-1.0.13.orig/lib/fribidi-common.h	2023-05-16 20:47:48.000000000 +0200
++++ fribidi-1.0.13/lib/fribidi-common.h	2024-03-27 01:13:54.348633059 +0100
+@@ -26,6 +26,10 @@
+ #ifndef _FRIBIDI_COMMON_H
+ #define _FRIBIDI_COMMON_H
  
- 
- /* FRIBIDI_ENTRY is a macro used to declare library entry points. */
--#ifndef FRIBIDI_LIB_STATIC
-+#if 0
- # ifndef FRIBIDI_ENTRY
- #  ifdef _WIN32
- #   ifdef FRIBIDI_BUILD
++#ifndef FRIBIDI_LIB_STATIC
++#define FRIBIDI_LIB_STATIC 1
++#endif
++
+ #ifdef DONT_HAVE_FRIBIDI_CONFIG_H
+ # define FRIBIDI "fribidi"
+ # define FRIBIDI_NAME "fribidi"
