@@ -1,21 +1,55 @@
 diff -ur mingw-w64-10.0.0.orig/debian/changelog mingw-w64-10.0.0/debian/changelog
 --- mingw-w64-10.0.0.orig/debian/changelog	2022-12-14 18:32:07.000000000 +0100
-+++ mingw-w64-10.0.0/debian/changelog	2022-12-16 23:02:37.763708819 +0100
-@@ -1,3 +1,10 @@
++++ mingw-w64-10.0.0/debian/changelog	2023-11-10 20:34:09.269723629 +0100
+@@ -1,3 +1,9 @@
 +mingw-w64 (10.0.0-3.1~sherpya) unstable; urgency=medium
 +
-+  * Rebuild with:
-+    * --with-default-win32-winnt=0x502
++  * Rebuild with: --with-default-win32-winnt=0x50
 +
-+ -- Gianluigi Tiesi <sherpya@netfarm.it>  Fri, 16 Dec 2022 22:47:18 +0100
++ -- Gianluigi Tiesi <sherpya@netfarm.it>  Fri, 10 Nov 2023 20:33:42 +0100
 +
  mingw-w64 (10.0.0-3) unstable; urgency=medium
  
    [ Stephen Kitt ]
+diff -ur mingw-w64-10.0.0.orig/debian/control mingw-w64-10.0.0/debian/control
+--- mingw-w64-10.0.0.orig/debian/control	2022-12-14 10:23:35.000000000 +0100
++++ mingw-w64-10.0.0/debian/control	2023-11-10 20:32:43.333777015 +0100
+@@ -39,23 +39,6 @@
+  The wine package can be used to test software built using MinGW-w64
+  without using Windows.
+ 
+-Package: mingw-w64-x86-64-dev
+-Architecture: all
+-Multi-Arch: foreign
+-Depends: ${misc:Depends},
+-         mingw-w64-common
+-Suggests: wine64
+-Description: Development files for MinGW-w64 targeting Win64
+- MinGW-w64 provides a development and runtime environment for 32- and
+- 64-bit (x86 and x64) Windows applications using the Windows API and
+- the GNU Compiler Collection (gcc).
+- .
+- This package contains the headers and libraries required to build
+- 64-bit software using MinGW-w64.
+- .
+- The wine64 package can be used to test software built using MinGW-w64
+- without using Windows.
+-
+ Package: mingw-w64
+ Architecture: all
+ Depends: gcc-mingw-w64,
 diff -ur mingw-w64-10.0.0.orig/debian/rules mingw-w64-10.0.0/debian/rules
 --- mingw-w64-10.0.0.orig/debian/rules	2022-12-12 13:32:12.000000000 +0100
-+++ mingw-w64-10.0.0/debian/rules	2022-12-16 23:02:31.827699171 +0100
-@@ -117,7 +117,8 @@
++++ mingw-w64-10.0.0/debian/rules	2023-11-10 20:32:43.333777015 +0100
+@@ -27,7 +27,6 @@
+ 
+ # Target architectures
+ target32 := i686-w64-mingw32
+-target64 := x86_64-w64-mingw32
+ targets := $(target32) $(target64)
+ 
+ # Host architecture
+@@ -117,7 +116,8 @@
  	'$(call source_folder,$(*)~headers)/configure' \
  	  --host=$(call rule_host,$(*)~headers) \
  	  --target=$(call rule_target,$(*)~headers) \
@@ -25,3 +59,11 @@ diff -ur mingw-w64-10.0.0.orig/debian/rules mingw-w64-10.0.0/debian/rules
  	touch '$(stamp)/$(*)~headers~configure'
  
  # Override CRT configuration to avoid multilib builds
+@@ -132,7 +132,6 @@
+ 	  --host=$(call rule_host,$(*)~crt) \
+ 	  --target=$(call rule_target,$(*)~crt) \
+ 	  --prefix=/usr/$(call rule_target,$(*)~crt) \
+-	  --$(if $(filter $(call rule_target,$(*)~crt),$(target64)),enable,disable)-lib64 \
+ 	  --$(if $(filter $(call rule_target,$(*)~crt),$(target32)),enable,disable)-lib32
+ 	touch '$(stamp)/$(*)~crt~configure'
+ 
