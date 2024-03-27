@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for mbedtls data compressor
-# Copyright (c) 2019-2022 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2019-2024 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=mbedtls
-VERSION=2.28.2
+VERSION=2.28.7
 EXT=tar.gz
 BASEURL=https://github.com/ARMmbed/mbedtls/archive/refs/tags
 

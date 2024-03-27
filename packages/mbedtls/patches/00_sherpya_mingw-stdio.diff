@@ -1,7 +1,7 @@
-diff -ur mbedtls-2.28.2.orig/include/mbedtls/platform.h mbedtls-2.28.2/include/mbedtls/platform.h
---- mbedtls-2.28.2.orig/include/mbedtls/platform.h	2022-12-12 16:17:36.000000000 +0100
-+++ mbedtls-2.28.2/include/mbedtls/platform.h	2022-12-16 23:46:10.658905445 +0100
-@@ -69,7 +69,7 @@
+diff -ur mbedtls-2.28.7.orig/include/mbedtls/platform.h mbedtls-2.28.7/include/mbedtls/platform.h
+--- mbedtls-2.28.7.orig/include/mbedtls/platform.h	2024-01-22 17:47:55.000000000 +0100
++++ mbedtls-2.28.7/include/mbedtls/platform.h	2024-03-27 02:21:20.203306077 +0100
+@@ -57,7 +57,7 @@
   * implementations of some standard library functions, including snprintf
   * and vsnprintf. This affects MSVC and MinGW builds.
   */
