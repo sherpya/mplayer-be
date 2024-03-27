@@ -1,14 +1,14 @@
-From 0b8f04edb9a81f8191bee817688f8b14071505bb Mon Sep 17 00:00:00 2001
+From bf3ed55082999a3a85b34c66ba9cd247d161bcf2 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 18 May 2013 01:27:58 +0200
 Subject: [PATCH 5/9] avfilters: better behavior of frei0r on win32
 
 ---
- libavfilter/vf_frei0r.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ libavfilter/vf_frei0r.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
 diff --git a/libavfilter/vf_frei0r.c b/libavfilter/vf_frei0r.c
-index 59873dc502..7b9cae8d47 100644
+index 7dccd5946f..2de791459f 100644
 --- a/libavfilter/vf_frei0r.c
 +++ b/libavfilter/vf_frei0r.c
 @@ -43,6 +43,10 @@
@@ -22,7 +22,24 @@ index 59873dc502..7b9cae8d47 100644
  typedef f0r_instance_t (*f0r_construct_f)(unsigned int width, unsigned int height);
  typedef void (*f0r_destruct_f)(f0r_instance_t instance);
  typedef void (*f0r_deinit_f)(void);
-@@ -246,11 +250,31 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+@@ -191,6 +195,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+     f0r_plugin_info_t *pi;
+     char *path;
+     int ret = 0;
++#ifndef _WIN32
+     int i;
+     static const char* const frei0r_pathlist[] = {
+         "/usr/local/lib/frei0r-1/",
+@@ -198,7 +203,7 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
+         "/usr/local/lib64/frei0r-1/",
+         "/usr/lib64/frei0r-1/"
+     };
+-
++#endif
+     if (!dl_name) {
+         av_log(ctx, AV_LOG_ERROR, "No filter name provided.\n");
+         return AVERROR(EINVAL);
+@@ -246,11 +251,31 @@ static av_cold int frei0r_init(AVFilterContext *ctx,
          if (ret < 0)
              return ret;
      }
@@ -55,5 +72,5 @@ index 59873dc502..7b9cae8d47 100644
          av_log(ctx, AV_LOG_ERROR, "Could not find module '%s'.\n", dl_name);
          return AVERROR(EINVAL);
 -- 
-2.39.0
+2.43.0
 
