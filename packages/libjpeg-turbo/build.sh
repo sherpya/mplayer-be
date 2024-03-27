@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for libjpeg-turbo
-# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2024 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libjpeg-turbo
-VERSION=2.1.4
+VERSION=3.0.1
 EXT=tar.gz
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${VERSION}
 
