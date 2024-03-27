@@ -5,7 +5,7 @@ flac            1.4.3
 fontconfig      2.15.0
 freetype        2.13.2
 fribidi         1.0.13
-giflib          5.2.1
+giflib          5.2.2
 gme             0.6.3
 harfbuzz        6.0.0
 lame            3.99.5
