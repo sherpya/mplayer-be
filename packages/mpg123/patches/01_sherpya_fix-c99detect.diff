@@ -1,0 +1,11 @@
+--- mpg123-1.32.5.orig/test_c99.c	2024-02-17 10:14:50.000000000 +0100
++++ mpg123-1.32.5/test_c99.c	2024-03-27 02:38:53.545155609 +0100
+@@ -41,7 +41,7 @@
+ 		"%s"  " %s"    " %s"   " %s"   " %s"   " %s"   " %s"   " %s"    " %s " "\n"
+ 	,	"zu", PRIiMAX, PRIu16, PRIu32, PRIi16, PRIi32, PRIi64, PRIuMAX, PRIiMAX );
+ 	printf( "values:"
+-		" %zu" " %"PRIiMAX " %"PRIu16 " %"PRIu32 " %"PRIi16 " %"PRIi32 " %"PRIi64 " %"PRIuMAX " %"PRIiMAX "\n"
++		" %zu" " %"PRIdPTR " %"PRIu16 " %"PRIu32 " %"PRIi16 " %"PRIi32 " %"PRIi64 " %"PRIuMAX " %"PRIiMAX "\n"
+ 	,	  st,    pt,         u16,       u32,       i16,       i32,       i64,       um,         im );
+ 	printf("%ld <= long <= %ld\n", LONG_MIN, LONG_MAX);
+ 	printf( "The test string is %zu bytes long and compares to frick as %d\n"

@@ -1,18 +1,7 @@
-diff -ur mpg123-1.31.1.orig/Makefile.in mpg123-1.31.1/Makefile.in
---- mpg123-1.31.1.orig/Makefile.in	2022-11-01 00:05:47.000000000 +0100
-+++ mpg123-1.31.1/Makefile.in	2022-11-06 02:42:22.262698628 +0100
-@@ -117,8 +117,8 @@
- POST_UNINSTALL = :
- build_triplet = @build@
- host_triplet = @host@
--bin_PROGRAMS = src/mpg123$(EXEEXT) src/out123$(EXEEXT) \
--	src/mpg123-id3dump$(EXEEXT) src/mpg123-strip$(EXEEXT)
-+#bin_PROGRAMS = src/mpg123$(EXEEXT) src/out123$(EXEEXT) \
-+#	src/mpg123-id3dump$(EXEEXT) src/mpg123-strip$(EXEEXT)
- EXTRA_PROGRAMS = src/tests/volume$(EXEEXT) \
- 	src/tests/decode_fixed$(EXEEXT) src/tests/seek_whence$(EXEEXT) \
- 	src/tests/seek_accuracy$(EXEEXT) src/tests/noise$(EXEEXT) \
-@@ -5596,14 +5596,14 @@
+diff -ur mpg123-1.32.5.orig/Makefile.in mpg123-1.32.5/Makefile.in
+--- mpg123-1.32.5.orig/Makefile.in	2024-02-17 10:15:47.000000000 +0100
++++ mpg123-1.32.5/Makefile.in	2024-03-27 02:44:07.740963286 +0100
+@@ -5787,14 +5787,14 @@
  
  info-am:
  
