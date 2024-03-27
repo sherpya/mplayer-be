@@ -1,0 +1,12 @@
+Only in SDL2-2.30.1: .configure.swp
+diff -ur SDL2-2.30.1.orig/include/begin_code.h SDL2-2.30.1/include/begin_code.h
+--- SDL2-2.30.1.orig/include/begin_code.h	2024-03-05 23:37:32.000000000 +0100
++++ SDL2-2.30.1/include/begin_code.h	2024-03-27 02:13:07.751090198 +0100
+@@ -52,6 +52,7 @@
+ #endif
+ 
+ /* Some compilers use a special export keyword */
++#define DECLSPEC
+ #ifndef DECLSPEC
+ # if defined(__WIN32__) || defined(__WINRT__) || defined(__CYGWIN__) || defined(__GDK__)
+ #  ifdef DLL_EXPORT
