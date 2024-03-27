@@ -1,7 +1,7 @@
-diff -ur flac-1.4.2.orig/Makefile.in flac-1.4.2/Makefile.in
---- flac-1.4.2.orig/Makefile.in	2022-10-21 19:54:45.140608200 +0200
-+++ flac-1.4.2/Makefile.in	2022-11-06 01:52:24.379908868 +0100
-@@ -395,7 +395,7 @@
+diff -ur flac-1.4.3.orig/Makefile.in flac-1.4.3/Makefile.in
+--- flac-1.4.3.orig/Makefile.in	2023-06-22 10:50:44.205745737 +0200
++++ flac-1.4.3/Makefile.in	2024-03-27 01:05:36.444258732 +0100
+@@ -396,7 +396,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
@@ -10,10 +10,10 @@ diff -ur flac-1.4.2.orig/Makefile.in flac-1.4.2/Makefile.in
  	$(am__append_1)
  EXTRA_DIST = \
  	CMakeLists.txt \
-diff -ur flac-1.4.2.orig/src/libFLAC/Makefile.in flac-1.4.2/src/libFLAC/Makefile.in
---- flac-1.4.2.orig/src/libFLAC/Makefile.in	2022-10-21 19:54:46.738329000 +0200
-+++ flac-1.4.2/src/libFLAC/Makefile.in	2022-11-06 01:53:02.803851144 +0100
-@@ -1039,7 +1039,7 @@
+diff -ur flac-1.4.3.orig/src/libFLAC/Makefile.in flac-1.4.3/src/libFLAC/Makefile.in
+--- flac-1.4.3.orig/src/libFLAC/Makefile.in	2023-06-22 10:50:44.685747363 +0200
++++ flac-1.4.3/src/libFLAC/Makefile.in	2024-03-27 01:05:36.444258732 +0100
+@@ -1044,7 +1044,7 @@
  
  info-am:
  
@@ -22,10 +22,10 @@ diff -ur flac-1.4.2.orig/src/libFLAC/Makefile.in flac-1.4.2/src/libFLAC/Makefile
  
  install-dvi: install-dvi-recursive
  
-diff -ur flac-1.4.2.orig/src/libFLAC++/Makefile.in flac-1.4.2/src/libFLAC++/Makefile.in
---- flac-1.4.2.orig/src/libFLAC++/Makefile.in	2022-10-21 19:54:46.640249800 +0200
-+++ flac-1.4.2/src/libFLAC++/Makefile.in	2022-11-06 01:53:18.647827412 +0100
-@@ -744,7 +744,7 @@
+diff -ur flac-1.4.3.orig/src/libFLAC++/Makefile.in flac-1.4.3/src/libFLAC++/Makefile.in
+--- flac-1.4.3.orig/src/libFLAC++/Makefile.in	2023-06-22 10:50:44.657747267 +0200
++++ flac-1.4.3/src/libFLAC++/Makefile.in	2024-03-27 01:05:36.444258732 +0100
+@@ -750,7 +750,7 @@
  
  info-am:
  
