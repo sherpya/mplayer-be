@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for HarfBuzz
-# Copyright (c) 2018-2024 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2018-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=harfbuzz
-VERSION=8.3.1
+VERSION=10.2.0
 EXT=tar.xz
 BASEURL=https://github.com/harfbuzz/harfbuzz/releases/download/${VERSION}
 
