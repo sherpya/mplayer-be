@@ -1,10 +1,10 @@
 diff --git a/Makefile.am b/Makefile.am
-index ce5fc6b..3505f1f 100644
+index 1a3016e..54b624c 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -16,7 +16,7 @@ EXTRA_DIST = \
- 	example/README \
- 	COPYING
+@@ -20,7 +20,7 @@ EXTRA_DIST = \
+ 	$(wildcard test/data/*.iso) \
+ 	$(wildcard test/*.right)
  
 -SUBDIRS = doc include lib src test example
 +SUBDIRS = include lib

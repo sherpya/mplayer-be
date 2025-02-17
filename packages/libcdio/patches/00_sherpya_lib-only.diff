@@ -1,8 +1,8 @@
 diff --git a/Makefile.am b/Makefile.am
-index 4247a396..32de5edd 100644
+index 646e0584..fb8a87df 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -45,7 +45,7 @@ EXTRA_DIST = \
+@@ -51,7 +51,7 @@ EXTRA_DIST = \
  	$(wildcard test/data/*.iso) \
  	$(wildcard test/*.right)
  
