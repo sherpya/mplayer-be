@@ -1,8 +1,8 @@
 diff --git a/source/CMakeLists.txt b/source/CMakeLists.txt
-index ab5ddfeb7..c069fa48d 100755
+index 37dbe1a87..794ff864b 100755
 --- a/source/CMakeLists.txt
 +++ b/source/CMakeLists.txt
-@@ -784,7 +784,7 @@ if(X265_LATEST_TAG)
+@@ -962,7 +962,7 @@ if(X265_LATEST_TAG OR NOT GIT_FOUND)
          # blacklist of libraries that should not be in Libs.private
          list(REMOVE_ITEM PLIBLIST "-lc" "-lpthread" "-lmingwex" "-lmingwthrd"
              "-lmingw32" "-lmoldname" "-lmsvcrt" "-ladvapi32" "-lshell32"
