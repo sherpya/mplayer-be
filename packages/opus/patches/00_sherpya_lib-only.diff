@@ -1,7 +1,7 @@
-diff -ur opus-1.5.1.orig/Makefile.in opus-1.5.1/Makefile.in
---- opus-1.5.1.orig/Makefile.in	2024-03-04 18:09:15.000000000 +0100
-+++ opus-1.5.1/Makefile.in	2024-03-27 03:05:02.599892051 +0100
-@@ -4426,8 +4426,7 @@
+diff -ur opus-1.5.2.orig/Makefile.in opus-1.5.2/Makefile.in
+--- opus-1.5.2.orig/Makefile.in	2024-04-12 03:52:07.000000000 +0200
++++ opus-1.5.2/Makefile.in	2025-02-17 19:29:10.615774548 +0100
+@@ -4429,8 +4429,7 @@
  
  info-am:
  

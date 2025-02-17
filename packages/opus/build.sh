@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Opus Audio Codec
-# Copyright (c) 2013-2024 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=opus
-VERSION=1.5.1
+VERSION=1.5.2
 EXT=tar.gz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 
