@@ -28,7 +28,7 @@ lzo             2.10
 mbedtls         2.28.9
 mpg123          1.32.10
 opencore-amr    0.1.6
-openjpeg        2.5.2
+openjpeg        2.5.3
 opus            1.5.1
 speex           1.2.1
 twolame         0.4.0
