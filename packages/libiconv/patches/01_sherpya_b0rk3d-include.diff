@@ -1,9 +1,9 @@
-diff -ur libiconv-1.17.orig/srclib/rawmemchr.c libiconv-1.17/srclib/rawmemchr.c
---- libiconv-1.17.orig/srclib/rawmemchr.c	2022-01-04 09:33:30.000000000 +0100
-+++ libiconv-1.17/srclib/rawmemchr.c	2022-12-17 00:32:21.049816852 +0100
-@@ -28,6 +28,13 @@
+diff -ur libiconv-1.18.orig/srclib/rawmemchr.c libiconv-1.18/srclib/rawmemchr.c
+--- libiconv-1.18.orig/srclib/rawmemchr.c	2024-07-12 13:55:16.000000000 +0200
++++ libiconv-1.18/srclib/rawmemchr.c	2025-02-17 19:05:19.637341894 +0100
+@@ -26,6 +26,13 @@
+ # include <stdint.h>
  
- # include "verify.h"
  
 +#ifndef UINTPTR_WIDTH
 +# define UINTPTR_WIDTH _GL_INTEGER_WIDTH (0, UINTPTR_MAX)

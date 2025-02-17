@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for GNU libiconv
-# Copyright (c) 2013-2022 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=libiconv
-VERSION=1.17
+VERSION=1.18
 EXT=tar.gz
 BASEURL=http://ftp.gnu.org/pub/gnu/${PACKAGE}
 
