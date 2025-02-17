@@ -7,7 +7,8 @@ set(giflib_SRCS dgif_lib.c
                 gif_err.c
                 gif_font.c
                 gif_hash.c
-                openbsd-reallocarray.c)
+                openbsd-reallocarray.c
+                quantize.c)
 
 add_definitions(-Wall -Wno-format-truncation)
 

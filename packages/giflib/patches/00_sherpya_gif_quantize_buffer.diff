@@ -1,0 +1,34 @@
+diff -ur giflib-5.2.2.orig/getarg.h giflib-5.2.2/getarg.h
+--- giflib-5.2.2.orig/getarg.h	2024-02-19 03:20:00.000000000 +0100
++++ giflib-5.2.2/getarg.h	2025-02-17 21:57:46.261223689 +0100
+@@ -33,14 +33,6 @@
+ extern void GifQprintf(char *Format, ...);
+ extern void PrintGifError(int ErrorCode);
+ 
+-/******************************************************************************
+- Color table quantization
+-******************************************************************************/
+-int GifQuantizeBuffer(unsigned int Width, unsigned int Height,
+-                      int *ColorMapSize, GifByteType *RedInput,
+-                      GifByteType *GreenInput, GifByteType *BlueInput,
+-                      GifByteType *OutputBuffer, GifColorType *OutputColorMap);
+-
+ /* These used to live in the library header */
+ #define GIF_MESSAGE(Msg) fprintf(stderr, "\n%s: %s\n", PROGRAM_NAME, Msg)
+ #define GIF_EXIT(Msg)                                                          \
+diff -ur giflib-5.2.2.orig/gif_lib.h giflib-5.2.2/gif_lib.h
+--- giflib-5.2.2.orig/gif_lib.h	2024-02-19 08:35:14.000000000 +0100
++++ giflib-5.2.2/gif_lib.h	2025-02-17 21:58:26.853179622 +0100
+@@ -284,6 +284,12 @@
+                                 const char *legend, const int border,
+                                 const int bg, const int fg);
+ 
++extern int GifQuantizeBuffer(unsigned int Width, unsigned int Height,
++                             int *ColorMapSize, const GifByteType *RedInput,
++                             const GifByteType *GreenInput,
++                             const GifByteType *BlueInput, GifByteType *OutputBuffer,
++                             GifColorType *OutputColorMap);
++
+ #ifdef __cplusplus
+ }
+ #endif /* __cplusplus */
