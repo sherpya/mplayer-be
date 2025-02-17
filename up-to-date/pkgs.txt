@@ -26,7 +26,7 @@ libwebp         1.5.0
 libxml2         2.9.12
 lzo             2.10
 mbedtls         2.28.9
-mpg123          1.32.5
+mpg123          1.32.10
 opencore-amr    0.1.6
 openjpeg        2.5.2
 opus            1.5.1

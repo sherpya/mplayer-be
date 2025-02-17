@@ -1,7 +1,7 @@
-diff -ur mpg123-1.32.5.orig/Makefile.in mpg123-1.32.5/Makefile.in
---- mpg123-1.32.5.orig/Makefile.in	2024-02-17 10:15:47.000000000 +0100
-+++ mpg123-1.32.5/Makefile.in	2024-03-27 02:44:07.740963286 +0100
-@@ -5787,14 +5787,14 @@
+diff -ur mpg123-1.32.10.orig/Makefile.in mpg123-1.32.10/Makefile.in
+--- mpg123-1.32.10.orig/Makefile.in	2024-12-14 16:01:11.000000000 +0100
++++ mpg123-1.32.10/Makefile.in	2025-02-17 19:25:11.267709948 +0100
+@@ -5788,14 +5788,14 @@
  
  info-am:
  
