@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Expat XML Parser
-# Copyright (c) 2013-2024 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=expat
-VERSION=2.6.2
+VERSION=2.6.4
 EXT=tar.bz2
 BASEURL=http://downloads.sourceforge.net/project/${PACKAGE}/${PACKAGE}/${VERSION}
 
