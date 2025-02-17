@@ -1,12 +1,12 @@
 #!/bin/bash
 # Build script for Free Lossless Audio Codec
-# Copyright (c) 2013-2024 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2013-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 # includes fixes for: CVE-2014-8962, CVE-2014-9028
 
 PACKAGE=flac
-VERSION=1.4.3
+VERSION=1.5.0
 EXT=tar.xz
 BASEURL=http://downloads.xiph.org/releases/${PACKAGE}
 

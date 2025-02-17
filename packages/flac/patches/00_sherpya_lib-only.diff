@@ -1,19 +1,28 @@
-diff -ur flac-1.4.3.orig/Makefile.in flac-1.4.3/Makefile.in
---- flac-1.4.3.orig/Makefile.in	2023-06-22 10:50:44.205745737 +0200
-+++ flac-1.4.3/Makefile.in	2024-03-27 01:05:36.444258732 +0100
-@@ -396,7 +396,7 @@
+diff -ur flac-1.5.0.orig/Makefile.in flac-1.5.0/Makefile.in
+--- flac-1.5.0.orig/Makefile.in	2025-02-10 15:21:37.863865781 +0100
++++ flac-1.5.0/Makefile.in	2025-02-17 18:56:46.868303461 +0100
+@@ -198,7 +198,7 @@
+   unique=`for i in $$list; do \
+     if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+   done | $(am__uniquify_input)`
+-DIST_SUBDIRS = doc include m4 man src test oss-fuzz examples
++DIST_SUBDIRS = include src
+ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
+ 	README.md ar-lib compile config.guess config.rpath config.sub \
+ 	install-sh ltmain.sh missing
+@@ -402,7 +402,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ACLOCAL_AMFLAGS = -I m4
--SUBDIRS = doc include m4 man src test microbench oss-fuzz \
-+SUBDIRS = include src \
- 	$(am__append_1)
+-SUBDIRS = doc include m4 man src test oss-fuzz $(am__append_1)
++SUBDIRS = include src $(am__append_1)
  EXTRA_DIST = \
  	CMakeLists.txt \
-diff -ur flac-1.4.3.orig/src/libFLAC/Makefile.in flac-1.4.3/src/libFLAC/Makefile.in
---- flac-1.4.3.orig/src/libFLAC/Makefile.in	2023-06-22 10:50:44.685747363 +0200
-+++ flac-1.4.3/src/libFLAC/Makefile.in	2024-03-27 01:05:36.444258732 +0100
-@@ -1044,7 +1044,7 @@
+ 	config.cmake.h.in \
+diff -ur flac-1.5.0.orig/src/libFLAC/Makefile.in flac-1.5.0/src/libFLAC/Makefile.in
+--- flac-1.5.0.orig/src/libFLAC/Makefile.in	2025-02-10 15:21:38.303865669 +0100
++++ flac-1.5.0/src/libFLAC/Makefile.in	2025-02-17 18:56:11.308216887 +0100
+@@ -1051,7 +1051,7 @@
  
  info-am:
  
@@ -22,10 +31,10 @@ diff -ur flac-1.4.3.orig/src/libFLAC/Makefile.in flac-1.4.3/src/libFLAC/Makefile
  
  install-dvi: install-dvi-recursive
  
-diff -ur flac-1.4.3.orig/src/libFLAC++/Makefile.in flac-1.4.3/src/libFLAC++/Makefile.in
---- flac-1.4.3.orig/src/libFLAC++/Makefile.in	2023-06-22 10:50:44.657747267 +0200
-+++ flac-1.4.3/src/libFLAC++/Makefile.in	2024-03-27 01:05:36.444258732 +0100
-@@ -750,7 +750,7 @@
+diff -ur flac-1.5.0.orig/src/libFLAC++/Makefile.in flac-1.5.0/src/libFLAC++/Makefile.in
+--- flac-1.5.0.orig/src/libFLAC++/Makefile.in	2025-02-10 15:21:38.275865676 +0100
++++ flac-1.5.0/src/libFLAC++/Makefile.in	2025-02-17 18:56:11.308216887 +0100
+@@ -757,7 +757,7 @@
  
  info-am:
  
