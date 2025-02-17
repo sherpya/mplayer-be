@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build script for Simple DirectMedia Layer 2 (SDL)
-# Copyright (c) 2019-2024 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2019-2025 Gianluigi Tiesi <sherpya@netfarm.it>
 # See LICENSE for licensing informations
 
 PACKAGE=SDL2
-VERSION=2.30.1
+VERSION=2.32.0
 EXT=tar.gz
 BASEURL=http://www.libsdl.org/release
 
