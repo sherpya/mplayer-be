@@ -1,7 +1,7 @@
-diff -ur libopenmpt-0.7.6+release.autotools.orig/Makefile.in libopenmpt-0.7.6+release.autotools/Makefile.in
---- libopenmpt-0.7.6+release.autotools.orig/Makefile.in	2024-03-24 14:26:50.000000000 +0100
-+++ libopenmpt-0.7.6+release.autotools/Makefile.in	2024-03-27 01:33:00.365792688 +0100
-@@ -7332,8 +7332,7 @@
+diff -ur libopenmpt-0.7.13+release.autotools.orig/Makefile.in libopenmpt-0.7.13+release.autotools/Makefile.in
+--- libopenmpt-0.7.13+release.autotools.orig/Makefile.in	2025-01-06 15:54:35.000000000 +0100
++++ libopenmpt-0.7.13+release.autotools/Makefile.in	2025-02-17 19:11:09.212288783 +0100
+@@ -7384,8 +7384,7 @@
  
  info-am:
  
