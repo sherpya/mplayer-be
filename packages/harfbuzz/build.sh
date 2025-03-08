@@ -4,7 +4,7 @@
 # See LICENSE for licensing informations
 
 PACKAGE=harfbuzz
-VERSION=10.2.0
+VERSION=10.4.0
 EXT=tar.xz
 BASEURL=https://github.com/harfbuzz/harfbuzz/releases/download/${VERSION}
 
