@@ -70,6 +70,7 @@ configure()
     enable avfilter
     enable postproc
 
+    enable amf
     enable libaribb24
     enable avisynth
     config bzlib
