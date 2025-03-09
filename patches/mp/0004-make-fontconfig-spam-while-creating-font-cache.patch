@@ -1,0 +1,43 @@
+From 18f5547608256ba02c17b79c66a97e1bbda836cd Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:43:34 +0100
+Subject: [PATCH 04/26] make fontconfig spam while creating font cache
+
+---
+ mplayer.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/mplayer.c b/mplayer.c
+index a63d4735e..a9c0df804 100644
+--- a/mplayer.c
++++ b/mplayer.c
+@@ -135,6 +135,11 @@
+ #include "stream/stream_dvd.h"
+ #endif
+ 
++#if defined(CONFIG_FONTCONFIG) && defined(_WIN32)
++#include <fontconfig/fontconfig.h>
++extern int FcDebugVal;
++#endif
++
+ int slave_mode;
+ int player_idle_mode;
+ int quiet;
+@@ -3089,6 +3094,14 @@ int main(int argc, char *argv[])
+         current_module     = NULL;
+         gui(GUI_SET_STATE, (void *)(intptr_t)(filename ? GUI_PLAY : GUI_STOP));
+     }
++#elif defined(CONFIG_FONTCONFIG) && defined(_WIN32)
++    /* force cache creation here and display fontconfig scan activity */
++    if (font_fontconfig >= 0) {
++        FcDebugVal = 128;
++        FcConfigEnableHome(FcFalse);
++        FcInit();
++        FcDebugVal = 0;
++    }
+ #endif
+ 
+ // ******************* Now, let's see the per-file stuff ********************
+-- 
+2.47.2
+

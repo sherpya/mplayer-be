@@ -1,0 +1,30 @@
+From 307c4b1f7487b97b4064e620e699ba8c0892daff Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:53:47 +0100
+Subject: [PATCH 15/26] configure: reduced some warnings on gcc flags
+
+---
+ configure | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/configure b/configure
+index 388323e3a..fb7a2a8b5 100755
+--- a/configure
++++ b/configure
+@@ -3018,13 +3018,10 @@ fi
+ 
+ if test "$cc_vendor" = "gnu" ; then
+   cflag_check -fno-tree-vectorize && CFLAGS="$CFLAGS -fno-tree-vectorize"
+-  cflag_check -Wundef && WARNFLAGS="-Wundef $WARNFLAGS"
+   cflag_check -std=c11 && WARN_CFLAGS="-std=c11 $WARN_CFLAGS"
+   cflag_check -Wdeclaration-after-statement && WARN_CFLAGS="-Wdeclaration-after-statement $WARN_CFLAGS"
+   cflag_check -Wno-pointer-sign && WARN_CFLAGS="-Wno-pointer-sign $WARN_CFLAGS"
+   cflag_check -Wdisabled-optimization && WARN_CFLAGS="-Wdisabled-optimization $WARN_CFLAGS"
+-  cflag_check -Wmissing-prototypes && WARN_CFLAGS="-Wmissing-prototypes $WARN_CFLAGS"
+-  cflag_check -Wstrict-prototypes && WARN_CFLAGS="-Wstrict-prototypes $WARN_CFLAGS"
+ fi
+ 
+ # This provides significant size savings on gcc.
+-- 
+2.47.2
+

@@ -1,0 +1,26 @@
+From 5ba9c41fb6dc315c3c1b48ac4d75119b8c54f05d Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Wed, 5 Sep 2018 01:43:05 +0200
+Subject: [PATCH 25/26] disable SIGSEGV handler when a debugger is attached
+
+---
+ mplayer.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/mplayer.c b/mplayer.c
+index fb570f29f..9a2399ae4 100644
+--- a/mplayer.c
++++ b/mplayer.c
+@@ -3099,6 +3099,9 @@ int main(int argc, char *argv[])
+     // fatal errors:
+     signal(SIGBUS, exit_sighandler); // bus error
+ #ifndef __WINE__                      // hack: the Wine executable will crash else
++#ifdef _WIN32
++    if (!IsDebuggerPresent())
++#endif
+     signal(SIGSEGV, exit_sighandler); // segfault
+ #endif
+     signal(SIGILL, exit_sighandler); // illegal instruction
+-- 
+2.47.2
+

@@ -1,0 +1,24 @@
+From b6bc80a3e2eef51169f4ea258c2181744f3be0db Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@netfarm.it>
+Date: Sat, 2 Feb 2013 12:47:00 +0100
+Subject: [PATCH 14/26] input: avoid spam when pressing an unknown key
+
+---
+ input/input.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/input/input.c b/input/input.c
+index 0323b59cb..30636e219 100644
+--- a/input/input.c
++++ b/input/input.c
+@@ -1130,6 +1130,7 @@ mp_input_get_cmd_from_keys(int n,int* keys, int paused) {
+   if(cmd == NULL) {
+     char key_name[100];
+     int i;
++    if (!keys[0]) return NULL;
+     av_strlcpy(key_name, mp_input_get_key_name(keys[0]), sizeof(key_name));
+     for (i = 1; i < n; i++) {
+       av_strlcat(key_name, "-", sizeof(key_name));
+-- 
+2.47.2
+
