@@ -1,4 +1,4 @@
-MPlayer/MEncoder Win32 binary Builds by Gianluigi Tiesi <sherpya@netfarm.it>
+MPlayer/MEncoder Win32 binary Builds by Gianluigi Tiesi <sherpya@gmail.com>
 
 The included subfont.ttf is DejaVu Serif,
 Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is
@@ -14,7 +14,7 @@ https://sourceforge.net/projects/lila-theme/
 Copyright 2004-2006 Lila Community
 available under the GNU General Public License
 
--- Report bugs to sherpya@netfarm.it
+-- Report bugs here: https://github.com/sherpya/MPlayer/issues
 
 --
 The bottom of this file has a list of keyboard shortcuts to control MPlayer.

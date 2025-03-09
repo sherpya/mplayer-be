@@ -148,7 +148,7 @@ make_dist()
     done
 
     unix2dos > ${DISTDIR}/README-win32.txt << EOF
-${NAME} Win32 binary Builds by Gianluigi Tiesi <sherpya@netfarm.it>
+${NAME} Win32 binary Builds by Gianluigi Tiesi <sherpya@gmail.com>
 
 This binary build license is GPLv3.
 
@@ -157,7 +157,7 @@ https://sourceforge.net/projects/lila-theme/
 Copyright 2004-2006 Lila Community
 available under the GNU General Public License
 
--- Report bugs to sherpya@netfarm.it
+-- Report bugs here: https://github.com/sherpya/FFmpeg/issues
 EOF
 
     mkdir -p "${packagedir}"
