@@ -1,4 +1,4 @@
-From d5319c01c9e9907aed785d27d310e03dbcd3ab6f Mon Sep 17 00:00:00 2001
+From 16426becf6919113650967c880835d02f2567edb Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 15 Dec 2019 17:18:25 +0100
 Subject: [PATCH 3/9] ffplay: allow selecting sdl2 renderer
@@ -9,10 +9,10 @@ by setting SDL_VIDEO_RENDER environment variable
  1 file changed, 3 insertions(+)
 
 diff --git a/fftools/ffplay.c b/fftools/ffplay.c
-index fcd1319ce7..070991bfab 100644
+index 2a572fc3aa..2e7c8427a3 100644
 --- a/fftools/ffplay.c
 +++ b/fftools/ffplay.c
-@@ -3802,6 +3802,7 @@ int main(int argc, char **argv)
+@@ -3811,6 +3811,7 @@ int main(int argc, char **argv)
      SDL_EventState(SDL_USEREVENT, SDL_IGNORE);
  
      if (!display_disable) {
@@ -20,7 +20,7 @@ index fcd1319ce7..070991bfab 100644
          int flags = SDL_WINDOW_HIDDEN;
          if (alwaysontop)
  #if SDL_VERSION_ATLEAST(2,0,5)
-@@ -3834,6 +3835,8 @@ int main(int argc, char **argv)
+@@ -3843,6 +3844,8 @@ int main(int argc, char **argv)
          }
          window = SDL_CreateWindow(program_name, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, default_width, default_height, flags);
          SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
@@ -30,5 +30,5 @@ index fcd1319ce7..070991bfab 100644
              av_log(NULL, AV_LOG_FATAL, "Failed to create window: %s", SDL_GetError());
              do_exit(NULL);
 -- 
-2.43.0
+2.47.2
 

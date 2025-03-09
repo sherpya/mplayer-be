@@ -1,4 +1,4 @@
-From ea566629201b2f13c642dab39d0045a390ab6ee8 Mon Sep 17 00:00:00 2001
+From d6bad4d96eef4e8c55f1847b86b08d40e0dc6163 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 7 Dec 2019 21:24:25 +0100
 Subject: [PATCH 1/9] make bcrypt optional on win32
@@ -10,10 +10,10 @@ configure with --disable-bcrypt to use wincrypt functions
  2 files changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/configure b/configure
-index 2a1d22310b..ea099cf6b4 100755
+index 04b83a8868..51e2c91a0f 100755
 --- a/configure
 +++ b/configure
-@@ -333,6 +333,7 @@ External library support:
+@@ -337,6 +337,7 @@ External library support:
    --enable-vapoursynth     enable VapourSynth demuxer [no]
    --disable-xlib           disable xlib [autodetect]
    --disable-zlib           disable zlib [autodetect]
@@ -21,7 +21,7 @@ index 2a1d22310b..ea099cf6b4 100755
  
    The following libraries provide various hardware acceleration features:
    --disable-amf            disable AMF video encoding code [autodetect]
-@@ -1852,6 +1853,7 @@ EXTERNAL_AUTODETECT_LIBRARY_LIST="
+@@ -1860,6 +1861,7 @@ EXTERNAL_AUTODETECT_LIBRARY_LIST="
      sndio
      xlib
      zlib
@@ -29,7 +29,7 @@ index 2a1d22310b..ea099cf6b4 100755
  "
  
  EXTERNAL_LIBRARY_GPL_LIST="
-@@ -6625,7 +6627,7 @@ for LATOMIC in "-latomic" ""; do
+@@ -6711,7 +6713,7 @@ for LATOMIC in "-latomic" ""; do
  done
  
  check_lib advapi32 "windows.h"            RegCloseKey          -ladvapi32
@@ -39,7 +39,7 @@ index 2a1d22310b..ea099cf6b4 100755
  check_lib ole32    "windows.h objbase.h"  CoTaskMemFree        -lole32
  check_lib shell32  "windows.h shellapi.h" CommandLineToArgvW   -lshell32
 diff --git a/libavutil/random_seed.c b/libavutil/random_seed.c
-index 6d399cee49..b3dc7f379e 100644
+index e08ab7b12e..b6484b4352 100644
 --- a/libavutil/random_seed.c
 +++ b/libavutil/random_seed.c
 @@ -26,9 +26,13 @@
@@ -57,7 +57,7 @@ index 6d399cee49..b3dc7f379e 100644
  #endif
  #if CONFIG_GCRYPT
  #include <gcrypt.h>
-@@ -141,6 +145,14 @@ int av_random_bytes(uint8_t* buf, size_t len)
+@@ -170,6 +174,14 @@ int av_random_bytes(uint8_t* buf, size_t len)
          if (BCRYPT_SUCCESS(ret))
              return 0;
      }
@@ -73,5 +73,5 @@ index 6d399cee49..b3dc7f379e 100644
  
  #if HAVE_ARC4RANDOM_BUF
 -- 
-2.43.0
+2.47.2
 

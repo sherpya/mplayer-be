@@ -1,4 +1,4 @@
-From 6ee2d9229dde2540b10fffea3775a225ca8e8087 Mon Sep 17 00:00:00 2001
+From 455baab237b3aa160e0020a6540831e103dccda9 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
 Subject: [PATCH 8/9] custom icon and windows resource
@@ -23,10 +23,10 @@ Subject: [PATCH 8/9] custom icon and windows resource
  create mode 100644 fftools/ffprobe.rc
 
 diff --git a/Makefile b/Makefile
-index b309dbc4db..24c3a3f404 100644
+index e2250f6bc6..1dccc94de4 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -132,6 +132,9 @@ else
+@@ -138,6 +138,9 @@ else
  	$(STRIP) $@
  endif
  
@@ -2868,10 +2868,10 @@ literal 0
 HcmV?d00001
 
 diff --git a/fftools/Makefile b/fftools/Makefile
-index 083a1368ce..eb16bd68cb 100644
+index 4499799818..261ace49fd 100644
 --- a/fftools/Makefile
 +++ b/fftools/Makefile
-@@ -30,6 +30,8 @@ OBJS-$(1) += fftools/cmdutils.o fftools/opt_common.o fftools/$(1).o $(OBJS-$(1)-
+@@ -29,6 +29,8 @@ OBJS-$(1) += fftools/cmdutils.o fftools/opt_common.o fftools/$(1).o $(OBJS-$(1)-
  ifdef HAVE_GNU_WINDRES
  OBJS-$(1) += fftools/fftoolsres.o
  endif
@@ -2953,5 +2953,5 @@ index 0000000000..0322991266
 +#define __DESCRIPTION__ "Simple multimedia streams analyzer"
 +#include <common.rc>
 -- 
-2.43.0
+2.47.2
 

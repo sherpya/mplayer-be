@@ -1,4 +1,4 @@
-From 647919670780617b3c354a2610e65dfa4c009231 Mon Sep 17 00:00:00 2001
+From e2dc7a8768aab183b615e03eb3659271164a45e0 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
 Subject: [PATCH 6/9] programs: print version info and configuration only on
@@ -9,7 +9,7 @@ Subject: [PATCH 6/9] programs: print version info and configuration only on
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/fftools/opt_common.c b/fftools/opt_common.c
-index 947a226d8d..0ec0afd784 100644
+index 2ac3fd4fb3..4e2b5d88a9 100644
 --- a/fftools/opt_common.c
 +++ b/fftools/opt_common.c
 @@ -205,7 +205,7 @@ static void print_program_info(int flags, int level)
@@ -33,5 +33,5 @@ index 947a226d8d..0ec0afd784 100644
  
  int show_version(void *optctx, const char *opt, const char *arg)
 -- 
-2.43.0
+2.47.2
 
