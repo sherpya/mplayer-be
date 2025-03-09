@@ -1,7 +1,7 @@
 From b5b9514eb645ec950d1cb7825117699609288a21 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sat, 9 Aug 2014 04:25:30 +0200
-Subject: [PATCH 9/9] use upstream version tag, my repo is always rebased
+Subject: [PATCH 09/10] use upstream version tag, my repo is always rebased
 
 ---
  ffbuild/version.sh | 4 ++--

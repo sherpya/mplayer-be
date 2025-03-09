@@ -1,7 +1,7 @@
 From ea65008a0deb0a042811675f6869170fd06d0004 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 19 Apr 2020 20:32:24 +0200
-Subject: [PATCH 2/9] windows xp compatible CancelIoEx()
+Subject: [PATCH 02/10] windows xp compatible CancelIoEx()
 
 ---
  libavformat/udp.c | 11 ++++++++++-

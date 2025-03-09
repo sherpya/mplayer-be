@@ -1,7 +1,7 @@
 From 16426becf6919113650967c880835d02f2567edb Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 15 Dec 2019 17:18:25 +0100
-Subject: [PATCH 3/9] ffplay: allow selecting sdl2 renderer
+Subject: [PATCH 03/10] ffplay: allow selecting sdl2 renderer
 
 by setting SDL_VIDEO_RENDER environment variable
 ---

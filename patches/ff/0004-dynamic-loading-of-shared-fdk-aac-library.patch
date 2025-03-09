@@ -1,7 +1,7 @@
 From dab17b6726737debafad098381343b4db3ebdb4c Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Sun, 4 Dec 2016 01:28:51 +0100
-Subject: [PATCH 4/9] dynamic loading of shared fdk-aac library
+Subject: [PATCH 04/10] dynamic loading of shared fdk-aac library
 
 ---
  configure                        |  6 +--

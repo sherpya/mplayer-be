@@ -1,7 +1,7 @@
 From 455baab237b3aa160e0020a6540831e103dccda9 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Fri, 24 Feb 2012 04:19:12 +0100
-Subject: [PATCH 8/9] custom icon and windows resource
+Subject: [PATCH 08/10] custom icon and windows resource
 
 ---
  Makefile           |   3 +++

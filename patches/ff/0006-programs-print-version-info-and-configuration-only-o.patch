@@ -1,7 +1,7 @@
 From e2dc7a8768aab183b615e03eb3659271164a45e0 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Mon, 18 Feb 2013 05:06:47 +0100
-Subject: [PATCH 6/9] programs: print version info and configuration only on
+Subject: [PATCH 06/10] programs: print version info and configuration only on
  -version
 
 ---

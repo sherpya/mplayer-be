@@ -1,7 +1,7 @@
 From be85fd0e6571ccd895935d10372f365bbd442b12 Mon Sep 17 00:00:00 2001
 From: Gianluigi Tiesi <sherpya@netfarm.it>
 Date: Tue, 15 Jul 2014 07:47:11 +0200
-Subject: [PATCH 7/9] no Werror on implicit-function-declaration and
+Subject: [PATCH 07/10] no Werror on implicit-function-declaration and
  missing-prototypes
 
 ---

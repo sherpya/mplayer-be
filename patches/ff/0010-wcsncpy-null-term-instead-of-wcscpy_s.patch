@@ -1,0 +1,29 @@
+From a6a5d8fef055d996c133c4cf860acd22ed853b73 Mon Sep 17 00:00:00 2001
+From: Gianluigi Tiesi <sherpya@gmail.com>
+Date: Sun, 9 Mar 2025 02:43:12 +0100
+Subject: [PATCH 10/10] wcsncpy + null term instead of wcscpy_s
+
+---
+ libavdevice/dshow_filter.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/libavdevice/dshow_filter.c b/libavdevice/dshow_filter.c
+index 2122c84626..ee4a37dd5b 100644
+--- a/libavdevice/dshow_filter.c
++++ b/libavdevice/dshow_filter.c
+@@ -135,7 +135,11 @@ long WINAPI ff_dshow_filter_JoinFilterGraph(DShowFilter *this, IFilterGraph *gra
+ 
+     this->info.pGraph = graph;
+     if (name)
+-        wcscpy_s(this->info.achName, sizeof(this->info.achName) / sizeof(wchar_t), name);
++    {
++        size_t max_chars = sizeof(this->info.achName) / sizeof(wchar_t);
++        wcsncpy(this->info.achName, name, max_chars - 1);
++        this->info.achName[max_chars - 1] = L'\0';
++    }
+ 
+     return S_OK;
+ }
+-- 
+2.47.2
+
