@@ -62,6 +62,7 @@ configure()
     enable gpl
     enable version3
 
+	config htmlpages
     enable cross-compile
     enable runtime-cpudetect
     enable hardcoded-tables
